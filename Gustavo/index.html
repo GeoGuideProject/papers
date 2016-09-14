@@ -96,86 +96,86 @@
 		<div id="delay-chart" class="chart">
 			<div class="title"><b>Trip Distance</b></div>
 		</div>
-		<!--<div id="date-chart" class="chart">
-			<div class="title"><b>Day</b></div>
-		</div>-->
+		<div id="date-chart" class="chart">
+			<div class="title"><b>Passengers</b></div>
+		</div>
 	</div>
 
 	<div id="aggregate" class="topright" onclick="drawheatmap()"><p><b>Show Heat Map</b></p></div>
 
 	<script>
-			
-			var mapboxTiles = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
-				maxZoom: 18,
-				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-			});
 
-			sum_lat = 0;
-			sum_lng = 0;
-			var cnt_points = 0;
-			var center_view_lat = 0.0;
-			var center_view_lng = 0.0;
-			var heat_shown = false;
+		var mapboxTiles = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+		});
 
-			var layerp = new L.FeatureGroup();
+		sum_lat = 0;
+		sum_lng = 0;
+		var cnt_points = 0;
+		var center_view_lat = 0.0;
+		var center_view_lng = 0.0;
+		var heat_shown = false;
 
-			var map = L.map('map')
-			.addLayer(mapboxTiles)
-			.setView([40.730610,-73.935242], 11);
+		var layerp = new L.FeatureGroup();
 
-			cnt_points = 0
-			var circle = [];
-			cnt_polyline = 0;
-			var polyline = [];
-			var point = [];
-			var droppoint = [];
-			var heat;
-			function redrawnmap(){
-				if(heat_shown == true){
-					map.removeLayer(heat);
-					d3.csv("nyctaxi100000.csv", function(data) {
-						mypoints = data.map(function (p) { return [p.pickup_latitude, p.pickup_longitude] });
-						heat = L.heatLayer(mypoints);
-						heat.setOptions({max: 500, minOpacity: 0.7, radius: 15});
-						heat.addTo(map);
-					});
-					heat_shown = true;
-					document.getElementById("aggregate").innerHTML = "Show Normal Map";
-					return;
-				}
-				else
-				{
+		var map = L.map('map')
+		.addLayer(mapboxTiles)
+		.setView([40.730610,-73.935242], 11);
 
-				}
-			}
-			function drawheatmap() {
-				if (heat_shown == false)
-				{
-					map.removeLayer(layerp);
-					d3.csv("nyctaxi100000.csv", function(data) {
-						mypoints = data.map(function (p) { return [p.pickup_latitude, p.pickup_longitude] });
-						heat = L.heatLayer(mypoints);
-						heat.setOptions({max: 500, minOpacity: 0.7, radius: 15});
-						heat.addTo(map);
-					});
-					heat_shown = true;
-					document.getElementById("aggregate").innerHTML = "Show Normal Map";
-					return;
-				}
-				else
-				{
-					map.removeLayer(heat);
-					layerp.addTo(map);
-					heat_shown = false;
-					document.getElementById("aggregate").innerHTML = "Show Heat Map";
-					return;
-				}
-			}
-
-			function bigpicture() {
-
+		cnt_points = 0
+		var circle = [];
+		cnt_polyline = 0;
+		var polyline = [];
+		var point = [];
+		var droppoint = [];
+		var heat;
+		function redrawnmap(){
+			if(heat_shown == true){
+				map.removeLayer(heat);
 				d3.csv("nyctaxi100000.csv", function(data) {
-					data.forEach(function(d) {
+					mypoints = data.map(function (p) { return [p.pickup_latitude, p.pickup_longitude] });
+					heat = L.heatLayer(mypoints);
+					heat.setOptions({max: 500, minOpacity: 0.7, radius: 15});
+					heat.addTo(map);
+				});
+				heat_shown = true;
+				document.getElementById("aggregate").innerHTML = "Show Normal Map";
+				return;
+			}
+			else
+			{
+
+			}
+		}
+		function drawheatmap() {
+			if (heat_shown == false)
+			{
+				map.removeLayer(layerp);
+				d3.csv("nyctaxi100000.csv", function(data) {
+					mypoints = data.map(function (p) { return [p.pickup_latitude, p.pickup_longitude] });
+					heat = L.heatLayer(mypoints);
+					heat.setOptions({max: 500, minOpacity: 0.7, radius: 15});
+					heat.addTo(map);
+				});
+				heat_shown = true;
+				document.getElementById("aggregate").innerHTML = "Show Normal Map";
+				return;
+			}
+			else
+			{
+				map.removeLayer(heat);
+				layerp.addTo(map);
+				heat_shown = false;
+				document.getElementById("aggregate").innerHTML = "Show Heat Map";
+				return;
+			}
+		}
+
+		function bigpicture() {
+
+			d3.csv("nyctaxi100000.csv", function(data) {
+				data.forEach(function(d) {
 					//Pontos
 					lat = d.pickup_latitude;
 					lng = d.pickup_longitude;
@@ -234,12 +234,12 @@
 					}
 					cnt_points += 1
 				});
-				});
+			});
 
-				map.addLayer(layerp);
-			}
+			map.addLayer(layerp);
+		}
 
-			function drawcharts() {
+		function drawcharts() {
 				// departure time
 				var timeDimension,
 				hourGrouping,
@@ -284,7 +284,9 @@
 				//Trip distance
 				distanceDimension = ride.dimension(function(d) {return parseFloat(d.trip_distance)});
 				distanceGrouping = distanceDimension.group(function(d) {return d});
-
+				//passageiros
+				passengerDimension = ride.dimension(function(d) {return parseFloat(d.passenger_count)});
+				passengerGrouping = passengerDimension.group(function(d) {return d});
 				//Date
 				dateDimension = ride.dimension(function(d) {return formatar(d.pickup_datetime).getDate()});
 				dateGrouping = dateDimension.group(function(d) {return d});
@@ -299,25 +301,34 @@
 				allDim = ride.dimension(function(d) {return d});
 
 
-				  var charts = [
+				var charts = [
 
-				  barChart()
-				  .dimension(timeDimension)
-				  .group(hourGrouping)
-				  .x(d3.scale.linear()
-				  	.domain([0, 23])
-				  	.rangeRound([0, 23 * 18]))
-				  .filter([0, 23]),
-				  
-				  barChart()
-				      .dimension(distanceDimension)
-				      .group(distanceGrouping)
-				      .round(0)
-				    .x(d3.scale.linear()
-				     .domain([0, 15])
-					  .rangeRound([0, 23 * 34]))
-				    .filter([0, 13]),
+				barChart()
+				.dimension(timeDimension)
+				.group(hourGrouping)
+				.x(d3.scale.linear()
+					.domain([0, 23])
+					.rangeRound([0, 23 * 18]))
+				.filter([0, 23]),
 
+
+
+				barChart()
+				.dimension(distanceDimension)
+				.group(distanceGrouping)
+				.round(0)
+				.x(d3.scale.linear()
+					.domain([0, 15])
+					.rangeRound([0, 23 * 18]))
+				.filter([0, 15]),
+
+				barChart()
+				.dimension(passengerDimension)
+				.group(passengerGrouping)
+				.x(d3.scale.linear()
+					.domain([1, 9])
+					.rangeRound([0, 30 * 8]))
+				.filter([1, 9]),
 				  /* barChart()
 					  .dimension(point_timeDimension)
 					  .group(point_timeGrouping)
@@ -332,7 +343,7 @@
 					  .x(d3.time.scale()
 					  	.domain([beginDate-1, endDate+1])
 					  	.rangeRound([0, 30*15]))
-					  .filter([beginDate, endDate])*/
+					  	.filter([beginDate, endDate])*/
 				  // barChart()
 				  //     .dimension(airportDimension)
 				  //     .group(airportGrouping)
@@ -609,12 +620,12 @@
 			}
 		});
 
-	}
+}
 
-	//bigpicture();
+	bigpicture();
 	drawheatmap();
 	drawcharts();
 
-	</script>
+</script>
 </body>
 </html>
