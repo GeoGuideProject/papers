@@ -43,8 +43,8 @@
 
 	.chart {
 		display: inline-block;
-		height: 151px;
-		margin-bottom: 20px;
+		height: 180px;
+		margin-bottom: 10px;
 	}
 
 	.reset {
@@ -82,13 +82,16 @@
 	}
 
 	#hour-chart {
-		width: 260px;
+		width: 305px;
 	}
-	#distance-chart {
-		width: 260px;
+	#payment-chart {
+		width: 305px;
 	}
 	#passenger-chart {
-		width: 260px;
+		width: 305px;
+	}
+	#distance-chart{
+		width: 920px;
 	}
 	aside {
 		position: absolute;
@@ -117,11 +120,14 @@
 		<div id="hour-chart" class="chart">
 			<div class="title">Hours</div>
 		</div>
-		<div id="distance-chart" class="chart">
-			<div class="title">Distances</div>
+		<div id="payment-chart" class="chart">
+			<div class="title">Total Amount</div>
 		</div>
 		<div id="passenger-chart" class="chart">
 			<div class="title">Passengers</div>
+		</div>
+		<div id="distance-chart" class="chart">
+			<div class="title">Distances</div>
 		</div>
 	</div>
 	<aside id="totals"><span id="active">-</span> of <span id="total">-</span> rides selected.</aside>
@@ -158,18 +164,32 @@
 	desenharMap();
 	var heat, ride;
 	// Add all rides to maps and create crossfilter dimensions and group
-	d3.csv("nyctaxi1000.csv", function(error, rides) {
+	d3.csv("nyctaxi10000.csv", function(error, rides) {
 		formatar = d3.time.format.utc("%Y-%m-%d %H:%M:%S").parse;
+		rides.forEach(function(d) {
+			d.pickup_datetime = formatar(d.pickup_datetime);
+			d.total_amount = +d.total_amount;
+			d.trip_distance = +d.trip_distance;
+			d.passenger_count = +d.passenger_count;
+			d.dropoff_latitude = +d.dropoff_latitude;
+			d.dropoff_longitude = +d.dropoff_longitude;
+			d.pickup_longitude = +d.pickup_longitude;
+			d.pickup_latitude = +d.pickup_latitude;
+		});
+
 		// Create the crossfilter for the relevant dimensions and groups.
 		ride = crossfilter(rides);
 		var all = ride.groupAll(),
-		hour = ride.dimension(function(d) { return formatar(d.pickup_datetime).getHours(); }),
+		hour = ride.dimension(function(d) { return d.pickup_datetime.getHours(); }),
 		hours = hour.group(Math.floor),
+		// Total amount dimension and group
+		tamount = ride.dimension(function(d) { return d.total_amount});
+		tamounts = tamount.group(function(d) {return d});
 		// Distance dimension and group
-		distance = ride.dimension(function(d) {return parseFloat(d.trip_distance)});
+		distance = ride.dimension(function(d) {return d.trip_distance});
 		distances = distance.group(function(d) {return d});
 		// Passenger dimension and group
-		passenger = ride.dimension(function(d) {return parseFloat(d.passenger_count)});
+		passenger = ride.dimension(function(d) {return d.passenger_count});
 		passengers = passenger.group(function(d) {return d});
 
 
@@ -180,22 +200,26 @@
 		.group(hours)
 		.x(d3.scale.linear()
 			.domain([0, 24])
-			.rangeRound([0, 10 * 24])),
+			.rangeRound([0, 275])),
 
 		barChart()
-		.dimension(distance)
-		.group(distances)
+		.dimension(tamount)
+		.group(tamounts)
 		.x(d3.scale.linear()
-			.domain([0, 28])
-			.rangeRound([0, 10 * 24])),
-
+			.domain([0, 100])
+			.rangeRound([0, 275])),
 		barChart()
 		.dimension(passenger)
 		.group(passengers)
 		.x(d3.scale.linear()
 			.domain([0, 10])
-			.rangeRound([0, 10 * 24]))
-
+			.rangeRound([0, 275])),
+		barChart()
+		.dimension(distance)
+		.group(distances)
+		.x(d3.scale.linear()
+			.domain([0, 28])
+			.rangeRound([0, 920]))
 		];
 
 		// Given our array of charts, which we assume are in the same order as the
@@ -225,8 +249,6 @@
 			heat.addTo(heartmap);
 
 			//Create array of point tho droppoff and use "points" to pickup points and create normal map with polilines
-			console.log(firstprint);
-			//if(firstprint == false) {normalmap.removeLayer(linesgroup);}else{firstprint = false;}
 			normalmap.eachLayer(function (layer) {
 				if(tileset2 != layer){
 			    	normalmap.removeLayer(layer);
@@ -234,14 +256,12 @@
 				
 			});
 			var latandlongpoints = pointsfiltred.map(function (d) {
-				dropp = new L.LatLng(parseFloat(d.dropoff_latitude), parseFloat(d.dropoff_longitude));
-				pickp = new L.LatLng(parseFloat(d.pickup_latitude), parseFloat(d.pickup_longitude));
+				dropp = new L.LatLng(d.dropoff_latitude, d.dropoff_longitude);
+				pickp = new L.LatLng(d.pickup_latitude, d.pickup_longitude);
 				var pointlist = [dropp, pickp];
 				return new L.Polyline(pointlist, {
-					color: 'red',
-					weight: 2,
-					opacity: 0.5,
-					smoothFactor: 1
+					color: 'blue',
+					weight: 0.5
 
 				});
 			});
@@ -257,13 +277,8 @@
 			d3.select("#active").text(all.value());
 			//Call reloadMaps two secconds before select anything in charts
 			if(timerMaps != undefined){ clearTimeout(timerMaps); }
-			timerMaps = setTimeout(reloadMaps, 200);
-			console.log("break1");
-			//ride.dimension(function(d) { return console.log(d.pickup_datetime); });
-			//console.log(ride.groupAll().orderNatural());
-			//mypoints = all.map(function (d) { return [d.pickup_latitude, d.pickup_longitude] });
-			//heat = L.heatLayer(mypoints);
-			//console.log(all.groupAll());
+			//Timer to load data to maps, long time is best
+			timerMaps = setTimeout(reloadMaps, 300);
 		}
 
 		window.filter = function(filters) {
@@ -281,7 +296,7 @@
 
 			var margin = {top: 10, right: 10, bottom: 20, left: 10},
 			x,
-			y = d3.scale.linear().range([100, 0]),
+			y = d3.scale.linear().range([130, 0]),
 			id = barChart.id++,
 			axis = d3.svg.axis().orient("bottom"),
 			brush = d3.svg.brush(),
