@@ -140,13 +140,14 @@
 <script>
 	var heartmap = L.map('heart-map').setView([40.760610,-73.975242], 11);
 	var normalmap = L.map('normal-map').setView([40.760610,-73.975242], 11);
+	var tileset2;
 	function desenharMap(){
 		//Create two tile layer to two maps (error if use same tile layer for two maps)
 		var tileset = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
 			maxZoom: 18,
 			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 		});
-		var tileset2 = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+		tileset2 = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
 			maxZoom: 18,
 			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 		});
@@ -159,19 +160,15 @@
 	// Add all rides to maps and create crossfilter dimensions and group
 	d3.csv("nyctaxi1000.csv", function(error, rides) {
 		formatar = d3.time.format.utc("%Y-%m-%d %H:%M:%S").parse;
-		// Create heat map layer with full points (Note: Update before change filters)
-		/*mypoints = rides.map(function (d) { return [d.pickup_latitude, d.pickup_longitude] });
-		heat = L.heatLayer(mypoints);
-		heat.setOptions({max: 500, minOpacity: 0.7, radius: 15});
-		heat.addTo(heartmap);*/
 		// Create the crossfilter for the relevant dimensions and groups.
 		ride = crossfilter(rides);
-
 		var all = ride.groupAll(),
 		hour = ride.dimension(function(d) { return formatar(d.pickup_datetime).getHours(); }),
 		hours = hour.group(Math.floor),
+		// Distance dimension and group
 		distance = ride.dimension(function(d) {return parseFloat(d.trip_distance)});
 		distances = distance.group(function(d) {return d});
+		// Passenger dimension and group
 		passenger = ride.dimension(function(d) {return parseFloat(d.passenger_count)});
 		passengers = passenger.group(function(d) {return d});
 
@@ -217,16 +214,40 @@
 			d3.select(this).call(method);
 
 		}
+		var firstprint = true;
 		function reloadMaps(){
-
+			//Create array of points to refresh the heat map
 			var pointsfiltred = hour.top(Infinity);
-			mypoints = pointsfiltred.map(function (d) { return [d.pickup_latitude, d.pickup_longitude] });
-			console.log(mypoints);
+			points = pointsfiltred.map(function (d) { return [d.pickup_latitude, d.pickup_longitude] });
 			if(heat != undefined) {heartmap.removeLayer(heat);}
-			heat = L.heatLayer(mypoints);
+			heat = L.heatLayer(points);
 			heat.setOptions({max: 500, minOpacity: 0.7, radius: 15});
-
 			heat.addTo(heartmap);
+
+			//Create array of point tho droppoff and use "points" to pickup points and create normal map with polilines
+			console.log(firstprint);
+			//if(firstprint == false) {normalmap.removeLayer(linesgroup);}else{firstprint = false;}
+			normalmap.eachLayer(function (layer) {
+				if(tileset2 != layer){
+			    	normalmap.removeLayer(layer);
+				}
+				
+			});
+			var latandlongpoints = pointsfiltred.map(function (d) {
+				dropp = new L.LatLng(parseFloat(d.dropoff_latitude), parseFloat(d.dropoff_longitude));
+				pickp = new L.LatLng(parseFloat(d.pickup_latitude), parseFloat(d.pickup_longitude));
+				var pointlist = [dropp, pickp];
+				return new L.Polyline(pointlist, {
+					color: 'red',
+					weight: 2,
+					opacity: 0.5,
+					smoothFactor: 1
+
+				});
+			});
+			var linesgroup = L.layerGroup(latandlongpoints);
+			linesgroup.addTo(normalmap);
+
 
 		}
 		// Whenever the brush moves, re-rendering everything.
