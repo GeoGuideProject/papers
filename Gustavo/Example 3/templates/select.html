@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+      <head>
+           <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link href="static/bootstrap.min.css" rel="stylesheet">
+            <title> Chose the filters </title>
+            <style>
+                  body{
+                        margin: 2em auto;
+                        text-align: center;
+                  }
+                  #colutil{
+                        height: 120px;
+                        vertical-align: middle;
+                        border: 1px solid black;
+                        border-radius: 4px;
+                        padding: 10px;
+                  }
+                  h3{
+                        font-size: 17px;
+                  }
+            </style>
+      </head>
+      <body>
+            <form action="selectdata" method="post" enctype="multipart/form-data">
+                  <div class="container-fluid">
+                        <div class="row">
+                  		<div class="col-md-12">
+                  			<div class="page-header">
+                  				<h1>
+                  					Select your filters <small>Used to compose the dimensions of Crossfilter</small>
+                  				</h1>
+                  			</div>
+                  		</div>
+                  	</div>
+                        <div class="row">
+                              <div class="col-md-2"></div>
+                              <div class="col-md-2" id="colutil">
+                                    <h3 class="text-center">
+                                          Chart 1<br>
+                                          <select>
+                                                {% for o in option_list %}
+                                                      <option value="{{ o }}" SELECTED>{{ o }}</option>
+                                                {% endfor %}
+                                          </select>
+                                    </h3>
+                              </div>
+                              <div class="col-md-1"></div>
+                              <div class="col-md-2" id="colutil">
+                                    <h3 class="text-center">
+                                          Chart 2<br>
+                                          <select>
+                                                {% for o in option_list %}
+                                                      <option value="{{ o }}" SELECTED>{{ o }}</option>
+                                                {% endfor %}
+                                          </select>
+                                    </h3>
+                              </div>
+                              <div class="col-md-1"></div>
+                              <div class="col-md-2" id="colutil">
+                                    <h3 class="text-center">
+                                          Chart 3<br>
+                                          <select>
+                                                {% for o in option_list %}
+                                                      <option value="{{ o }}" SELECTED>{{ o }}</option>
+                                                {% endfor %}
+                                          </select>
+                                    </h3>
+                              </div>
+                        </div><br><br>
+                        <div class="row">
+                              <div class="col-md-2"></div>
+                              <div class="col-md-8" id="colutil">
+                                    <h3 class="text-center">
+                                          Chart 4<br>
+                                          <select>
+                                                {% for o in option_list %}
+                                                      <option value="{{ o }}" SELECTED>{{ o }}</option>
+                                                {% endfor %}
+                                          </select>
+                                    </h3>
+                              </div>
+                        </div>
+                        <div class="col-md-1"></div>
+                  </div><br><br>
+                  <input type="submit" value="Show Charts and Maps">
+            </form>
+      </body>
+      <script src="/static/jquery.min.js"></script>
+      <script src="/static/bootstrap.min.js"></script>
+</html>
