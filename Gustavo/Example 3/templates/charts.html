@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<html>
+<head>
 <meta charset="utf-8">
-<title>Gustavo's Example</title>
+<title>AnyVisualizer - Charts</title>
 <style>
 	body {
 		margin: 40px auto;
@@ -112,22 +114,21 @@
 		float: right;
 	}
 </style>
-
+</head>
+<body>
 <div id="body">
-
-
 	<div id="charts">
 		<div id="hour-chart" class="chart">
-			<div class="title">Hours</div>
+			<div class="title">{{ filter[0] }}</div>
 		</div>
 		<div id="payment-chart" class="chart">
-			<div class="title">Total Amount</div>
+			<div class="title">{{ filter[1] }}</div>
 		</div>
 		<div id="passenger-chart" class="chart">
-			<div class="title">Passengers</div>
+			<div class="title">{{ filter[2] }}</div>
 		</div>
 		<div id="distance-chart" class="chart">
-			<div class="title">Distances</div>
+			<div class="title">{{ filter[3] }}</div>
 		</div>
 	</div>
 	<aside id="totals"><span id="active">-</span> of <span id="total">-</span> rides selected.</aside>
@@ -162,62 +163,113 @@
 	}
 
 	desenharMap();*/
+	function isNumber(n) {
+			return !isNaN(parseFloat(n)) && isFinite(n);
+	}
 	var heat, ride;
+	/*
+		Verificar range se for int e data, armazenar em array se for str
+		Colocar get hour na dimenssion...
+
+	*/
 	// Add all rides to maps and create crossfilter dimensions and group
 	d3.csv("tmp/{{ csvfilename }}", function(error, rides) {
-		print(error);
 		formatar = d3.time.format.utc("%Y-%m-%d %H:%M:%S").parse;
-		rides.forEach(function(d) {
-			d.pickup_datetime = formatar(d.pickup_datetime);
-			d.total_amount = +d.total_amount;
-			d.trip_distance = +d.trip_distance;
-			d.passenger_count = +d.passenger_count;
-			d.dropoff_latitude = +d.dropoff_latitude;
-			d.dropoff_longitude = +d.dropoff_longitude;
-			d.pickup_longitude = +d.pickup_longitude;
-			d.pickup_latitude = +d.pickup_latitude;
-		});
+		val = [rides[1].{{filter[0]}}, rides[1].{{filter[1]}}, rides[1].{{filter[2]}}, rides[1].{{filter[3]}}];
+		//Types of entryes
+		for(x=0; x<4; x++){
+			if(isNumber(val[x])){
+				switch (x) {
+					case 0:
+							rides.forEach(function(d) {
+								d.{{filter[0]}} = +d.{{filter[0]}};
+							});
+							break;
+					case 1:
+							rides.forEach(function(d) {
+								d.{{filter[1]}} = +d.{{filter[1]}};
+							});
+							break;
+					case 2:
+							rides.forEach(function(d) {
+								d.{{filter[2]}} = +d.{{filter[2]}};
+							});
+							break;
+					case 3:
+							rides.forEach(function(d) {
+								d.{{filter[3]}} = +d.{{filter[3]}};
+							});
+							break;
+				}
+			}else if(formatar(val[x]) !=  null) {
+				switch (x) {
+					case 0:
+							rides.forEach(function(d) {
+								d.{{filter[0]}} = formatar(d.{{filter[0]}});
+							});
+							break;
+					case 1:
+							rides.forEach(function(d) {
+								d.{{filter[1]}} = formatar(d.{{filter[1]}});
+							});
+							break;
+					case 2:
+							rides.forEach(function(d) {
+								d.{{filter[2]}} = formatar(d.{{filter[2]}});
+							});
+							break;
+					case 3:
+							rides.forEach(function(d) {
+								d.{{filter[3]}} = formatar(d.{{filter[3]}});
+							});
+							break;
+				}
+			}else{
+			}
+		}
 
 		// Create the crossfilter for the relevant dimensions and groups.
 		ride = crossfilter(rides);
 		var all = ride.groupAll(),
-		hour = ride.dimension(function(d) { return d.pickup_datetime.getHours(); }),
-		hours = hour.group(Math.floor),
+		fil1d = ride.dimension(function(d) { return d.{{ filter[0] }}});
+		fil1g = fil1d.group(function(d) {return d});
 		// Total amount dimension and group
-		tamount = ride.dimension(function(d) { return d.total_amount});
-		tamounts = tamount.group(function(d) {return d});
+		fil2d = ride.dimension(function(d) { return d.{{ filter[1] }}});
+		fil2g = fil2d.group(function(d) {return d});
 		// Distance dimension and group
-		distance = ride.dimension(function(d) {return d.trip_distance});
-		distances = distance.group(function(d) {return d});
+		fil3d = ride.dimension(function(d) {return d.{{ filter[2] }}});
+		fil3g = fil3d.group(function(d) {return d});
 		// Passenger dimension and group
-		passenger = ride.dimension(function(d) {return d.passenger_count});
-		passengers = passenger.group(function(d) {return d});
+		fil4d = ride.dimension(function(d) {return d.{{ filter[3] }}});
+		fil4g = fil4d.group(function(d) {return d});
 
 
 		var charts = [
 		//Create all bar charts
 		barChart()
-		.dimension(hour)
-		.group(hours)
+		.dimension(fil1d)
+		.group(fil1g)
 		.x(d3.scale.linear()
 			.domain([0, 24])
 			.rangeRound([0, 275])),
 
 		barChart()
-		.dimension(tamount)
-		.group(tamounts)
+		.dimension(fil2d)
+		.group(fil2g)
 		.x(d3.scale.linear()
 			.domain([0, 100])
 			.rangeRound([0, 275])),
+
 		barChart()
-		.dimension(passenger)
-		.group(passengers)
+		.dimension(fil3d)
+		.group(fil3g)
 		.x(d3.scale.linear()
 			.domain([0, 10])
 			.rangeRound([0, 275])),
+
 		barChart()
-		.dimension(distance)
-		.group(distances)
+		.dimension(fil4d)
+		.group(fil4g)
 		.x(d3.scale.linear()
 			.domain([0, 28])
 			.rangeRound([0, 920]))
@@ -486,3 +538,5 @@
 	});
 
 </script>
+</body>
+</html>

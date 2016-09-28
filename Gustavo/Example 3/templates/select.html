@@ -4,7 +4,7 @@
            <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <link href="static/bootstrap.min.css" rel="stylesheet">
-            <title> Chose the filters </title>
+            <title>AnyVisualizer - Chose the filters </title>
             <style>
                   body{
                         margin: 2em auto;
@@ -39,7 +39,7 @@
                               <div class="col-md-2" id="colutil">
                                     <h3 class="text-center">
                                           Chart 1<br>
-                                          <select>
+                                          <select name="filter1">
                                                 {% for o in option_list %}
                                                       <option value="{{ o }}" SELECTED>{{ o }}</option>
                                                 {% endfor %}
@@ -50,7 +50,7 @@
                               <div class="col-md-2" id="colutil">
                                     <h3 class="text-center">
                                           Chart 2<br>
-                                          <select>
+                                          <select name="filter2">
                                                 {% for o in option_list %}
                                                       <option value="{{ o }}" SELECTED>{{ o }}</option>
                                                 {% endfor %}
@@ -61,7 +61,7 @@
                               <div class="col-md-2" id="colutil">
                                     <h3 class="text-center">
                                           Chart 3<br>
-                                          <select>
+                                          <select name="filter3">
                                                 {% for o in option_list %}
                                                       <option value="{{ o }}" SELECTED>{{ o }}</option>
                                                 {% endfor %}
@@ -74,7 +74,7 @@
                               <div class="col-md-8" id="colutil">
                                     <h3 class="text-center">
                                           Chart 4<br>
-                                          <select>
+                                          <select name="filter4">
                                                 {% for o in option_list %}
                                                       <option value="{{ o }}" SELECTED>{{ o }}</option>
                                                 {% endfor %}

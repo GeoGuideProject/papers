@@ -38,7 +38,9 @@ def index():
 
 @app.route('/selectdata', methods=['POST'])
 def selectdata():
-    return render_template('charts.html', csvfilename='arquivo.csv')
+    filter = [request.form.get('filter1'), request.form.get('filter2'),request.form.get('filter3'), request.form.get('filter4')]
+    print(filter[0], filter[1], filter[2],filter[3])
+    return render_template('charts.html', csvfilename='arquivo.csv', filter=filter)
 
 @app.route('/upload', methods=['POST'])
 def upload():
