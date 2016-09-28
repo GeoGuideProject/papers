@@ -17,11 +17,6 @@ def allowed_file(filename):
         filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']
 
 def file_proc():
-    #csvfile  = open('testes.csv', "rb")
-    #reader = csv.reader(csvfile)
-    #print reader[1]
-    #for row in csv.reader(iter(os.path.join(APP_TMP, 'teste.csv').readline, '')):
-    #    print("Read: ({}) {!r}".format(time.time(), row))
     with open(os.path.join(APP_TMP, 'arquivo.csv')) as f:
         for row in csv.reader(iter(f.readline, '')):
             options = row
@@ -39,8 +34,9 @@ def index():
 @app.route('/selectdata', methods=['POST'])
 def selectdata():
     filter = [request.form.get('filter1'), request.form.get('filter2'),request.form.get('filter3'), request.form.get('filter4')]
-    print(filter[0], filter[1], filter[2],filter[3])
-    return render_template('charts.html', csvfilename='arquivo.csv', filter=filter)
+    positions = [request.form.get('latitude1'),  request.form.get('longitude1'),  request.form.get('latitude2'),  request.form.get('longitude2')]
+    print(positions[0], positions[1], positions[2], positions[3])
+    return render_template('charts.html', csvfilename='arquivo.csv', filter=filter, positions=positions)
 
 @app.route('/upload', methods=['POST'])
 def upload():
@@ -62,4 +58,4 @@ def sendcsv(filename):
 def sendstatic(filename):
     return send_from_directory('/static', filename)
 
-app.run(debug=True, use_reloader=True, port=8090)
+app.run(use_reloader=True, port=8090)
