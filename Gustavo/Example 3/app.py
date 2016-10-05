@@ -1,7 +1,7 @@
 import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
-import os, csv
+import os, csv, re
 from flask import Flask, render_template, request, send_from_directory
 from werkzeug import secure_filename
 
@@ -17,11 +17,14 @@ def allowed_file(filename):
         filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']
 
 def file_proc():
+    number = []
     with open(os.path.join(APP_TMP, 'arquivo.csv')) as f:
         for row in csv.reader(iter(f.readline, '')):
             options = row
             break
-    print(options)
+    for x in options:
+        print(re.search("[+-]?(([1-9][0-9]*)|(0))([.,][0-9]+)?", x) is True)
+    print(number)
     return render_template('select.html', option_list=options)
 
 @app.route('/')

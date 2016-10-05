@@ -103,12 +103,12 @@
         <div class="col-md-3" id="colutil2">
           <h3 class="text-center">
             Map heat<br><br>
-            Latitude: <select name="latitude1">
+            Longitude: <select name="longitude1">
               {% for o in option_list %}
               <option value="{{ o }}">{{ o }}</option>
               {% endfor %}
             </select><br><br>
-            Longitude: <select name="longitude1">
+            Latitude: <select name="latitude1">
               {% for o in option_list %}
               <option value="{{ o }}">{{ o }}</option>
               {% endfor %}
@@ -119,12 +119,12 @@
           <div class="col-md-3" id="colutil2">
             <h3 class="text-center">
               Map Normal<br><br>
-              Latitude: <select name="latitude2">
+              Longitude: <select name="longitude2">
                 {% for o in option_list %}
                 <option value="{{ o }}">{{ o }}</option>
                 {% endfor %}
               </select><br><br>
-              Longitude: <select name="longitude2">
+              Latitude: <select name="latitude2">
                 {% for o in option_list %}
                 <option value="{{ o }}">{{ o }}</option>
                 {% endfor %}
@@ -134,7 +134,7 @@
       </div>
 
     </div><br><br>
-    <input type="submit" value="Show Charts and Maps">
+    <input type="submit" value="Show Charts and Maps"><br><br>
   </form>
 </body>
 <script src="/static/jquery.min.js"></script>
