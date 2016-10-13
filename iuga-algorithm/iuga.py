@@ -89,7 +89,7 @@ def show(elements):
 	return out
 
 # end - retrieval functions
-	
+
 # initialization by k most similar records
 for i in range(0,k):
 	current_records[i]=records[i]
