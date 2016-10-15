@@ -1,0 +1,5 @@
+\section{Data Model}\label{sec:datamodel}
+
+We consider a database D of spatiotemporal data <P,A> where P is the set of points and A is the set of point attributes. P contains tuples of the form <pid, lat, lng> where pid is the point identifier and lat and lng are latitude and longitude of the point. Also A contains tuples in the form <pid, a1, a2,..., an> where a1 … an are the set of attributes. For instance, in case of taxi data set, A is like <pid, dropoff_time, price, tip>. In case of flight data, A is like <pid, altitude, speed>.
+
+The database can also have a set of relations <R> between two points $p1,p2 \in P$. For instance,  a relation r1  R can represent a taxi trip, where p1 is the pickup point, and p2 is the dropoff point. 

@@ -1,0 +1,7 @@
+\section{Algorithm}\label{sec:algorithm}
+
+Assume n points are currently shown on the map. The analysis clicks on one point p1. p1 has a set of attributes associated to it in A. Based on this set of attributes, a similarity can be measured between p1 and ant other n points. It can be for instance Cosine or Euclidean. Then the ordered list specifies the most similar points to p1. Basically we can highlight first k points in this ordered list. However, these top-k points may be too much close to each other so that it doesn’t give that much insights to the analyst.
+
+We sacrifice similarity to gain diversity. In a greedy approach, we investigate on the k+1, k+2 … points in the ordered list and verify if the diversity increases. We can define diversity as the average/sum of distances between points. We consider a time limit (user given) and during this time limit, we try to move towards more diversity. Once the time limit expires, we show final k points.
+
+This idea is based on \cite{Omidvar-Tehrani:2015}.
