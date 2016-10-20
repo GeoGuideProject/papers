@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="static/bootstrap.min.css" rel="stylesheet">
-  <title>AnyVisualizer - Chose the filters </title>
+  <title>AnyVisualizer - Chose the fields </title>
   <style>
   body{
     margin: 2em auto;
@@ -45,7 +45,7 @@
         <div class="col-md-12">
           <div class="page-header">
             <h1>
-              Select your filters <small>Used to compose the dimensions of Crossfilter</small>
+              Select your fields <small>Used to compose maps and charts</small>
             </h1>
           </div>
         </div>
@@ -104,12 +104,12 @@
           <h3 class="text-center">
             Map heat<br><br>
             Longitude: <select name="longitude1">
-              {% for o in option_list %}
+              {% for o in mapsoptions %}
               <option value="{{ o }}">{{ o }}</option>
               {% endfor %}
             </select><br><br>
             Latitude: <select name="latitude1">
-              {% for o in option_list %}
+              {% for o in mapsoptionsreverse %}
               <option value="{{ o }}">{{ o }}</option>
               {% endfor %}
             </select>
@@ -120,12 +120,12 @@
             <h3 class="text-center">
               Map Normal<br><br>
               Longitude: <select name="longitude2">
-                {% for o in option_list %}
+                {% for o in mapsoptions %}
                 <option value="{{ o }}">{{ o }}</option>
                 {% endfor %}
               </select><br><br>
               Latitude: <select name="latitude2">
-                {% for o in option_list %}
+                {% for o in mapsoptionsreverse %}
                 <option value="{{ o }}">{{ o }}</option>
                 {% endfor %}
               </select>

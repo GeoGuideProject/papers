@@ -10,22 +10,54 @@ app = Flask(__name__)
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))   # refers to application_top
 APP_TMP = os.path.join(APP_ROOT, 'tmp')
 app.config['UPLOAD_FOLDER'] = 'tmp/'
-app.config['ALLOWED_EXTENSIONS'] = set(['csv', 'json'])
+app.config['ALLOWED_EXTENSIONS'] = set(['csv'])
 
 def allowed_file(filename):
     return '.' in filename and \
         filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']
 
 def file_proc():
-    number = []
+    examplevalues = []
+    options = []
+    mapsoptions = []
     with open(os.path.join(APP_TMP, 'arquivo.csv')) as f:
+        firstline = True
         for row in csv.reader(iter(f.readline, '')):
-            options = row
-            break
-    for x in options:
-        print(re.search("[+-]?(([1-9][0-9]*)|(0))([.,][0-9]+)?", x) is True)
-    print(number)
-    return render_template('select.html', option_list=options)
+            if(firstline == True):
+                tempoptions = row
+                firstline = False
+            else:
+                examplevalues = row
+                break
+    #Select numeric fields and add to options list
+    for index, value in enumerate(examplevalues):
+        try:
+            float(value)
+            options.append(tempoptions[index])
+        except:
+            None
+    #Select in options list the possible values for lat and long, if not found show all int values
+    for index, value in enumerate(tempoptions):
+        if(value.find("lat") != -1):
+            mapsoptions.append(tempoptions[index])
+        elif(value.find("long") != -1):
+            mapsoptions.append(tempoptions[index])
+    if(len(mapsoptions) < 2):
+        mapsoptions = []
+        for index, value in enumerate(examplevalues):
+            try:
+                value = float(value)
+                try:
+                    int(value)
+                except:
+                    mapsoptions.append(tempoptions[index])
+            except:
+                None
+    if(len(mapsoptions) < 2):
+        mapsoptions = options
+
+    maptoptionsreverse = mapsoptions[::-1]
+    return render_template('select.html', option_list=options, mapsoptions=mapsoptions, mapsoptionsreverse=maptoptionsreverse)
 
 @app.route('/')
 def index():
@@ -38,7 +70,6 @@ def index():
 def selectdata():
     filter = [request.form.get('filter1'), request.form.get('filter2'),request.form.get('filter3'), request.form.get('filter4')]
     positions = [request.form.get('latitude1'),  request.form.get('longitude1'),  request.form.get('latitude2'),  request.form.get('longitude2')]
-    print(positions[0], positions[1], positions[2], positions[3])
     return render_template('charts.html', csvfilename='arquivo.csv', filter=filter, positions=positions)
 
 @app.route('/upload', methods=['POST'])
@@ -54,7 +85,6 @@ def upload():
 
 @app.route('/tmp/<path:filename>')
 def sendcsv(filename):
-    print("teste")
     return send_from_directory(APP_TMP, filename)
 
 @app.route('/static/<path:filename>')
