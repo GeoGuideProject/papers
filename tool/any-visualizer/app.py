@@ -7,15 +7,19 @@ from werkzeug import secure_filename
 
 app = Flask(__name__)
 
+# Directories config
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))   # refers to application_top
 APP_TMP = os.path.join(APP_ROOT, 'tmp')
+APP_ANALYSIS = os.path.join(APP_ROOT, 'dataanalysis')
 app.config['UPLOAD_FOLDER'] = 'tmp/'
 app.config['ALLOWED_EXTENSIONS'] = set(['csv'])
 
 def allowed_file(filename):
     return '.' in filename and \
         filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']
-
+def dataanalysis():
+    print("data analysis")
+    return send_from_directory(APP_ANALYSIS, 'index.html')
 def file_proc():
     examplevalues = []
     options = []
@@ -79,14 +83,19 @@ def upload():
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'arquivo.csv'))
-        return file_proc()
+        if(request.form.get('botao') == "Charts and Maps"):
+            return file_proc()
+        else:
+            return dataanalysis()
     else:
         return render_template('index.html', formatsmsg='Format not suported! Try again!')
 
 @app.route('/tmp/<path:filename>')
 def sendcsv(filename):
     return send_from_directory(APP_TMP, filename)
-
+@app.route('/dataanalysis/<path:filename>')
+def sendinfos(filename):
+    return send_from_directory(APP_ANALYSIS, filename)
 @app.route('/static/<path:filename>')
 def sendstatic(filename):
     return send_from_directory('/static', filename)
