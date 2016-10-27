@@ -46,12 +46,14 @@
 % For tracking purposes - this is V2.0 - May 2012
 
 \documentclass{sig-alternate-05-2015}
-
+\usepackage{algorithm} 
+\usepackage{algorithmic}
 
 \begin{document}
 
 % Copyright
 \setcopyright{acmcopyright}
+
 %\setcopyright{acmlicensed}
 %\setcopyright{rightsretained}
 %\setcopyright{usgov}
@@ -155,8 +157,16 @@ Gustavo Guerino\\
 
 \maketitle
 \begin{abstract}
-...
-We are proposing a framework towards to visualize any spatio-temporal data. Although the focus of our proposal is on urban data, the framework will was designed in a way to support other types of data such as flight data, bike data, smartphone GPS data, etc.
+
+This paper proposes an approach towards generic visualization of
+spatiotemporal data. Although the initial focus of our proposal is on urban
+data, our framework was designed in a way to support any types of
+\textit{geo} data such as flight data, bike data, smartphone GPS data, etc.
+Highlighting spatiotemporal data is also a challenge that this work exploits, by using
+recommendation algorithm to produce relevant results from datasets that has
+geographic informations. We also discuss some directions and benefits of using
+recommendation algorithm to highlight or retrieve important informations from
+these kind of datasets.
 
 \end{abstract}
 
@@ -169,30 +179,85 @@ We are proposing a framework towards to visualize any spatio-temporal data. Alth
 
 \section{Introduction} 
 
-Nowadays, there exists huge amounts of spatiotemporal data in various fields such as agriculture, transportation and social science. This enables a unique opportunity to analyze and discover insights which contribute to decision makings. 
+Nowadays, there exists huge amounts of spatiotemporal data in various fields
+such as agriculture, transportation and social science. This enables
+a unique opportunity to analyze and discover insights which contribute to
+decision makings.    
 
-Challenges of analyzing spatiotemporal data includes discover visual patterns and trends. The visual recognition of insights is a human task which is infeasible to be automatized due to its subjectivity. Hence a visualization guidance can facilitate the process of insight discovery for a analyst. \cite{RoddickEHPS04} and \cite{Telang:2012} discuss challenges, open issues and directions considering spatiotemporal databases. From the set of challenges, it includes (i) creating and managing complex spatiotemporal simulation models, (ii) new generic temporal data models and (iii) spatiotemporal data mining, between others. 
+Challenges of analyzing spatiotemporal data includes discover visual patterns
+and trends. The visual recognition of insights is a human task which is
+infeasible to be automatized due to its subjectivity. Hence a visualization
+guidance can facilitate the process of insight discovery for a analyst.
+\cite{RoddickEHPS04} and \cite{Telang:2012} discuss challenges, open issues and
+directions considering spatiotemporal databases. From the set of challenges, it
+includes (i) creating and managing complex spatiotemporal simulation models,
+(ii) new generic temporal data models and (iii) spatiotemporal data mining,
+between others.         
 
+
+Despite the progress for new spatiotemporal approaches in recent years, current
+analysis and visualization systems have following drawbacks: \textit{(i)
+Genericness} - Often systems are good for one type of spatiotemporal data and
+not for others. For instance, Tableau is a powerful tool [reference] for
+one-shot visualizations but is inefficient for filtering and multi-shot
+visualizations. There is a need for a generic tool which can easily capture
+different types of spatiotemporal data from agriculture to transportation to
+flights to social science; and \textit{(ii) Guidance} - As the spatiotemporal
+data becomes bigger and bigger, the analyst may become overwhelmed with the
+gigantic amount of information. Hence there is a need to guide the analyst
+through options which may be of her interest. The ``\textit{guidance}''
+direction has been poorly addressed in the literature.            
+
+
+In this paper, we propose a generic interactive analysis system which is able to
+guide analyst towards their interests on spatiotemporal informations. The
+guidance occurres by highlighting points which are similar to analyst choices and are as diverse as possible, so
+that the analysis can consider different analysis directions. For that, this
+paper merges a recommendation algorithm approach \cite{Omidvar-Tehrani:2015} and
+visual highlighting proposals \cite{Lohmann:2012,Robinson2011,Liang2010} as the
+bases towards a generic framework to guide spatiotemporal analysis.
+
+The outline of the paper is as follows: in Section \ref{sec:data-model} we
+present the formalization of the proposed Data Model for spatiotemporal
+highlight. In Section \ref{sec:problem-definition} we describe the problem we
+are attacking. Section \ref{sec:algorithm} presents and formilizes the proposed
+algorithm. The scenarios and related work is provided in Sections \ref{sec:scenarios} and
+\ref{sec:related-works}. Finally, in Section \ref{sec:conclusions}, we present 
+some conclusions and perspectives for future works.
+
+\section{Data Model}\label{sec:data-model}
+We consider a database D of spatiotemporal data $<P,A>$ where P is the set of
+points and A is the set of point attributes. P contains tuples of the form
+$<pid, lat, lng>$ where pid is the point identifier and lat and lng are latitude
+and longitude of the point. Also A contains tuples in the form $<pid, a1,
+a2,..., an>$ where a1 ... an are the set of attributes. For instance, in case of
+taxi data set, A is like$< pid, dropoff\_time, price, tip>$. In case of flight data, A is like $pid, altitude, speed$.
+
+The database can also have a set of relations $<R>$ between two points $p1,p2
+\in P$. For instance,  a relation $r1 \in R$ can represent a taxi trip, where p1
+is the pickup point, and p2 is the dropoff point.    
 ...
-...
-...
+\section{Problem Definition}\label{sec:problem-definition}
 
-Despite the progress for new spatiotemporal approaches in recent years, current analysis and visualization systems have following drawbacks: \textit{(i) Genericness} - Often systems are good for one type of spatiotemporal data and not for others. For instance, Tableau is a powerful tool [reference] for one-shot visualizations but is inefficient for filtering and multi-shot visualizations. There is a need for a generic tool which can easily capture different types of spatiotemporal data from agriculture to transportation to flights to social science; and \textit{(ii) Guidance} - As the spatiotemporal data becomes bigger and bigger, the analyst may become overwhelmed with the gigantic amount of information. Hence there is a need to guide the analyst through options which may be of her interest. The “guidance” direction has been poorly addressed in the literature.
+Considering an exploratory analysis context, we address the following question:
+``\textit{how does a spatiotemporal visualization tool guide the analyst towards
+interesting regions in an efficient and personalized matter?}'' This is a
+challenges question due to customizability and scalability issues. First an
+analyst-tailored recommendation is subjective and hard to capture with an
+unsupervised method. Second, such recommendation needs a thorough consideration
+of all points which is time-consuming.       
 
-
-In this paper, we propose a generic interactive analysis system which is able to guide analyst towards their interests. The guidance occurres by highlighting points which are similar to analyst choices and are as diverse as possible, so that the analysis can consider different analysis directions.
-
-\section{Data Model}
-We consider a database D of spatiotemporal data $<P,A>$ where P is the set of points and A is the set of point attributes. P contains tuples of the form $<pid, lat, lng>$ where pid is the point identifier and lat and lng are latitude and longitude of the point. Also A contains tuples in the form $<pid, a1, a2,..., an>$ where a1 ... 
-an are the set of attributes. For instance, in case of taxi data set, A is like$< pid, dropoff\_time, price, tip>$. In case of flight data, A is like $pid, altitude, speed$.
-
-The database can also have a set of relations $<R>$ between two points $p1,p2 \in P$. For instance,  a relation $r1 \in R$ can represent a taxi trip, where p1 is the pickup point, and p2 is the dropoff point. 
-...
-\section{Problem Definition}
-
-Considering an exploratory analysis context, we address the following question: ``\textit{how does a spatiotemporal visualization tool guide the analyst towards interesting regions in an efficient and personalized matter?}'' This is a challenges question due to customizability and scalability issues. First an analyst-tailored recommendation is subjective and hard to capture with an unsupervised method. Second, such recommendation needs a thorough consideration of all points which is time-consuming.
-
-We describe our problem setting in form a scenario. Consider n points are currently shown on the map where n is the size of the dataset. The analyst is interested in the point p1 and clicks on it. p1 has a set of attributes associated to it in A. Hance a similarity value can be measured between p1 and any other n-1 points. The k-most similar points can then be highlighted for guiding the analyst what to see next. However, those k points may be too much close to each other so that it doesn’t give that much insights to the analyst. Hence, it is ideal to slightly sacrifice similarity to gain diversity. Finally, the analyst can see k points which are maximally similar to the point of her interest and they are as diverse as possible throughout the region of investigation. We formally define our problem as follows.
+We describe our problem setting in form a scenario. Consider n points are
+currently shown on the map where n is the size of the dataset. The analyst is
+interested in the point p1 and clicks on it. p1 has a set of attributes
+associated to it in A. Hance a similarity value can be measured between p1 and
+any other n-1 points. The k-most similar points can then be highlighted for
+guiding the analyst what to see next. However, those k points may be too much
+close to each other so that it doesn't give that much insights to the analyst.
+Hence, it is ideal to slightly sacrifice similarity to gain diversity. Finally,
+the analyst can see k points which are maximally similar to the point of her
+interest and they are as diverse as possible throughout the region of
+investigation. We formally define our problem as follows.            
 
 Problem: Given an input point p, the GeoHighlight problem is to return k points referref as Pk which satisfy the following conditions:
 
@@ -200,52 +265,169 @@ Problem: Given an input point p, the GeoHighlight problem is to return k points 
 2. |Pk|=k
 3. diversity(Pk) is maximized.
 
-where diversity(Pk) is defined as follows: diversity(Pk) = … [BEHROOZ WILL COMPLETE]
+where diversity(Pk) is defined as follows: diversity(Pk) = [BEHROOZ WILL COMPLETE]
 
 We prove that our problem is NP-Complete by a reduction from MAXIMUM EDGE SUBGRAPH Problem.
 
-\section{Algorithm}
+\section{Algorithm}\label{sec:algorithm}
 
-In this section, we present our GeoHighlight algorithm which can recommend k points to be considered in the next iteration of analysis. The algorithm needs to consider two dimensions at the same time: similarity and diversity. Similarity guarantees that the current analysis context will be preserved and the next step will be the natural advancement of the current step. Diversity ensures that different aspects of data will be covered in the next step so that the analyst obtains a global view.
+In this section, we present our GeoHighlight algorithm which can recommend k
+points to be considered in the next iteration of analysis. The algorithm needs
+to consider two dimensions at the same time: similarity and diversity.
+Similarity guarantees that the current analysis context will be preserved and
+the next step will be the natural advancement of the current step. Diversity
+ensures that different aspects of data will be covered in the next step so that
+the analyst obtains a global view.       
 
-As the analyst investigates on maps in an interactive manner, long delays are not accepted because they break the analyst’s train of thoughts. Hence the algorithm should operate fast. Fro this aim, the challenge is to efficiently compute similarity and diversity values. Although different formulations of these two metrics (Jaccard, Cosine, etc.) may enforce different time complexities, another challenge is to pick a formulation that semantically makes sense and can guide the analyst to fruitful directions.
+As the analyst investigates on maps in an interactive manner, long delays are
+not accepted because they break the analyst's train of thoughts. Hence the
+algorithm should operate fast. Fro this aim, the challenge is to efficiently
+compute similarity and diversity values. Although different formulations of
+these two metrics (Jaccard, Cosine, etc.) may enforce different time
+complexities, another challenge is to pick a formulation that semantically makes
+sense and can guide the analyst to fruitful directions.      
 
-GeoHighlight is illustrated in Algorithm 1 [will be written in LateX directly] which is an adaption of the algorithm in \cite{Omidvar-Tehrani:2015}. The algorithm operates in two consecutive stages: off-line process to prepare indexes and online process to select k most relevant and diverse points.
+GeoHighlight is illustrated in Algorithm \ref{algo:geo-highlight}
+which is an adaption of the algorithm in \cite{Omidvar-Tehrani:2015}. The
+algorithm operates in two consecutive stages: off-line process to prepare
+indexes and online process to select k most relevant and diverse points.    
 
-We consider an offline step to produce indexes for each single geographical point in our dataset to boost the online execution. An index for a point p contains the similarity value between p and all other points in decreasing order. For instance, at the head of the index for the point p where [CONSIDER AN EXAMPLE POINT HERE], the following point is observed [POINT]. We use a parameter μ to partially materialize the indexes: points whose similarity with the input point is lower than μ will not be stored in index.
+\begin{algorithm}
+\small
+\label{algo:geo-highlight}
+\begin{algorithmic}
+\REQUIRE
+\ENSURE
+\end{algorithmic}
 
-The online step is a greedy procedure which admits as input the current point under investigation and returns the best k points as output. The algorithm first looks at the top-k points in the index of the point p. Function getNext() returns the next point in the index in sequential order. The algorithm iterates over the index to determine if other points should be considered to increase diversity while staying within the time limit and not violating the similarity threshold μ. Since points in the index are sorted on decreasing similarity value with the point p, the algorithm can safely stop as soon as the similarity condition is violated (or if the time limit is exceeded).
+\caption{ - \textit{GeoHighlight} Algorithm}
 
-The algorithm then looks for a candidate point to replace in order to increase diversity. The boolean function betterDiv() checks if by this replacement, the overall diversity increases.
+\end{algorithm}   
 
-The number of diversity improvement loops is equal to size of the index in worst case. For each point, we verify if the diversity score is improved by betterDiv(), hence O(k2). The time complexity of the algorithm is then O(k2.|P|).
+We consider an offline step to produce indexes for each single geographical
+point in our dataset to boost the online execution. An index for a point p
+contains the similarity value between p and all other points in decreasing
+order. For instance, at the head of the index for the point p where [CONSIDER AN
+EXAMPLE POINT HERE], the following point is observed [POINT]. We use a parameter
+$\mu$  to partially materialize the indexes: points whose similarity with the
+ input point is lower than $\mu$ will not be stored in index.        
 
-\section{Scenarios}
+The online step is a greedy procedure which admits as input the current point
+under investigation and returns the best k points as output. The algorithm first
+looks at the top-k points in the index of the point p. Function getNext()
+returns the next point in the index in sequential order. The algorithm iterates
+over the index to determine if other points should be considered to increase
+diversity while staying within the time limit and not violating the similarity
+threshold μ. Since points in the index are sorted on decreasing similarity value
+with the point p, the algorithm can safely stop as soon as the similarity
+condition is violated (or if the time limit is exceeded).        
 
-An analyst has different goals in mind, once he needs analyzing data. Considering the spatiotemporal dataset types aforementioned, we illustrate some analyst needs and challenges with the following two realistic scenarios.
+The algorithm then looks for a candidate point to replace in order to increase
+diversity. The boolean function betterDiv() checks if by this replacement, the
+overall diversity increases.    
 
-Scenario 1 (Taxi dataset): Lucas is a taxi driver which works in New York city and wants to see if it is possible to improve his financial revenues during the week. He needs to choose the potential better points <p1, p2, …, pn> in a neighborhood n1 to stay considering each weekday and hour of work. He also wants to verify, once he dropoff an client, which are the closest points that can offer him a new potential trip trajet back to n1. For instance, Lucas finishes a trip trajet from a point p1 in a neighborhood n1 to a point p2 in a neighborhood n2.  So, given the point p2 in n2, which are the potential closest points <p1, p2, …, pn> (considering the day/hours of the dropoff) that can bring him back to n1 with a new client in a new trip.    
+The number of diversity improvement loops is equal to size of the index in worst
+case. For each point, we verify if the diversity score is improved by
+betterDiv(), hence O(k2). The time complexity of the algorithm is then
+O(k2.|P|).     
 
-Scenario 2 (Flight dataset): Shadi is a flight analyst and she has to propose new solutions for improve airport and flights performances. She wants to know: (i) the best time of day/day of week/time of year to fly to minimise delays; (ii) How does the number of people flying between different locations change over time? And (iii) Is it possible to detect cascading failures as delays in one airport create delays in others? And considering this, propose a solution previously. 
+\section{Scenarios}\label{sec:scenarios}
 
-\section{Related Work}
+An analyst has different goals in mind once she needs analyzing data.
+Considering the spatiotemporal dataset types aforementioned, we illustrate some
+analyst's needs and challenges with the following two realistic scenarios.   
+\bigskip
 
-In this paper, we addressed the problem of highlighting geographical points to guide analysts in consecutives steps. To the best of our knowledge, this is the first work which formulates the geo-highlighting problem for recommending on maps. However, our problem relates to a number of others as follows.
+\textit{Scenario 1 - Taxi dataset:} Lucas is a taxi driver which works in New
+York city. He wants to see if it is possible to improve his financial revenues
+during the week. One option to Lucas may be to choose the potential better
+points [$p_1, p_2, \ldots, p_n $] in a neighborhood [$n_1$] to stay considering
+a week day and the time of work. He also wants to verify, once he dropoff an
+client, which are the closest points [$cp_1, cp_2, \ldots, cp_n $] that can
+offer him a new potential trip trajet back to [$n1$]. For instance, Lucas
+finishes a trip trajet from a point $p_1$ in a neighborhood [$n_1$] to a point
+$p_2$ in a neighborhood $n_2$.  So, given the point p2 in n2, which are the
+potential closest points [$cp_1, cp_2, \ldots, cp_n $] (considering the
+day/hours of the dropoff) that can bring him back to [$n_1$] with a new client
+in a new trip with the small possible time of waiting.
+\bigskip
 
-Visual Highlighting. There has been efforts to highlight some pieces of information in the huge heterogeneous data space so that the analyst can focus on important aspects [7, 4, 5]. Visual Story Construction is another domain of work [9,10] which consecutive analysis steps are created automatically. However, all such highlighting methods are objective and does not consider analyst interest. In GeoHiglight, we provide a simple yet effective feedback model which can feed the recommendation algorithm to produce relevant results to current investigations.
+\textit{Scenario 2 - Flight dataset}: Shadi is a flight analyst and she has to
+propose new solutions for improve airport and flights performances. She wants to know:
+(i) the best time of day/day of week/time of year to fly to minimise delays;
+(ii) How does the number of people flying between different locations change
+over time? And (iii) Is it possible to detect cascading failures as delays in
+one airport create delays in others? And considering this fact, propose a
+solution previously. In Shadi's working days she needs to propose quickly
+solutions considering the mentioned aspects. 
 
-Some other works have exploited highlighting as a technique to synchronize coordinated views [CITE CROSSFILTER] or simplify complicated dataset visualizations [5, 6]. Also in [8] different highlighting methods are compared in terms of efficiency and usefulness. Such methods are complementary to ours.
+% Table \ref{table:1} shows the operations for both scenarios.
+% 
+% \begin{table}[h!]
+% \centering
+% \begin{tabular}{||c c c ||} 
+%  \hline
+%  Col1 & Taxi scenario & Taxi scenario  \\ [0.5ex] 
+%  \hline\hline
+%  1 & 6 & 87837  \\ 
+%  2 & 7 & 78  \\
+%  3 & 545 & 778 \\
+%  4 & 545 & 18744  \\
+% 
+%  \hline
+% \end{tabular}
+% \caption{Scenarios}
+% \label{table:1}
+% \end{table}
 
-Spatiotemporal Interactive Analysis and Visualization. Being an interactive system, it should be efficient and capture user feedback and adapt the utility function. In terms of efficiency, SpatialHadoop [CITE] and GeoSpark [CITE] extend Hadoop and Spark ecosystems respectively to boost geographical computations and visualizations. Such systems can be exploited as the backbone of GeoHighlight once large-scale data needs to be analyzed.
-
-In terms of feedback, many off-the-shelf products such as Tableau [CITE] and RapidMiner [16] are designed to visualize different kinds of datasets including spatiotemporal ones. However, “recommendation” is the missing component in most of such tools: providing a full package of operations and actions, the analyst may know what to do next. In such system, analysis is usually considered as a one-shot scenario, once in reality it happens in consecutive steps following user feedback.
 
 
+\section{Related Work}\label{sec:related-works}
 
+In this paper, we addressed the problem of highlighting geographical points to
+guide analysts in consecutives steps. To the best of our knowledge, this is the
+first work which formulates the geo-highlighting problem for recommending on
+maps. However, our problem relates to a number of others as follows.     
 
-Recommendation. There exist a huge body of work in recommendation [18] for various domains and datasets. However, spatial dimension is still untouched and has not received a lot of attention. In [17] a prediction algorithm for urban data is introduced which operates offline. In [11,12,13, 14, 15], recommendation and visualization tools are introduced in specific domains. However, most the such algorithms are not context-aware (based on user choices) and does not consider diversity as a global metric.
+Visual Highlighting. There has been efforts to highlight some pieces of
+information in the huge heterogeneous data space so that the analyst can focus
+on important aspects \cite{Liang2010,Lohmann:2012,Robinson2011}. Visual
+Story Construction is another domain of work \cite{Segel:2010,Samet:2014} which
+consecutive analysis steps are created automatically. However, all such highlighting methods are objective and does not consider analyst
+interest. In GeoHiglight, we provide a simple yet effective feedback model which
+can feed the recommendation algorithm to produce relevant results to current
+investigations.        
 
-\section{Conclusions}
+Some other works have exploited highlighting as a technique to synchronize
+coordinated views [CITE CROSSFILTER] or simplify complicated dataset
+visualizations \cite{Robinson2011,Alper:2011}. Also in \cite{Philipsen}
+different highlighting methods are compared in terms of efficiency and usefulness. Such methods are complementary to ours.     
+
+Spatiotemporal Interactive Analysis and Visualization. Being an interactive
+system, it should be efficient and capture user feedback and adapt the utility
+function. In terms of efficiency, SpatialHadoop \cite{} and GeoSpark \cite{}
+extend Hadoop and Spark ecosystems respectively to boost geographical
+computations and visualizations. Such systems can be exploited as the backbone
+of GeoHighlight once large-scale data needs to be analyzed.      
+
+In terms of feedback, many off-the-shelf products such as Tableau \cite{} and
+RapidMiner \cite{} are designed to visualize different kinds of datasets including
+spatiotemporal ones. However, ``recommendation'' is the missing component in
+most of such tools: providing a full package of operations and actions, the analyst
+may know what to do next. In such system, analysis is usually considered as a
+one-shot scenario, once in reality it happens in consecutive steps following
+user feedback.        
+
+Recommendation. There exist a huge body of work in recommendation
+\cite{Adomavicius:2005} for various domains and datasets. However, spatial
+dimension is still untouched and has not received a lot of attention. In
+\cite{ChirigatiDDF16} a prediction algorithm for urban data is introduced which operates offline. In
+\cite{Levandoski:2012,Magdy2014,HendawiKRBTA15a,Bao2015,Magdy:2014},
+recommendation and visualization tools are introduced in specific domains.
+However, most the such algorithms are not context-aware (based on user choices)
+and does not consider diversity as a global metric.    
+
+\section{Conclusions}\label{sec:conclusions}
 
 
 \bibliographystyle{abbrv}
