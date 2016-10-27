@@ -1,10 +1,13 @@
+# MOVER ARQUIVOS DS PARA PASTA PRINCIPAL E EXECUTAR
 import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
-import os, csv, re
+import os, csv, re, json, imp
+import threading
+import subprocess
+import uuid
 from flask import Flask, render_template, request, send_from_directory
 from werkzeug import secure_filename
-
 app = Flask(__name__)
 
 # Directories config
@@ -12,14 +15,31 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))   # refers to application_
 APP_TMP = os.path.join(APP_ROOT, 'tmp')
 APP_ANALYSIS = os.path.join(APP_ROOT, 'dataanalysis')
 app.config['UPLOAD_FOLDER'] = 'tmp/'
+app.config['UPLOAD_FOLDER_DATA'] = 'dataanalysis/'
 app.config['ALLOWED_EXTENSIONS'] = set(['csv'])
+# Thread to generate ds archives
+background_scripts = {}
+controleRun = -1
+def run_script(id):
+    global controleRun
+    controleRun = id
+    archivedir = APP_ROOT + "/dsgenerator.py"
+    subprocess.call(["python", archivedir])
+    background_scripts[id] = True
 
 def allowed_file(filename):
     return '.' in filename and \
         filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']
+
 def dataanalysis():
-    print("data analysis")
-    return send_from_directory(APP_ANALYSIS, 'index.html')
+    id = str(uuid.uuid4())
+    background_scripts[id] = False
+    threading.Thread(target=lambda: run_script(id)).start()
+    return send_from_directory(APP_ANALYSIS, 'loading.html')
+
+#def dataanalysis():
+    #return send_from_directory(APP_ANALYSIS, 'loading.html')
+
 def file_proc():
     examplevalues = []
     options = []
@@ -82,10 +102,12 @@ def upload():
     file = request.files['file']
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'arquivo.csv'))
+
         if(request.form.get('botao') == "Charts and Maps"):
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'arquivo.csv'))
             return file_proc()
         else:
+            file.save(os.path.join(app.config['UPLOAD_FOLDER_DATA'], 'arquivo.csv'))
             return dataanalysis()
     else:
         return render_template('index.html', formatsmsg='Format not suported! Try again!')
@@ -93,11 +115,25 @@ def upload():
 @app.route('/tmp/<path:filename>')
 def sendcsv(filename):
     return send_from_directory(APP_TMP, filename)
+
 @app.route('/dataanalysis/<path:filename>')
 def sendinfos(filename):
     return send_from_directory(APP_ANALYSIS, filename)
+
 @app.route('/static/<path:filename>')
 def sendstatic(filename):
     return send_from_directory('/static', filename)
 
-app.run(use_reloader=True, port=8090)
+@app.route('/isfinish', methods=['POST'])
+def sendstatus():
+    global controleRun
+    if background_scripts[controleRun] == True:
+        return json.dumps({'success':False}), 200, {'ContentType':'application/json'}
+    else:
+        return json.dumps({'success':True}), 201, {'ContentType':'application/json'}
+#    if(Control.getState() == False):
+#        return json.dumps({'success':False}), 201, {'ContentType':'application/json'}
+#    elif(Control.getState() == True):
+#        return json.dumps({'success':True}), 200, {'ContentType':'application/json'}
+
+app.run(use_reloader=True, port=8080)
