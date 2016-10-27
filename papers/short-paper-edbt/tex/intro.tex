@@ -1,0 +1,51 @@
+\section{Introduction} 
+Nowadays, there exists huge amounts of spatiotemporal data in various fields such as agriculture, transportation and social science. Analysis of such data is interesting as it is grounded
+on reality: each record represents a specific location and time. Moreover, understanding patterns and trends in this data provide analysis insights leading to improved user planning and decision making. Some instance applications of spatiotemporal data are smart city management, disaster management and autonomous transport.
+
+Traditionally, an exploratory analysis scenario spatiotemporal data is described as follows: in the first step, the analyst visualizes the data using an off-the-shelf product like {\sc Tableau}. Then she looks at different parts of data seeking for interesting patterns and trends. With the growing size of spatiotemporal datasets, this classical approach seems not practical anymore. In a huge data space, points are scattered everywhere hence the analyst cannot effectively see patterns and trends.
+
+To overcome this challenge, tools like {\sc Tableau} has prepared an exhaustive list of tools and operations to filter or modify data. However, it seems that it only doubles the problem where now the analyst is left alone in a huge space of data and actions. Considering the exploratory context, the challenge for the analyst which is still remaining is {\em what to see next?} This is the question that we cover in this paper.
+
+In an exploratory context, analyst takes a consecutive series of visualization to see different aspects of the spatiotemporal data to finally land on what they desire. However in most scenarios, it is not clear what the analyst should see next. Analysts need online guidance to recommend them where to go next.
+
+Given a point of interest, the question is then how to guide the analyst. We consider the guidance in form of highlighting $k$ other points which are relevant to the interest of the analyst. Those $k$ points should maximize some quality.
+
+Challenges of analyzing spatiotemporal data includes discover visual patterns
+and trends. The visual recognition of insights is a human task which is
+infeasible to be automatized due to its subjectivity. Hence a visualization
+guidance can facilitate the process of insight discovery for a analyst.
+\cite{RoddickEHPS04} and \cite{Telang:2012} discuss challenges, open issues and
+directions considering spatiotemporal databases. From the set of challenges, it
+includes (i) creating and managing complex spatiotemporal simulation models,
+(ii) new generic temporal data models and (iii) spatiotemporal data mining,
+between others.         
+
+
+Despite the progress for new spatiotemporal approaches in recent years, current
+analysis and visualization systems have following drawbacks: \textit{(i)
+Genericness} - Often systems are good for one type of spatiotemporal data and
+not for others. For instance, Tableau is a powerful tool [reference] for
+one-shot visualizations but is inefficient for filtering and multi-shot
+visualizations. There is a need for a generic tool which can easily capture
+different types of spatiotemporal data from agriculture to transportation to
+flights to social science; and \textit{(ii) Guidance} - As the spatiotemporal
+data becomes bigger and bigger, the analyst may become overwhelmed with the
+gigantic amount of information. Hence there is a need to guide the analyst
+through options which may be of her interest. The ``\textit{guidance}''
+direction has been poorly addressed in the literature.            
+
+In this paper, we propose a generic interactive analysis system which is able to
+guide analyst towards their interests on spatiotemporal informations. The
+guidance occurres by highlighting points which are similar to analyst choices and are as diverse as possible, so
+that the analysis can consider different analysis directions. For that, this
+paper merges a recommendation algorithm approach \cite{Omidvar-Tehrani:2015} and
+visual highlighting proposals \cite{Lohmann:2012,Robinson2011,Liang2010} as the
+bases towards a generic framework to guide spatiotemporal analysis.
+
+The outline of the paper is as follows: in Section \ref{sec:data-model} we
+present the formalization of the proposed Data Model for spatiotemporal
+highlight. In Section \ref{sec:problem-definition} we describe the problem we
+are attacking. Section \ref{sec:algorithm} presents and formilizes the proposed
+algorithm. The scenarios and related work is provided in Sections \ref{sec:scenarios} and
+\ref{sec:related-works}. Finally, in Section \ref{sec:conclusions}, we present 
+some conclusions and perspectives for future works.

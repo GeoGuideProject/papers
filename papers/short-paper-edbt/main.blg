@@ -1,0 +1,66 @@
+This is BibTeX, Version 0.99d (TeX Live 2014)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+The style file: abbrv.bst
+Database file #1: biblio.bib
+Warning--I didn't find a database entry for "RoddickEHPS04"
+Warning--I didn't find a database entry for "Telang:2012"
+Warning--I didn't find a database entry for "Omidvar-Tehrani:2015"
+Warning--I didn't find a database entry for "Lohmann:2012"
+Warning--I didn't find a database entry for "Robinson2011"
+Warning--I didn't find a database entry for "Liang2010"
+Warning--I didn't find a database entry for "miller1956human"
+Warning--I didn't find a database entry for "aly2015spatial"
+Warning--I didn't find a database entry for "Segel:2010"
+Warning--I didn't find a database entry for "Samet:2014"
+Warning--I didn't find a database entry for "Alper:2011"
+Warning--I didn't find a database entry for "Philipsen"
+Warning--I didn't find a database entry for "Adomavicius:2005"
+Warning--I didn't find a database entry for "ChirigatiDDF16"
+Warning--I didn't find a database entry for "Levandoski:2012"
+Warning--I didn't find a database entry for "Magdy2014"
+Warning--I didn't find a database entry for "HendawiKRBTA15a"
+Warning--I didn't find a database entry for "Bao2015"
+Warning--I didn't find a database entry for "Magdy:2014"
+You've used 0 entries,
+            2118 wiz_defined-function locations,
+            533 strings with 4136 characters,
+and the built_in function-call counts, 18 in all, are:
+= -- 0
+> -- 0
+< -- 0
++ -- 0
+- -- 0
+* -- 2
+:= -- 7
+add.period$ -- 0
+call.type$ -- 0
+change.case$ -- 0
+chr.to.int$ -- 0
+cite$ -- 0
+duplicate$ -- 0
+empty$ -- 1
+format.name$ -- 0
+if$ -- 1
+int.to.chr$ -- 0
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 3
+num.names$ -- 0
+pop$ -- 0
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 1
+stack$ -- 0
+substring$ -- 0
+swap$ -- 0
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 0
+width$ -- 0
+write$ -- 2
+(There were 19 warnings)
