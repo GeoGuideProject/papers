@@ -8,3 +8,7 @@ papers/short-paper-edbt/edbt-short-paper.blg
 *.pdf
 
 papers/short-paper-edbt/.project
+
+*.aux
+
+*.log
