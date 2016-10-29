@@ -7,7 +7,14 @@ Our {\sc GeoGuidance} problem requires an efficient algorithm for dynamically an
 % behrooz: make a figure which explains the whole framework
 % behrooz: explain the whole package
 
-Algorithm \ref{algo:geoh} illustrates the online execution step of {\sc GeoHighlight}, so called {\sc Highlighter}. The algorithm is a single greedy procedure that solves the {\sc GeoGuidance} problem. {\sc Highlighter} is called at each step of {\sc GeoHighlight} (as in Figure XXX). The algorithm admits as input a point $p \in {\cal P}$ and returns the best $k$ points denoted ${\cal S}_p$.
+\begin{figure}
+  \centering
+  \includegraphics[width=\columnwidth]{figs/placeholder}
+\caption{{\sc GeoHighlight} Framework}
+\label{fig:framwork}
+\end{figure}
+
+Algorithm \ref{algo:geoh} illustrates the online execution step of {\sc GeoHighlight}, so called {\sc Highlighter}. The algorithm is a single greedy procedure that solves the {\sc GeoGuidance} problem. {\sc Highlighter} is called at each step of {\sc GeoHighlight} (as in Figure \ref{fig:framework}). The algorithm admits as input a point $p \in {\cal P}$ and returns the best $k$ points denoted ${\cal S}_p$.
 
 To comply with the desiderata {\bf D5}, we consider a time limit parameter $tlimit$ in Algorithm \ref{algo:geoh}: in a {\em best-effort} strategy, the algorithm bounds user waiting time by $tlimit$ to return the best possible results by then.
 

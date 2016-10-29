@@ -2,54 +2,45 @@ This is BibTeX, Version 0.99d (TeX Live 2014)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: abbrv.bst
-Database file #1: biblio.bib
-Warning--I didn't find a database entry for "RoddickEHPS04"
-Warning--I didn't find a database entry for "Telang:2012"
-Warning--I didn't find a database entry for "Omidvar-Tehrani:2015"
-Warning--I didn't find a database entry for "Lohmann:2012"
-Warning--I didn't find a database entry for "Robinson2011"
-Warning--I didn't find a database entry for "Liang2010"
-Warning--I didn't find a database entry for "miller1956human"
-Warning--I didn't find a database entry for "aly2015spatial"
-You've used 0 entries,
+Database file #1: main.bib
+You've used 8 entries,
             2118 wiz_defined-function locations,
-            511 strings with 3886 characters,
-and the built_in function-call counts, 18 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 2
-:= -- 7
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
+            558 strings with 5455 characters,
+and the built_in function-call counts, 3273 in all, are:
+= -- 339
+> -- 132
+< -- 5
++ -- 52
+- -- 44
+* -- 226
+:= -- 512
+add.period$ -- 28
+call.type$ -- 8
+change.case$ -- 46
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
+cite$ -- 8
+duplicate$ -- 138
+empty$ -- 263
+format.name$ -- 44
+if$ -- 724
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 3
-num.names$ -- 0
-pop$ -- 0
+int.to.str$ -- 8
+missing$ -- 8
+newline$ -- 43
+num.names$ -- 16
+pop$ -- 47
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 38
 quote$ -- 0
-skip$ -- 1
+skip$ -- 101
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 218
+swap$ -- 45
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
+type$ -- 32
 warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 2
-(There were 8 warnings)
+while$ -- 33
+width$ -- 9
+write$ -- 100

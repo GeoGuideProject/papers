@@ -1,3 +1,55 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{aly2015spatial}
+A.~M. Aly, W.~G. Aref, and M.~Ouzzani.
+\newblock Spatial queries with k-nearest-neighbor and relational predicates.
+\newblock In {\em Proceedings of the 23rd SIGSPATIAL International Conference
+  on Advances in Geographic Information Systems}, page~28. ACM, 2015.
+
+\bibitem{Liang2010}
+J.~Liang and M.~L. Huang.
+\newblock Highlighting in information visualization: A survey.
+\newblock In {\em 2010 14th International Conference Information
+  Visualisation}, pages 79--85, July 2010.
+
+\bibitem{Lohmann:2012}
+S.~Lohmann, M.~Burch, H.~Schmauder, and D.~Weiskopf.
+\newblock Visual analysis of microblog content using time-varying co-occurrence
+  highlighting in tag clouds.
+\newblock In {\em Proceedings of the International Working Conference on
+  Advanced Visual Interfaces}, AVI '12, pages 753--756, New York, NY, USA,
+  2012. ACM.
+
+\bibitem{miller1956human}
+G.~Miller.
+\newblock Human memory and the storage of information.
+\newblock {\em IRE Transactions on Information Theory}, 2(3):129--137, 1956.
+
+\bibitem{Omidvar-Tehrani:2015}
+B.~Omidvar-Tehrani, S.~Amer-Yahia, and A.~Termier.
+\newblock Interactive user group analysis.
+\newblock In {\em Proceedings of the 24th ACM International on Conference on
+  Information and Knowledge Management}, CIKM '15, pages 403--412, New York,
+  NY, USA, 2015. ACM.
+
+\bibitem{Robinson2011}
+A.~C. Robinson.
+\newblock Highlighting in geovisualization.
+\newblock {\em Cartography and Geographic Information Science}, 38(4):373--383,
+  2011.
+
+\bibitem{RoddickEHPS04}
+J.~F. Roddick, M.~J. Egenhofer, E.~G. Hoel, D.~Papadias, and B.~Salzberg.
+\newblock Spatial, temporal and spatio-temporal databases - hot issues and
+  directions for phd research.
+\newblock {\em {SIGMOD} Record}, 33(2):126--131, 2004.
+
+\bibitem{Telang:2012}
+A.~Telang, D.~Padmanabhan, and P.~Deshpande.
+\newblock Spatio-temporal indexing: Current scenario, challenges and
+  approaches.
+\newblock In {\em Proceedings of the 18th International Conference on
+  Management of Data}, COMAD '12, pages 9--11, Mumbai, India, India, 2012.
+  Computer Society of India.
 
 \end{thebibliography}
