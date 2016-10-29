@@ -1,6 +1,5 @@
 \documentclass{sig-alternate-05-2015}
-\usepackage{algorithm} 
-\usepackage{algorithmic}
+\usepackage[linesnumbered,ruled]{algorithm2e}
 \usepackage{breqn}
 
  
@@ -14,6 +13,8 @@
 %\setcopyright{usgovmixed}
 %\setcopyright{cagov}
 %\setcopyright{cagovmixed}
+
+
 
 \newtheorem{problem}{Problem}
 \newtheorem{definition}{Definition}
@@ -74,106 +75,10 @@ these kind of datasets.
 \input{tex/datamodel}
 \input{tex/problem}
 \input{tex/algorithm}
-
-
-
-\section{Scenarios}\label{sec:scenarios}
-
-An analyst has different goals in mind once she needs analyzing data.
-Considering the spatiotemporal dataset types aforementioned, we illustrate some
-analyst's needs and challenges with the following two realistic scenarios.   
-\bigskip
-
-\textit{Scenario 1 - Taxi dataset:} Lucas is a taxi driver which works in New
-York city. He wants to see if it is possible to improve his financial revenues
-during the week. One option to Lucas may be to choose the potential better
-points [$p_1, p_2, \ldots, p_n $] in a neighborhood [$n_1$] to stay considering
-a week day and the time of work. He also wants to verify, once he dropoff an
-client, which are the closest points [$cp_1, cp_2, \ldots, cp_n $] that can
-offer him a new potential trip trajet back to [$n1$]. For instance, Lucas
-finishes a trip trajet from a point $p_1$ in a neighborhood [$n_1$] to a point
-$p_2$ in a neighborhood $n_2$.  So, given the point p2 in n2, which are the
-potential closest points [$cp_1, cp_2, \ldots, cp_n $] (considering the
-day/hours of the dropoff) that can bring him back to [$n_1$] with a new client
-in a new trip with the small possible time of waiting.
-\bigskip
-
-\textit{Scenario 2 - Flight dataset}: Shadi is a flight analyst and she has to
-propose new solutions for improve airport and flights performances. She wants to know:
-(i) the best time of day/day of week/time of year to fly to minimise delays;
-(ii) How does the number of people flying between different locations change
-over time? And (iii) Is it possible to detect cascading failures as delays in
-one airport create delays in others? And considering this fact, propose a
-solution previously. In Shadi's working days she needs to propose quickly
-solutions considering the mentioned aspects. 
-
-% Table \ref{table:1} shows the operations for both scenarios.
-% 
-% \begin{table}[h!]
-% \centering
-% \begin{tabular}{||c c c ||} 
-%  \hline
-%  Col1 & Taxi scenario & Taxi scenario  \\ [0.5ex] 
-%  \hline\hline
-%  1 & 6 & 87837  \\ 
-%  2 & 7 & 78  \\
-%  3 & 545 & 778 \\
-%  4 & 545 & 18744  \\
-% 
-%  \hline
-% \end{tabular}
-% \caption{Scenarios}
-% \label{table:1}
-% \end{table}
-
-
-
-\section{Related Work}\label{sec:related-works}
-
-In this paper, we addressed the problem of highlighting geographical points to
-guide analysts in consecutives steps. To the best of our knowledge, this is the
-first work which formulates the geo-highlighting problem for recommending on
-maps. However, our problem relates to a number of others as follows.     
-
-Visual Highlighting. There has been efforts to highlight some pieces of
-information in the huge heterogeneous data space so that the analyst can focus
-on important aspects \cite{Liang2010,Lohmann:2012,Robinson2011}. Visual
-Story Construction is another domain of work \cite{Segel:2010,Samet:2014} which
-consecutive analysis steps are created automatically. However, all such highlighting methods are objective and does not consider analyst
-interest. In GeoHiglight, we provide a simple yet effective feedback model which
-can feed the recommendation algorithm to produce relevant results to current
-investigations.        
-
-Some other works have exploited highlighting as a technique to synchronize
-coordinated views [CITE CROSSFILTER] or simplify complicated dataset
-visualizations \cite{Robinson2011,Alper:2011}. Also in \cite{Philipsen}
-different highlighting methods are compared in terms of efficiency and usefulness. Such methods are complementary to ours.     
-
-Spatiotemporal Interactive Analysis and Visualization. Being an interactive
-system, it should be efficient and capture user feedback and adapt the utility
-function. In terms of efficiency, SpatialHadoop \cite{} and GeoSpark \cite{}
-extend Hadoop and Spark ecosystems respectively to boost geographical
-computations and visualizations. Such systems can be exploited as the backbone
-of GeoHighlight once large-scale data needs to be analyzed.      
-
-In terms of feedback, many off-the-shelf products such as Tableau \cite{} and
-RapidMiner \cite{} are designed to visualize different kinds of datasets including
-spatiotemporal ones. However, ``recommendation'' is the missing component in
-most of such tools: providing a full package of operations and actions, the analyst
-may know what to do next. In such system, analysis is usually considered as a
-one-shot scenario, once in reality it happens in consecutive steps following
-user feedback.        
-
-Recommendation. There exist a huge body of work in recommendation
-\cite{Adomavicius:2005} for various domains and datasets. However, spatial
-dimension is still untouched and has not received a lot of attention. In
-\cite{ChirigatiDDF16} a prediction algorithm for urban data is introduced which operates offline. In
-\cite{Levandoski:2012,Magdy2014,HendawiKRBTA15a,Bao2015,Magdy:2014},
-recommendation and visualization tools are introduced in specific domains.
-However, most the such algorithms are not context-aware (based on user choices)
-and does not consider diversity as a global metric.    
-
-\section{Conclusions}\label{sec:conclusions}
+\input{tex/scenario}
+\input{tex/experiments}
+% \input{tex/rel}
+\input{tex/conc}
 
 
 \bibliographystyle{abbrv}

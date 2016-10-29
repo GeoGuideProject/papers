@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.27)  27 OCT 2016 17:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.27)  29 OCT 2016 01:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -219,34 +219,60 @@ LaTeX Font Info:    Try loading font information for T1+aer on input line 100.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/ae/t1aer.fd
 File: t1aer.fd 1997/11/16 Font definitions for T1/aer.
 )))
-(/usr/local/texlive/2014/texmf-dist/tex/latex/algorithms/algorithm.sty
-Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
-nment
+(/usr/local/texlive/2014/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
+Package: algorithm2e 2013/01/06 v5.00 algorithms environments
+\c@AlgoLine=\count111
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/float/float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count111
-\float@exts=\toks38
-\float@box=\box30
-\@float@everytoks=\toks39
-\@floatcapt=\box31
-)
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\@float@every@algorithm=\toks40
-\c@algorithm=\count112
+(/usr/local/texlive/2014/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/algorithms/algorithmic.sty
-Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
-\c@ALC@unique=\count113
-\c@ALC@line=\count114
-\c@ALC@rem=\count115
-\c@ALC@depth=\count116
-\ALC@tlm=\skip44
-\algorithmicindent=\skip45
+(/usr/local/texlive/2014/texmf-dist/tex/latex/relsize/relsize.sty
+Package: relsize 2013/03/29 ver 4.1
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/mh/breqn.sty
+********************************************************
+Package `algorithm2e' Release 5.0 -- january 06 2013 --
+- algorithm2e-announce@lirmm.fr mailing list for announcement about releases
+- algorithm2e-discussion@lirmm.fr mailing list for discussion about package
+subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
+- Author: Christophe Fiorio (cfiorio@um2.fr)
+********************************************************
+\skiptotal=\skip44
+\skiplinenumber=\skip45
+\skiprule=\skip46
+\skiphlne=\skip47
+\skiptext=\skip48
+\skiplength=\skip49
+\algomargin=\skip50
+\skipalgocfslide=\skip51
+\algowidth=\dimen123
+\inoutsize=\dimen124
+\inoutindent=\dimen125
+\interspacetitleruled=\dimen126
+\interspacealgoruled=\dimen127
+\interspacetitleboxruled=\dimen128
+\algocf@inoutbox=\box30
+\algocf@inputbox=\box31
+\AlCapSkip=\skip52
+\AlCapHSkip=\skip53
+\algoskipindent=\skip54
+\algocf@nlbox=\box32
+\algocf@hangingbox=\box33
+\algocf@untilbox=\box34
+\algocf@skipuntil=\skip55
+\algocf@capbox=\box35
+\algoheightruledefault=\skip56
+\algoheightrule=\skip57
+\algotitleheightruledefault=\skip58
+\algotitleheightrule=\skip59
+\c@algocfline=\count112
+\c@algocfproc=\count113
+\c@algocf=\count114
+\algocf@algoframe=\box36
+\algocf@algobox=\box37
+) (/usr/local/texlive/2014/texmf-dist/tex/latex/mh/breqn.sty
 (/usr/local/texlive/2014/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2014/05/20 v4814 L3 programming layer (loader) 
 
@@ -256,7 +282,7 @@ L3 Module: l3bootstrap 2014/05/16 v4782 L3 Bootstrap code
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/etex-pkg/etex.sty
 Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
-\et@xins=\count117
+\et@xins=\count115
 )
 L3 Module: l3names 2014/05/04 v4728 L3 Namespace for primitives
 L3 Module: l3basics 2014/05/04 v4728 L3 Basic definitions
@@ -264,37 +290,37 @@ L3 Module: l3expan 2014/04/30 v4712 L3 Argument expansion
 L3 Module: l3tl 2014/05/04 v4728 L3 Token lists
 L3 Module: l3seq 2014/04/30 v4712 L3 Sequences and stacks
 L3 Module: l3int 2014/05/16 v4776 L3 Integers
-\c_max_int=\count118
-\l_tmpa_int=\count119
-\l_tmpb_int=\count120
-\g_tmpa_int=\count121
-\g_tmpb_int=\count122
+\c_max_int=\count116
+\l_tmpa_int=\count117
+\l_tmpb_int=\count118
+\g_tmpa_int=\count119
+\g_tmpb_int=\count120
 L3 Module: l3quark 2014/05/04 v4728 L3 Quarks
 L3 Module: l3prg 2014/05/04 v4728 L3 Control structures
-\g__prg_map_int=\count123
+\g__prg_map_int=\count121
 L3 Module: l3clist 2014/05/04 v4728 L3 Comma separated lists
 L3 Module: l3token 2014/05/04 v4728 L3 Experimental token manipulation
 L3 Module: l3prop 2014/04/30 v4712 L3 Property lists
 L3 Module: l3msg 2014/05/04 v4728 L3 Messages
 L3 Module: l3file 2014/05/05 v4737 L3 File and I/O operations
-\l_iow_line_count_int=\count124
-\l__iow_target_count_int=\count125
-\l__iow_current_line_int=\count126
-\l__iow_current_word_int=\count127
-\l__iow_current_indentation_int=\count128
+\l_iow_line_count_int=\count122
+\l__iow_target_count_int=\count123
+\l__iow_current_line_int=\count124
+\l__iow_current_word_int=\count125
+\l__iow_current_indentation_int=\count126
 L3 Module: l3skip 2014/05/05 v4738 L3 Dimensions and skips
-\c_zero_dim=\dimen123
-\c_max_dim=\dimen124
-\l_tmpa_dim=\dimen125
-\l_tmpb_dim=\dimen126
-\g_tmpa_dim=\dimen127
-\g_tmpb_dim=\dimen128
-\c_zero_skip=\skip46
-\c_max_skip=\skip47
-\l_tmpa_skip=\skip48
-\l_tmpb_skip=\skip49
-\g_tmpa_skip=\skip50
-\g_tmpb_skip=\skip51
+\c_zero_dim=\dimen129
+\c_max_dim=\dimen130
+\l_tmpa_dim=\dimen131
+\l_tmpb_dim=\dimen132
+\g_tmpa_dim=\dimen133
+\g_tmpb_dim=\dimen134
+\c_zero_skip=\skip60
+\c_max_skip=\skip61
+\l_tmpa_skip=\skip62
+\l_tmpb_skip=\skip63
+\g_tmpa_skip=\skip64
+\g_tmpb_skip=\skip65
 \c_zero_muskip=\muskip12
 \c_max_muskip=\muskip13
 \l_tmpa_muskip=\muskip14
@@ -302,65 +328,65 @@ L3 Module: l3skip 2014/05/05 v4738 L3 Dimensions and skips
 \g_tmpa_muskip=\muskip16
 \g_tmpb_muskip=\muskip17
 L3 Module: l3keys 2014/05/08 v4753 L3 Key-value interfaces
-\g__keyval_level_int=\count129
-\l_keys_choice_int=\count130
+\g__keyval_level_int=\count127
+\l_keys_choice_int=\count128
 L3 Module: l3fp 2014/04/30 v4712 L3 Floating points
-\c__fp_leading_shift_int=\count131
-\c__fp_middle_shift_int=\count132
-\c__fp_trailing_shift_int=\count133
-\c__fp_big_leading_shift_int=\count134
-\c__fp_big_middle_shift_int=\count135
-\c__fp_big_trailing_shift_int=\count136
-\c__fp_Bigg_leading_shift_int=\count137
-\c__fp_Bigg_middle_shift_int=\count138
-\c__fp_Bigg_trailing_shift_int=\count139
+\c__fp_leading_shift_int=\count129
+\c__fp_middle_shift_int=\count130
+\c__fp_trailing_shift_int=\count131
+\c__fp_big_leading_shift_int=\count132
+\c__fp_big_middle_shift_int=\count133
+\c__fp_big_trailing_shift_int=\count134
+\c__fp_Bigg_leading_shift_int=\count135
+\c__fp_Bigg_middle_shift_int=\count136
+\c__fp_Bigg_trailing_shift_int=\count137
 L3 Module: l3box 2014/05/04 v4728 L3 Experimental boxes
-\c_empty_box=\box32
-\l_tmpa_box=\box33
-\l_tmpb_box=\box34
-\g_tmpa_box=\box35
-\g_tmpb_box=\box36
+\c_empty_box=\box38
+\l_tmpa_box=\box39
+\l_tmpb_box=\box40
+\g_tmpa_box=\box41
+\g_tmpb_box=\box42
 L3 Module: l3coffins 2014/05/04 v4728 L3 Coffin code layer
-\l__coffin_internal_box=\box37
-\l__coffin_internal_dim=\dimen129
-\l__coffin_offset_x_dim=\dimen130
-\l__coffin_offset_y_dim=\dimen131
-\l__coffin_x_dim=\dimen132
-\l__coffin_y_dim=\dimen133
-\l__coffin_x_prime_dim=\dimen134
-\l__coffin_y_prime_dim=\dimen135
-\c_empty_coffin=\box38
-\l__coffin_aligned_coffin=\box39
-\l__coffin_aligned_internal_coffin=\box40
-\l_tmpa_coffin=\box41
-\l_tmpb_coffin=\box42
-\l__coffin_display_coffin=\box43
-\l__coffin_display_coord_coffin=\box44
-\l__coffin_display_pole_coffin=\box45
-\l__coffin_display_offset_dim=\dimen136
-\l__coffin_display_x_dim=\dimen137
-\l__coffin_display_y_dim=\dimen138
+\l__coffin_internal_box=\box43
+\l__coffin_internal_dim=\dimen135
+\l__coffin_offset_x_dim=\dimen136
+\l__coffin_offset_y_dim=\dimen137
+\l__coffin_x_dim=\dimen138
+\l__coffin_y_dim=\dimen139
+\l__coffin_x_prime_dim=\dimen140
+\l__coffin_y_prime_dim=\dimen141
+\c_empty_coffin=\box44
+\l__coffin_aligned_coffin=\box45
+\l__coffin_aligned_internal_coffin=\box46
+\l_tmpa_coffin=\box47
+\l_tmpb_coffin=\box48
+\l__coffin_display_coffin=\box49
+\l__coffin_display_coord_coffin=\box50
+\l__coffin_display_pole_coffin=\box51
+\l__coffin_display_offset_dim=\dimen142
+\l__coffin_display_x_dim=\dimen143
+\l__coffin_display_y_dim=\dimen144
 L3 Module: l3color 2014/04/30 v4712 L3 Experimental color support
 L3 Module: l3luatex 2014/04/30 v4712 L3 Experimental LuaTeX-specific functions
-\g__cctab_allocate_int=\count140
-\g__cctab_stack_int=\count141
+\g__cctab_allocate_int=\count138
+\g__cctab_stack_int=\count139
 L3 Module: l3candidates 2014/05/04 v4734 L3 Experimental additions to l3kernel
-\l__box_top_dim=\dimen139
-\l__box_bottom_dim=\dimen140
-\l__box_left_dim=\dimen141
-\l__box_right_dim=\dimen142
-\l__box_top_new_dim=\dimen143
-\l__box_bottom_new_dim=\dimen144
-\l__box_left_new_dim=\dimen145
-\l__box_right_new_dim=\dimen146
-\l__box_internal_box=\box46
-\l__coffin_bounding_shift_dim=\dimen147
-\l__coffin_left_corner_dim=\dimen148
-\l__coffin_right_corner_dim=\dimen149
-\l__coffin_bottom_corner_dim=\dimen150
-\l__coffin_top_corner_dim=\dimen151
-\l__coffin_scaled_total_height_dim=\dimen152
-\l__coffin_scaled_width_dim=\dimen153
+\l__box_top_dim=\dimen145
+\l__box_bottom_dim=\dimen146
+\l__box_left_dim=\dimen147
+\l__box_right_dim=\dimen148
+\l__box_top_new_dim=\dimen149
+\l__box_bottom_new_dim=\dimen150
+\l__box_left_new_dim=\dimen151
+\l__box_right_new_dim=\dimen152
+\l__box_internal_box=\box52
+\l__coffin_bounding_shift_dim=\dimen153
+\l__coffin_left_corner_dim=\dimen154
+\l__coffin_right_corner_dim=\dimen155
+\l__coffin_bottom_corner_dim=\dimen156
+\l__coffin_top_corner_dim=\dimen157
+\l__coffin_scaled_total_height_dim=\dimen158
+\l__coffin_scaled_width_dim=\dimen159
 ))
 Package: breqn 2012/05/10 v0.98b Breaking equations
 
@@ -405,107 +431,107 @@ LaTeX Info: Redefining \genfrac on input line 121.
 ))
 (/usr/local/texlive/2014/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count142
-\calc@Bcount=\count143
-\calc@Adimen=\dimen154
-\calc@Bdimen=\dimen155
-\calc@Askip=\skip52
-\calc@Bskip=\skip53
+\calc@Acount=\count140
+\calc@Bcount=\count141
+\calc@Adimen=\dimen160
+\calc@Bdimen=\dimen161
+\calc@Askip=\skip66
+\calc@Bskip=\skip67
 LaTeX Info: Redefining \setlength on input line 75.
 LaTeX Info: Redefining \addtolength on input line 76.
-\calc@Ccount=\count144
-\calc@Cskip=\skip54
+\calc@Ccount=\count142
+\calc@Cskip=\skip68
 )
-\inf@bad=\count145
-\maxint=\count146
-\listwidth=\dimen156
-\eqnumsep=\dimen157
-\eqmargin=\dimen158
-\eqlinespacing=\skip55
-\eqlineskip=\skip56
-\eqlineskiplimit=\dimen159
+\inf@bad=\count143
+\maxint=\count144
+\listwidth=\dimen162
+\eqnumsep=\dimen163
+\eqmargin=\dimen164
+\eqlinespacing=\skip69
+\eqlineskip=\skip70
+\eqlineskiplimit=\dimen165
 \eqbinoffset=\muskip18
 \eqdelimoffset=\muskip19
-\eqindentstep=\dimen160
-\eqstyle=\toks41
-\eqbreakdepth=\count147
-\eqinterlinepenalty=\count148
-\intereqpenalty=\count149
-\intereqskip=\skip57
-\prerelpenalty=\count150
-\prebinoppenalty=\count151
+\eqindentstep=\dimen166
+\eqstyle=\toks38
+\eqbreakdepth=\count145
+\eqinterlinepenalty=\count146
+\intereqpenalty=\count147
+\intereqskip=\skip71
+\prerelpenalty=\count148
+\prebinoppenalty=\count149
 \Dmedmuskip=\muskip20
 \Dthickmuskip=\muskip21
-\eqleftskip=\skip58
-\eqrightskip=\skip59
-\eq@vspan=\skip60
+\eqleftskip=\skip72
+\eqrightskip=\skip73
+\eq@vspan=\skip74
 \eq@binoffset=\muskip22
-\EQ@box=\box47
-\EQ@copy=\box48
-\EQ@numbox=\box49
-\eq@wdNum=\dimen161
-\GRP@numbox=\box50
-\grp@wdNum=\dimen162
-\eq@lines=\count152
-\eq@curline=\count153
-\eq@badness=\count154
-\EQ@vims=\count155
-\eq@dp=\dimen163
-\eq@wdL=\dimen164
-\eq@wdT=\dimen165
-\eq@wdMin=\dimen166
-\grp@wdL=\dimen167
-\grp@wdR=\dimen168
-\grp@wdT=\dimen169
-\eq@wdRmax=\dimen170
-\eq@firstht=\dimen171
-\eq@wdCond=\dimen172
-\eq@indentstep=\dimen173
-\eq@linewidth=\dimen174
-\grp@linewidth=\dimen175
-\eq@hshift=\dimen176
-\eq@given@sidespace=\dimen177
-\mathindent=\dimen178
-\eq@final@linecount=\count156
-\eq@wdR=\dimen179
-\EQ@continue=\toks42
-\lr@level=\count157
-\GRP@queue=\toks43
-\GRP@box=\box51
-\GRP@wholebox=\box52
-\darraycolsep=\skip61
-\cur@row=\count158
-\cur@col=\count159
-\conditionsep=\skip62
+\EQ@box=\box53
+\EQ@copy=\box54
+\EQ@numbox=\box55
+\eq@wdNum=\dimen167
+\GRP@numbox=\box56
+\grp@wdNum=\dimen168
+\eq@lines=\count150
+\eq@curline=\count151
+\eq@badness=\count152
+\EQ@vims=\count153
+\eq@dp=\dimen169
+\eq@wdL=\dimen170
+\eq@wdT=\dimen171
+\eq@wdMin=\dimen172
+\grp@wdL=\dimen173
+\grp@wdR=\dimen174
+\grp@wdT=\dimen175
+\eq@wdRmax=\dimen176
+\eq@firstht=\dimen177
+\eq@wdCond=\dimen178
+\eq@indentstep=\dimen179
+\eq@linewidth=\dimen180
+\grp@linewidth=\dimen181
+\eq@hshift=\dimen182
+\eq@given@sidespace=\dimen183
+\mathindent=\dimen184
+\eq@final@linecount=\count154
+\eq@wdR=\dimen185
+\EQ@continue=\toks39
+\lr@level=\count155
+\GRP@queue=\toks40
+\GRP@box=\box57
+\GRP@wholebox=\box58
+\darraycolsep=\skip75
+\cur@row=\count156
+\cur@col=\count157
+\conditionsep=\skip76
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
 
 (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count160
-\scratchdimen=\dimen180
-\scratchbox=\box53
-\nofMPsegments=\count161
-\nofMParguments=\count162
-\everyMPshowfont=\toks44
-\MPscratchCnt=\count163
-\MPscratchDim=\dimen181
-\MPnumerator=\count164
-\makeMPintoPDFobject=\count165
-\everyMPtoPDFconversion=\toks45
+\scratchcounter=\count158
+\scratchdimen=\dimen186
+\scratchbox=\box59
+\nofMPsegments=\count159
+\nofMParguments=\count160
+\everyMPshowfont=\toks41
+\MPscratchCnt=\count161
+\MPscratchDim=\dimen187
+\MPnumerator=\count162
+\makeMPintoPDFobject=\count163
+\everyMPtoPDFconversion=\toks42
 ) (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -550,42 +576,42 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@problem=\count166
-\c@definition=\count167
-LaTeX Font Info:    Try loading font information for U+msa on input line 54.
+\c@problem=\count164
+\c@definition=\count165
+LaTeX Font Info:    Try loading font information for U+msa on input line 55.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 54.
+LaTeX Font Info:    Try loading font information for U+msb on input line 55.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 54.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 55.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for T1+aett on input line 54.
+LaTeX Font Info:    Try loading font information for T1+aett on input line 55.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/ae/t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 54.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 55.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 54.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 55.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <7> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 54.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 55.
 
-Overfull \hbox (9.26787pt too wide) in paragraph at lines 69--70
+Overfull \hbox (9.26787pt too wide) in paragraph at lines 70--71
 \T1/aer/m/n/9 Interactive anal-y-sis; Spa-tiotem-po-ral vi-su-al-iza-tion; Ur-b
 an data. 
  []
@@ -600,22 +626,6 @@ LaTeX Warning: Citation `Telang:2012' on page \thepage  undefined on input line
  17.
 
 
-LaTeX Warning: Citation `Omidvar-Tehrani:2015' on page \thepage  undefined on i
-nput line 41.
-
-
-LaTeX Warning: Citation `Lohmann:2012' on page \thepage  undefined on input lin
-e 42.
-
-
-LaTeX Warning: Citation `Robinson2011' on page \thepage  undefined on input lin
-e 42.
-
-
-LaTeX Warning: Citation `Liang2010' on page \thepage  undefined on input line 4
-2.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
@@ -623,12 +633,32 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ]
 
+LaTeX Warning: Citation `Omidvar-Tehrani:2015' on page \thepage  undefined on i
+nput line 50.
+
+
+LaTeX Warning: Citation `Lohmann:2012' on page \thepage  undefined on input lin
+e 51.
+
+
+LaTeX Warning: Citation `Robinson2011' on page \thepage  undefined on input lin
+e 51.
+
+
+LaTeX Warning: Citation `Liang2010' on page \thepage  undefined on input line 5
+1.
+
+
 LaTeX Warning: Reference `sec:problem-definition' on page \thepage  undefined o
-n input line 47.
+n input line 56.
 
 
 LaTeX Warning: Reference `sec:algorithm' on page \thepage  undefined on input l
-ine 48.
+ine 57.
+
+
+LaTeX Warning: Reference `sec:related-works' on page \thepage  undefined on inp
+ut line 59.
 
 ) (./tex/datamodel.tex
 Overfull \hbox (3.88559pt too wide) in paragraph at lines 2--3
@@ -652,111 +682,46 @@ line 11.
 LaTeX Warning: Citation `aly2015spatial' on page \thepage  undefined on input l
 ine 14.
 
-[2]) (./tex/algorithm.tex)
-
-LaTeX Warning: Citation `Liang2010' on page \thepage  undefined on input line 1
-38.
-
-
-LaTeX Warning: Citation `Lohmann:2012' on page \thepage  undefined on input lin
-e 138.
-
-
-LaTeX Warning: Citation `Robinson2011' on page \thepage  undefined on input lin
-e 138.
-
-
-LaTeX Warning: Citation `Segel:2010' on page \thepage  undefined on input line 
-139.
-
-
-LaTeX Warning: Citation `Samet:2014' on page \thepage  undefined on input line 
-139.
-
-
-LaTeX Warning: Citation `Robinson2011' on page \thepage  undefined on input lin
-e 147.
-
-
-LaTeX Warning: Citation `Alper:2011' on page \thepage  undefined on input line 
-147.
-
-
-LaTeX Warning: Citation `Philipsen' on page \thepage  undefined on input line 1
-47.
-
-
-Overfull \hbox (3.76013pt too wide) in paragraph at lines 150--156
-[]\T1/aer/m/n/9 Spatiotemporal In-ter-ac-tive Anal-y-sis and Vi-su-al-iza-tion.
- Be-
- []
-
-
-LaTeX Warning: Citation `Adomavicius:2005' on page \thepage  undefined on input
- line 166.
-
-
-LaTeX Warning: Citation `ChirigatiDDF16' on page \thepage  undefined on input l
-ine 168.
-
-
-LaTeX Warning: Citation `Levandoski:2012' on page \thepage  undefined on input 
-line 169.
-
-
-LaTeX Warning: Citation `Magdy2014' on page \thepage  undefined on input line 1
-69.
-
-
-LaTeX Warning: Citation `HendawiKRBTA15a' on page \thepage  undefined on input 
-line 169.
-
-
-LaTeX Warning: Citation `Bao2015' on page \thepage  undefined on input line 169
-.
-
-
-LaTeX Warning: Citation `Magdy:2014' on page \thepage  undefined on input line 
-169.
-
-(./main.bbl) [3] (./main.aux)
+[2]) (./tex/algorithm.tex) (./tex/scenario.tex) (./tex/experiments.tex)
+(./tex/conc.tex) (./main.bbl) [3] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 9300 strings out of 493117
- 157220 string characters out of 6135432
- 214521 words of memory out of 5000000
- 12600 multiletter control sequences out of 15000+600000
- 59094 words of font info for 86 fonts, out of 8000000 for 9000
+ 10471 strings out of 493117
+ 173891 string characters out of 6135432
+ 252552 words of memory out of 5000000
+ 13756 multiletter control sequences out of 15000+600000
+ 63761 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,11n,35p,10351b,480s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,17n,35p,10351b,478s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/tex
-live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/tex
-live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texli
-ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive
-/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2
-014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2014
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2014/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2014/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2014/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2014/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2014/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2014/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2014/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2014/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2014/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1
-/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/he
-lvetic/uhvr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utm
-b8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></
-usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (3 pages, 233505 bytes).
+exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local/tex
+live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texli
+ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texli
+ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive
+/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2
+014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/201
+4/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2014/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2014/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2014/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2014/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2014/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2014/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2014/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2014/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2014/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/u
+rw/helvetic/uhvb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/helv
+etic/uhvr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmb8
+a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></us
+r/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (3 pages, 250912 bytes).
 PDF statistics:
- 99 PDF objects out of 1000 (max. 8388607)
- 72 compressed objects within 1 object stream
+ 103 PDF objects out of 1000 (max. 8388607)
+ 75 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
