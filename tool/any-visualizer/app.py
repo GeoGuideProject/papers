@@ -131,9 +131,5 @@ def sendstatus():
         return json.dumps({'success':False}), 200, {'ContentType':'application/json'}
     else:
         return json.dumps({'success':True}), 201, {'ContentType':'application/json'}
-#    if(Control.getState() == False):
-#        return json.dumps({'success':False}), 201, {'ContentType':'application/json'}
-#    elif(Control.getState() == True):
-#        return json.dumps({'success':True}), 200, {'ContentType':'application/json'}
 
 app.run(use_reloader=True, port=8080)
