@@ -1,39 +1,8 @@
 \section{Illustrative Scenario}\label{sec:scenarios}
+We illustrate an application of {\sc GeoHighlight} in a realistic scenario for New York taxi dataset\footnote{\it http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml}. We consider XXX points of this dataset. The following scenario illustrates how an analyst can achieve an analysis goal in her mind. We employ {\sc Highlighter} (Algorithm \ref{algo:geoh}) to obtain results of the scenario with following parameters: $\sigma = 0.2$, $k = 5$ and $tlimit = 200ms$. 
 
-An analyst has different goals in mind once she needs analyzing data.
-Considering the spatiotemporal dataset types aforementioned, we illustrate some
-analyst's needs and challenges with the following two realistic scenarios.   
-\bigskip
+Consider Lucas, a data scientist whose task is to optimize New York taxi trips. Focusing on cab-idle locations, he wants to discover which neighborhoods work the best for which drivers to increase the overall availability. Also, he wants to discover how next cab-idle stations should be chosen to contribute to the goal. Lucas uses {\sc GeoHighlight} and follows a case-by-case inspection as his analysis methodology.
 
-\textit{Scenario 1 - Taxi dataset:} Lucas is a taxi driver which works in New
-York city. He wants to see if it is possible to improve his financial revenues
-during the week. One option to Lucas may be to choose the potential better
-points [$p_1, p_2, \ldots, p_n $] in a neighborhood [$n_1$] to stay considering
-a week day and the time of work. He also wants to verify, once he dropoff an
-client, which are the closest points [$cp_1, cp_2, \ldots, cp_n $] that can
-offer him a new potential trip trajet back to [$n1$]. For instance, Lucas
-finishes a trip trajet from a point $p_1$ in a neighborhood [$n_1$] to a point
-$p_2$ in a neighborhood $n_2$.  So, given the point p2 in n2, which are the
-potential closest points [$cp_1, cp_2, \ldots, cp_n $] (considering the
-day/hours of the dropoff) that can bring him back to [$n_1$] with a new client
-in a new trip with the small possible time of waiting.
-\bigskip
+He begins the analysis by selecting a point from the most crowded region of the region, i.e., Times Square. The selected point depicts a drop-off at [date/time]. {\sc Highlighter} then provides $5$ relevant points to the selected point (Figure XXX). These highlights show similar points to the selection in other neighborhoods of the region. Among 5 highlighted points, Lucas then selects the 3rd one, a pick-up at [date/time] because [reason based on observation].
 
-% Table \ref{table:1} shows the operations for both scenarios.
-% 
-% \begin{table}[h!]
-% \centering
-% \begin{tabular}{||c c c ||} 
-%  \hline
-%  Col1 & Taxi scenario & Taxi scenario  \\ [0.5ex] 
-%  \hline\hline
-%  1 & 6 & 87837  \\ 
-%  2 & 7 & 78  \\
-%  3 & 545 & 778 \\
-%  4 & 545 & 18744  \\
-% 
-%  \hline
-% \end{tabular}
-% \caption{Scenarios}
-% \label{table:1}
-% \end{table}
+Then in the next step, {\sc Highlighter} shows 5 other points relevant to the new selection. This new result show how drop-offs in [location] relate to neighbor locations and how next can-idle sop can be chosen. Lucas selects the first highlighted point [reason based on observation].
