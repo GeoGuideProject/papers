@@ -19,6 +19,8 @@
 \newtheorem{problem}{Problem}
 \newtheorem{definition}{Definition}
 
+\newcommand{\framework}{{\sc GeoHighlight}}
+
  
 % DOI
 \doi{10.475/123_4}
@@ -56,17 +58,7 @@ $^{\ddag}$\path{placido.neto@ifrn.edu.br}
 
 \maketitle
 \begin{abstract}
-
-This paper proposes an approach towards generic visualization of
-spatiotemporal data. Although the initial focus of our proposal is on urban
-data, our framework was designed in a way to support any types of
-\textit{geo} data such as flight data, bike data, smartphone GPS data, etc.
-Highlighting spatiotemporal data is also a challenge that this work exploits, by using
-recommendation algorithm to produce relevant results from datasets that has
-geographic informations. We also discuss some directions and benefits of using
-recommendation algorithm to highlight or retrieve important informations from
-these kind of datasets.
-
+Spatiotemporal data is becoming increasingly available in various domains such as transportation and social science. Discovering patterns and trends in this data provides improved insights for planning and decision making for smart city management, disaster management and other applications. However, exploratory analysis of such data is a challenge due to the huge size and diversity of such data. It is often unclear for the analyst {\em what to see next} during an analysis process, i.e., lack of guidance. To tackle this challenge, we formulate guidance as an optimization problem and develop \framework, an efficient interactive guidance approach for spatiotemporal data. At each step of an interactive process, $k$ most interesting geographical points become highlighted to guide the analyst through further steps. We illustrate the efficiency and usability of our framework in an extensive set of experiments.
 \end{abstract}
 
 % \keywords{Interactive analysis; Spatiotemporal visualization; Urban data.}
