@@ -4,13 +4,12 @@ Our {\sc GeoGuidance} problem requires an efficient algorithm for dynamically an
 
 {\sc GeoHighlight} operates in two steps: {\sc Preparation} and {\sc Highlighter}. In order to speed up computing relevance in online execution, we pre-compute an inverted index for each single geographical point in ${\cal P}$ in the offline {\sc Preparation} step (as is commonly done in Web search). Each index ${\cal L}_p$ for the point $p$ stores all other points in ${\cal P}$ in decreasing order of their similarity with $p$. Thanks to the parameter $\sigma$, we only partially materialize the indexes.
 
-% behrooz: make a figure which explains the whole framework
 % behrooz: explain the whole package
 
 \begin{figure}
   \centering
-  \includegraphics[width=\columnwidth]{figs/placeholder}
-\caption{{\sc GeoHighlight} Framework}
+  \includegraphics[width=\columnwidth]{figs/framework}
+\caption{\framework\ Framework}
 \label{fig:framwork}
 \end{figure}
 
@@ -37,7 +36,7 @@ $g_{next} \gets get\_next({\cal L}^p)$\;}\label{cd:endwhile}
 \label{algo:geoh}
 \end{algorithm}
 
-% mention working of sacrification
+% behrooz: mention working of sacrification
 
 {\sc Highlighter} begins by retrieving the most similar points to $p$ by simply retrieving the $k$ highest ranking points in ${\cal L}_p$ (line \ref{cd:gettopk}). Function $get\_next({\cal L}_p)$ (Line \ref{cd:getnext}) returns the next point $p_{next}$ in ${\cal L}_p$ in sequential order. Lines \ref{cd:beginwhile} to \ref{cd:endwhile} iterate over the inverted indexes to determine if other points should be considered to increase diversity while staying within the time limit and not violating the similarity threshold with the selected point. Since points in ${\cal L}_g$ are sorted on decreasing similarity with $p$, the algorithm can safely stop as soon as the similarity condition is violated (or if the time limit is exceeded).
 
