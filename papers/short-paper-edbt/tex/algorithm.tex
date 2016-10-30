@@ -1,6 +1,7 @@
 \section{Algorithm}
 \label{sec:algo}
-Our {\sc GeoGuidance} problem requires an efficient algorithm for dynamically analyzing and comparing geographical points. We propose {\sc GeoHighlight} as a solution for the generic guidance problem in spatiotemporal data. 
+We propose a solution for \pb\ by insping from both recommendation \cite{Omidvar-Tehrani:2015} and
+visual highlighting \cite{Lohmann:2012,Robinson2011,Liang2010} methodologies. Our \pb\ problem requires an efficient algorithm for dynamically analyzing and comparing geographical points. We propose {\sc GeoHighlight} as a solution for the generic guidance problem in spatiotemporal data. 
 
 {\sc GeoHighlight} operates in two steps: {\sc Preparation} and {\sc Highlighter}. In order to speed up computing relevance in online execution, we pre-compute an inverted index for each single geographical point in ${\cal P}$ in the offline {\sc Preparation} step (as is commonly done in Web search). Each index ${\cal L}_p$ for the point $p$ stores all other points in ${\cal P}$ in decreasing order of their similarity with $p$. Thanks to the parameter $\sigma$, we only partially materialize the indexes.
 

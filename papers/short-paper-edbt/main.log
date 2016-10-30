@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.27)  29 OCT 2016 20:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.27)  29 OCT 2016 22:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -578,63 +578,51 @@ e
 ))
 \c@problem=\count164
 \c@definition=\count165
-LaTeX Font Info:    Try loading font information for U+msa on input line 59.
+\c@example=\count166
+LaTeX Font Info:    Try loading font information for U+msa on input line 61.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 59.
+LaTeX Font Info:    Try loading font information for U+msb on input line 61.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 59.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 61.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for T1+aett on input line 59.
+LaTeX Font Info:    Try loading font information for T1+aett on input line 61.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/ae/t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 59.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 61.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 59.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 61.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <7> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 59.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 61.
 
 (./tex/intro.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \hbox (13.21764pt too wide) in paragraph at lines 7--8
+[]\T1/aer/m/n/9 To over-come this chal-lenge, vi-su-al-iza-tion tools of-fer a 
+plethora
+ []
 
- [1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
-
-
-]
-
-LaTeX Warning: Reference `sec:problem-definition' on page \thepage  undefined o
-n input line 56.
+[1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
-LaTeX Warning: Reference `sec:algorithm' on page \thepage  undefined on input l
-ine 57.
-
-
-LaTeX Warning: Reference `sec:related-works' on page \thepage  undefined on inp
-ut line 59.
-
-
-LaTeX Warning: Reference `sec:conclusions' on page \thepage  undefined on input
- line 59.
-
-) (./tex/datamodel.tex
+])
+(./tex/datamodel.tex
 Overfull \hbox (3.88559pt too wide) in paragraph at lines 2--3
 []\T1/aer/m/n/9 A spa-tiotem-po-ral dataset con-tains a vast va-ri-ety of datas
 ets
@@ -690,10 +678,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 10498 strings out of 493117
- 174266 string characters out of 6135432
- 251616 words of memory out of 5000000
- 13774 multiletter control sequences out of 15000+600000
+ 10502 strings out of 493117
+ 174259 string characters out of 6135432
+ 252624 words of memory out of 5000000
+ 13778 multiletter control sequences out of 15000+600000
  65914 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,17n,35p,10351b,478s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -719,7 +707,7 @@ rw/helvetic/uhvb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/helv
 etic/uhvr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmb8
 a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></us
 r/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (5 pages, 569983 bytes).
+Output written on main.pdf (5 pages, 572891 bytes).
 PDF statistics:
  170 PDF objects out of 1000 (max. 8388607)
  118 compressed objects within 2 object streams

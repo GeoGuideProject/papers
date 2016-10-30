@@ -40,7 +40,7 @@ distance(p,p') = [ acos(cos(p_{lat}) . cos(p'_{lat}) . cos(p_{lng}) . cos(p'_{ln
 \vspace{5pt}
 Following aforementioned desiderata, we forumlate highlighting as an optimization-based problem where we optimize diversity and respect a bound on relevance.
 
-\begin{problem}[GeoGuidance]
+\begin{problem}[\pb]
 \label{pb:geoh}
 Given an input point $p$ and $\sigma$, the problem is to return $k$-relevant points to $p$ denoted $S_p$ where $|S_p| = k$ and $\forall p' \in S_p, \mathit{relevance}(p,p') \geq \sigma$ and $\mathit{diversity}(S_p)$ is maximized.
 \end{problem}
