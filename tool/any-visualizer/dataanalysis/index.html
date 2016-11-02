@@ -1,130 +1,302 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>AnyVisualizer - Data Analysis</title>
-    <link href="/static/bootstrap.min.css" rel="stylesheet">
-    <link href="/static/leaflet.css" rel="stylesheet">
-    <script src="/static/leaflet.js"></script>
-    <script src="/static/d3.v3.min.js"></script>
-    <script src="/static/leaflet-heat.js"></script>
-    <html manifest="/static/app.appcache">
-  </head>
-  <body>
-    <style>
-      #selectvalues{
-        padding-left: 20px;
-        padding-right: 20px;
-        font-size: 16px;
-        margin-right: 40px;
-      }
-      #map{
-        height: 500px;
-        margin-top: 5px;
-      }
-    </style>
-    <nav class="navbar navbar-inverse">
-  		<div class="container-fluid">
-  			<div class="navbar-header">
-  				<a class="navbar-brand" href="#">AnyVisualizer</a>
-  			</div>
-  		</div>
-  	</nav>
-
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-5">
-          <div class="page-header">
-            <h1>
-              Select the range <small>To show on map.</small>
-            </h1>
-          </div>
-          Similarity <select id="selectvalues">
-           <option value="0">0.0 ~ 0.1</option>
-           <option value="1">0.1 ~ 0.2</option>
-           <option value="2">0.2 ~ 0.3</option>
-           <option value="3">0.3 ~ 0.4</option>
-           <option value="4">0.4 ~ 0.5</option>
-           <option value="5">0.5 ~ 0.6</option>
-           <option value="6">0.6 ~ 0.7</option>
-           <option value="7">0.7 ~ 0.8</option>
-           <option value="8">0.8 ~ 0.9</option>
-           <option value="9">0.9 ~ 1.0</option>
-          </select>
-          <input type="button" onClick="refreshMap()" value="Show">
-        </div>
-        <div class="col-md-6">
-          <div id="map"></div>
-        </div>
-      </div>
+<head>
+  <meta charset="utf-8">
+  <title>AnyVisualizer - Data Analysis</title>
+  <link href="/static/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/leaflet.css" rel="stylesheet">
+  <script src="/static/leaflet.js"></script>
+  <script src="/static/d3.v3.min.js"></script>
+  <script src="/static/leaflet-heat.js"></script>
+  <html manifest="/static/app.appcache">
+</head>
+<body>
+<style>
+#selectvalues{
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 16px;
+  margin-right: 40px;
+}
+#map{
+  height: 500px;
+  margin-top: 5px;
+}
+</style>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">AnyVisualizer</a>
     </div>
-    <script>
-      var latmed, longmed;
-      var ps1lat, ps1long, ps2lat, ps2long;
-      var map = L.map('map').setView([0.0, 0.0], 10);
-      var maplayer = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
-          attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-      });
-      d3.csv("/dataanalysis/index.csv", function(error, data) {
-          var latmed = parseFloat(d3.min(data, function(d) { return d.latitude; })) + parseFloat(d3.max(data, function(d) { return d.latitude; }));
-          var latmed = latmed/2;
-          var longmed = parseFloat(d3.min(data, function(d) { return d.longitude; })) + parseFloat(d3.max(data, function(d) { return d.longitude; }));
-          var longmed = longmed/2;
-          map.panTo(new L.LatLng(latmed,longmed));
-      });
-      var inconBasic = L.icon({
-          iconUrl: '/static/images/marker-icon.png',
-          iconSize:     [15, 15], // size of the icon
-          iconAnchor:   [7, 7], // point of the icon which will correspond to marker's location
-          popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
-      });
-      maplayer.addTo(map);
-      function refreshMap(){
-          map.eachLayer(function (layer) {
-    				if(maplayer != layer){
-    					map.removeLayer(layer);
-    				}
-    			});
-          var latglobal;
-          var namefile = document.getElementById("selectvalues").options[document.getElementById("selectvalues").selectedIndex].value;
-          namefile = "/dataanalysis/dspoints/" + namefile + "_" + (parseInt(namefile)+1) + ".csv"
-          console.log(namefile)
-          d3.csv(namefile, function(error, points) {
-            d3.csv("/dataanalysis/index.csv", function(error, index) {
-                points.forEach(function(pdata) {
-                    var stop = 0;
-                    p1s = parseFloat(pdata.p1);
-                    p2s = parseFloat(pdata.p2);
-                    index.forEach(function(idata) {
-                        if(stop == 2){
-                          return false;
-                        }
-                        indp = parseFloat(idata.p);
-                        if(p1s == indp){
-                          ps1lat = parseFloat(idata.latitude);
-                          ps1long = parseFloat(idata.longitude);
-                          stop += 1;
-                        }
-                        else if(p2s == indp){
-                          ps2lat = parseFloat(idata.latitude);
-                          ps2long = parseFloat(idata.longitude);
-                          stop += 1;
-                        }
-                        return true;
-                    });
-                    //map.panTo(new L.LatLng(ps1lat,ps1long));
-                    strpoint = "Index: " + p1s + "<br>Latitude: " + ps1lat + "<br>Longitude: " + ps1long;
-                    L.marker([ps1lat, ps1long], {icon: inconBasic}).addTo(map)
-                    .bindPopup(strpoint).openPopup();
-                    
-                    strpoint = "Index: " + p2s + "<br>Latitude: " + ps2lat + "<br>Longitude: " + ps2long;
-                    L.marker([ps2lat, ps2long], {icon: inconBasic}).addTo(map)
-                    .bindPopup(strpoint).openPopup();
-                });
-            });
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+      <div class="page-header">
+        <h1>
+          Select the range <small>To show on map.</small>
+        </h1>
+      </div>
+      Similarity <br><select id="selectvalues">
+        <option value="0">0.0 ~ 0.1</option>
+        <option value="1">0.1 ~ 0.2</option>
+        <option value="2">0.2 ~ 0.3</option>
+        <option value="3">0.3 ~ 0.4</option>
+        <option value="4">0.4 ~ 0.5</option>
+        <option value="5">0.5 ~ 0.6</option>
+        <option value="6">0.6 ~ 0.7</option>
+        <option value="7">0.7 ~ 0.8</option>
+        <option value="8">0.8 ~ 0.9</option>
+        <option value="9">0.9 ~ 1.0</option>
+      </select><br><br>
+      K <br><input type="number" id="kvalue" name="kvalue" min="1" max="20" required><br> <br><br>
+      <input type="button" onClick="refreshMap()" value="Show">
+
+    </div>
+    <div class="col-md-6">
+      <div id="map"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <p id="status">1</p>
+      <br>Similarity points:<br><p id="similares"></p>
+    </div>
+  </div>
+</div>
+<script>
+var latmed, longmed;
+var layersorigin;
+var status = 1, pointsStat1 = [], idPoint1, layersorigin;
+var ps1lat, ps1long, ps2lat, ps2long;
+var map = L.map('map').setView([0.0, 0.0], 10);
+var maplayer = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+});
+d3.csv("/dataanalysis/index.csv", function(error, data) {
+  var latmed = parseFloat(d3.min(data, function(d) { return d.latitude; })) + parseFloat(d3.max(data, function(d) { return d.latitude; }));
+  var latmed = latmed/2;
+  var longmed = parseFloat(d3.min(data, function(d) { return d.longitude; })) + parseFloat(d3.max(data, function(d) { return d.longitude; }));
+  var longmed = longmed/2;
+  map.panTo(new L.LatLng(latmed,longmed));
+});
+var inconBasic = L.icon({
+  iconUrl: '/static/images/marker-icon.png',
+  iconSize:     [15, 15], // size of the icon
+  iconAnchor:   [7, 7], // point of the icon which will correspond to marker's location
+  popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
+});
+var inconGreen = L.icon({
+  iconUrl: '/static/images/marker-icon-green.png',
+  iconSize:     [15, 15], // size of the icon
+  iconAnchor:   [7, 7], // point of the icon which will correspond to marker's location
+  popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
+});
+var inconRed = L.icon({
+  iconUrl: '/static/images/marker-icon-red.png',
+  iconSize:     [15, 15], // size of the icon
+  iconAnchor:   [7, 7], // point of the icon which will correspond to marker's location
+  popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
+});
+var inconYellow = L.icon({
+  iconUrl: '/static/images/marker-icon-yellow.png',
+  iconSize:     [15, 15], // size of the icon
+  iconAnchor:   [7, 7], // point of the icon which will correspond to marker's location
+  popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
+});
+maplayer.addTo(map);
+function refreshMap(){
+  document.getElementById("status").innerHTML = "1"
+  map.eachLayer(function (layer) {
+    if(maplayer != layer){
+      map.removeLayer(layer);
+    }
+  });
+  var latglobal;
+  var namefile = document.getElementById("selectvalues").options[document.getElementById("selectvalues").selectedIndex].value;
+  namefile = "/dataanalysis/dspoints/" + namefile + "_" + (parseInt(namefile)+1) + ".csv"
+  d3.csv(namefile, function(error, points) {
+    d3.csv("/dataanalysis/index.csv", function(error, index) {
+      points.forEach(function(pdata) {
+        var stop = 0;
+
+        p1s = parseFloat(pdata.p1);
+        p2s = parseFloat(pdata.p2);
+        var layersarray = [];
+        index.forEach(function(idata) {
+          if(stop == 2){
+            return false;
+          }
+          indp = parseFloat(idata.p);
+          if(p1s == indp){
+            ps1lat = parseFloat(idata.latitude);
+            ps1long = parseFloat(idata.longitude);
+            stop += 1;
+          }
+          else if(p2s == indp){
+            ps2lat = parseFloat(idata.latitude);
+            ps2long = parseFloat(idata.longitude);
+            stop += 1;
+          }
+          return true;
+        });
+        //map.panTo(new L.LatLng(ps1lat,ps1long));
+
+        //If change strpoint, change onclick splitContent
+        strpoint = "Index: " + p1s + " <br>Latitude: " + ps1lat + "<br>Longitude: " + ps1long;
+        L.marker([ps1lat, ps1long], {icon: inconBasic}).addTo(map)
+        .bindPopup(strpoint)
+        .on('click', onClick)
+        .on('mouseover', function (e) {
+          this.openPopup();
+        })
+        .on('mouseout', function (e) {
+          this.closePopup();
+        });
+
+        strpoint = "Index: " + p2s + " <br>Latitude: " + ps2lat + "<br>Longitude: " + ps2long;
+        L.marker([ps2lat, ps2long], {icon: inconBasic}).addTo(map)
+        .bindPopup(strpoint)
+        .on('click', onClick)
+        .on('mouseover', function (e) {
+          this.openPopup();
+        })
+        .on('mouseout', function (e) {
+          this.closePopup();
+        });
+        map.eachLayer(function (layer) {
+          layersarray.push(layer);
+        });
+        layersorigin = L.layerGroup(layersorigin);
+        function onClick(e) {
+          var splitContent = this.getPopup().getContent().split(" ");
+          var idPoint = parseInt(splitContent[1]);
+          var strSimPoints = "", strSimValues = "";
+          points.forEach(function(pdata2) {
+            p1click = parseFloat(pdata2.p1);
+            p2click = parseFloat(pdata2.p2);
+            if(p1click == idPoint){
+              strSimPoints += p2click + " ";
+              strSimValues += pdata2.similarity + " ";
+            }
+            else if(idPoint == p2click + " "){
+              strSimPoints += p1click + " ";
+              strSimValues += pdata2.similarity + " ";
+            }
           });
-      }
-    </script>
-  </body>
+          // FALTA VERIFICAR O VALOR DE K E RETORNAR APENAS OS k COM MAIOR VALOR DE SIMILARIDADE EM ORDEN
+          document.getElementById("similares").innerHTML = strSimPoints;
+          var CountK = 0, Kvalue = document.getElementById("kvalue").value;
+
+          var SimPoints = strSimPoints.split(" ");
+          if(Kvalue < SimPoints.length){
+
+            var SimPointsReference = strSimPoints.split(" ");
+            var SimPoints = [];
+
+            var SimPointsValReference = strSimValues.split(" ");
+            var SimPointsValCopy = strSimValues.split(" ");
+            var SimValues = [];
+
+            SimPointsValCopy.sort(function(a,b) {
+              return a - b;
+            });
+            SimPointsValCopy.reverse();
+            for (var i = 0; i < Kvalue; i++) {
+              for (var e = 0; e < SimPointsValReference.length; e++) {
+                if(SimPointsValReference[e] == SimPointsValCopy[i]){
+                  SimValues.push(SimPointsValReference.splice(e, 1));
+                  SimPoints.push(SimPointsReference.splice(e, 1));
+                }
+              }
+            }
+          }
+          else{
+            var SimPoints = strSimPoints.split(" ");
+            var SimValues = strSimValues.split(" ");
+          }
+          var status = document.getElementById("status").innerHTML;
+          console.log(status);
+          if(status == 1){
+            pointsStat1 = SimPoints;
+            idPoint1 = idPoint;
+            map.eachLayer(function (layer) {
+              if(maplayer != layer){
+                try {
+                  var splitContent = layer.getPopup().getContent();
+                  splitContent = splitContent.split(" ");
+                  var remPoint = true;
+                  SimPoints.forEach(function(simp){
+                    if(splitContent[1] == simp){
+                      remPoint = false;
+                      layer.setIcon(inconRed);
+                    }
+                    else if(splitContent[1] ==  idPoint){
+                      remPoint =  false;
+                      layer.setIcon(inconBasic);
+                    }
+                  });
+                  if(remPoint == true){
+                    map.removeLayer(layer);
+                  }
+                } catch (e) {
+
+                }
+              }
+            });
+            document.getElementById("status").innerHTML = "2";
+          }
+          else{
+            map.eachLayer(function (layer) {
+              console.log('x');
+              if(maplayer != layer){
+                map.removeLayer(layer);
+              }
+            });
+            d3.csv("/dataanalysis/index.csv", function(error, indexreload) {
+              indexreload.forEach(function(inddatareload) {
+                pointsStat1.forEach(function(simpreload){
+                  if(inddatareload.p == simpreload){
+                    strpoint = "Index: " + inddatareload.p  + " <br>Latitude: " + inddatareload.latitude + "<br>Longitude: " + inddatareload.longitude;
+                    if(inddatareload.p == idPoint){
+                      L.marker([inddatareload.latitude, inddatareload.longitude], {icon: inconYellow}).addTo(map).bindPopup(strpoint)
+                      .on('mouseover', function (e) {this.openPopup();})
+                      .on('mouseout', function (e) {this.closePopup();})
+                    }
+                    else{
+                      L.marker([inddatareload.latitude, inddatareload.longitude], {icon: inconGreen}).addTo(map).bindPopup(strpoint)
+                      .on('mouseover', function (e) {this.openPopup();})
+                      .on('mouseout', function (e) {this.closePopup();})
+                    }
+                  }
+                });
+                SimPoints.forEach(function(simpreload){
+                  if(inddatareload.p == simpreload){
+                    strpoint = "Index: " + inddatareload.p  + " <br>Latitude: " + inddatareload.latitude + "<br>Longitude: " + inddatareload.longitude;
+                    if(inddatareload.p == idPoint1){
+                      L.marker([inddatareload.latitude, inddatareload.longitude], {icon: inconBasic}).addTo(map).bindPopup(strpoint)
+                      .on('mouseover', function (e) {this.openPopup();})
+                      .on('mouseout', function (e) {this.closePopup();})
+                    }
+                    else{
+                      L.marker([inddatareload.latitude, inddatareload.longitude], {icon: inconRed}).addTo(map).bindPopup(strpoint)
+                      .on('mouseover', function (e) {this.openPopup();})
+                      .on('mouseout', function (e) {this.closePopup();})
+                    }
+                  }
+                });
+              });
+            });
+          }
+        }
+      });
+    });
+  });
+}
+</script>
+</body>
 </html>
