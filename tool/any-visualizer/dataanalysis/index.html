@@ -151,18 +151,18 @@ function refreshMap(){
         L.marker([ps1lat, ps1long], {icon: inconBasic}).addTo(map)
         .bindPopup(strpoint)
         .on('click', onClick)
-        .on('mouseover', function (e) {
+        /*.on('mouseover', function (e) {
           this.openPopup();
         })
         .on('mouseout', function (e) {
           this.closePopup();
-        });
+        })*/;
 
         strpoint = "Index: " + p2s + " <br>Latitude: " + ps2lat + "<br>Longitude: " + ps2long;
         L.marker([ps2lat, ps2long], {icon: inconBasic}).addTo(map)
         .bindPopup(strpoint)
         .on('click', onClick)
-        .on('mouseover', function (e) {
+        /*.on('mouseover', function (e) {
           this.openPopup();
         })
         .on('mouseout', function (e) {
@@ -170,7 +170,7 @@ function refreshMap(){
         });
         map.eachLayer(function (layer) {
           layersarray.push(layer);
-        });
+        })*/;
         layersorigin = L.layerGroup(layersorigin);
         function onClick(e) {
           var splitContent = this.getPopup().getContent().split(" ");
