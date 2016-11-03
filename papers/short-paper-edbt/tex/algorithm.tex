@@ -3,22 +3,15 @@
 We propose a solution for \pb\ by insping from both recommendation \cite{Omidvar-Tehrani:2015} and
 visual highlighting \cite{Lohmann:2012,Robinson2011,Liang2010} methodologies. Our \pb\ problem requires an efficient algorithm for dynamically analyzing and comparing geographical points. We propose {\sc GeoHighlight} as a solution for the generic guidance problem in spatiotemporal data. 
 
-{\sc GeoHighlight} operates in two steps: {\sc Preparation} and {\sc Highlighter}. In order to speed up computing relevance in online execution, we pre-compute an inverted index for each single geographical point in ${\cal P}$ in the offline {\sc Preparation} step (as is commonly done in Web search). Each index ${\cal L}_p$ for the point $p$ stores all other points in ${\cal P}$ in decreasing order of their similarity with $p$. Thanks to the parameter $\sigma$, we only partially materialize the indexes.
+{\sc GeoHighlight} operates in two steps: {\sc Preparation} and {\sc Highlighter}. In order to speed up computing relevance in online execution, we pre-compute an inverted index for each single geographical point in ${\cal P}$ in the offline {\sc Preparation} step (as is commonly done in Web search). Each index ${\cal L}_p$ for the point $p$ stores all other points in ${\cal P}$ in decreasing order of their relevance with $p$. Thanks to the parameter $\sigma$, we only partially materialize the indexes.
 
 % behrooz: explain the whole package
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\columnwidth]{figs/framework}
-\caption{\framework\ Framework}
-\label{fig:framwork}
-\end{figure}
 
 Algorithm \ref{algo:geoh} illustrates the online execution step of {\sc GeoHighlight}, so called {\sc Highlighter}. The algorithm is a single greedy procedure that solves the {\sc GeoGuidance} problem. {\sc Highlighter} is called at each step of {\sc GeoHighlight} (as in Figure \ref{fig:framework}). The algorithm admits as input a point $p \in {\cal P}$ and returns the best $k$ points denoted ${\cal S}_p$.
 
 To comply with the desiderata {\bf D5}, we consider a time limit parameter $tlimit$ in Algorithm \ref{algo:geoh}: in a {\em best-effort} strategy, the algorithm bounds user waiting time by $tlimit$ to return the best possible results by then.
 
-\begin{algorithm}
+\begin{algorithm}[t]
 \DontPrintSemicolon
 \KwIn{$p \in {\cal P}$, $\sigma$, $k$, $tlimit$}
 \KwOut{${\cal S}_p$}
@@ -39,9 +32,9 @@ $g_{next} \gets get\_next({\cal L}^p)$\;}\label{cd:endwhile}
 
 % behrooz: mention working of sacrification
 
-{\sc Highlighter} begins by retrieving the most similar points to $p$ by simply retrieving the $k$ highest ranking points in ${\cal L}_p$ (line \ref{cd:gettopk}). Function $get\_next({\cal L}_p)$ (Line \ref{cd:getnext}) returns the next point $p_{next}$ in ${\cal L}_p$ in sequential order. Lines \ref{cd:beginwhile} to \ref{cd:endwhile} iterate over the inverted indexes to determine if other points should be considered to increase diversity while staying within the time limit and not violating the similarity threshold with the selected point. Since points in ${\cal L}_g$ are sorted on decreasing similarity with $p$, the algorithm can safely stop as soon as the similarity condition is violated (or if the time limit is exceeded).
+{\sc Highlighter} begins by retrieving the most relevant points to $p$ by simply retrieving the $k$ highest ranking points in ${\cal L}_p$ (line \ref{cd:gettopk}). Function $get\_next({\cal L}_p)$ (Line \ref{cd:getnext}) returns the next point $p_{next}$ in ${\cal L}_p$ in sequential order. Lines \ref{cd:beginwhile} to \ref{cd:endwhile} iterate over the inverted indexes to determine if other points should be considered to increase diversity while staying within the time limit and not violating the relevance threshold with the selected point. Since points in ${\cal L}_g$ are sorted on decreasing relevance with $p$, the algorithm can safely stop as soon as the relevance condition is violated (or if the time limit is exceeded).
 
 The algorithm then looks for a candidate point $p_{current} \in {\cal S}_p$ to replace in order to increase diversity. The boolean function $\mathit{diversity\_improved}()$ (line \ref{cd:betterdiv}) checks if by replacing $p_{current}$ by $p_{next}$ in ${\cal S}_p$, the overall diversity of the new ${\cal S}_p$ increases.
 
-\vspace{5pt}
-\noindent {\bf Complexity Analysis.} The number of diversity improvement loops (lines \ref{cd:beginwhile} to \ref{cd:endwhile}) is $|{\cal L}_p| = |{\cal P}|$ in worst case. For each point $g_{current} \in {\cal S}_p$, we verify if the diversity score is improved by $\mathit{diversity\_improved}()$, hence $\mathcal{O}(k^2$). The time complexity of the algorithm is then $\mathcal{O}(k^2.|{\cal P}|)$.
+% \vspace{5pt}
+% \noindent {\bf Complexity Analysis.} The number of diversity improvement loops (lines \ref{cd:beginwhile} to \ref{cd:endwhile}) is $|{\cal L}_p| = |{\cal P}|$ in worst case. For each point $g_{current} \in {\cal S}_p$, we verify if the diversity score is improved by $\mathit{diversity\_improved}()$, hence $\mathcal{O}(k^2$). The time complexity of the algorithm is then $\mathcal{O}(k^2.|{\cal P}|)$.
