@@ -38,7 +38,7 @@ def dataanalysis():
     return send_from_directory(APP_ANALYSIS, 'loading.html')
 
 #def dataanalysis():
-    #return send_from_directory(APP_ANALYSIS, 'loading.html')
+    #return send_from_directory(APP_ANALYSIS, 'loading.html') 
 
 def file_proc():
     examplevalues = []

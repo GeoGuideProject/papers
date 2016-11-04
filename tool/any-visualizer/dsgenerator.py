@@ -115,7 +115,7 @@ with open('dataanalysis/arquivo.csv') as f1:
         else:
             firstline = False
 print(biggerdistance, biggersimilarity)
-print("Parsing distance and similarity from temp.csv to ds.csv")
+print("Parsing distance and similarity from temp.csv to ds.csv ")
 f = open("dataanalysis/ds.csv", "wb")
 dscsv = csv.writer(f)
 with open('dataanalysis/temp.csv') as f3:
