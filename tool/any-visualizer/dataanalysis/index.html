@@ -22,6 +22,12 @@
   height: 500px;
   margin-top: 5px;
 }
+#firstpass, #seccondpass{
+  border: 1px dashed rgba(0, 0, 0, 0.5);
+  margin-top: 5px;
+  padding-left: 10px;
+  display: none;
+}
 </style>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -40,7 +46,7 @@
           Select the range <small>To show on map.</small>
         </h1>
       </div>
-      Similarity <br><select id="selectvalues">
+      Similarity &nbsp;<select id="selectvalues">
         <option value="0">0.0 ~ 0.1</option>
         <option value="1">0.1 ~ 0.2</option>
         <option value="2">0.2 ~ 0.3</option>
@@ -51,10 +57,21 @@
         <option value="7">0.7 ~ 0.8</option>
         <option value="8">0.8 ~ 0.9</option>
         <option value="9">0.9 ~ 1.0</option>
-      </select><br><br>
-      K <br><input type="number" id="kvalue" name="kvalue" min="1" max="20" required><br> <br><br>
-      <input type="button" onClick="refreshMap()" value="Show">
-
+      </select>&nbsp;&nbsp;
+      K &nbsp;<input type="number" id="kvalue" name="kvalue" value="1" min="1" max="20" required>&nbsp;&nbsp;&nbsp;
+      <input type="button" onClick="refreshMap()" value="Show"><br><br>
+      <div id="firstpass">
+        <b>First Pass</b><br> - Similar Points:<br>
+        <p id="similares"></p>
+        <br> - Top K Points:<br>
+        <p id="ksimilares"></p>
+      </div>
+      <div id="seccondpass">
+        <b>Seccond Pass</b><br> - Similar Points:<br>
+        <p id="similares2"></p>
+        <br> - Top K Points:<br>
+        <p id="ksimilares2"></p>
+      </div>
     </div>
     <div class="col-md-6">
       <div id="map"></div>
@@ -63,8 +80,7 @@
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10">
-      <p id="status">1</p>
-      <br>Similarity points:<br><p id="similares"></p>
+      <p style="display: none;" id="status">1</p>
     </div>
   </div>
 </div>
@@ -189,7 +205,7 @@ function refreshMap(){
             }
           });
           // FALTA VERIFICAR O VALOR DE K E RETORNAR APENAS OS k COM MAIOR VALOR DE SIMILARIDADE EM ORDEN
-          document.getElementById("similares").innerHTML = strSimPoints;
+
           var CountK = 0, Kvalue = document.getElementById("kvalue").value;
 
           var SimPoints = strSimPoints.split(" ");
@@ -220,7 +236,24 @@ function refreshMap(){
             var SimValues = strSimValues.split(" ");
           }
           var status = document.getElementById("status").innerHTML;
-          console.log(status);
+          if(status == 1){
+            document.getElementById("firstpass").style.display = 'block';
+            document.getElementById("similares").innerHTML = strSimPoints;
+            var strSimPSelected = "";
+            for (var i = 0; i < Kvalue; i++) {
+              strSimPSelected += SimPoints[i] + " ";
+            }
+            document.getElementById("ksimilares").innerHTML = strSimPSelected;
+          }
+          else{
+            document.getElementById("seccondpass").style.display = 'block';
+            document.getElementById("similares2").innerHTML = strSimPoints;
+            var strSimPSelected = "";
+            for (var i = 0; i < Kvalue; i++) {
+              strSimPSelected += SimPoints[i] + " ";
+            }
+            document.getElementById("ksimilares2").innerHTML = strSimPSelected;
+          }
           if(status == 1){
             pointsStat1 = SimPoints;
             idPoint1 = idPoint;
@@ -261,14 +294,14 @@ function refreshMap(){
               indexreload.forEach(function(inddatareload) {
                 pointsStat1.forEach(function(simpreload){
                   if(inddatareload.p == simpreload){
-                    strpoint = "Index: " + inddatareload.p  + " <br>Latitude: " + inddatareload.latitude + "<br>Longitude: " + inddatareload.longitude;
-                    if(inddatareload.p == idPoint){
-                      L.marker([inddatareload.latitude, inddatareload.longitude], {icon: inconYellow}).addTo(map).bindPopup(strpoint)
+                    strpoint = "Index: " + inddatareload.p  + " <br>Latitude: " + inddatareload.latitude + "<br>Longitude: " + inddatareload.longitude + "<br>This is: " + inddatareload.pickupordropoff + " point";
+                    if(inddatareload.p == idPoint1){
+                      L.marker([inddatareload.latitude, inddatareload.longitude], {icon: inconBasic}).addTo(map).bindPopup(strpoint)
                       .on('mouseover', function (e) {this.openPopup();})
                       .on('mouseout', function (e) {this.closePopup();})
                     }
                     else{
-                      L.marker([inddatareload.latitude, inddatareload.longitude], {icon: inconGreen}).addTo(map).bindPopup(strpoint)
+                      L.marker([inddatareload.latitude, inddatareload.longitude], {icon: inconRed}).addTo(map).bindPopup(strpoint)
                       .on('mouseover', function (e) {this.openPopup();})
                       .on('mouseout', function (e) {this.closePopup();})
                     }
@@ -277,13 +310,13 @@ function refreshMap(){
                 SimPoints.forEach(function(simpreload){
                   if(inddatareload.p == simpreload){
                     strpoint = "Index: " + inddatareload.p  + " <br>Latitude: " + inddatareload.latitude + "<br>Longitude: " + inddatareload.longitude;
-                    if(inddatareload.p == idPoint1){
-                      L.marker([inddatareload.latitude, inddatareload.longitude], {icon: inconBasic}).addTo(map).bindPopup(strpoint)
+                    if(inddatareload.p == idPoint){
+                      L.marker([inddatareload.latitude, inddatareload.longitude], {icon: inconYellow}).addTo(map).bindPopup(strpoint)
                       .on('mouseover', function (e) {this.openPopup();})
                       .on('mouseout', function (e) {this.closePopup();})
                     }
-                    else{
-                      L.marker([inddatareload.latitude, inddatareload.longitude], {icon: inconRed}).addTo(map).bindPopup(strpoint)
+                    else if(inddatareload.p != idPoint1){
+                      L.marker([inddatareload.latitude, inddatareload.longitude], {icon: inconGreen}).addTo(map).bindPopup(strpoint)
                       .on('mouseover', function (e) {this.openPopup();})
                       .on('mouseout', function (e) {this.closePopup();})
                     }

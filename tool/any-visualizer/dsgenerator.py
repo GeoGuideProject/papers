@@ -47,7 +47,7 @@ def ignorePoint(p1,p2,p3,p4):
 
 temp = csv.writer(open("dataanalysis/temp.csv", "wb"))
 index = csv.writer(open("dataanalysis/index.csv", "wb"))
-index.writerow(['p', 'latitude', 'longitude'])
+index.writerow(['p', 'latitude', 'longitude', 'pickupordropoff'])
 print("Writing temp.csv with real distance and similarity values\n\nPoints ignored:")
 with open('dataanalysis/arquivo.csv') as f1:
     for row in csv.reader(iter(f1.readline, '')):
@@ -61,8 +61,8 @@ with open('dataanalysis/arquivo.csv') as f1:
                 ignoreIndex += 2
                 print(float(row[latpick]), float(row[longpick]), float(row[latdrop]), float(row[longdrop]))
             else:
-                index.writerow([(countlines*2) - 1 - ignoreIndex, row[latpick], row[longpick]])
-                index.writerow([(countlines*2) - ignoreIndex, row[latdrop], row[longdrop]])
+                index.writerow([(countlines*2) - 1 - ignoreIndex, row[latpick], row[longpick], 'pickup'])
+                index.writerow([(countlines*2) - ignoreIndex, row[latdrop], row[longdrop], 'dropoff'])
                 with open('dataanalysis/arquivo.csv') as f2:
                     for looprow in csv.reader(iter(f2.readline, '')):
                         loopcountlines += 1
