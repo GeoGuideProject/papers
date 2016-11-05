@@ -1,44 +1,52 @@
 \section{Problem Statement}
 \label{sec:pb}
-% prune this
-In an exploratory analysis context, the analyst does not necessarily know what to ask. She may have also a few knowledge about the spatiotemporal data and its attributes. Hence she usually needs to take iterative analysis steps to observe different aspects of data and ultimately land on a subset of interest. However, it is often cumbersome to choose what to analyze next. Because this choice is subjective and infeasible to capture with an unsupervised method.
+% In an exploratory analysis context, the analyst does not necessarily know what to ask. She may have also a few knowledge about the spatiotemporal data and its attributes. Hence she usually needs to take iterative analysis steps to observe different aspects of data and ultimately land on a subset of interest. However, it is often cumbersome to choose what to analyze next. Because this choice is subjective and infeasible to capture with an unsupervised method.
 
-In this paper, we address the problem of {\em generic guidance} in spatiotemporal data: ``what is the process of guiding analysts in iterative analysis steps on any spatiotemporal dataset?'' In other words, we are interested in an approach which highlights a set of $k$ points that the analyst should probably consider in the next analysis iteration. This should not be a heuristic-based data-dependent highlighting, but a {\em generic} approach which is applied on any spatiotemporal dataset. We describe the desiderata of generic guidance approach as follows.
-
-\vspace{5pt}
-\noindent {\bf D1. Genericness.} The guidance component should be agnostic about the dataset type, attributes and distribution. In other words, no assumption should be taken into consideration in a guidance scenario.
+In this paper, we address the problem of {\em generic guidance} in spatiotemporal data: ``what is the process of guiding analysts in iterative analysis steps on any spatiotemporal dataset?'' In other words, we are interested in an approach which highlights a set of $k$ points that the analyst should consider in the next analysis iteration. This should not be a heuristic-based data-dependent highlighting, but a generic approach which is applied on any spatiotemporal dataset. We describe the desiderata of generic guidance approach as follows.
 
 \vspace{5pt}
-\noindent {\bf D2. Limited Options.} The set of $k$ highlighted points should not be very large so that the analyst may become overwhelmed and distracted with too many options \cite{miller1956human}.
+\noindent {\bf D1. Genericness.} The guidance component should be agnostic (making no assumption) about the dataset type, attributes and distribution.
 
 \vspace{5pt}
-\noindent {\bf D3. Relevance.} The fundamental difference between highlighting and $k$-NN spatial queries \cite{aly2015spatial} is that in the former, the focus is not on $k$ points which are geographically close to a point of interest $p$, but the ones which have similar characteristics to $p$. In other words, we are interested in points which are {\em relevant} to a given point of interest. For instance, consider a taxi ride in New York for a young male customer for an itinerary of 10 kilometers and \$3 tip. In contrary to thousands of kilometers of geographical distance, the ride is very similar to another one in San Fransisco for a middle-age male customer for an itinerary of 8 kilometers and \$2.5 tip.
+\noindent {\bf D2. Limited Options.} The set of $k$ highlighted points should not be very large because too many options distract the analyst. % \cite{miller1956human}.
+
+\vspace{5pt}
+\noindent {\bf D3. Relevance.} The fundamental difference between highlighting and $k$-NN spatial queries \cite{aly2015spatial} is that, in the former, the focus is on $k$ points which have similar characteristics to $p$, hence relevant.
+% In other words, we are interested in points which are {\em relevant} to a given point of interest.
+For instance, consider a taxi ride in New York for a young male customer for an itinerary of 10 kilometers and \$3 tip. In contrary to thousands of kilometers of geographical distance, the ride is very similar to another one in San Fransisco for a middle-age male customer for an itinerary of 8 kilometers and \$2.5 tip.
 % Relevance is a pairwise metric which is associated to point characteristics.
-We define the relevance between a pair of points as follows.
+Given two points $p$ and $p'$, we define {\em relevance} as follows.
 
-\begin{definition}[Relevance]
-Given two points $p$ and $p'$ and their attribute values ${\cal A}_{p}$ and ${\cal A}_{p'}$, the relevance between $p$ and $p'$ is a value between $0$ and $1$ denoted as $\mathit{relevance}(p,p') = \mathit{average}_{a \in {\cal A}_{p} \cup {\cal A}_{p'}}(\mathit{sim({\cal A}_{p}, {\cal A}_{p'}, a)})$.
-\label{def:rel}
-\end{definition}
+% \begin{definition}[Relevance]
+% Given two points $p$ and $p'$ and their attribute values ${\cal A}_{p}$ and ${\cal A}_{p'}$, the relevance between $p$ and $p'$ is a value between $0$ and $1$ denoted as $\mathit{relevance}(p,p') = \mathit{average}_{a \in {\cal A}_{p} \cup {\cal A}_{p'}}(\mathit{sim({\cal A}_{p}, {\cal A}_{p'}, a)})$.
+% \label{def:rel}
+% \end{definition}
 
-In Definition \ref{def:rel}, the similarity function $\mathit{sim}()$ can be any function such as Jaccard and Cosine. Each attribute can have its own similarity function (as string and integer attributes are compared differently.) Then $\mathit{sim}()$ works as an overriding-function which provides encapsulated similarity computations for any type of attribute.
+\begin{dmath}
+\label{eq:rel}
+\mathit{relevance}(p,p') = \mathit{average}_{a \in {\cal A}_{p} \cup {\cal A}_{p'}}(\mathit{sim(p, p', a)})
+\end{dmath}
+
+The similarity function $\mathit{sim}()$ can be any function such as Jaccard and Cosine. Each attribute can have its own similarity function (as string and integer attributes are compared differently.) Then $\mathit{sim}()$ works as an overriding-function which provides encapsulated similarity computations for any type of attribute.
 
 \vspace{5pt}
-\noindent {\bf D4. Diversity.} A guidance approach should also consider coverage of all points: $k$ given points should represent different regions so that the analyst can observe different aspects of her data and decide for the next analysis iteration. Hence, $k$ points should be {\em diverse}. Diversity is a set-based metric and is associated to geographical distance. We define this metric as follows.
+\noindent {\bf D4. Diversity.} A guidance approach should also consider coverage of all points: $k$ highlighted points should represent distinct regions so that the analyst can observe different aspects of data and decide for the next analysis iteration. Hence, $k$ points should be diverse.
+% Diversity is a set-based metric and is associated to geographical distance. We define this metric as follows.
+Given a set of points $s = \{ p_1, p_2 \dots \}$, we define {\em diversity} as follows.
 
-\begin{definition}
-Given a set of points $s = \{ p_1, p_2 \dots \}$, the diversity of $s$ is defined as $\mathit{diversity}(s)$ $=$ $\mathit{average}_{\{p, p'\} \subseteq s | p \neq p' }$ $\mathit{distance}(p,p')$.
-\label{def:divs}
-\end{definition}
+\begin{dmath}
+\label{eq:divs}
+\mathit{diversity}(s) = \mathit{average}_{\{p, p'\} \subseteq s | p \neq p' } \mathit{distance}(p,p')
+\end{dmath} 
 
-In Definition \ref{def:divs}, $\mathit{distance}(p,p')$ operates on geographical coordinates of $p$ and $p'$ and can be considered as any distance function of Chebyshev distance family such as Eucledian. However, as distance computations are done in {\em spherical space} using latitude, longitude and altitude, the most logical distance function to employ is Harvestine. The Harvestinve distance of two geographical points $p$ and $p'$ is calculated as shown in Equation \ref{eq:harvestine}.
+The function $\mathit{distance}(p,p')$ operates on geographical coordinates of $p$ and $p'$ and can be considered as any distance function of Chebyshev distance family such as Eucledian. However, as distance computations are done in {\em spherical space} using latitude, longitude and altitude, it is au-naturel to employ Harvestine distance shown in Equation \ref{eq:harvestine}.
 
 \begin{dmath}
 \label{eq:harvestine}
 distance(p,p') = [ acos(cos(p_{lat}) . cos(p'_{lat}) . cos(p_{lng}) . cos(p'_{lng})\\ + cos(p_{lat}) . sin(p'_{lat}). cos(p_{lng}) . sin(p'_{lng}) + sin(p_{lat}) . sin(p'_{lat})) ] \times earth\_radius
 \end{dmath}
 
-\noindent {\bf D5. Interactivity.} The exploratory nature of the analysis requires the guidance component to be involved in an interactive process. Hence the analyst can investigate and refine different aspects of spatiotemporal data in iterative steps. For being interactive, the guidance component should be efficient so that the train of thought of analyst would not be broken in the middle of the analysis.
+\noindent {\bf D5. Interactivity.} The exploratory nature of the analysis requires the guidance component to be involved in an interactive process. Hence the analyst can investigate and refine different aspects of spatiotemporal data in iterative steps. For being interactive, the guidance component should be efficient so that the train of thought of analyst would not be broken during the analysis process.
 
 \vspace{5pt}
 Following aforementioned desiderata, we forumlate highlighting as an optimization-based problem where we optimize diversity and respect a bound on relevance.
@@ -48,6 +56,6 @@ Following aforementioned desiderata, we forumlate highlighting as an optimizatio
 Given an input point $p$ and a threshold $\sigma$, the problem is to return $k$-relevant points to $p$ denoted $S_p$ where $|S_p| = k$ and $\forall p' \in S_p, \mathit{relevance}(p,p') \geq \sigma$ and $\mathit{diversity}(S_p)$ is maximized.
 \end{problem}
 
-Problem \ref{pb:geoh} is hard due to the huge space of spatiotemporal data: for any given point $p$, an exhaustive search over all other points is necessary to find $k$ points with maximal relevance. Moreover, the problem expresses interest in obtaining high quality points in two dimensions at the same time (relevance and diversity) which makes the problem even harder.
+Problem \ref{pb:geoh} is hard due to the huge space of spatiotemporal data: for any given point $p$, an exhaustive search over all other points is necessary to find $k$ points with maximal relevance. Moreover, the problem expresses interest in obtaining high quality points in two dimensions at the same time (relevance and diversity) which makes the problem more challenging.
 
 % behrooz: talk about quality earlier
