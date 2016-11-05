@@ -47,7 +47,7 @@ def ignorePoint(p1,p2,p3,p4):
 
 temp = csv.writer(open("dataanalysis/temp.csv", "wb"))
 index = csv.writer(open("dataanalysis/index.csv", "wb"))
-index.writerow(['p', 'latitude', 'longitude', 'pickupordropoff'])
+index.writerow(['p', 'latitude', 'longitude'])
 print("Writing temp.csv with real distance and similarity values\n\nPoints ignored:")
 with open('dataanalysis/arquivo.csv') as f1:
     for row in csv.reader(iter(f1.readline, '')):
@@ -61,57 +61,65 @@ with open('dataanalysis/arquivo.csv') as f1:
                 ignoreIndex += 2
                 print(float(row[latpick]), float(row[longpick]), float(row[latdrop]), float(row[longdrop]))
             else:
-                index.writerow([(countlines*2) - 1 - ignoreIndex, row[latpick], row[longpick], 'pickup'])
-                index.writerow([(countlines*2) - ignoreIndex, row[latdrop], row[longdrop], 'dropoff'])
-                with open('dataanalysis/arquivo.csv') as f2:
-                    for looprow in csv.reader(iter(f2.readline, '')):
-                        loopcountlines += 1
-                        ignoreIndexloop = 0
-                        if(loopfirstline == False):
-                            if(countlines < loopcountlines):
-                                if(ignorePoint(float(looprow[latpick]), float(looprow[longpick]), float(looprow[latdrop]), float(looprow[longdrop]))):
-                                    ignoreIndexloop += 2
-                                else:
-                                    columnsid = [(countlines*2) - 1 - ignoreIndex, (countlines*2)  - ignoreIndex, (loopcountlines*2) - 1 - ignoreIndexloop, (loopcountlines*2) - ignoreIndexloop]
-                                    # Column 1 actual X Column 2 actual
-                                    # partsimilarity to iguals rows
-                                    if(firstloop == True):
-                                        partsimilarity =  (   (int(row[Passenger]) * 2) + 1  )
-                                        distance = harvestine_distance(float(row[latpick]), float(row[longpick]), float(row[latdrop]), float(row[longdrop]))
-                                        similarity = distance * partsimilarity
-                                        temp.writerow([columnsid[0], columnsid[1], distance, similarity])
-                                        setBiggerValue(distance, similarity)
-                                        # partsimilarity to diferent rows
-                                        firstloop = False
+                try:
+                    index.writerow([(countlines*2) - 1 - ignoreIndex, row[latpick], row[longpick]])
+                    index.writerow([(countlines*2) - ignoreIndex, row[latdrop], row[longdrop]])
+                    with open('dataanalysis/arquivo.csv') as f2:
+                        for looprow in csv.reader(iter(f2.readline, '')):
+                            loopcountlines += 1
+                            ignoreIndexloop = 0
+                            if(loopfirstline == False):
+                                if(countlines < loopcountlines):
                                     try:
-                                        partsimilarity =  (  (int(row[Passenger]) + int(looprow[Passenger])) + (getHour(row[Hour]) / getHour(looprow[Hour]))  )
+                                        if(ignorePoint(float(looprow[latpick]), float(looprow[longpick]), float(looprow[latdrop]), float(looprow[longdrop]))):
+                                            ignoreIndexloop += 2
+                                        else:
+                                            columnsid = [(countlines*2) - 1 - ignoreIndex, (countlines*2)  - ignoreIndex, (loopcountlines*2) - 1 - ignoreIndexloop, (loopcountlines*2) - ignoreIndexloop]
+                                            # Column 1 actual X Column 2 actual
+                                            # partsimilarity to iguals rows
+                                            if(firstloop == True):
+                                                partsimilarity =  (   (int(row[Passenger]) * 2) + 1  )
+                                                distance = harvestine_distance(float(row[latpick]), float(row[longpick]), float(row[latdrop]), float(row[longdrop]))
+                                                similarity = distance * partsimilarity
+                                                temp.writerow([columnsid[0], columnsid[1], distance, similarity])
+                                                setBiggerValue(distance, similarity)
+                                                # partsimilarity to diferent rows
+                                                firstloop = False
+                                            try:
+                                                partsimilarity =  (  (int(row[Passenger]) + int(looprow[Passenger])) + (getHour(row[Hour]) / getHour(looprow[Hour]))  )
+                                            except:
+                                                partsimilarity =  (  (int(row[Passenger]) + int(looprow[Passenger]))  )
+                                            # Column 1 actual X Column 2 below
+                                            distance = harvestine_distance(float(row[latpick]), float(row[longpick]), float(looprow[latdrop]), float(looprow[longdrop]))
+                                            similarity = distance * partsimilarity
+                                            temp.writerow([columnsid[0], columnsid[3], distance, similarity])
+                                            setBiggerValue(distance, similarity)
+                                            # Column 1 actual X Column 1 below
+                                            distance = harvestine_distance(float(row[latpick]), float(row[longpick]), float(looprow[latpick]), float(looprow[longpick]))
+                                            similarity = distance * partsimilarity
+                                            temp.writerow([columnsid[0], columnsid[2], distance, similarity])
+                                            setBiggerValue(distance, similarity)
+                                            # Column 2 actual X Column 2 below
+                                            distance = harvestine_distance(float(row[latdrop]), float(row[longdrop]), float(looprow[latpick]), float(looprow[longpick]))
+                                            similarity = distance * partsimilarity
+                                            temp.writerow([columnsid[1], columnsid[3], distance, similarity])
+                                            setBiggerValue(distance, similarity)
+                                            # Column 2 actual X Column 1 below
+                                            distance = harvestine_distance(float(row[latdrop]), float(row[longdrop]), float(looprow[latdrop]), float(looprow[longdrop]))
+                                            similarity = distance * partsimilarity
+                                            temp.writerow([columnsid[1], columnsid[2], distance, similarity])
+                                            setBiggerValue(distance, similarity)
+                                            #print("Estou na linha: ", countlines, " do loop externo, e linha: ", loopcountlines, " do loop interno")
                                     except:
-                                        partsimilarity =  (  (int(row[Passenger]) + int(looprow[Passenger]))  )
-                                    # Column 1 actual X Column 2 below
-                                    distance = harvestine_distance(float(row[latpick]), float(row[longpick]), float(looprow[latdrop]), float(looprow[longdrop]))
-                                    similarity = distance * partsimilarity
-                                    temp.writerow([columnsid[0], columnsid[3], distance, similarity])
-                                    setBiggerValue(distance, similarity)
-                                    # Column 1 actual X Column 1 below
-                                    distance = harvestine_distance(float(row[latpick]), float(row[longpick]), float(looprow[latpick]), float(looprow[longpick]))
-                                    similarity = distance * partsimilarity
-                                    temp.writerow([columnsid[0], columnsid[2], distance, similarity])
-                                    setBiggerValue(distance, similarity)
-                                    # Column 2 actual X Column 2 below
-                                    distance = harvestine_distance(float(row[latdrop]), float(row[longdrop]), float(looprow[latpick]), float(looprow[longpick]))
-                                    similarity = distance * partsimilarity
-                                    temp.writerow([columnsid[1], columnsid[3], distance, similarity])
-                                    setBiggerValue(distance, similarity)
-                                    # Column 2 actual X Column 1 below
-                                    distance = harvestine_distance(float(row[latdrop]), float(row[longdrop]), float(looprow[latdrop]), float(looprow[longdrop]))
-                                    similarity = distance * partsimilarity
-                                    temp.writerow([columnsid[1], columnsid[2], distance, similarity])
-                                    setBiggerValue(distance, similarity)
-                                    #print("Estou na linha: ", countlines, " do loop externo, e linha: ", loopcountlines, " do loop interno")
-                        else:
-                            loopfirstline = False
+                                        ignoreIndexloop += 2
+                                        print(row[latdrop], row[longdrop],looprow[latdrop],looprow[longdrop])
+                            else:
+                                loopfirstline = False
 
-                loopfirstline = True
+                    loopfirstline = True
+                except:
+                    ignoreIndex += 2
+                    print(row[latdrop], row[longdrop],looprow[latdrop],looprow[longdrop])
         else:
             firstline = False
 print(biggerdistance, biggersimilarity)
