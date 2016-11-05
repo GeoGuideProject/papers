@@ -57,11 +57,11 @@ with open('dataanalysis/arquivo.csv') as f1:
             loopcountlines = -1
             firstloop = True
             ignoreIndex = 0
-            if(ignorePoint(float(row[latpick]), float(row[longpick]), float(row[latdrop]), float(row[longdrop]))):
-                ignoreIndex += 2
-                print(float(row[latpick]), float(row[longpick]), float(row[latdrop]), float(row[longdrop]))
-            else:
-                try:
+            try:
+                if(ignorePoint(float(row[latpick]), float(row[longpick]), float(row[latdrop]), float(row[longdrop]))):
+                    ignoreIndex += 2
+                    print(float(row[latpick]), float(row[longpick]), float(row[latdrop]), float(row[longdrop]))
+                else:
                     index.writerow([(countlines*2) - 1 - ignoreIndex, row[latpick], row[longpick]])
                     index.writerow([(countlines*2) - ignoreIndex, row[latdrop], row[longdrop]])
                     with open('dataanalysis/arquivo.csv') as f2:
@@ -117,9 +117,9 @@ with open('dataanalysis/arquivo.csv') as f1:
                                 loopfirstline = False
 
                     loopfirstline = True
-                except:
-                    ignoreIndex += 2
-                    print(row[latdrop], row[longdrop],looprow[latdrop],looprow[longdrop])
+            except:
+                ignoreIndex += 2
+                print(row[latdrop], row[longdrop],looprow[latdrop],looprow[longdrop])
         else:
             firstline = False
 print(biggerdistance, biggersimilarity)
