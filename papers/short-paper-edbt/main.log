@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.27)  4 NOV 2016 20:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.27)  4 NOV 2016 22:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -272,7 +272,15 @@ subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
 \c@algocf=\count114
 \algocf@algoframe=\box36
 \algocf@algobox=\box37
-) (/usr/local/texlive/2014/texmf-dist/tex/latex/mh/breqn.sty
+) (/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2014/04/23 v1.1a Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 137.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/mh/breqn.sty
 (/usr/local/texlive/2014/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2014/05/20 v4814 L3 programming layer (loader) 
 
@@ -506,18 +514,18 @@ LaTeX Info: Redefining \addtolength on input line 76.
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
 
 (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -579,38 +587,38 @@ e
 \c@problem=\count164
 \c@definition=\count165
 \c@example=\count166
-LaTeX Font Info:    Try loading font information for U+msa on input line 61.
+LaTeX Font Info:    Try loading font information for U+msa on input line 64.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 61.
+LaTeX Font Info:    Try loading font information for U+msb on input line 64.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 61.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 64.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for T1+aett on input line 61.
+LaTeX Font Info:    Try loading font information for T1+aett on input line 64.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/ae/t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 61.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 64.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 61.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 64.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <7> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 61.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 64.
 
 (./tex/intro.tex <figs/framework.pdf, id=1, 441.77277pt x 185.17592pt>
 File: figs/framework.pdf Graphic file (type pdf)
@@ -640,6 +648,12 @@ Overfull \hbox (1.9786pt too wide) in paragraph at lines 10--11
  []
 
 
+Overfull \hbox (2.86038pt too wide) in paragraph at lines 10--11
+\T1/aer/m/n/9 pro-ce-dure that solves the \T1/aer/m/sc/9 Ge-oGu-ide \T1/aer/m/n
+/9 prob-lem. \T1/aer/m/sc/9 High-lighter
+ []
+
+
 Overfull \hbox (1.99648pt too wide) in paragraph at lines 35--36
 []\T1/aer/m/sc/9 Highlighter \T1/aer/m/n/9 be-gins by re-triev-ing the most rel
 -e-vant points
@@ -651,11 +665,16 @@ Overfull \hbox (20.55981pt too wide) in paragraph at lines 2--2
 l| 
  []
 
+
+Overfull \hbox (1.18462pt too wide) in paragraph at lines 2--3
+\T1/aer/m/n/9 nario for New York taxi dataset[] [3] with 100K unique points.
+ []
+
 <figs/placeholder.pdf, id=75, 264.92175pt x 114.60316pt>
 File: figs/placeholder.pdf Graphic file (type pdf)
 
 <use figs/placeholder.pdf>
-Package pdftex.def Info: figs/placeholder.pdf used on input line 9.
+Package pdftex.def Info: figs/placeholder.pdf used on input line 6.
 (pdftex.def)             Requested size: 240.0pt x 103.82738pt.
 ) (./tex/experiments.tex
 File: figs/placeholder.pdf Graphic file (type pdf)
@@ -663,7 +682,7 @@ File: figs/placeholder.pdf Graphic file (type pdf)
 Package pdftex.def Info: figs/placeholder.pdf used on input line 10.
 (pdftex.def)             Requested size: 240.0pt x 103.82738pt.
 
-Overfull \hbox (3.23811pt too wide) in paragraph at lines 16--17
+Overfull \hbox (3.23811pt too wide) in paragraph at lines 16--18
 \T1/aer/m/n/9 con-text where in-ter-ac-tiv-ity is a need. The ``best-effort'' g
 reedy
  []
@@ -671,18 +690,21 @@ reedy
 [3 <./figs/placeholder.pdf>]
 File: figs/placeholder.pdf Graphic file (type pdf)
  <use figs/placeholder.pdf>
-Package pdftex.def Info: figs/placeholder.pdf used on input line 26.
+Package pdftex.def Info: figs/placeholder.pdf used on input line 27.
 (pdftex.def)             Requested size: 240.0pt x 103.82738pt.
-) (./tex/conc.tex)
+) (./tex/conc.tex
+Underfull \vbox (badness 3312) has occurred while \output is active []
+
+)
 (./main.bbl) [4] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 10497 strings out of 493117
- 174204 string characters out of 6135432
- 251616 words of memory out of 5000000
- 13776 multiletter control sequences out of 15000+600000
+ 10540 strings out of 493117
+ 174932 string characters out of 6135432
+ 253551 words of memory out of 5000000
+ 13815 multiletter control sequences out of 15000+600000
  65914 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,17n,35p,10351b,478s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,18n,35p,10351b,488s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dv
 ips/base/8r.enc}</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmbx6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/c
@@ -705,7 +727,7 @@ ve/2014/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2014
 dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts
 /type1/urw/times/utmr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw
 /times/utmri8a.pfb>
-Output written on main.pdf (4 pages, 558057 bytes).
+Output written on main.pdf (4 pages, 558801 bytes).
 PDF statistics:
  163 PDF objects out of 1000 (max. 8388607)
  113 compressed objects within 2 object streams

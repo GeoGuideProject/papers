@@ -1,13 +1,13 @@
 \section{Algorithm}
 \label{sec:algo}
 We propose a solution for \pb\ by insping from both recommendation \cite{Omidvar-Tehrani:2015} and
-visual highlighting \cite{Lohmann:2012,Robinson2011,Liang2010} methodologies. \pb\ requires an efficient algorithm for dynamically analyzing and comparing geographical points. We propose \framework\ as a solution for the generic guidance problem in spatiotemporal data. 
+visual highlighting \cite{Lohmann:2012,Robinson2011,Liang2010} methodologies. \pb\ requires an efficient algorithm for dynamically analyzing and comparing geographical points. We propose \framework\ as a solution for the generic guidance problem in spatiotemporal data (Figure \ref{fig:framework}). Although \framework\ operates on points, its functionality can be easily extended to regions using point-clustering methods (e.g., $k$-means).
 
 \framework\ operates in two steps: {\sc Preparation} and {\sc Highlighter}. In order to speed up computing relevance in online execution, we pre-compute an inverted index for each single geographical point in ${\cal P}$ in the offline {\sc Preparation} step (as is commonly done in Web search). Each index ${\cal L}_p$ for the point $p$ stores all other points in ${\cal P}$ in decreasing order of their relevance with $p$. Thanks to the parameter $\sigma$, we only partially materialize the indexes.
 
 % behrooz: explain the whole package
 
-Algorithm \ref{algo:geoh} illustrates the online execution step of \framework\, so called {\sc Highlighter}. The algorithm is a single greedy procedure that solves the {\sc GeoGuidance} problem. {\sc Highlighter} is called at each interactive step of \framework\ (as in Figure \ref{fig:framework}). The algorithm admits as input a point $p \in {\cal P}$ and returns the best $k$ points denoted ${\cal S}_p$.
+Algorithm \ref{algo:geoh} illustrates the online execution step of \framework\, so called {\sc Highlighter}. The algorithm is a single greedy procedure that solves the \pb\ problem. {\sc Highlighter} is called at each interactive step of \framework\ (as in Figure \ref{fig:framework}). The algorithm admits as input a point $p \in {\cal P}$ and returns the best $k$ points denoted ${\cal S}_p$.
 
 To comply with the desiderata {\bf D5}, we consider a time limit parameter $tlimit$ in Algorithm \ref{algo:geoh}. In a {\em best-effort} strategy, the algorithm bounds user waiting time by $tlimit$ to return the best possible results by then.
 
@@ -17,14 +17,14 @@ To comply with the desiderata {\bf D5}, we consider a time limit parameter $tlim
 \KwOut{${\cal S}_p$}
 ${\cal S}_p \gets get\_top\_k(\mathit{{\cal L}^p})$\;\label{cd:gettopk}
 $p_{next} \gets get\_next(\mathit{{\cal L}^p})$\;\label{cd:getnext}
-\While{$(tlimit$ $not$ $exceeded \wedge sim(p,p_{next}) \geq \sigma)$}{\label{cd:beginwhile}
+\While{$(tlimit$ $not$ $exceeded \wedge relevance(p,p_{next}) \geq \sigma)$}{\label{cd:beginwhile}
 \For{$p_{current} \in {\cal S}_p$}{
-\If{$\mathit{diversity\_improved}({\cal S}_p,g_{next},g_{current})$}{\label{cd:betterdiv}
-${\cal S}_p \gets \mathit{replace}({\cal S}_p,g_{next},g_{current})$\;
+\If{$\mathit{diversity\_improved}({\cal S}_p,p_{next},p_{current})$}{\label{cd:betterdiv}
+${\cal S}_p \gets \mathit{replace}({\cal S}_p,p_{next},p_{current})$\;
 $break$\;
 }
 }
-$g_{next} \gets get\_next({\cal L}^p)$\;}\label{cd:endwhile}
+$p_{next} \gets get\_next({\cal L}^p)$\;}\label{cd:endwhile}
 \Return{${\cal S}_p$}\; 
 \caption{{\sc Highlighter} Algorithm}
 \label{algo:geoh}

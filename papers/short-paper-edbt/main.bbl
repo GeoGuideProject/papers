@@ -11,6 +11,13 @@ J.~Bao, Y.~Zheng, D.~Wilkie, and M.~Mokbel.
 \newblock Recommendations in location-based social networks: a survey.
 \newblock {\em GeoInformatica}, 19(3):525--565, 2015.
 
+\bibitem{ferreira2013visual}
+N.~Ferreira, J.~Poco, H.~T. Vo, J.~Freire, and C.~T. Silva.
+\newblock Visual exploration of big spatio-temporal urban data: A study of new
+  york city taxi trips.
+\newblock {\em IEEE Transactions on Visualization and Computer Graphics},
+  19(12):2149--2158, 2013.
+
 \bibitem{Levandoski:2012}
 J.~J. Levandoski, M.~Sarwat, A.~Eldawy, and M.~F. Mokbel.
 \newblock Lars: A location-aware recommender system.

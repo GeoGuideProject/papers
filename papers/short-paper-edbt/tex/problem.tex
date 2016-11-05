@@ -11,7 +11,7 @@ In this paper, we address the problem of {\em generic guidance} in spatiotempora
 \noindent {\bf D2. Limited Options.} The set of $k$ highlighted points should not be very large because too many options distract the analyst. % \cite{miller1956human}.
 
 \vspace{5pt}
-\noindent {\bf D3. Relevance.} The fundamental difference between highlighting and $k$-NN spatial queries \cite{aly2015spatial} is that, in the former, the focus is on $k$ points which have similar characteristics to $p$, hence relevant.
+\noindent {\bf D3. Relevance.} The fundamental difference between highlighting and $k$-NN spatial queries \cite{aly2015spatial} is that, in the former, the focus is on $k$ points which have similar characteristics to~$p$, hence relevant.
 % In other words, we are interested in points which are {\em relevant} to a given point of interest.
 For instance, consider a taxi ride in New York for a young male customer for an itinerary of 10 kilometers and \$3 tip. In contrary to thousands of kilometers of geographical distance, the ride is very similar to another one in San Fransisco for a middle-age male customer for an itinerary of 8 kilometers and \$2.5 tip.
 % Relevance is a pairwise metric which is associated to point characteristics.
@@ -43,7 +43,7 @@ The function $\mathit{distance}(p,p')$ operates on geographical coordinates of $
 
 \begin{dmath}
 \label{eq:harvestine}
-distance(p,p') = [ acos(cos(p_{lat}) . cos(p'_{lat}) . cos(p_{lng}) . cos(p'_{lng})\\ + cos(p_{lat}) . sin(p'_{lat}). cos(p_{lng}) . sin(p'_{lng}) + sin(p_{lat}) . sin(p'_{lat})) ] \times earth\_radius
+distance(p,p') = [ acos(cos(p_{lat}) . cos(p'_{lat}) . cos(p_{lon}) . cos(p'_{lon})\\ + cos(p_{lat}) . sin(p'_{lat}). cos(p_{lon}) . sin(p'_{lon}) + sin(p_{lat}) . sin(p'_{lat})) ] \times earth\_radius
 \end{dmath}
 
 \noindent {\bf D5. Interactivity.} The exploratory nature of the analysis requires the guidance component to be involved in an interactive process. Hence the analyst can investigate and refine different aspects of spatiotemporal data in iterative steps. For being interactive, the guidance component should be efficient so that the train of thought of analyst would not be broken during the analysis process.
@@ -53,7 +53,8 @@ Following aforementioned desiderata, we forumlate highlighting as an optimizatio
 
 \begin{problem}[\pb]
 \label{pb:geoh}
-Given an input point $p$ and a threshold $\sigma$, the problem is to return $k$-relevant points to $p$ denoted $S_p$ where $|S_p| = k$ and $\forall p' \in S_p, \mathit{relevance}(p,p') \geq \sigma$ and $\mathit{diversity}(S_p)$ is maximized.
+Given an input point $p$ and a threshold $\sigma$, the problem is to return top-$k$
+ points denoted $S_p$ where $|S_p| = k$ and $\forall p' \in S_p, \mathit{relevance}(p,p') \geq \sigma$ and $\mathit{diversity}(S_p)$ is maximized.
 \end{problem}
 
 Problem \ref{pb:geoh} is hard due to the huge space of spatiotemporal data: for any given point $p$, an exhaustive search over all other points is necessary to find $k$ points with maximal relevance. Moreover, the problem expresses interest in obtaining high quality points in two dimensions at the same time (relevance and diversity) which makes the problem more challenging.
