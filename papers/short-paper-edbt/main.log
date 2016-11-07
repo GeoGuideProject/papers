@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.27)  4 NOV 2016 22:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.27)  7 NOV 2016 14:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -602,13 +602,10 @@ LaTeX Font Info:    Try loading font information for U+lasy on input line 64.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for T1+aett on input line 64.
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/ae/t1aett.fd
-File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
-)
+LaTeX Warning: No \author given.
+
 LaTeX Font Info:    Try loading font information for T1+ptm on input line 64.
-
 (/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
@@ -635,46 +632,34 @@ Overfull \hbox (2.99535pt too wide) in paragraph at lines 42--50
  []
 
 ) (./tex/datamodel.tex
+LaTeX Font Info:    Try loading font information for T1+aett on input line 6.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/ae/t1aett.fd
+File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
+)
 Overfull \hbox (2.4827pt too wide) in paragraph at lines 5--8
 []\T1/aer/m/n/9 We con-sider a spa-tiotem-po-ral database $\OMS/cmsy/m/n/9 D$ \
 T1/aer/m/n/9 con-sist-ing $\OMS/cmsy/m/n/9 hP\OML/cmm/m/it/9 ; \OMS/cmsy/m/n/9 
 Ai$
  []
 
-) (./tex/problem.tex) (./tex/algorithm.tex [2]
-Overfull \hbox (1.9786pt too wide) in paragraph at lines 10--11
-[]\T1/aer/m/n/9 Algorithm 1[] il-lus-trates the on-line ex-e-cu-tion step of \T
-1/aer/m/sc/9 GeoHL
+) (./tex/problem.tex) (./tex/algorithm.tex
+Overfull \hbox (8.6272pt too wide) in paragraph at lines 3--8
+\T1/aer/m/n/9 both rec-om-men-da-tion [6] and vi-sual high-light-ing [5, 7] met
+hod-
  []
 
-
-Overfull \hbox (2.86038pt too wide) in paragraph at lines 10--11
-\T1/aer/m/n/9 pro-ce-dure that solves the \T1/aer/m/sc/9 Ge-oGu-ide \T1/aer/m/n
-/9 prob-lem. \T1/aer/m/sc/9 High-lighter
- []
-
-
-Overfull \hbox (1.99648pt too wide) in paragraph at lines 35--36
+[2]
+Overfull \hbox (1.99648pt too wide) in paragraph at lines 38--39
 []\T1/aer/m/sc/9 Highlighter \T1/aer/m/n/9 be-gins by re-triev-ing the most rel
 -e-vant points
  []
 
-) (./tex/scenario.tex
-Overfull \hbox (20.55981pt too wide) in paragraph at lines 2--2
-[][]\T1/aer/m/it/9 http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtm
-l| 
- []
-
-
-Overfull \hbox (1.18462pt too wide) in paragraph at lines 2--3
-\T1/aer/m/n/9 nario for New York taxi dataset[] [3] with 100K unique points.
- []
-
-<figs/placeholder.pdf, id=75, 264.92175pt x 114.60316pt>
+) (./tex/scenario.tex <figs/placeholder.pdf, id=74, 264.92175pt x 114.60316pt>
 File: figs/placeholder.pdf Graphic file (type pdf)
 
 <use figs/placeholder.pdf>
-Package pdftex.def Info: figs/placeholder.pdf used on input line 6.
+Package pdftex.def Info: figs/placeholder.pdf used on input line 11.
 (pdftex.def)             Requested size: 240.0pt x 103.82738pt.
 ) (./tex/experiments.tex
 File: figs/placeholder.pdf Graphic file (type pdf)
@@ -682,27 +667,19 @@ File: figs/placeholder.pdf Graphic file (type pdf)
 Package pdftex.def Info: figs/placeholder.pdf used on input line 10.
 (pdftex.def)             Requested size: 240.0pt x 103.82738pt.
 
-Overfull \hbox (3.23811pt too wide) in paragraph at lines 16--18
-\T1/aer/m/n/9 con-text where in-ter-ac-tiv-ity is a need. The ``best-effort'' g
-reedy
- []
-
 [3 <./figs/placeholder.pdf>]
 File: figs/placeholder.pdf Graphic file (type pdf)
  <use figs/placeholder.pdf>
-Package pdftex.def Info: figs/placeholder.pdf used on input line 27.
+Package pdftex.def Info: figs/placeholder.pdf used on input line 31.
 (pdftex.def)             Requested size: 240.0pt x 103.82738pt.
-) (./tex/conc.tex
-Underfull \vbox (badness 3312) has occurred while \output is active []
-
-)
+) (./tex/conc.tex)
 (./main.bbl) [4] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 10540 strings out of 493117
- 174932 string characters out of 6135432
- 253551 words of memory out of 5000000
- 13815 multiletter control sequences out of 15000+600000
- 65914 words of font info for 96 fonts, out of 8000000 for 9000
+ 10539 strings out of 493117
+ 174965 string characters out of 6135432
+ 252555 words of memory out of 5000000
+ 13816 multiletter control sequences out of 15000+600000
+ 63606 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,18n,35p,10351b,488s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dv
@@ -723,14 +700,13 @@ al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local
 exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/tex
 live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texli
 ve/2014/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2014
-/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2014/texmf-
-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts
-/type1/urw/times/utmr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw
-/times/utmri8a.pfb>
-Output written on main.pdf (4 pages, 558801 bytes).
+/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2014/texmf-dis
+t/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/ty
+pe1/urw/times/utmri8a.pfb>
+Output written on main.pdf (4 pages, 550053 bytes).
 PDF statistics:
- 163 PDF objects out of 1000 (max. 8388607)
- 113 compressed objects within 2 object streams
+ 159 PDF objects out of 1000 (max. 8388607)
+ 110 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

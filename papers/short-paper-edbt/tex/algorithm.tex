@@ -1,7 +1,10 @@
 \section{Algorithm}
 \label{sec:algo}
-We propose a solution for \pb\ by insping from both recommendation \cite{Omidvar-Tehrani:2015} and
-visual highlighting \cite{Lohmann:2012,Robinson2011,Liang2010} methodologies. \pb\ requires an efficient algorithm for dynamically analyzing and comparing geographical points. We propose \framework\ as a solution for the generic guidance problem in spatiotemporal data (Figure \ref{fig:framework}). Although \framework\ operates on points, its functionality can be easily extended to regions using point-clustering methods (e.g., $k$-means).
+We propose a solution for \pb\ by inspiring from both recommendation \cite{Omidvar-Tehrani:2015} and
+visual highlighting
+% \cite{Lohmann:2012,Robinson2011,Liang2010}
+\cite{Liang2010,Robinson2011}
+methodologies. \pb\ requires an efficient algorithm for dynamically analyzing and comparing geographical points. We propose \framework\ as a solution for the generic guidance problem in spatiotemporal data (Figure \ref{fig:framework}). Although \framework\ operates on points, its functionality can be easily extended to regions using point-clustering methods such as $k$-means.
 
 \framework\ operates in two steps: {\sc Preparation} and {\sc Highlighter}. In order to speed up computing relevance in online execution, we pre-compute an inverted index for each single geographical point in ${\cal P}$ in the offline {\sc Preparation} step (as is commonly done in Web search). Each index ${\cal L}_p$ for the point $p$ stores all other points in ${\cal P}$ in decreasing order of their relevance with $p$. Thanks to the parameter $\sigma$, we only partially materialize the indexes.
 

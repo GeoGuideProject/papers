@@ -1,29 +1,25 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{aly2015spatial}
 A.~M. Aly, W.~G. Aref, and M.~Ouzzani.
 \newblock Spatial queries with k-nearest-neighbor and relational predicates.
-\newblock In {\em Proceedings of the 23rd SIGSPATIAL International Conference
-  on Advances in Geographic Information Systems}, page~28. ACM, 2015.
+\newblock In {\em SIGSPATIAL}, page~28. ACM, 2015.
 
 \bibitem{Bao2015}
 J.~Bao, Y.~Zheng, D.~Wilkie, and M.~Mokbel.
 \newblock Recommendations in location-based social networks: a survey.
 \newblock {\em GeoInformatica}, 19(3):525--565, 2015.
 
-\bibitem{ferreira2013visual}
-N.~Ferreira, J.~Poco, H.~T. Vo, J.~Freire, and C.~T. Silva.
-\newblock Visual exploration of big spatio-temporal urban data: A study of new
-  york city taxi trips.
-\newblock {\em IEEE Transactions on Visualization and Computer Graphics},
-  19(12):2149--2158, 2013.
+\bibitem{DBLP:journals/debu/FreireCVZ16}
+J.~Freire, A.~Bessa, F.~Chirigati, H.~T. Vo, and K.~Zhao.
+\newblock Exploring what not to clean in urban data: {A} study using new york
+  city taxi trips.
+\newblock {\em {IEEE} Data Eng. Bull.}, 39(2):63--77, 2016.
 
 \bibitem{Levandoski:2012}
 J.~J. Levandoski, M.~Sarwat, A.~Eldawy, and M.~F. Mokbel.
 \newblock Lars: A location-aware recommender system.
-\newblock In {\em Proceedings of the 2012 IEEE 28th International Conference on
-  Data Engineering}, ICDE '12, pages 450--461, Washington, DC, USA, 2012. IEEE
-  Computer Society.
+\newblock In {\em ICDE}, pages 450--461. IEEE Computer Society, 2012.
 
 \bibitem{Liang2010}
 J.~Liang and M.~L. Huang.
@@ -31,26 +27,30 @@ J.~Liang and M.~L. Huang.
 \newblock In {\em 2010 14th International Conference Information
   Visualisation}, pages 79--85, July 2010.
 
-\bibitem{Lohmann:2012}
-S.~Lohmann, M.~Burch, H.~Schmauder, and D.~Weiskopf.
-\newblock Visual analysis of microblog content using time-varying co-occurrence
-  highlighting in tag clouds.
-\newblock In {\em Proceedings of the International Working Conference on
-  Advanced Visual Interfaces}, AVI '12, pages 753--756, New York, NY, USA,
-  2012. ACM.
-
 \bibitem{Omidvar-Tehrani:2015}
 B.~Omidvar-Tehrani, S.~Amer-Yahia, and A.~Termier.
 \newblock Interactive user group analysis.
-\newblock In {\em Proceedings of the 24th ACM International on Conference on
-  Information and Knowledge Management}, CIKM '15, pages 403--412, New York,
-  NY, USA, 2015. ACM.
+\newblock In {\em CIKM}, pages 403--412. ACM, 2015.
 
 \bibitem{Robinson2011}
 A.~C. Robinson.
 \newblock Highlighting in geovisualization.
 \newblock {\em Cartography and Geographic Information Science}, 38(4):373--383,
   2011.
+
+\bibitem{willett2007scented}
+W.~Willett, J.~Heer, and M.~Agrawala.
+\newblock Scented widgets: Improving navigation cues with embedded
+  visualizations.
+\newblock {\em IEEE Transactions on Visualization and Computer Graphics},
+  13(6):1129--1136, 2007.
+
+\bibitem{wongsuphasawat2016voyager}
+K.~Wongsuphasawat, D.~Moritz, A.~Anand, J.~Mackinlay, B.~Howe, and J.~Heer.
+\newblock Voyager: Exploratory analysis via faceted browsing of visualization
+  recommendations.
+\newblock {\em IEEE transactions on visualization and computer graphics},
+  22(1):649--658, 2016.
 
 \bibitem{yu2015geospark}
 J.~Yu, J.~Wu, and M.~Sarwat.
