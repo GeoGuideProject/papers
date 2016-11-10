@@ -1,0 +1,14 @@
+.show-button {
+    margin-top: 5px;
+}
+
+#pointInfo {
+	width: 100%;
+}
+.divanalysis{
+	margin-top: 10px;
+	padding-top: 2px;
+}
+#firstAnalysis, #seccondAnalysis{
+	display: none;
+}

@@ -6,6 +6,7 @@ import os, csv, re, json, imp
 import threading
 import subprocess
 import uuid
+import iugaMod
 from flask import Flask, render_template, request, send_from_directory
 from werkzeug import secure_filename
 app = Flask(__name__)
@@ -36,9 +37,6 @@ def dataanalysis():
     background_scripts[id] = False
     threading.Thread(target=lambda: run_script(id)).start()
     return send_from_directory(APP_ANALYSIS, 'loading.html')
-
-#def dataanalysis():
-    #return send_from_directory(APP_ANALYSIS, 'loading.html') 
 
 def file_proc():
     examplevalues = []
@@ -131,5 +129,16 @@ def sendstatus():
         return json.dumps({'success':False}), 200, {'ContentType':'application/json'}
     else:
         return json.dumps({'success':True}), 201, {'ContentType':'application/json'}
+
+@app.route('/runiuga', methods=['GET'])
+def runiuga():
+#Import IUGA   - Configs
+    input_g = int(request.args.get('pointchose'))
+    time_limit = int(request.args.get('timelimit'))# in miliseconds
+    k = int(request.args.get('kvalue'))            # number of returned records
+    lowest_acceptable_similarity = float(request.args.get('sigma'))
+    compostReturn = iugaMod.runIuga(input_g, k, time_limit, lowest_acceptable_similarity)
+    return json.dumps({"similarity": compostReturn[0], "diversity": compostReturn[1], "array": (compostReturn[2])}), 200, {'ContentType':'application/json'}
+
 
 app.run(use_reloader=True, port=8080)
