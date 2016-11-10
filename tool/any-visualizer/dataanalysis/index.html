@@ -14,7 +14,7 @@
 <body>
   <style>
     #map{
-      height: 500px;
+      height: 450px;
       margin-top: 5px;
     }
   </style>
@@ -62,7 +62,7 @@
 
           <div class="col-md-6">
             <div class="timelimit-group">
-              <h3>IUGA Config</h3>
+              <h3>Highlighter definition:</h3>
               <label for="basic-url">Time Limit(ms):</label>
               <div class="input-group">
                 <input type="number" id="timelimit" value="100" min="100" max="20000" required>
@@ -217,7 +217,7 @@ function showFirstRequestOnMap(){
     indexLines.forEach(function(indexLine) {
       firstArrayPoints.array.forEach(function(point) {
         if(indexLine.p_index == point){
-          var myMarker = L.marker([parseFloat(indexLine.latitude), parseFloat(indexLine.longitude)], {icon: iconRed}).addTo(map).on('click', onPointClick);
+          var myMarker = L.marker([parseFloat(indexLine.latitude), parseFloat(indexLine.longitude)], {icon: iconYellow}).addTo(map).on('click', onPointClick);
           myMarker.pointId = indexLine.p_index;
           myMarker.latitude = indexLine.latitude;
           myMarker.longitude = indexLine.longitude;
@@ -260,7 +260,7 @@ function showSeccondRequestOnMap(jsonResponse){
     indexLines.forEach(function(indexLine) {
       firstArrayPoints.array.forEach(function(point) {
         if(indexLine.p_index == point){
-          var myMarker = L.marker([parseFloat(indexLine.latitude), parseFloat(indexLine.longitude)], {icon: iconRed}).addTo(map).on('click', onPointClick);
+          var myMarker = L.marker([parseFloat(indexLine.latitude), parseFloat(indexLine.longitude)], {icon: iconYellow}).addTo(map).on('click', onPointClick);
           myMarker.pointId = indexLine.p_index;
           myMarker.latitude = indexLine.latitude;
           myMarker.longitude = indexLine.longitude;
@@ -274,7 +274,7 @@ function showSeccondRequestOnMap(jsonResponse){
       }
       jsonResponse.array.forEach(function(point) {
         if(indexLine.p_index == point){
-          var myMarker = L.marker([parseFloat(indexLine.latitude), parseFloat(indexLine.longitude)], {icon: iconYellow}).addTo(map).on('click', onPointClick);
+          var myMarker = L.marker([parseFloat(indexLine.latitude), parseFloat(indexLine.longitude)], {icon: iconRed}).addTo(map).on('click', onPointClick);
           myMarker.pointId = indexLine.p_index;
           myMarker.latitude = indexLine.latitude;
           myMarker.longitude = indexLine.longitude;
