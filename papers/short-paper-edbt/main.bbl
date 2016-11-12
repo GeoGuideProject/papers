@@ -19,13 +19,13 @@ J.~Freire, A.~Bessa, F.~Chirigati, H.~T. Vo, and K.~Zhao.
 \bibitem{Levandoski:2012}
 J.~J. Levandoski, M.~Sarwat, A.~Eldawy, and M.~F. Mokbel.
 \newblock Lars: A location-aware recommender system.
-\newblock In {\em ICDE}, pages 450--461. IEEE Computer Society, 2012.
+\newblock In {\em ICDE}, pages 450--461, 2012.
 
 \bibitem{Liang2010}
 J.~Liang and M.~L. Huang.
 \newblock Highlighting in information visualization: A survey.
 \newblock In {\em 2010 14th International Conference Information
-  Visualisation}, pages 79--85, July 2010.
+  Visualisation}, July 2010.
 
 \bibitem{Omidvar-Tehrani:2015}
 B.~Omidvar-Tehrani, S.~Amer-Yahia, and A.~Termier.
@@ -49,8 +49,7 @@ W.~Willett, J.~Heer, and M.~Agrawala.
 K.~Wongsuphasawat, D.~Moritz, A.~Anand, J.~Mackinlay, B.~Howe, and J.~Heer.
 \newblock Voyager: Exploratory analysis via faceted browsing of visualization
   recommendations.
-\newblock {\em IEEE transactions on visualization and computer graphics},
-  22(1):649--658, 2016.
+\newblock {\em TVCG}, 22(1), 2016.
 
 \bibitem{yu2015geospark}
 J.~Yu, J.~Wu, and M.~Sarwat.
