@@ -17,7 +17,7 @@ To comply with the desiderata {\bf D5}, we consider a time limit parameter $tlim
 \begin{algorithm}[t]
 \DontPrintSemicolon
 \KwIn{$p \in {\cal P}$, $\sigma$, $k$, $tlimit$}
-\KwOut{${\cal S}_p$}
+% \KwOut{${\cal S}_p$}
 ${\cal S}_p \gets get\_top\_k(\mathit{{\cal L}^p})$\;\label{cd:gettopk}
 $p_{next} \gets get\_next(\mathit{{\cal L}^p})$\;\label{cd:getnext}
 \While{$(tlimit$ $not$ $exceeded \wedge relevance(p,p_{next}) \geq \sigma)$}{\label{cd:beginwhile}

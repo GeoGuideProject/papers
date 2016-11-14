@@ -2,6 +2,7 @@
 \usepackage[linesnumbered,ruled]{algorithm2e}
 \usepackage{color}
 \usepackage{breqn}
+\usepackage[export]{adjustbox}
 
 \providecommand{\colorred}[1]{\textcolor{red}{#1}}
 
@@ -43,18 +44,18 @@
 \title{GeoHighlight: A Point-Recommendation Approach for Spatiotemporal Data}
 %\subtitle{[Extended Abstract]
 
-% \numberofauthors{3}
+\numberofauthors{3}
 
 
-% \author{
-% Behrooz Omidvar-Tehrani$^{\dag}$, Gustavo Guerino$^{\ddag \circ}$, Pl\'acido A. Souza Neto$^{\ddag \bullet}$\\
-% \affaddr{
-% $^{\dag}$The Ohio State University, USA, $^{\ddag}$Federal Institute of Rio Grande do Norte - IFRN, Brazil}\\
-% \affaddr{
-% $^{\dag}$\path{omidvar-tehrani.1@osu.edu},
-% $^{\circ}$\path{gustavo.guerino@academico.ifrn.edu.br},
-% $^{\bullet}$\path{placido.neto@ifrn.edu.br}
-% }}
+\author{
+Behrooz Omidvar-Tehrani$^{\dag}$, Gustavo Guerino$^{\ddag \circ}$, Pl\'acido A. Souza Neto$^{\ddag \bullet}$\\
+\affaddr{
+$^{\dag}$The Ohio State University, USA, $^{\ddag}$Federal Institute of Rio Grande do Norte - IFRN, Brazil}\\
+\affaddr{
+$^{\dag}$\path{omidvar-tehrani.1@osu.edu},
+$^{\circ}$\path{gustavo.guerino@academico.ifrn.edu.br},
+$^{\bullet}$\path{placido.neto@ifrn.edu.br}
+}}
 
 % \date{30 July 1999}
 % Just remember to make sure that the TOTAL number of authors
@@ -68,14 +69,22 @@ Spatiotemporal data is becoming increasingly available in various domains such a
 
 % \keywords{Interactive analysis; Spatiotemporal visualization; Urban data.}
 
+\vspace{-5pt}
 \input{tex/intro}
-\input{tex/datamodel}
+% \input{tex/datamodel}
+\vspace{-5pt}
 \input{tex/problem}
+
+\vspace{-5pt}
 \input{tex/algorithm}
+
+\vspace{-5pt}
 \input{tex/scenario}
+
+\vspace{-5pt}
 \input{tex/experiments}
 % \input{tex/rel}
-\newpage
+% \newpage
 \input{tex/conc}
 
 

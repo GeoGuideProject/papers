@@ -2,6 +2,10 @@
 \label{sec:pb}
 % In an exploratory analysis context, the analyst does not necessarily know what to ask. She may have also a few knowledge about the spatiotemporal data and its attributes. Hence she usually needs to take iterative analysis steps to observe different aspects of data and ultimately land on a subset of interest. However, it is often cumbersome to choose what to analyze next. Because this choice is subjective and infeasible to capture with an unsupervised method.
 
+\noindent {\bf Data Model.} We consider a spatiotemporal database ${\cal D}$ consisting $\langle {\cal P}, {\cal A} \rangle$ where ${\cal P}$ is the set of
+geographical points and ${\cal A}$ is the set of point attributes. For each $p \in {\cal P}$, we consider a tuple $\langle lat, lon, alt, t\rangle$ where $lat$, $lon$ and $alt$ denote $p$'s geographical coordinates (latitude, longitude and altitude respectively), and $t$ is the timestamp. The set ${\cal A}_p$ contains attribute-values for $p$ over the schema of ${\cal A}$. For instance, on a bike-sharing dataset, ${\cal A}_p = \langle${\tt female}, {\tt young}, {\tt hybrid-bike}$\rangle$ on the schema ${\cal A} = \langle${\tt gender}, {\tt age}, {\tt type}$\rangle$ denotes that $p$ is associated to a young female cyclist who rides a hybrid bike. The set ${\cal A}$ is domain-dependent and defines the semantics of a spatiotemporal dataset.
+
+\vspace{5pt}
 In this paper, we address the problem of {\em generic guidance} in spatiotemporal data: ``what is the process of guiding analysts in iterative analysis steps on any spatiotemporal dataset?'' In other words, we are interested in an approach which highlights a set of $k$ points that the analyst should consider in the next analysis iteration. This should not be a heuristic-based data-dependent highlighting, but a generic approach which is applied on any spatiotemporal dataset. We describe the desiderata of generic guidance approach as follows.
 
 \vspace{5pt}
@@ -49,7 +53,7 @@ distance(p,p') = [ acos(cos(p_{lat}) . cos(p'_{lat}) . cos(p_{lon}) . cos(p'_{lo
 \noindent {\bf D5. Interactivity.} The exploratory nature of the analysis requires the guidance component to be involved in an interactive process. Hence the analyst can investigate and refine different aspects of spatiotemporal data in iterative steps. For being interactive, the guidance component should be efficient so that the train of thought of analyst would not be broken during the analysis process.
 
 \vspace{5pt}
-Following aforementioned desiderata, we forumlate highlighting as an optimization-based problem where we optimize diversity and respect a bound on relevance.
+Following aforementioned desiderata, we formulate highlighting as an optimization-based problem on relevance and diversity dimensions.
 
 \begin{problem}[\pb]
 \label{pb:geoh}
@@ -57,6 +61,6 @@ Given an input point $p$ and a threshold $\sigma$, the problem is to return top-
  points denoted $S_p$ where $|S_p| = k$ and $\forall p' \in S_p, \mathit{relevance}(p,p') \geq \sigma$ and $\mathit{diversity}(S_p)$ is maximized.
 \end{problem}
 
-Problem \ref{pb:geoh} is hard due to the huge space of spatiotemporal data: for any given point $p$, an exhaustive search over all other points is necessary to find $k$ points with maximal relevance. Moreover, the problem expresses interest in obtaining high quality points in two dimensions at the same time (relevance and diversity) which makes the problem more challenging.
+Problem \ref{pb:geoh} is hard due to the huge space of spatiotemporal data: for any given point $p$, an exhaustive search over all other points is necessary to find $k$ points with maximal relevance. Moreover, the problem investigates in two dimensions at the same time (relevance and diversity) which makes it more challenging.
 
 % behrooz: talk about quality earlier
