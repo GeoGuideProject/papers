@@ -103,7 +103,7 @@ We evaluate the efficiency and usefulness of \framework\ in an extensive set of 
 \noindent {\bf Performance Study.} \framework\ is designed for exploratory context where interactivity is a need. The ``best-effort'' greedy approach of {\sc Highlighter} (Algorithm \ref{algo:geoh}) guarantees to return the best possible results within a time limit. We consider a large time limit ($tlimit = 2s$) in order to evaluate the effect of relevance and size constraint thresholds on execution time.
 % Figure \ref{fig:performance} illustrates the results by measuring the execution time.
 
-Figure \ref{fig:performance} left illustrates the effect of size constraint by varying $k$ from $2$ to $300$. In general, larger values of $\sigma$ provides more freedom for the algorithm hence more time-consuming. An interesting observation is that increasing $k$ leads decreasing execution time. This is because in larger sets, there exist fewer opportunities for increasing diversity, hence {\sc Highlighter} breaks early.
+Figure \ref{fig:performance} left illustrates the effect of size constraint by varying $k$ from $2$ to $300$. In general, larger values of $\sigma$ provides more freedom for the algorithm hence more time-consuming. An interesting observation is that increasing $k$ leads decreasing execution time. This is because in larger sets, there exist fewer opportunities for increasing diversity, hence {\sc Highlighter} terminates early.
 
 Figure \ref{fig:performance} right confirms that lower values of $\sigma$ decreases execution time as they provide more flexibility for diversity improvement. For larger values of $k$ (i.e., when $k >100$), the influence of $\sigma$ on execution time becomes insignificant.
 

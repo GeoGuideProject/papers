@@ -17,7 +17,7 @@ Traditionally, an exploratory analysis scenario on spatiotemporal data is descri
 % Exhibit\footnote{\it http://www.simile-widgets.org/exhibit/},
 Spotfire\footnote{\it http://spotfire.tibco.com}). Then she looks at different parts of data for interesting patterns and trends. With the growing size of spatiotemporal datasets, this classical approach is not practical anymore: geographical points are scattered everywhere and the analyst cannot effectively observe insights.
 
-To overcome this challenge, visualization environments offer a plethora of operations to filter out data. In practice, this doubles the problem: the analyst is left alone in a huge space of data and operations. 
+To overcome this challenge, visualization environments offer a plethora of operations to manipulate data (filter, aggregate, etc.). In practice, this dublicates the problem: the analyst is left alone in a huge space of data and operations. 
 In an exploratory context,
 %Considering the exploratory context as a non-idempotent process\footnote{\it We call an interactive step as ``idempotent'' if it always follows the exact same steps.},
 the principled challenge for the analyst is {\em ``what to see next''} during the analysis process. A {\em guidance mechanism} is necessary to point out potential future directions of analysis.
@@ -26,7 +26,7 @@ Given a geographical point of interest, the question is then how to recommend ot
 
 \begin{example}
 \label{ex:flight}
-Tiffany is a data scientist and is tasked to design a {\em chain marketing} strategy for a Peking Duck product whose headquarters is in New York. She already knows that the product has success in the local area. So she analyzes Yelp data\footnote{\it https://www.yelp.com/} (i.e., restaurant check-ins) to find out what other locations exhibit similar eating profiles as New York. She asks for $k$ geographical points which have relevant eating profile to New York and are the most diverse. Given $k=3$, Tiffany receives points from San Fransisco, Washington DC and Marlton, NJ. She selects Marlton due its proximity to reduce transportation costs. Then she asks for other 3 best points for Marlton. She can then make the city-to-city chain marketing strategy.
+Tiffany is a data scientist and is tasked to design a {\em chain marketing} strategy for a Peking Duck product whose headquarters is in New York. She already knows that the product has success in the local area. So she analyzes Yelp data\footnote{\it https://www.yelp.com/} (i.e., restaurant check-ins) to find out what other locations exhibit similar eating profiles as New York. She asks for $k$ geographical points which have relevant eating profile to New York and are the most diverse. Given $k=3$, Tiffany receives points from San Fransisco, Washington DC and Marlton, NJ. She selects Marlton due to its proximity to reduce transportation costs. Then she asks for other 3 best points for Marlton. She can then make the city-to-city chain marketing strategy.
 \end{example}
 
 In this paper, we address the problem of guidance. Despite the great progress on spatiotemporal data analysis in recent years, we point out following challenges for guidance:

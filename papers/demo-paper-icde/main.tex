@@ -1,0 +1,125 @@
+\documentclass[conference]{IEEEtran}
+
+% \hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\ifCLASSINFOpdf
+  \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  \DeclareGraphicsExtensions{.eps}
+\fi
+
+\usepackage[export]{adjustbox}
+\usepackage{color}
+\usepackage{breqn}
+\usepackage[linesnumbered,ruled]{algorithm2e}
+
+\newcommand{\sys}{{\sc GeoHighlight}}
+
+% to remove
+\newcommand{\framework}{{\sc GeoHighlight}}
+\newcommand{\pb}{{\sc GeoGuide}}
+\newtheorem{example}{Example}
+\newtheorem{problem}{Problem}
+\newtheorem{definition}{Definition}
+
+\begin{document}
+
+\title{GeoHighlight: Interactive Guidance-based Visualization for Spatiotemporal Data}
+
+
+% author names and affiliations
+% use a multiple column layout for up to three different
+% affiliations
+\author{\IEEEauthorblockN{Behrooz Omidvar-Tehrani}
+\IEEEauthorblockA{Department of Computer Science\\
+The Ohio State University\\
+{\em omidvar-tehrani.1@osu.edu}}
+\and
+\IEEEauthorblockN{Pl\'acido A. Souza Neto, Gustavo Guerino}
+\IEEEauthorblockA{Federal Institute of Rio Grande do Norte\\
+IFRN, Brazil\\
+{\em placido.neto@ifrn.edu.br, gustavo.guerino@academico.ifrn.edu.br}}
+}
+
+% make the title area
+\maketitle
+
+
+\begin{abstract}
+Spatiotemporal data is becoming increasingly available in various domains such as transportation and social science. Discovering patterns and trends in this data provides improved insights for planning and decision making for smart city management, disaster management and other applications. However, exploratory analysis of such data is a challenge due to its huge size and diversity of spatiotemporal data. It is often unclear for the analyst {\em what to see next} during an analysis process, i.e., lack of guidance. In this paper, we introduce \sys, an efficient interactive guidance framework for visualizing spatiotemporal data. We provide several scenarios that illustrate the usability of \sys\ in areas such as urban planning, marketing and aviation.
+\end{abstract}
+
+\IEEEpeerreviewmaketitle
+
+\vspace{-5pt}
+\section{Introduction} 
+Nowadays, there exists huge amounts of spatiotemporal data in various fields of science. Understanding patterns and trends through visualizing spatiotempral data improves user planning and decision making. Some instance applications of spatiotemporal data are smart city management, disaster management and autonomous transport. Traditionally, an exploratory analysis scenario on spatiotemporal data is described as follows: the analyst visualizes the data using an off-the-shelf product (e.g., Tableau\footnote{\it http://www.tableau.com}, Spotfire\footnote{\it http://spotfire.tibco.com}). Then she looks at different parts of data for interesting patterns and trends. With the growing size of spatiotemporal datasets, this classical approach is not practical anymore: geographical points are scattered everywhere and the analyst cannot effectively observe insights.
+% \cite{RoddickEHPS04,Telang:2012}.
+
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=\columnwidth]{figs/framework}
+% \caption{\framework\ Framework}
+% \label{fig:framework}
+% \vspace{-10pt}
+% \end{figure}
+
+To overcome this challenge, visualization environments offer a plethora of operations to manipulate data (filter, aggregate, etc.). In practice, this duplicates the problem: the analyst is left alone in a huge space of data and operations. In an exploratory context, the principled challenge for the analyst is {\em ``what to see next''} during the analysis process. A {\em guidance mechanism} is necessary to point out potential future directions of analysis.
+
+In this paper, we argue the need for a guidance-based visualization framework for spatiotemoral data. We consider following desiderata for this framework.
+
+\noindent {\bf Genericness.} The framework component should be agnostic (making no assumption) about the dataset type, attributes and distribution.
+
+\noindent {\bf Limited Options.} The guidance approach should provide a limited set of recommendations because too many options distract the analyst. \cite{miller1956human}
+
+\noindent {\bf Relevance.} The guidance approach should deliver results which have similar characteristics to what the analyst has already liked.
+
+\noindent {\bf Diversity.} Recommendations should represent distinct regions so that the analyst can observe different aspects of data and decide for the next analysis iteration.
+
+\noindent {\bf Interactivity.} The exploratory nature of the analysis requires the guidance component to be involved in an interactive process. Hence the analyst can investigate and refine different aspects of spatiotemporal data in iterative steps. For being interactive, the guidance component should be efficient so that the train of thought of analyst would not be broken during the analysis process. Despite progress in efficient spatiotemporal processing \cite{yu2015geospark}, sub-second interactivity is still missing.
+
+We inspire from both recommendation \cite{Omidvar-Tehrani:2015} and visual highlighting \cite{Liang2010,Robinson2011} methodologies and propose \sys\ as a solution to aforementioned challenges. \sys\ is a visualization framework for spatiotemporal data which guides the analyst throughout the process towards interesting points. Given a geographical point of interest, the question is then how to recommend other points to be considered in future analysis steps in form of guidance. In this paper, we focus on one specific guidance approach, i.e., highlighting $k$-best points given a point of interest. Those $k$ points should have high quality. Quality is formulated as optimization of two dimensions: {\em relevance} and {\em diversity}. Optimizing relevance ensures that recommended points are in-line with what the analyst has already liked. Optimizing diversity results points which are as different as possible from each other and unveil different aspects of analysis. In this paper, we propose a generic interactive analysis approach for guiding analysts towards potential interesting points. The analyst considers the guidance and picks a direction for the next analysis iteration.
+
+\vspace{-5pt}
+\section{Framework}
+In this paper, we address the problem of {\em generic guidance} in spatiotemporal data: ``what is the process of guiding analysts in iterative analysis steps on any spatiotemporal dataset?'' In other words, we are interested in an approach which highlights a set of $k$ points that the analyst should consider in the next analysis iteration. This should not be a heuristic-based data-dependent highlighting, but a generic approach which is applied on any spatiotemporal dataset. We describe the desiderata of generic guidance approach as follows.
+
+\framework\ operates in two steps: {\sc Preparation} and {\sc Highlighter}. In order to speed up computing relevance in online execution, we pre-compute an inverted index for each single geographical point in ${\cal P}$ in the offline {\sc Preparation} step (as is commonly done in Web search). Each index ${\cal L}_p$ for the point $p$ stores all other points in ${\cal P}$ in decreasing order of their relevance with $p$. Thanks to the parameter $\sigma$, we only partially materialize the indexes.
+
+Figure XXX illustrates a screenshot of \sys. We observe that ...
+
+\vspace{-5pt}
+\section{Demo Plan}
+
+\noindent {\bf Demo.} What datasets do we use in our demo?
+
+\noindent {\bf Scenario 1.} Lucas example on taxis.
+
+\noindent {\bf Scenario 2.} Marketing example
+
+\noindent {\bf Scenario 3.} Aviation example
+
+\bibliographystyle{abbrv}
+\bibliography{main}
+
+
+
+
+% that's all folks
+\end{document}
+
+
