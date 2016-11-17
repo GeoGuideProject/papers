@@ -2,9 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>AnyVisualizer - Data Analysis</title>
+  <title>GeoHighlight - Data Analysis</title>
   <link href="/static/bootstrap.min.css" rel="stylesheet">
-  <link href="/static/leaflet.css" rel="stylesheet">
   <link href="/static/style_index.css" rel="stylesheet">
   <script src="/static/leaflet.js"></script>
   <script src="/static/d3.v3.min.js"></script>
@@ -12,16 +11,10 @@
   <html manifest="/static/app.appcache">
 </head>
 <body>
-  <style>
-    #map{
-      height: 450px;
-      margin-top: 5px;
-    }
-  </style>
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">AnyVisualizer</a>
+        <a class="navbar-brand" href="#">GeoHighlight</a>
       </div>
     </div>
   </nav>
@@ -121,59 +114,55 @@
     </div>
   </div>
   <script>
-var latmed, longmed, pointChose,firstPoint, firstArrayPoints;
-document.getElementById("pointInfo").value = "";
+    var pointChose,firstPoint, firstArrayPoints, map;
+    var markers = [];
+    document.getElementById("pointInfo").value = "";
 // ----------------------------------------------------------
 // ------------------------- Create the map and locate center
 // ----------------------------------------------------------
-var map = L.map('map').setView([0.0, 0.0], 10);
-var maplayer = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
-  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-});
-d3.csv("/dataanalysis/index.csv", function(error, data) {
-  var latmed = parseFloat(d3.min(data, function(d) { return d.latitude; })) + parseFloat(d3.max(data, function(d) { return d.latitude; }));
-  var latmed = latmed/2;
-  var longmed = parseFloat(d3.min(data, function(d) { return d.longitude; })) + parseFloat(d3.max(data, function(d) { return d.longitude; }));
-  var longmed = longmed/2;
-  map.panTo(new L.LatLng(latmed,longmed));
-});
-maplayer.addTo(map);
-var iconBlue = L.icon({
-  iconUrl: '/static/images/marker-icon.png',
-  iconSize:     [15, 15], // size of the icon
-  iconAnchor:   [7, 7], // point of the icon which will correspond to marker's location
-  popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
-});
-var iconGreen = L.icon({
-  iconUrl: '/static/images/marker-icon-green.png',
-  iconSize:     [15, 15], // size of the icon
-  iconAnchor:   [7, 7], // point of the icon which will correspond to marker's location
-  popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
-});
-var iconRed = L.icon({
-  iconUrl: '/static/images/marker-icon-red.png',
-  iconSize:     [15, 15], // size of the icon
-  iconAnchor:   [7, 7], // point of the icon which will correspond to marker's location
-  popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
-});
-var iconYellow = L.icon({
-  iconUrl: '/static/images/marker-icon-yellow.png',
-  iconSize:     [15, 15], // size of the icon
-  iconAnchor:   [7, 7], // point of the icon which will correspond to marker's location
-  popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
-});
-
+function initMap() {
+// Create a map object and specify the DOM element for display.
+  map = new google.maps.Map(document.getElementById('map'), {
+    scrollwheel: false,
+    zoom: 8
+  });
+  d3.csv("/dataanalysis/index.csv", function(error, data) {
+    var latmed = parseFloat(d3.min(data, function(d) { return d.latitude; })) + parseFloat(d3.max(data, function(d) { return d.latitude; }));
+    var latmed = latmed/2;
+    var longmed = parseFloat(d3.min(data, function(d) { return d.longitude; })) + parseFloat(d3.max(data, function(d) { return d.longitude; }));
+    var longmed = longmed/2;
+    map.setCenter({lat: latmed, lng: longmed}); 
+  });
+}
+var iconBlue = '/static/images/marker-icon.png';
+var iconGreen = '/static/images/marker-icon-green.png';
+var iconRed = '/static/images/marker-icon-red.png';
+var iconYellow = '/static/images/marker-icon-yellow.png';
+function clearMap(){
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(null);
+  }
+  markers = [];
+}
+function addPoint(platitude, plongitude, picon, pindex){
+  var marker = new google.maps.Marker({
+    position: {lat: parseFloat(platitude), lng: parseFloat(plongitude)},
+    map: map,
+    icon: picon,
+    pointId: pindex,
+    latitude: platitude,
+    longitude: plongitude
+  });
+  markers.push(marker);
+  return marker;
+}
 function refreshMap(){
   var arrayPoints = [];
   document.getElementById("seccondpass").disabled = true;
   document.getElementById("pointInfo").value = "";
   document.getElementById("firstAnalysis").style.display = "none";
   document.getElementById("seccondAnalysis").style.display = "none";
-  map.eachLayer(function (layer) {
-    if(maplayer != layer){
-      map.removeLayer(layer);
-    }
-  });
+  clearMap();
   var namefile = "/dataanalysis/dspoints/" + document.getElementById("range").options[document.getElementById("range").selectedIndex].value + "_" +(parseInt(document.getElementById("range").options[document.getElementById("range").selectedIndex].value)+1) + ".csv";
   d3.csv(namefile, function(error, dsPointsLines) {
     var auxArrayPoints = [];
@@ -181,19 +170,16 @@ function refreshMap(){
       auxArrayPoints.push(dsLine.p1);
       auxArrayPoints.push(dsLine.p2);
     });
+    //Remove point equals
     arrayPoints = auxArrayPoints.filter(function(item, pos) {
       return auxArrayPoints.indexOf(item) == pos;
     });
-    console.log(arrayPoints);
     d3.csv("/dataanalysis/index.csv", function(error, indexLines) {
       var stop = 0;
       indexLines.forEach(function(indexLine) {
         arrayPoints.forEach(function(point) {
           if(indexLine.p_index == point){
-            var myMarker = L.marker([parseFloat(indexLine.latitude), parseFloat(indexLine.longitude)], {icon: iconBlue}).addTo(map).on('click', onPointClick);
-            myMarker.pointId = indexLine.p_index;
-            myMarker.latitude = indexLine.latitude;
-            myMarker.longitude = indexLine.longitude;
+            addPoint(indexLine.latitude, indexLine.longitude, iconBlue, indexLine.p_index).addListener('click', onPointClick);
           }
         });
       });
@@ -206,33 +192,22 @@ function refreshMap(){
 }
 
 function showFirstRequestOnMap(){
-  console.log(firstArrayPoints.array);
-  map.eachLayer(function (layer) {
-    if(maplayer != layer){
-      map.removeLayer(layer);
-    }
-  });
+  clearMap();
   d3.csv("/dataanalysis/index.csv", function(error, indexLines) {
     var stop = 0;
     indexLines.forEach(function(indexLine) {
       firstArrayPoints.array.forEach(function(point) {
         if(indexLine.p_index == point){
-          var myMarker = L.marker([parseFloat(indexLine.latitude), parseFloat(indexLine.longitude)], {icon: iconYellow}).addTo(map).on('click', onPointClick);
-          myMarker.pointId = indexLine.p_index;
-          myMarker.latitude = indexLine.latitude;
-          myMarker.longitude = indexLine.longitude;
+          addPoint(indexLine.latitude, indexLine.longitude, iconYellow, indexLine.p_index).addListener('click', onPointClick);
         }
       });
       if(indexLine.p_index == firstPoint){
-        var myMarker = L.marker([parseFloat(indexLine.latitude), parseFloat(indexLine.longitude)], {icon: iconBlue}).addTo(map).on('click', onPointClick);
-          myMarker.pointId = indexLine.p_index;
-          myMarker.latitude = indexLine.latitude;
-          myMarker.longitude = indexLine.longitude;
-          document.getElementById("firstAnalysis").style.display = "block";
-          document.getElementById("seccondAnalysis").style.display = "none";
-          document.getElementById("firstSelected").innerHTML = firstPoint;
-          document.getElementById("firstKPoints").innerHTML = firstArrayPoints.array;
-          document.getElementById("firstSimilarity").innerHTML = firstArrayPoints.similarity;
+        addPoint(indexLine.latitude, indexLine.longitude, iconBlue, indexLine.p_index).addListener('click', onPointClick);
+        document.getElementById("firstAnalysis").style.display = "block";
+        document.getElementById("seccondAnalysis").style.display = "none";
+        document.getElementById("firstSelected").innerHTML = firstPoint;
+        document.getElementById("firstKPoints").innerHTML = firstArrayPoints.array;
+        document.getElementById("firstSimilarity").innerHTML = firstArrayPoints.similarity;
       }
     });
   });
@@ -249,46 +224,29 @@ function showFirstRequestOnMap(){
 }
 
 function showSeccondRequestOnMap(jsonResponse){
-  console.log(jsonResponse.array);
-  map.eachLayer(function (layer) {
-    if(maplayer != layer){
-      map.removeLayer(layer);
-    }
-  });
+  clearMap();
   d3.csv("/dataanalysis/index.csv", function(error, indexLines) {
     var stop = 0;
     indexLines.forEach(function(indexLine) {
       firstArrayPoints.array.forEach(function(point) {
         if(indexLine.p_index == point){
-          var myMarker = L.marker([parseFloat(indexLine.latitude), parseFloat(indexLine.longitude)], {icon: iconYellow}).addTo(map).on('click', onPointClick);
-          myMarker.pointId = indexLine.p_index;
-          myMarker.latitude = indexLine.latitude;
-          myMarker.longitude = indexLine.longitude;
+          addPoint(indexLine.latitude, indexLine.longitude, iconYellow, indexLine.p_index).addListener('click', onPointClick);
         }
       });
       if(indexLine.p_index == firstPoint){
-        var myMarker = L.marker([parseFloat(indexLine.latitude), parseFloat(indexLine.longitude)], {icon: iconBlue}).addTo(map).on('click', onPointClick);
-          myMarker.pointId = indexLine.p_index;
-          myMarker.latitude = indexLine.latitude;
-          myMarker.longitude = indexLine.longitude;
+        addPoint(indexLine.latitude, indexLine.longitude, iconBlue, indexLine.p_index).addListener('click', onPointClick);
       }
       jsonResponse.array.forEach(function(point) {
         if(indexLine.p_index == point){
-          var myMarker = L.marker([parseFloat(indexLine.latitude), parseFloat(indexLine.longitude)], {icon: iconRed}).addTo(map).on('click', onPointClick);
-          myMarker.pointId = indexLine.p_index;
-          myMarker.latitude = indexLine.latitude;
-          myMarker.longitude = indexLine.longitude;
+          addPoint(indexLine.latitude, indexLine.longitude, iconRed, indexLine.p_index).addListener('click', onPointClick);
         }
       });
       if(indexLine.p_index == pointChose){
-        var myMarker = L.marker([parseFloat(indexLine.latitude), parseFloat(indexLine.longitude)], {icon: iconGreen}).addTo(map).on('click', onPointClick);
-          myMarker.pointId = indexLine.p_index;
-          myMarker.latitude = indexLine.latitude;
-          myMarker.longitude = indexLine.longitude;
-          document.getElementById("seccondAnalysis").style.display = "block";
-          document.getElementById("seccondSelected").innerHTML = pointChose;
-          document.getElementById("seccondKPoints").innerHTML = jsonResponse.array;
-          document.getElementById("seccondSimilarity").innerHTML = jsonResponse.similarity;
+        addPoint(indexLine.latitude, indexLine.longitude, iconGreen, indexLine.p_index).addListener('click', onPointClick);
+        document.getElementById("seccondAnalysis").style.display = "block";
+        document.getElementById("seccondSelected").innerHTML = pointChose;
+        document.getElementById("seccondKPoints").innerHTML = jsonResponse.array;
+        document.getElementById("seccondSimilarity").innerHTML = jsonResponse.similarity;
       }
     });
   });
@@ -299,8 +257,8 @@ function showSeccondRequestOnMap(jsonResponse){
     firstArrayPoints.array.forEach(function(point) {
       if(point == pointChose){
        disableSeccondPass = true;
-      }
-    });
+     }
+   });
     if(pointChose == firstPoint){
       disableSeccondPass = true;
     }
@@ -343,6 +301,8 @@ function runPass(pass){
     }
   }
 }
+
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkb8SUi3_g9PJxJgGfydzLqmqIp3NpUeU&callback=initMap" async defer></script>
 </body>
 </html>

@@ -1,12 +1,7 @@
-# MOVER ARQUIVOS DS PARA PASTA PRINCIPAL E EXECUTAR
 import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
-import os, csv, re, json, imp
-import threading
-import subprocess
-import uuid
-import iugaMod
+import os, csv, re, json, imp, threading, subprocess, uuid, iugaMod
 from flask import Flask, render_template, request, send_from_directory
 from werkzeug import secure_filename
 app = Flask(__name__)
@@ -15,12 +10,14 @@ app = Flask(__name__)
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))   # refers to application_top
 APP_TMP = os.path.join(APP_ROOT, 'tmp')
 APP_ANALYSIS = os.path.join(APP_ROOT, 'dataanalysis')
+
 app.config['UPLOAD_FOLDER'] = 'tmp/'
 app.config['UPLOAD_FOLDER_DATA'] = 'dataanalysis/'
 app.config['ALLOWED_EXTENSIONS'] = set(['csv'])
 # Thread to generate ds archives
 background_scripts = {}
 controleRun = -1
+
 def run_script(id):
     global controleRun
     controleRun = id
@@ -31,12 +28,6 @@ def run_script(id):
 def allowed_file(filename):
     return '.' in filename and \
         filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']
-
-def dataanalysis():
-    id = str(uuid.uuid4())
-    background_scripts[id] = False
-    threading.Thread(target=lambda: run_script(id)).start()
-    return send_from_directory(APP_ANALYSIS, 'loading.html')
 
 def file_proc():
     examplevalues = []
@@ -106,21 +97,16 @@ def upload():
             return file_proc()
         else:
             file.save(os.path.join(app.config['UPLOAD_FOLDER_DATA'], 'arquivo.csv'))
-            return dataanalysis()
+            id = str(uuid.uuid4())
+            background_scripts[id] = False
+            threading.Thread(target=lambda: run_script(id)).start()
+            return send_from_directory(APP_ANALYSIS, 'loading.html')
     else:
         return render_template('index.html', formatsmsg='Format not suported! Try again!')
 
-@app.route('/tmp/<path:filename>')
-def sendcsv(filename):
-    return send_from_directory(APP_TMP, filename)
-
-@app.route('/dataanalysis/<path:filename>')
-def sendinfos(filename):
-    return send_from_directory(APP_ANALYSIS, filename)
-
-@app.route('/static/<path:filename>')
-def sendstatic(filename):
-    return send_from_directory('/static', filename)
+@app.route('/<path:directory>')
+def sendfiles(directory):
+    return send_from_directory(APP_ROOT, directory)
 
 @app.route('/isfinish', methods=['POST'])
 def sendstatus():
