@@ -39,7 +39,7 @@
 \begin{document}
 
 %\title{GeoHighlight: Interactive Guidance-based Visualization for Spatiotemporal Data}
-\title{An Interactive Guidance-based Visualization Framework for Spatiotemporal Data}
+\title{A Guidance-based Visualization Framework for Spatiotemporal Data}
 
 
 % author names and affiliations
@@ -61,7 +61,7 @@ IFRN, Brazil\\
 
 
 \begin{abstract}
-This paper presents \sys, an interactive guidance-based visualization framework for spatiotemporal data. The main objective of your proposal is provide an environment to guide analysts through the challenge due the huge size and diversity of spatiotemporal data in order to retrieve important information by guidance techniques applied to geodata.  To overcome this challenge, in general, visualization environments offer a plethora of operations to manipulate data (filter, aggregate, etc.). In practice, this duplicates the problem: the analyst is left alone in a huge space of data and operations. In an exploratory context, the principled challenge for the analyst is {\em ``what to see next''} during the analysis process. To fulfil this need in geo analysis  we propose a {\em guidance mechanism} to point out potential future directions of analysis. So, we named this framework \sys,  an efficient interactive guidance environment for visualizing spatiotemporal data. 
+This paper presents \sys, an interactive guidance-based visualization framework for spatiotemporal data. The main objective of your proposal is provide an environment to guide analysts through the challenge due the huge size and diversity of spatiotemporal data in order to retrieve important information by guidance techniques applied to geodata.  To overcome this challenge, in general, visualization environments offer a plethora of operations to manipulate data (filter, aggregate, etc.). In practice, this duplicates the problem: the analyst is left alone in a huge space of data and operations. In an exploratory context, the principled challenge for the analyst is {\em ``what to see next''} during the analysis process. To fulfil this need in geo analysis, we propose a {\em guidance mechanism} to point out potential future directions of analysis. %So, we named this framework \sys,  an efficient interactive guidance environment for visualizing spatiotemporal data. 
 
 %Spatiotemporal data is becoming increasingly available in various domains such as transportation and social science. Discovering patterns and trends in this data provides improved insights for planning and decision making for smart city management, disaster management and other applications. However, exploratory analysis of such data is a challenge due to its huge size and diversity of spatiotemporal data. It is often unclear for the analyst {\em what to see next} during an analysis process, i.e., lack of guidance. In this paper, we introduce \sys, an efficient interactive guidance framework for visualizing spatiotemporal data. We provide several scenarios that illustrate the usability of \sys\ in areas such as urban planning, marketing and aviation.
 \end{abstract}
@@ -71,18 +71,21 @@ This paper presents \sys, an interactive guidance-based visualization framework 
 \vspace{-5pt}
 \section{Introduction} 
 
-[INITIAL PARAGRAPH DIFFERENT OF THE ONE USED IN EDBT PAPER]
+
 %Nowadays, there exists huge amounts of spatiotemporal data in various fields of science. Understanding patterns and trends through visualizing spatiotempral data improves user planning and decision making. Some instance applications of spatiotemporal data are smart city management, disaster management and autonomous transport. Traditionally, an exploratory analysis scenario on spatiotemporal data is described as follows: the analyst visualizes the data using an off-the-shelf product (e.g., Tableau\footnote{\it http://www.tableau.com}, Spotfire\footnote{\it http://spotfire.tibco.com}). Then she looks at different parts of data for interesting patterns and trends. With the growing size of spatiotemporal datasets, this classical approach is not practical anymore: geographical points are scattered everywhere and the analyst cannot effectively observe insights.
 % \cite{RoddickEHPS04,Telang:2012}.
 
 
 %To overcome this challenge, visualization environments offer a plethora of operations to manipulate data (filter, aggregate, etc.). In practice, this duplicates the problem: the analyst is left alone in a huge space of data and operations. In an exploratory context, the principled challenge for the analyst is {\em ``what to see next''} during the analysis process. A {\em guidance mechanism} is necessary to point out potential future directions of analysis.
 
-In this paper, we argue the need for a guidance-based visualization framework for spatiotemoral data. We consider following desiderata for this framework.
+There exists, nowadays, a great amount of spatiotemporal data in various fields of science. Understanding patterns and trends through visualizing spatiotempral data improves analyst planning and decision making.
+Given a geographical point of interest, the main question  for an analyst is then how to recommend other points to be considered in future analysis steps in form of guidance. In this paper, our proposal focus on one specific guidance approach, i.e., highlighting $k$-best points given a point of interest. Those $k$ points should have high quality. Quality is formulated as optimization of two dimensions: {\em relevance} and {\em diversity}. Optimizing relevance ensures that recommended points are in-line with what the analyst has already liked. Optimizing diversity results points which are as different as possible from each other and unveil different aspects of analysis. 
+
+In this paper, we argue the need for a guidance-based visualization framework for spatiotemoral data by considering following desiderata for this environment.
 
 \noindent {\bf Genericness.} The framework component should be agnostic (making no assumption) about the dataset type, attributes and distribution.
 
-\noindent {\bf Limited Options.} The guidance approach should provide a limited set of recommendations because too many options distract the analyst. \cite{miller1956human}
+\noindent {\bf Limited Options.} The guidance approach should provide a limited set of recommendations because too many options distract the analyst. %\cite{miller1956human}
 
 \noindent {\bf Relevance.} The guidance approach should deliver results which have similar characteristics to what the analyst has already liked.
 
@@ -110,20 +113,28 @@ In this paper, we address the problem of {\em generic guidance} in spatiotempora
 
 Figure XXX illustrates a screenshot of \sys. We observe that ...
 
- \begin{figure}[t]
+ \begin{figure}[!ht]
    \centering
-   \includegraphics[width=\columnwidth]{figs/placeholder}
- \caption{\framework\ Dashboard}
+   \includegraphics[width=\columnwidth]{figs/dashboard1}
+ \caption{\framework\ Dashboard - Selection the set of desired points.}
  \label{fig:dashboard}
  \vspace{-10pt}
  \end{figure}
+ \vspace{-5pt}
+  \begin{figure}[!ht]
+   \centering
+   \includegraphics[width=\columnwidth]{figs/dashboard2}
+ \caption{\framework\ Dashboard - Choosing a specific point from $\sigma, k$ and a $timeLimit$.}
+ \label{fig:dashboard2}
+ \vspace{-10pt}
+ \end{figure}
 
-\vspace{-5pt}
-\section{Running Example}
-
-...
-...
-...
+%\vspace{-5pt}
+%\section{Running Example}
+%
+%...
+%...
+%...
 
 \vspace{-5pt}
 \section{Demonstration}
@@ -133,13 +144,13 @@ resulting highlights and guidance in order the help the data analyst. We present
 
 ....
 
- \begin{figure}[t]
-   \centering
-   \includegraphics[width=\columnwidth]{figs/placeholder}
- \caption{ Demonstration Platform}
- \label{fig:platform}
- \vspace{-10pt}
- \end{figure}
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=\columnwidth]{figs/placeholder}
+% \caption{ Demonstration Platform}
+% \label{fig:platform}
+% \vspace{-10pt}
+% \end{figure}
 
 \noindent {\bf Demo.} What datasets do we use in our demo?
 
