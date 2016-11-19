@@ -103,6 +103,7 @@ def file_proc():
                 value = float(value)
                 try:
                     int(value)
+                    
                 except:
                     mapsoptions.append(tempoptions[index])
             except:
