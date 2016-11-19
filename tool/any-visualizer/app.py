@@ -17,11 +17,41 @@ app.config['ALLOWED_EXTENSIONS'] = set(['csv'])
 # Thread to generate ds archives
 background_scripts = {}
 controleRun = -1
+# 
+datasettype = 0
+# Making dspoints directory if its not exist
+dir = os.path.join(APP_ANALYSIS, 'dspoints')
+
+try:
+    os.stat(dir)
+except:
+    os.mkdir(dir)   
+# Send no-cache request in header
+@app.after_request
+def add_header(r):
+    """
+    Add headers to both force latest IE rendering engine or Chrome Frame,
+    and also to cache the rendered page for 0 minutes.
+    """
+    r.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    r.headers["Pragma"] = "no-cache"
+    r.headers["Expires"] = "0"
+    r.headers['Cache-Control'] = 'public, max-age=0'
+    return r
 
 def run_script(id):
     global controleRun
     controleRun = id
-    archivedir = APP_ROOT + "/dsgenerator.py"
+    firstCollumnHeader = ""
+    with open(os.path.join(APP_TMP, 'arquivo.csv')) as f:
+        for row in csv.reader(iter(f.readline, '')):
+            firstCollumnHeader = row[0]
+            print(firstCollumnHeader)
+            break
+    if("vendor_id" == firstCollumnHeader):
+        archivedir = APP_ROOT + "/dsgenerator.py"
+    else:
+        archivedir = APP_ROOT + "/dsgeneratorbike.py"
     subprocess.call(["python", archivedir])
     background_scripts[id] = True
 
@@ -30,9 +60,11 @@ def allowed_file(filename):
         filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']
 
 def file_proc():
+    global datasettype
     examplevalues = []
     options = []
     mapsoptions = []
+    datasettype = 0
     with open(os.path.join(APP_TMP, 'arquivo.csv')) as f:
         firstline = True
         for row in csv.reader(iter(f.readline, '')):
@@ -49,6 +81,15 @@ def file_proc():
             options.append(tempoptions[index])
         except:
             None
+    if("vendor_id" == tempoptions[0]):
+        options.append(tempoptions[1])
+        options.append(tempoptions[2])
+        datasettype = 1
+    elif("tripduration" == tempoptions[0]):
+        options.append(tempoptions[1])
+        options.append(tempoptions[2])
+        datasettype = 2
+    print("DATASET: ", datasettype)
     #Select in options list the possible values for lat and long, if not found show all int values
     for index, value in enumerate(tempoptions):
         if(value.find("lat") != -1):
@@ -79,11 +120,13 @@ def index():
         formatsmsg += ' ' + x.upper()
     return render_template('index.html', formatsmsg=formatsmsg)
 
-@app.route('/selectdata', methods=['POST'])
+@app.route('/selectdata', methods=['POST', 'GET'])
 def selectdata():
+    global datasettype
+    print(request.form.get('filter1'), request.form.get('filter2'))
     filter = [request.form.get('filter1'), request.form.get('filter2'),request.form.get('filter3'), request.form.get('filter4')]
     positions = [request.form.get('latitude1'),  request.form.get('longitude1'),  request.form.get('latitude2'),  request.form.get('longitude2')]
-    return render_template('charts.html', csvfilename='arquivo.csv', filter=filter, positions=positions)
+    return render_template('charts.html', csvfilename='arquivo.csv', filter=filter, positions=positions, datasettype=datasettype)
 
 @app.route('/upload', methods=['POST'])
 def upload():
@@ -91,12 +134,10 @@ def upload():
     file = request.files['file']
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
-
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'arquivo.csv'))
         if(request.form.get('botao') == "Charts and Maps"):
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'arquivo.csv'))
             return file_proc()
         else:
-            file.save(os.path.join(app.config['UPLOAD_FOLDER_DATA'], 'arquivo.csv'))
             id = str(uuid.uuid4())
             background_scripts[id] = False
             threading.Thread(target=lambda: run_script(id)).start()
