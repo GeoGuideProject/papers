@@ -1,16 +1,16 @@
 import csv, math, mmap, shutil, os
-latpick, longpick           = [6, 5]
-latdrop, longdrop           = [10, 9]
-pickup_datetime, dropoff_datetime = [1, 2]
-distance, passenger   = [4, 3]
-fare, tip, total = [12, 15, 17]
+#latpick, longpick           = [6, 5]
+#latdrop, longdrop           = [10, 9]
+#pickup_datetime, dropoff_datetime = [1, 2]
+#distance, passenger   = [4, 3]
+#fare, tip, total = [12, 15, 17]
 biggerdistance, biggersimilarity, firstline, countlines =   [0, 0, True, 0]
 
 # getHour function
 def getHour(strdate):
     try:
         strdate = strdate.split()
-        return int(strdate[1].split(':')[0])
+        return strdate[1].split(':')[0]
     except(IndexError):
         return 0
 
@@ -74,11 +74,15 @@ def ignorePoint(p1,p2,p3,p4):
     except:
         return True
 
-
+#"0tripduration","1starttime","2stoptime","3start station id","4start station name",
+#"5start station latitude","6start station longitude","7end station id","8end station name",
+#"9end station latitude","10end station longitude","11bikeid","12usertype","13birth year","14gender"
 temp = csv.writer(open("tmp/temp.csv", "wb"))
 index = csv.writer(open("dataanalysis/index.csv", "wb"))
-index.writerow(['p_index', 'dataset_line_index' , 'latitude', 'longitude', 'hour', 'passenger', 'fare_amout', 'tip_amout', 'total_amout', 'isPickUp'])
-
+index.writerow(['p_index', 'dataset_line_index' , 'latitude', 'longitude', 'hour', 'duration', 'isPickUp'])
+latpick, longpick = [5,6]
+latdrop, longdrop = [9,10]
+pickup_datetime, dropoff_datetime = [1,2]
 #reading dataset
 input_dataset = open('tmp/arquivo.csv')
 
@@ -98,17 +102,18 @@ countlines = 0
 for row in iter(input_dataset.readline, ''):
     countlines += 1
     ignoreIndex = 0
+    row = row.replace('"','') # Remove all quotes 
     reading_line = row.split(",")
     try:
         if(ignorePoint(float(reading_line[latpick]), float(reading_line[longpick]), float(reading_line[latdrop]), float(reading_line[longdrop]))):
             ignoreIndex += 2
             print(float(reading_line[latpick]), float(reading_line[longpick]), float(reading_line[latdrop]), float(reading_line[longdrop]))
         else:
-            index.writerow([(countlines*2) - 1 - ignoreIndex, countlines, reading_line[latpick], reading_line[longpick], reading_line[pickup_datetime], reading_line[passenger], reading_line[fare], 1])
-            index.writerow([(countlines*2) - ignoreIndex, countlines, reading_line[latdrop], reading_line[longdrop], reading_line[dropoff_datetime], reading_line[passenger], reading_line[fare], 0])
+            index.writerow([(countlines*2) - 1 - ignoreIndex, countlines, reading_line[latpick], reading_line[longpick], reading_line[pickup_datetime], 1])
+            index.writerow([(countlines*2) - ignoreIndex, countlines, reading_line[latdrop], reading_line[longdrop], reading_line[dropoff_datetime], 0])
     except:
         ignoreIndex += 2
-        print(reading_line[latdrop], reading_line[longdrop],reading_line[latdrop],reading_line[longdrop])
+        print(float(reading_line[latdrop]), reading_line[longdrop],reading_line[latdrop],reading_line[longdrop])
 
 #-----------------------------------------------------------------------------------------------
 #----------------------------    Reading Data Set again    -------------------------------------
@@ -128,7 +133,8 @@ _index_features = _index.readline().split(",")
 
 
 #indexes
-p_index, dataset_line_index, latitude, longitude, hour, passenger, fareu, isPickUp= [0, 1, 2, 3, 4, 5, 6, 7]
+#index.writerow(['p_index', 'dataset_line_index' , 'latitude', 'longitude', 'hour', 'duration', 'isPickUp'])
+p_index, dataset_line_index, latitude, longitude, hour, duration, isPickUp= [0, 1, 2, 3, 4, 5, 6]
 pointValue = 1
 aux_pointValue = 1
 
@@ -146,9 +152,11 @@ for i in range(0, countlines):
     for j in range(pointValue, countlines):
         index_aux_values = index_aux[j].split(",")
         #partsimilarity =  (  (int(_index_values[passenger]) + int(index_aux_values[passenger])) + (getHour(_index_values[hour]) / getHour(index_aux_values[hour]))  )
-        partsimilarity =  ((int(index_aux_values[passenger]) * 2) + 1)
+        #partsimilarity =  ((int(index_aux_values[passenger]) * 2) + 1)
         distance = harvestine_distance(float(_index_values[latitude]), float(_index_values[longitude]), float(index_aux_values[latitude]), float(index_aux_values[longitude]))
-        similarity =   (int(_index_values[passenger]) + int(index_aux_values[passenger])) + (distance * jaccard_similarity([_index_values[fareu],_index_values[passenger],getHour(_index_values[hour]),getMinute(_index_values[hour])],[index_aux_values[fareu], index_aux_values[passenger],getHour(index_aux_values[hour]),getMinute(_index_values[hour])]))
+        
+        similarity = harvestine_distance(float(_index_values[latitude]), float(_index_values[longitude]), float(index_aux_values[latitude]), float(index_aux_values[longitude]))
+        
         temp.writerow([_index_values[p_index], index_aux_values[p_index], distance, similarity])
         setBiggerValue(distance, similarity)
 
@@ -157,7 +165,7 @@ for i in range(0, countlines):
     pointValue+=1
 
 #-----------------------------------------------------------------------------------------------
-#----------------------------    Parsing Final DS    -------------------------------------
+#----------------------------------    Parsing Final DS    -------------------------------------
 #-----------------------------------------------------------------------------------------------
 
 
@@ -201,7 +209,7 @@ try:
     os.stat(dir)
 except:
     os.mkdir(dir)  
-
+    
 for val in range(0, 10):
     strfile = 'dataanalysis/dspoints/' + str(val) + '_' + str(val+1) + '.csv'
     arquivos.append(csv.writer(open(strfile, 'wb')))
