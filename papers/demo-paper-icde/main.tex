@@ -61,7 +61,7 @@ IFRN, Brazil\\
 
 
 \begin{abstract}
-This paper presents \sys, an interactive guidance-based visualization framework for spatiotemporal data. The main objective of your proposal is provide an environment to guide analysts through the challenge due the huge size and diversity of spatiotemporal data in order to retrieve important information by guidance techniques applied to geodata.  To overcome this challenge, in general, visualization environments offer a plethora of operations to manipulate data (filter, aggregate, etc.). In practice, this duplicates the problem: the analyst is left alone in a huge space of data and operations. In an exploratory context, the principled challenge for the analyst is {\em ``what to see next''} during the analysis process. To fulfil this need in geo analysis, we propose a {\em guidance mechanism} to point out potential future directions of analysis. %So, we named this framework \sys,  an efficient interactive guidance environment for visualizing spatiotemporal data. 
+This paper presents \sys, an interactive guidance-based visualization framework for spatiotemporal data. The main objective of our proposal is provide an environment to guide analysts through the challenge due the huge size and diversity of spatiotemporal data in order to retrieve important information by guidance techniques.  To overcome this challenge, in general, visualization environments offer a plethora of operations to manipulate data (filter, aggregate, etc.). In practice, this duplicates the problem: the analyst is left alone in a huge space of data and operations. In an exploratory context, the principled challenge for the analyst is {\em ``what to see next''} during the analysis process. To fulfil this need in geo analysis, we propose a {\em guidance mechanism} to point out potential future directions of analysis. %So, we named this framework \sys,  an efficient interactive guidance environment for visualizing spatiotemporal data. 
 
 %Spatiotemporal data is becoming increasingly available in various domains such as transportation and social science. Discovering patterns and trends in this data provides improved insights for planning and decision making for smart city management, disaster management and other applications. However, exploratory analysis of such data is a challenge due to its huge size and diversity of spatiotemporal data. It is often unclear for the analyst {\em what to see next} during an analysis process, i.e., lack of guidance. In this paper, we introduce \sys, an efficient interactive guidance framework for visualizing spatiotemporal data. We provide several scenarios that illustrate the usability of \sys\ in areas such as urban planning, marketing and aviation.
 \end{abstract}
@@ -93,7 +93,9 @@ In this paper, we argue the need for a guidance-based visualization framework fo
 
 \noindent {\bf Interactivity.} The exploratory nature of the analysis requires the guidance component to be involved in an interactive process. Hence the analyst can investigate and refine different aspects of spatiotemporal data in iterative steps. For being interactive, the guidance component should be efficient so that the train of thought of analyst would not be broken during the analysis process. Despite progress in efficient spatiotemporal processing \cite{yu2015geospark}, sub-second interactivity is still missing.
 
-We inspire from both recommendation \cite{Omidvar-Tehrani:2015} and visual highlighting \cite{Liang2010,Robinson2011} methodologies and propose \sys\ as a solution to aforementioned challenges. \sys\ is a visualization framework for spatiotemporal data which guides the analyst throughout the process towards interesting points. Given a geographical point of interest, the question is then how to recommend other points to be considered in future analysis steps in form of guidance. In this paper, we focus on one specific guidance approach, i.e., highlighting $k$-best points given a point of interest. Those $k$ points should have high quality. Quality is formulated as optimization of two dimensions: {\em relevance} and {\em diversity}. Optimizing relevance ensures that recommended points are in-line with what the analyst has already liked. Optimizing diversity results points which are as different as possible from each other and unveil different aspects of analysis. In this paper, we propose a generic interactive analysis approach for guiding analysts towards potential interesting points. The analyst considers the guidance and picks a direction for the next analysis iteration.
+We inspire from both recommendation \cite{Omidvar-Tehrani:2015} and visual highlighting \cite{Liang2010,Robinson2011} methodologies and propose \sys\ as a solution to aforementioned challenges. \sys\ is a visualization framework for spatiotemporal data which guides the analyst throughout the process towards interesting points. In this paper, we propose this guidance approach for analysis of huge datasets with geographic informations. So, the analyst considers the guidance and picks a direction for the next analysis iteration.
+
+%Given a geographical point of interest, the question is then how to recommend other points to be considered in future analysis steps in form of guidance. In this paper, we focus on one specific guidance approach, i.e., highlighting $k$-best points given a point of interest. Those $k$ points should have high quality. Quality is formulated as optimization of two dimensions: {\em relevance} and {\em diversity}. Optimizing relevance ensures that recommended points are in-line with what the analyst has already liked. Optimizing diversity results points which are as different as possible from each other and unveil different aspects of analysis. 
 
 \vspace{-5pt}
 
@@ -105,29 +107,15 @@ In this paper, we address the problem of {\em generic guidance} in spatiotempora
 
  \begin{figure}[t]
    \centering
-   \includegraphics[width=\columnwidth]{figs/placeholder}
- \caption{\framework\ Architecture}
- \label{fig:architecture}
+   \includegraphics[width=\columnwidth]{figs/framework}
+
+ \caption{\framework\ Framework}
+ \label{fig:frame}
  \vspace{-10pt}
  \end{figure}
 
-Figure XXX illustrates a screenshot of \sys. We observe that ...
+Figure \ref{fig:frame} illustrates the general structure of \sys. We observe that from a dataset with spatialtemporal information points, an analyst can select one of $k$ points to search for similar other points in order to proceed with specific decision like: (i) considering a Taxi analysis for pick-up a new passenger after a drop-off, \textit{which are the best points in the neighborhood to pick-up  new client?}; or (ii) considering a bicycle ride analysis, \textit{which are the best points a user can leave the bicycle considering that this user will pick-up the bike in a specific location and plan to pedal for 1 hour?} 
 
- \begin{figure}[!ht]
-   \centering
-   \includegraphics[width=\columnwidth]{figs/dashboard1}
- \caption{\framework\ Dashboard - Selection the set of desired points.}
- \label{fig:dashboard}
- \vspace{-10pt}
- \end{figure}
- \vspace{-5pt}
-  \begin{figure}[!ht]
-   \centering
-   \includegraphics[width=\columnwidth]{figs/dashboard2}
- \caption{\framework\ Dashboard - Choosing a specific point from $\sigma, k$ and a $timeLimit$.}
- \label{fig:dashboard2}
- \vspace{-10pt}
- \end{figure}
 
 %\vspace{-5pt}
 %\section{Running Example}
@@ -139,28 +127,45 @@ Figure XXX illustrates a screenshot of \sys. We observe that ...
 \vspace{-5pt}
 \section{Demonstration}
 
-This demonstration allows to observe thoroughly the inner working of \sys, and to illustrate the use of the
-resulting highlights and guidance in order the help the data analyst. We present in Figure \ref{fig:platform} the software platform that supports this objective. This figure depicts the demonstration platform: the \sys engine is implemented in Python \cite{}, and our graphical user interface is based on Node.js, using different libraries like \textit{D3.js, Google Maps and Ajax}.  The client-side part allows the client to choose the values for a clearly-defined set of initial parameters to visualize the information about the execution of \sys with the chosen values. 
+This demonstration allows to observe thoroughly the inner working of \sys, and to illustrate the use of the environment from the highlighting and guidance results in order the help the data analyst. The demonstration platform and its architecture were implemented as following: (i) the \sys engine is implemented in Python \footnote{\it https://www.python.org/}, and (ii) the graphical user interface is based on Node.js, using different libraries like \textit{D3.js\footnote{\it https://d3js.org/}, Google Maps API\footnote{\it https://developers.google.com/maps/} and Ajax\footnote{\it http://api.jquery.com/jquery.ajax/}}.  The client-side part allows the client to choose the values for a clearly-defined set of initial parameters to visualize the information about the execution of \sys with the chosen values. 
 
-....
 
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=\columnwidth]{figs/placeholder}
-% \caption{ Demonstration Platform}
-% \label{fig:platform}
-% \vspace{-10pt}
-% \end{figure}
+\noindent {\bf Demo.} We consider for this demonstration two realistic scenario for New York taxi\footnote{\it https://data.cityofnewyork.us/view/gn7m-em8n} and bicycle\footnote{\it https://s3.amazonaws.com/tripdata/index.html} datasets. These datasets has been frequently exploited for urban analysis
+% \cite{ferreira2013visual,DBLP:journals/debu/FreireCVZ16}.
+(e.g. in \cite{DBLP:journals/debu/FreireCVZ16}).
+The  New York taxi dataset contains 173,179,759 records of taxi trips and 18 attributes such as pickup and dropoff date/time, passenger count and trip distance. The New York bicycle dataset contains information from 2013 to 2016, and 15 attributes such as start station id and end station id, their respective geographical informations, trip duration and distance.
+% The dataset size is 27.9 GB with informations of trips from 2014.
+These scenarios illustrate how an analyst can achieve an exploratory analysis goal. We preprocessed the original datasets and considered a subset of 20K unique points for the sake of clarity of results.
 
-\noindent {\bf Demo.} What datasets do we use in our demo?
+\noindent {\bf Scenario 1.} The scenario consists of a data scientist, we name Lucas, whose task is to optimize New York taxi trips. Focusing on cab-idle locations, he wants to discover which neighborhoods work the best for which drivers to increase the overall availability. Also, he goals to discover how drivers should choose their next cab-idle station to be more available. Lucas employs \framework\ and follows a case-by-case inspection as his analysis methodology by analyzing and learning from historical data. Considering this,  we present how \sys can support Lucas by retrieving quality information to his analysis. Figures \ref{fig:dashboard} and \ref{fig:dashboard2} present the \sys dashboard for this scenario, where the analyst can choose a initial point from a set of points. Then, the framework the presents $k$ other potential points that may be consider in Lucas analysis from the set of parameters ($\sigma, k$ and a $timeLimit$) defined. The same process can be made again in a \textit{second pass}. 
 
-\noindent {\bf Scenario 1.} Lucas example on taxis.
 
-\noindent {\bf Scenario 2.} Marketing example
+ \begin{figure}[!ht]
+   \centering
+   \includegraphics[width=\columnwidth]{figs/dashboard1}
+ \caption{\framework\ Dashboard [New York Taxi Scenario] - View of a set of taxi pick-up and drop-off points.}
+ \label{fig:dashboard}
+ \vspace{-10pt}
+ \end{figure}
 
-\noindent {\bf Scenario 3.} Aviation example 
+ \vspace{-5pt}
+  \begin{figure}[!ht]
+   \centering
+   \includegraphics[width=\columnwidth]{figs/dashboard2}
+ \caption{\framework\ Dashboard [New York Taxi Scenario] - Choosing a specific point from $\sigma, k$ and a $timeLimit$.}
+ \label{fig:dashboard2}
+ \vspace{-10pt}
+ \end{figure}
+ 
+ 
+\noindent {\bf Scenario 2.} Another data scientist, we name Shadi, whose task is to optimize New York bicycles station location in New York by analysing the rides from January until September 2016. How to identify problems considering the day and time for drop-off  bike rides in full stations. She must to identify the problematic bike stations to pick-up and drop-off .
+ 
+ \section{Conclusion}
+ 
+ In this demo we have presented \sys, a generic and interactive
+framework for visualization of spatiotemporal data. Some future extensions include the integration
+of generic query approach based on \cite{VartakRMPP15}, and we also want to consider an analyst profile vector which is built during interactive steps and will be exploited to return more analyst-tailored results.
 
-[DO YOU THINK WE WILL BE ABE TO PRESENT ALL THESE SCENARIOS? I THINK IT COULD BE BETTER PRESENT ONLY ONE...]
 
 \bibliographystyle{abbrv}
 \bibliography{main}
