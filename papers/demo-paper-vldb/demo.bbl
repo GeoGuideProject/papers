@@ -1,0 +1,60 @@
+\begin{thebibliography}{10}
+
+\bibitem{aly2015spatial}
+A.~M. Aly, W.~G. Aref, and M.~Ouzzani.
+\newblock Spatial queries with k-nearest-neighbor and relational predicates.
+\newblock In {\em SIGSPATIAL}, page~28. ACM, 2015.
+
+\bibitem{Bao2015}
+J.~Bao, Y.~Zheng, D.~Wilkie, and M.~Mokbel.
+\newblock Recommendations in location-based social networks: a survey.
+\newblock {\em GeoInformatica}, 19(3):525--565, 2015.
+
+\bibitem{DBLP:journals/debu/FreireCVZ16}
+J.~Freire, A.~Bessa, F.~Chirigati, H.~T. Vo, and K.~Zhao.
+\newblock Exploring what not to clean in urban data: {A} study using new york
+  city taxi trips.
+\newblock {\em {IEEE} Data Eng. Bull.}, 39(2):63--77, 2016.
+
+\bibitem{Levandoski:2012}
+J.~J. Levandoski, M.~Sarwat, A.~Eldawy, and M.~F. Mokbel.
+\newblock Lars: A location-aware recommender system.
+\newblock In {\em ICDE}, pages 450--461, 2012.
+
+\bibitem{Liang2010}
+J.~Liang and M.~L. Huang.
+\newblock Highlighting in information visualization: A survey.
+\newblock In {\em 2010 14th International Conference Information
+  Visualisation}, July 2010.
+
+\bibitem{Omidvar-Tehrani:2015}
+B.~Omidvar-Tehrani, S.~Amer-Yahia, and A.~Termier.
+\newblock Interactive user group analysis.
+\newblock In {\em CIKM}, pages 403--412. ACM, 2015.
+
+\bibitem{Robinson2011}
+A.~C. Robinson.
+\newblock Highlighting in geovisualization.
+\newblock {\em Cartography and Geographic Information Science}, 38(4):373--383,
+  2011.
+
+\bibitem{willett2007scented}
+W.~Willett, J.~Heer, and M.~Agrawala.
+\newblock Scented widgets: Improving navigation cues with embedded
+  visualizations.
+\newblock {\em IEEE Transactions on Visualization and Computer Graphics},
+  13(6):1129--1136, 2007.
+
+\bibitem{wongsuphasawat2016voyager}
+K.~Wongsuphasawat, D.~Moritz, A.~Anand, J.~Mackinlay, B.~Howe, and J.~Heer.
+\newblock Voyager: Exploratory analysis via faceted browsing of visualization
+  recommendations.
+\newblock {\em TVCG}, 22(1), 2016.
+
+\bibitem{yu2015geospark}
+J.~Yu, J.~Wu, and M.~Sarwat.
+\newblock Geospark: A cluster computing framework for processing large-scale
+  spatial data.
+\newblock In {\em SIGSPATIAL}, page~70. ACM, 2015.
+
+\end{thebibliography}
