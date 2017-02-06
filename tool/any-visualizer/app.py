@@ -1,9 +1,12 @@
+### Force python 2.7 to work with utf-8
 import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
-import os, csv, re, json, imp, threading, subprocess, uuid, iugaMod
-from flask import Flask, render_template, request, send_from_directory
-from werkzeug import secure_filename
+### All imports
+import  os, csv, re, json, imp, threading, subprocess, uuid, iugaMod
+from    flask       import Flask, render_template, request, send_from_directory
+from    werkzeug    import secure_filename
+
 app = Flask(__name__)
 
 # Directories config
@@ -14,10 +17,11 @@ APP_ANALYSIS = os.path.join(APP_ROOT, 'dataanalysis')
 app.config['UPLOAD_FOLDER'] = 'tmp/'
 app.config['UPLOAD_FOLDER_DATA'] = 'dataanalysis/'
 app.config['ALLOWED_EXTENSIONS'] = set(['csv'])
+
 # Thread to generate ds archives
 background_scripts = {}
 controleRun = -1
-# 
+#
 datasettype = 0
 # Making dspoints directory if its not exist
 dir = os.path.join(APP_ANALYSIS, 'dspoints')
@@ -25,14 +29,10 @@ dir = os.path.join(APP_ANALYSIS, 'dspoints')
 try:
     os.stat(dir)
 except:
-    os.mkdir(dir)   
+    os.mkdir(dir)
 # Send no-cache request in header
 @app.after_request
 def add_header(r):
-    """
-    Add headers to both force latest IE rendering engine or Chrome Frame,
-    and also to cache the rendered page for 0 minutes.
-    """
     r.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
     r.headers["Pragma"] = "no-cache"
     r.headers["Expires"] = "0"
@@ -103,16 +103,14 @@ def file_proc():
                 value = float(value)
                 try:
                     int(value)
-                    
+
                 except:
                     mapsoptions.append(tempoptions[index])
             except:
                 None
     if(len(mapsoptions) < 2):
         mapsoptions = options
-
-    maptoptionsreverse = mapsoptions[::-1]
-    return render_template('select.html', option_list=options, mapsoptions=mapsoptions, mapsoptionsreverse=maptoptionsreverse)
+    return render_template('select.html', option_list=options, mapsoptions=mapsoptions)
 
 @app.route('/')
 def index():
