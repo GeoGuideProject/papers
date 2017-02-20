@@ -1,5 +1,21 @@
 \begin{thebibliography}{10}
 
+\bibitem{airbnb}
+Airbnb dataset.
+\newblock http://insideairbnb.com/get-the-data.html.
+
+\bibitem{nycbike}
+Nyc citi bike dataset.
+\newblock http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml.
+
+\bibitem{nyctaxi}
+Nyc taxi and limousine commission dataset.
+\newblock http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml.
+
+\bibitem{yelp}
+Yelp dataset.
+\newblock http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml.
+
 \bibitem{aly2015spatial}
 A.~M. Aly, W.~G. Aref, and M.~Ouzzani.
 \newblock Spatial queries with k-nearest-neighbor and relational predicates.
