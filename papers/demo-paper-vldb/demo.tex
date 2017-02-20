@@ -15,7 +15,7 @@
 \newcommand{\framework}{{\sc GeoHighlight}}
 \newcommand{\pb}{{\sc GeoGuide}}
 
-\title{GeoHighlight: An Interactive Point-Recommendation Approach for Spatiotemporal Data}
+\title{GeoHighlight: An Interactive Point-Recommendation Approach for spatial Data}
 
 \author{
 Behrooz Omidvar-Tehrani$^{\dag}$, Pl\'acido A. Souza Neto$^{\ddag}$\\
@@ -32,10 +32,113 @@ $^{\ddag}$\path{placido.neto@ifrn.edu.br}
 \maketitle
 
 \begin{abstract}
-Spatiotemporal data is becoming increasingly available in various domains such as transportation and social science. Discovering patterns and trends in this data provides improved insights for planning and decision making for smart city management, disaster management and other applications. However, exploratory analysis of such data is a challenge due to its huge size and diversity of spatiotemporal data. It is often unclear for the analyst {\em what to see next} during an analysis process, i.e., lack of guidance. To tackle this challenge, we formulate guidance as an optimization problem and develop \framework, an efficient interactive guidance approach for spatiotemporal data. At each step of an interactive process, $k$-most interesting geographical points become highlighted to guide the analyst through further steps. We illustrate the efficiency and usability of our framework in an extensive set of experiments.
+spatial data is becoming increasingly available in various domains such as transportation and social science. Discovering patterns and trends in this data provides improved insights for planning and decision making for smart city management, disaster management and other applications. However, exploratory analysis of such data is a challenge due to its huge size and diversity of spatial data. It is often unclear for the analyst {\em what to see next} during an analysis process, i.e., lack of guidance. To tackle this challenge, we formulate guidance as an optimization problem and develop \framework, an efficient interactive guidance approach for spatial data. At each step of an interactive process, $k$-most interesting geographical points become highlighted to guide the analyst through further steps. We illustrate the efficiency and usability of our framework in an extensive set of experiments.
 \end{abstract}
 
-\input{tex/intro}
+\section{Introduction} 
+Nowadays, there exists huge amounts of spatial data in various fields of science, such as agriculture, transportation and social science. Analysis of such data is interesting as it is grounded
+on reality: each record represents a specific geographical location. Moreover, understanding patterns and trends provides analysis insights leading to improved user planning and decision making. Some instance applications of spatial data are smart city management, disaster management and autonomous transport.
+% \cite{RoddickEHPS04,Telang:2012}.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figs/framework}
+\caption{\framework\ Framework}
+\label{fig:framework}
+\vspace{-10pt}
+\end{figure}
+
+Spatial data analysis is often performed in {\em exploratory context}: the analyst does not have a precise query in mind and she explores data in iterative steps in order to find potentially interesting results. Traditionally, an exploratory analysis scenario on spatial data is described as follows: the analyst visualizes a subset of data using a query in an off-the-shelf product (e.g., Tableau\footnote{\it http://www.tableau.com},
+% Exhibit\footnote{\it http://www.simile-widgets.org/exhibit/},
+Spotfire\footnote{\it http://spotfire.tibco.com}). The result will be illustrated on a geographical map. Then she investigates on different parts of the visualization by zooming in/out and panning the map in order to discover patterns and trends of interest. The analyst may iterate on this process several times by issuing different queries and focusing on different aspects of data. 
+
+The focus of the literature in spatial data analysis is on {\em efficiency} of exploratory iterations: {\em ``how can analysts navigate in spatial data fluidly?''} The common approach is to design pre-computed indexes which enable efficient retrieval of spatial data (e.g., \cite{lins2013nanocubes}). However, there has been fewer attention to the {\em value} of spatial data. Despite the huge progress on efficiency front, an analyst may easily get lost in the plethora of geographical points as she doesn't know what to investigate next in an exploratory context. In other words, although iteration transitions can be performed efficiently, but the decision to form a transition remains unclear. The following example illustrates the challenge in practice.
+
+\begin{example}
+\label{ex:resto}
+Liam is planning a dinner date in New York. He is open to any restaurant and he wants to explore different options (i.e., exploratory analysis). He uses Yelp website\footnote{\it http://www.yelp.com} and asks for all restaurants in New York with a fair price. His query results in 49,000 restaurants. As he has no other preferences, an exhaustive investigation needs scanning each restaurant independently which is nearly infeasible. On the other hand, while he is looking at primary restaurants in the list, he shows interest in Indian restaurant menus. An ideal system can capture this feedback in order to short-list a small subset of restaurant that the analyst should consider as high priority.
+\end{example}
+
+To overcome the challenge of value in exploratory analysis, visualization environments offer a complete tool-set to manipulate data (filter, aggregate, etc.). In practice, this duplicates the problem: the analyst is left alone in a huge space of data and tools. The principled challenge for the analyst is {\em ``what to see next''} in the exploratory context. A {\em guidance} mechanism is then necessary to point out potential future directions of analysis.
+
+In this demo paper, we introduce \framework, a framework to highlight a subset of geographical points based on analyst feedback and facilitate the decision-making process by providing guidance on what the analyst is potentially interested in. The highlighted set should have high quality. We consider two quality metrics in \framework: {\em relevance} and {\em diversity}. First, a highlighted point should be relevant to historical choices of the analyst. Second, highlights should be diverse to unveil different aspects of analysis.
+
+Analyst feedback is exploited in the literature for helping the analyst making better decisions.
+
+Typically in the literature, we exploit user explicit feedback for recommendation. For instance, we use preferences of the user on movies to predict what kind of movies she/he is interested to watch in the future and make a recommendation. However, we can also exploit implicit user feedback for guidance. Guidance differs from recommendation. We don't prune data in guidance. We only say based on what you have implicitly payed attention on, here is few highlights that you may need to look at. Implicit feedback can be captured in different ways like spare time in a dedicated page or gaze.
+
+
+
+\begin{example}
+\label{ex:flight}
+Tiffany is a data scientist and is tasked to design a {\em chain marketing} strategy for a Peking Duck product whose headquarters is in New York. She already knows that the product has success in the local area. So she analyzes Yelp data\footnote{\it https://www.yelp.com/} (i.e., restaurant check-ins) to find out what other locations exhibit similar eating profiles as New York. She asks for $k$ geographical points which have relevant eating profile to New York and are the most diverse. Given $k=3$, Tiffany receives points from San Fransisco, Washington DC and Marlton, NJ. She selects Marlton due to its proximity to reduce transportation costs. Then she asks for other 3 best points for Marlton. She can then make the city-to-city chain marketing strategy.
+\end{example}
+
+In this paper, we address the problem of guidance. Despite the great progress on spatial data analysis in recent years, we point out following challenges for guidance:
+$i.$ {\em Genericness.} Considering the heterogeneous nature of spatial datasets, it is challenging to come up with a generic guidance approach which is independent of data type and distribution.
+$ii.$ {\em Size}. The gigantic size of spatial datasets hinders its effective discovery. 
+% The guidance approach should be able to provide a limited set of recommendations to overcome information overload.
+$iii.$ {\em Efficiency.} Guidance should be done efficiently in consecutive steps, so that the train of the analyst's thoughts won't break. Despite progress in efficient spatial processing \cite{yu2015geospark}, sub-second interactivity is still missing.
+
+% In terms of efficiency, {\sc GeoSpark} \cite{yu2015geospark} and {\sc SpatialHadoop} \cite{DBLP:conf/icde/EldawyM15} are two promising computing systems for efficient processing large-scale spatial data. Those systems can exploited as the backbone of \framework\ once large-scale data needs to be analyzed.
+
+% \vspace{5pt}
+% \noindent {\bf Related Work.}
+There exist few instances of information-highlighting methods \cite{Liang2010,Robinson2011,wongsuphasawat2016voyager,willett2007scented}. However all these methods are {\em objective} and do not apply to the context of spatial guidance where user feedback is involved.  In terms of recommendation, few approaches focus on spatial dimension
+% \cite{Levandoski:2012,Magdy2014,HendawiKRBTA15a,Bao2015,Magdy:2014}
+\cite{Bao2015,Levandoski:2012}
+while the context and result diversification are missing.
+% In this paper, we addressed the problem of highlighting geographical points to
+% guide analysts in consecutives steps. To the best of our knowledge, this is the
+% first work which formulates the geo-highlighting problem for recommending on
+% maps. However, our problem relates to a number of others as follows.     
+
+% Visual Highlighting. There has been efforts to highlight some pieces of
+% information in the huge heterogeneous data space so that the analyst can focus
+% on important aspects \cite{}. Visual
+% Story Construction is another domain of work \cite{} which
+% consecutive analysis steps are created automatically. However, all such highlighting methods are objective and does not consider analyst
+% interest. In GeoHiglight, we provide a simple yet effective feedback model which
+% can feed the recommendation algorithm to produce relevant results to current
+% investigations.        
+
+% Some other works have exploited highlighting as a technique to synchronize
+% coordinated views [CITE CROSSFILTER] or simplify complicated dataset
+% visualizations \cite{Robinson2011,Alper:2011}. Also in \cite{Philipsen}
+% different highlighting methods are compared in terms of efficiency and usefulness. Such methods are complementary to ours.     
+
+% spatial Interactive Analysis and Visualization. Being an interactive
+% system, it should be efficient and capture user feedback and adapt the utility
+% function. In terms of efficiency, SpatialHadoop \cite{} and GeoSpark \cite{}
+% extend Hadoop and Spark ecosystems respectively to boost geographical
+% computations and visualizations. Such systems can be exploited as the backbone
+% of GeoHighlight once large-scale data needs to be analyzed.      
+
+% In terms of feedback, many off-the-shelf products such as Tableau \cite{} and
+% RapidMiner \cite{} are designed to visualize different kinds of datasets including
+% spatial ones. However, ``recommendation'' is the missing component in
+% most of such tools: providing a full package of operations and actions, the analyst
+% may know what to do next. In such system, analysis is usually considered as a
+% one-shot scenario, once in reality it happens in consecutive steps following
+% user feedback.        
+
+% Recommendation. There exist a huge body of work in recommendation
+% \cite{Adomavicius:2005} for various domains and datasets. However, spatial
+% dimension is still untouched and has not received a lot of attention. In
+% \cite{ChirigatiDDF16} a prediction algorithm for urban data is introduced which operates offline. In
+% \cite{Levandoski:2012,Magdy2014,HendawiKRBTA15a,Bao2015,Magdy:2014},
+% recommendation and visualization tools are introduced in specific domains.
+% However, most the such algorithms are not context-aware (based on user choices)
+% and does not consider diversity as a global metric.    
+
+
+% \vspace{5pt}
+In this paper, we propose a generic interactive analysis approach for guiding analysts towards potential interesting points. The analyst considers the guidance and picks a direction for the next analysis iteration. 
+
+% prune this
+% \vspace{5pt}
+% \noindent {\bf Outline.} in Section \ref{sec:data-model}, we present our data model. Then in Section \ref{sec:pb}, we formally define our problem. Section \ref{sec:algo} describes our solution for the guidance problem. We show a realistic application of our solution in Section \ref{sec:scenarios}. We present an extensive set of experiments in Section \ref{sec:exp}. A summary of related work is discussed in Section \ref{sec:rel}. Finally we conclude in Section \ref{sec:conc}.
+
 \input{tex/problem}
 \input{tex/algorithm}
 \input{tex/scenario}
