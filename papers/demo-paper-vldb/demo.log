@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.27)  24 FEB 2017 16:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.27)  24 FEB 2017 18:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1079,11 +1079,11 @@ Underfull \hbox (badness 2245) in paragraph at lines 32--32
 []\crnotice This work is li-censed un-der the Cre-ative Com-mons Attribution-
  []
 
-<figs/framework.pdf, id=4, 441.77277pt x 185.17592pt>
+<figs/framework.pdf, id=4, 371.41893pt x 159.53171pt>
 File: figs/framework.pdf Graphic file (type pdf)
  <use figs/framework.pdf>
 Package pdftex.def Info: figs/framework.pdf used on input line 45.
-(pdftex.def)             Requested size: 240.0pt x 100.60098pt.
+(pdftex.def)             Requested size: 240.0pt x 103.0858pt.
 
 [1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
@@ -1105,17 +1105,20 @@ Overfull \hbox (2.21896pt too wide) in paragraph at lines 138--139
 an-
  []
 
-<figs/userstudy.pdf, id=74, 580.52773pt x 229.5777pt>
+<figs/userstudy.pdf, id=82, 580.52773pt x 229.5777pt>
 File: figs/userstudy.pdf Graphic file (type pdf)
  <use figs/userstudy.pdf>
 Package pdftex.def Info: figs/userstudy.pdf used on input line 150.
 (pdftex.def)             Requested size: 240.0pt x 94.91214pt.
 
-<figs/scn.pdf, id=75, 444.34758pt x 298.92819pt>
+<figs/scn.pdf, id=83, 444.34758pt x 298.92819pt>
 File: figs/scn.pdf Graphic file (type pdf)
  <use figs/scn.pdf>
 Package pdftex.def Info: figs/scn.pdf used on input line 158.
 (pdftex.def)             Requested size: 240.0pt x 161.45529pt.
+
+Underfull \vbox (badness 4805) has occurred while \output is active []
+
  [3 <./figs/userstudy.pdf>] (./demo.bbl) [4 <./figs/scn.pdf>] (./demo.aux) ) 
 Here is how much of TeX's memory you used:
  29566 strings out of 493117
@@ -1143,10 +1146,10 @@ type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/u
 rw/helvetic/uhvr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/time
 s/utmb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmr8a.p
 fb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on demo.pdf (4 pages, 1902992 bytes).
+Output written on demo.pdf (4 pages, 2018457 bytes).
 PDF statistics:
- 229 PDF objects out of 1000 (max. 8388607)
- 151 compressed objects within 2 object streams
+ 237 PDF objects out of 1000 (max. 8388607)
+ 154 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  28 words of extra memory for PDF output out of 10000 (max. 10000000)
 
