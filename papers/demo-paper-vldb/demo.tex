@@ -15,7 +15,7 @@
 \newcommand{\framework}{{\sc GeoGuide}}
 \newcommand{\pb}{{\sc GeoGuide}}
 
-\title{GeoGuide: An Interactive Guidance Approach for Spatial Data}
+\title{An Interactive Guidance Approach for Spatial Data}
 
 \author{
 Behrooz Omidvar-Tehrani$^{\dag}$, Pl\'acido A. Souza Neto$^{\ddag}$\\
@@ -141,9 +141,9 @@ During online execution, \framework\ admits as input a point $p \in {\cal P}$ (t
 
 To validate our design choices in \framework\ (quality dimensions and feedback capturing), we design a user study with $24$ participants (students in Computer Science). We define a task for each participant and ask him/her to fulfill the task using \framework\ and {\sc Tableau} (as the most advanced off-the-shelf visualization product). Then we measure the number of steps to reach the goal. We define two tasks, {\em T1: finding a point in a requested location} (e.g., find a home-stay in the Central Park area, New York), and {\em T2: finding a point with a requested profile} (e.g., find a cheap home-stay with balcony in Paris.) Participants may begin their navigation from three different starting points: {\em I1: close to the goal}, {\em I2: far from the goal}, and {\em I3: random}. 
 
-In {\sc Tableau}, participants employ filtering and querying tools to reach their goals. In \framework, participants benefit from highlights and feedback capturing using cursor tracking. Figure \ref{fig:userstudy} illustrates the results of this study. We report results for separate sub-populations: the left figure illustrates the results for novice participants (who don't know the location, be it Paris or New York) and the right figure illustrates expert's results.
+In {\sc Tableau}, participants employ filtering and querying tools to reach their goals. In \framework, participants benefit from relevant and diverse highlights and feedback capturing using cursor tracking. Figure \ref{fig:userstudy} illustrates the results of this study. We report results for separate sub-populations: the left figure illustrates the results for novice participants (who don't know the location, be it Paris or New York) and the right figure illustrates expert's results.
 
-We observe that in general, it takes in average 10.7 steps to reach a defined goal in \framework, i.e., 33 steps less than {\sc Tableau}. This shows that the highlighting component equiped with the feedback mechanism helps analysts discover their spatial data and reach to the goal. Level of expertise improves the analysis length in average by 4 steps. Interestingly, starting points do not have a huge influence. It is potentially due to the diversity component which provides distinct options. We also observe that {\em T2} is an easier task than {\em T1}. This is potentially due to similarity component where the analyst can request options similar to what she has already seen and greedily moves to match profiles.
+We observe that in general, it takes in average 10.7 steps to reach a defined goal in \framework, i.e., 33 steps less than {\sc Tableau}. This shows that the highlighting component equipped with the feedback mechanism helps analysts discover their spatial data and reach to the goal. Level of expertise improves the analysis length in average by 4 steps. Interestingly, starting points do not have a huge influence. It is potentially due to the diversity component which provides distinct options. We also observe that {\em T2} is an easier task than {\em T1}. This is potentially due to similarity component where the analyst can request options similar to what she has already seen and greedily moves to match profiles.
 
 \begin{figure}[t]
  \centering
@@ -162,42 +162,16 @@ We observe that in general, it takes in average 10.7 steps to reach a defined go
 \end{figure*}
 
 \section{Demonstration Plan}
-\noindent {\bf Experiment Settings.} Unless otherwise stated, we use the same settings discussed in Section \ref{sec:scenarios}. All experiments are implemented in Python (functionality) and JavaScript D3 (visualization) on a 2.8GHz Intel Core i5 machine with an 16GB main memory, running OS X 10.9.2.
-
-Demonstration attendees can participate as analysts in \framework. We provide several spatial datasets in our demo session: $i.$ Yelp dataset for restaurant check-ins with 229,907 points and 11,537 attribute-values, $ii.$ Airbnb dataset for short-term lodging with 4,200,000 points and 2000 attribute-values, $iii.$ New York taxi dataset with 173,179,759 points and 18 attribute-values, and $iv.$ New York bike-sharing dataset with XXX points and XXX attribute values. We describe three demonstration scenarios as follows.
+\noindent{\bf Context.} \framework\ is implemented in Python (as the computation engine) and JavaScript D3 (as the visualization engine). Demonstration attendees can play the role of analysts in \framework. We provide several spatial datasets in our demo session: Yelp dataset of restaurant check-ins with 229,907 geographical points, Airbnb dataset for short-term lodging with 4,200,000 points, New York taxi dataset with 173,179,759 points and New York bike-sharing dataset with XXX points. Participants can also experience different types of feedback capturing such as gaze, mouse movement and session time. We describe three demonstration scenarios as follows.
 
 \vspace{5pt}
-\noindent{\bf Scenario 1.} We demonstrate on New York taxi dataset how \framework\ can contribute to urban planning and fleet management. We consider an explicit goal of discovering which neighborhoods work the best for which drivers to increase the overall availability of taxis in the city. We show how a chain of cab stations can be picked by \framework\ to increase availability.
+\noindent{\bf Scenario 1.} On New York taxi dataset, we demonstrate how \framework\ can contribute to urban planning and fleet management. We consider an explicit goal of discovering which neighborhoods work the best for which drivers in order to increase the overall availability of cabs in the city. We show how a chain of cab stations can be picked by \framework\ in diverse location of the city.
 
 \vspace{5pt}
-\noindent{\bf Scenario 2.} We demonstrate on Airbnb dataset how \framework\ can contribute to approach a lodging of interest based on analyst's feedback. The attendee will observe that he/she can quickly reach to satisfying housing solutions based her previous selections. We consider the concrete case of finding a cheap lodging solution near Eiffel tower which seems infeasible.
+\noindent{\bf Scenario 2.} On Airbnb dataset, we demonstrate how \framework\ can contribute to approach a lodging of interest based on analyst's feedback. As instructed in the user study, we consider the concrete case of finding a cheap lodging solution with a balcony near Eiffel tower. The attendee will observe how feedback converges the exploration towards the goal very quickly.
 
 \vspace{5pt}
-\noindent{\bf Scenario 3.} We demonstrate on Yelp dataset how \framework\ can contribute to reach an early consensus on a restaurant. The attendee will observe that his/her preferences will be immediately captured and reflected in future highlights.
-
-
-% We illustrate an application of \framework\ in a realistic scenario for New York taxi dataset\footnote{\it https://data.cityofnewyork.us/view/gn7m-em8n}. This dataset has been frequently exploited for urban analysis
-% % \cite{ferreira2013visual,DBLP:journals/debu/FreireCVZ16}.
-% (e.g. in \cite{DBLP:journals/debu/FreireCVZ16}).
-% The dataset contains 173,179,759 records of taxi trips and 18 attributes such as pickup and dropoff date/time, passenger count and trip distance.
-% The dataset size is 27.9 GB with informations of trips from 2014.
-% The scenario illustrates how an analyst can achieve an exploratory analysis goal. We preprocessed the original dataset and considered a subset of 20K unique points for the sake of clarity of results. We employ {\sc Highlighter} (Algorithm \ref{algo:geoh}) with following parameters: $\sigma = 0.2$, $k = 5$ and $tlimit = 200ms$.
-
-
-% \vspace{5pt}
-% Consider Lucas, a data scientist whose task is to optimize New York taxi trips. Focusing on cab-idle locations, he wants to discover which neighborhoods work the best for which drivers to increase the overall availability. Also, he wants to discover how drivers should choose their next cab-idle station to be more available. Lucas employs \framework\ and follows a case-by-case inspection as his analysis methodology by analyzing and learning from historical data.
-
-% coordinates of first point picked: lat, long: 40.757555, -73.988832. Point ID-1274, equivalent to 270 W 43rd St, New York, NY 10036, EUA. Next to Times Square.
-% coordinates of the second point: lat, long: 40.789358,-73.970172000000005. Point ID-968, equivalent to Columbus Avenue, New York, NY, EUA.
-%  coordinates of the third point: lat, long: 40.717531999999999,-74.010260000000002. Point ID-192, equivalent to 183 Duane Street, New York, NY 10013, EUA
-
-% He begins the analysis by selecting a point from the most crowded region in New York, i.e., Times Square (Figure \ref{fig:app} left). The point depicts a drop-off at {\em ``3 Times Square, New York, NY''} on January 9, 2014 around 9PM (the blue point in the figure). {\sc Highlighter} then provides $5$ relevant points to the selected point (yellow points in the figure).
-% These highlights show similar points to the selection in other neighborhoods of the region.
-% Among 5 highlighted points, Lucas selects a pick-up at {\em ``West 53rd Street''} near Central Park occurred approximately at the same time of the first selection (the point marked with an arrow in the figure). This pick-up has a potential to enchain with the first choice (i.e., a drop-off) to engage the driver in a larger distance.
-% 
-% In the next step, {\sc Highlighter} shows $5$ other points relevant to the new selection (Figure \ref{fig:app} right). Lucas looks for a good drop-off point which is in a neighborhood of the previous selection as the cab-idle station. Lucas selects a highlight in downtown as others are around the train station which have often less taxi requests at nights. This selection contributes to the heavy cab request in Manhattan island at that time of the day. Note that in both steps, the $k$ results are a compromise between relevance and diversity.
-
-% The result of similarity for all two executions of the algorithm for the Lucas problem, considering $k = 5$ and $\sigma = 0.2$, was approximately, \textit{0.72}.
+\noindent{\bf Scenario 3.} On Yelp dataset, e demonstrate how \framework\ can contribute to reach an early consensus on a restaurant. The attendee will observe that his/her preferences will be immediately captured and reflected in future highlights. The attendee can experience session time feedback in this scenario.
 
 \bibliographystyle{abbrv}
 \bibliography{main}
