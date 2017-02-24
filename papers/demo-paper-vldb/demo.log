@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.27)  24 FEB 2017 13:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.27)  24 FEB 2017 16:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1099,71 +1099,41 @@ Overfull \hbox (3.29146pt too wide) in paragraph at lines 73--74
 []\OT1/cmr/m/n/9 There ex-ist few in-stances of information-highlighting meth-
  []
 
-
-Overfull \hbox (4.52394pt too wide) in paragraph at lines 92--93
-\OT1/cmr/m/n/9 vi-ous choices of the an-a-lyst. Note that we con-sider \OT1/cmr
-/m/it/9 contextual-
- []
-
 [2]
-Overfull \hbox (4.74023pt too wide) in paragraph at lines 138--139
-[]\OT1/cmr/m/sc/9 GeoGuide \OT1/cmr/m/n/9 op-er-ates in two steps: \OT1/cmr/m/s
-c/9 Prepa-ra-tion \OT1/cmr/m/n/9 and \OT1/cmr/m/sc/9 High-
+Overfull \hbox (2.21896pt too wide) in paragraph at lines 138--139
+\OT1/cmr/m/n/9 the al-go-rithm should stop seek-ing max-i-mized di-ver-sity. Sc
+an-
  []
 
-
-Overfull \hbox (2.25262pt too wide) in paragraph at lines 165--166
-[]\OT1/cmr/m/sc/9 Highlighter \OT1/cmr/m/n/9 be-gins by re-triev-ing the most r
-el-e-vant points
- []
-
-
-LaTeX Warning: Reference `sec:scenarios' on page 3 undefined on input line 180.
-
-
-<figs/performance.pdf, id=74, 599.93042pt x 241.52914pt>
-File: figs/performance.pdf Graphic file (type pdf)
-
-<use figs/performance.pdf>
-Package pdftex.def Info: figs/performance.pdf used on input line 184.
-(pdftex.def)             Requested size: 240.0pt x 96.62099pt.
-
-Overfull \hbox (5.77243pt too wide) in paragraph at lines 277--279
-\OT1/cmr/bx/n/9 Performance Study. \OT1/cmr/m/sc/9 Ge-oGu-ide \OT1/cmr/m/n/9 is
- de-signed for ex-ploratory
- []
-
-
-Underfull \vbox (badness 6876) has occurred while \output is active []
-
- [3]
-<figs/userstudy.pdf, id=82, 580.52773pt x 229.5777pt>
+<figs/userstudy.pdf, id=74, 580.52773pt x 229.5777pt>
 File: figs/userstudy.pdf Graphic file (type pdf)
  <use figs/userstudy.pdf>
-Package pdftex.def Info: figs/userstudy.pdf used on input line 294.
+Package pdftex.def Info: figs/userstudy.pdf used on input line 150.
 (pdftex.def)             Requested size: 240.0pt x 94.91214pt.
 
-Overfull \hbox (7.63156pt too wide) in paragraph at lines 304--305
+<figs/scn.pdf, id=75, 444.34758pt x 298.92819pt>
+File: figs/scn.pdf Graphic file (type pdf)
+ <use figs/scn.pdf>
+Package pdftex.def Info: figs/scn.pdf used on input line 158.
+(pdftex.def)             Requested size: 240.0pt x 161.45529pt.
+
+
+LaTeX Warning: Reference `sec:scenarios' on page 3 undefined on input line 165.
+
+
+
+Overfull \hbox (7.63156pt too wide) in paragraph at lines 167--168
 \OT1/cmr/m/n/9 and 18 attribute-values, and $\OML/cmm/m/it/9 iv:$ \OT1/cmr/m/n/
 9 New York bike-sharing dataset
  []
 
-
-Overfull \hbox (2.69144pt too wide) in paragraph at lines 310--311
+[3 <./figs/userstudy.pdf>]
+Overfull \hbox (2.69144pt too wide) in paragraph at lines 173--174
 \OT1/cmr/m/n/9 he/she can quickly reach to sat-is-fy-ing hous-ing so-lu-tions b
 ased
  []
 
-<figs/scn.pdf, id=83, 444.34758pt x 298.92819pt>
-File: figs/scn.pdf Graphic file (type pdf)
- <use figs/scn.pdf>
-Package pdftex.def Info: figs/scn.pdf used on input line 325.
-(pdftex.def)             Requested size: 240.0pt x 161.45529pt.
- (./demo.bbl [4 <./figs/performance.pdf> <./figs/userstudy.pdf> <./figs/scn.pdf
->]) [5
-
-]
-(./demo.aux)
+(./demo.bbl) [4 <./figs/scn.pdf>] (./demo.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1172,36 +1142,34 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 29582 strings out of 493117
- 681636 string characters out of 6135432
- 814067 words of memory out of 5000000
- 32560 multiletter control sequences out of 15000+600000
- 27058 words of font info for 62 fonts, out of 8000000 for 9000
+ 29567 strings out of 493117
+ 681403 string characters out of 6135432
+ 812010 words of memory out of 5000000
+ 32547 multiletter control sequences out of 15000+600000
+ 26748 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,18n,76p,10351b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,12n,76p,10351b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/tex
-live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texli
-ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texli
-ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive
-/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2
-014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/201
-4/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2014/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2014/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2014/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2014/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2014/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2014/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2014/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2014/texmf-dist/fonts
-/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/
-urw/helvetic/uhvr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/tim
-es/utmb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmr8a.
-pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on demo.pdf (5 pages, 1979789 bytes).
+exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/tex
+live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/tex
+live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texli
+ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive
+/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2
+014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2014
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2014/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2014/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2014/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2014/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2014/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2014/texmf-dist/f
+onts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/ty
+pe1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw
+/times/utmb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utm
+r8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on demo.pdf (4 pages, 1903683 bytes).
 PDF statistics:
- 311 PDF objects out of 1000 (max. 8388607)
- 207 compressed objects within 3 object streams
+ 229 PDF objects out of 1000 (max. 8388607)
+ 151 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 33 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 28 words of extra memory for PDF output out of 10000 (max. 10000000)
 
