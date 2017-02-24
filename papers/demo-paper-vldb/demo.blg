@@ -3,49 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: demo.aux
 The style file: abbrv.bst
 Database file #1: main.bib
-Warning--to sort, need author or key in nyctaxi
-Warning--to sort, need author or key in nycbike
-Warning--to sort, need author or key in yelp
-Warning--to sort, need author or key in airbnb
-You've used 14 entries,
+You've used 9 entries,
             2118 wiz_defined-function locations,
-            574 strings with 5675 characters,
-and the built_in function-call counts, 4540 in all, are:
-= -- 440
-> -- 203
-< -- 4
-+ -- 82
-- -- 68
-* -- 303
-:= -- 704
-add.period$ -- 41
-call.type$ -- 14
-change.case$ -- 76
+            559 strings with 5375 characters,
+and the built_in function-call counts, 3642 in all, are:
+= -- 359
+> -- 181
+< -- 3
++ -- 71
+- -- 62
+* -- 271
+:= -- 587
+add.period$ -- 29
+call.type$ -- 9
+change.case$ -- 58
 chr.to.int$ -- 0
-cite$ -- 18
-duplicate$ -- 180
-empty$ -- 391
-format.name$ -- 68
-if$ -- 991
+cite$ -- 9
+duplicate$ -- 135
+empty$ -- 279
+format.name$ -- 62
+if$ -- 771
 int.to.chr$ -- 0
-int.to.str$ -- 14
-missing$ -- 10
-newline$ -- 69
-num.names$ -- 20
-pop$ -- 103
+int.to.str$ -- 9
+missing$ -- 9
+newline$ -- 48
+num.names$ -- 18
+pop$ -- 60
 preamble$ -- 1
-purify$ -- 62
+purify$ -- 49
 quote$ -- 0
-skip$ -- 136
+skip$ -- 98
 stack$ -- 0
-substring$ -- 238
-swap$ -- 47
-text.length$ -- 4
+substring$ -- 241
+swap$ -- 38
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 56
-warning$ -- 4
-while$ -- 35
-width$ -- 16
-write$ -- 142
-(There were 4 warnings)
+type$ -- 36
+warning$ -- 0
+while$ -- 34
+width$ -- 10
+write$ -- 102
