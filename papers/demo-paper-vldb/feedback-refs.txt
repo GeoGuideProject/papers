@@ -1,0 +1,16 @@
+User Engagement in Online News: Under the Scope of Sentiment, Interest, Affect, and Gaze
+Understanding Within-Content Engagement through Pattern Analysis of Mouse Gestures
+
+
+Gaze be- haviour is also known to be associated with attention, interest, and perception, and has been extensively studied in information processing tasks like reading [9], visual search [35], scene perception [21], and recently in micro-blogging [12].
+
+[9] Buscher, G., Biedert, R., Heinesch, D., and Dengel, A. Eye track- ing analysis of preferred reading regions on the screen. In Proceedings of the 28th of the International Conference extended abstracts on Human Factors in Computing S (New York, NY, USA, 2010), CHI EA ’10, ACM, pp. 3307– 3312.
+
+[35] Pannasch, S., Schulz, J., and Velichkovsky, B. M. On the control of visual fixation durations in free viewing of complex images. Attention, Perception, & Psychophysics 73, 4 (2011), 1120–1132.
+
+[12] Counts, S., and Fisher, K. Taking it all in? visual attention in mi- croblog consumption. In Proceedings of the Fifth International Conference on Weblogs and Social Media (July 2011), ICWSM ’11, The AAAI Press.
+
+[21] Henderson, J. M. Human gaze control during real-world scene percep- tion. Trends in Cognitive Sciences 7, 11 (November 2003), 498–504.
+
+The relationship between attention and eye movements has been investigated extensively in the past [15, 36, 37, 38]. Gaze direction has been considered an indicator of the focus of attention. When we read, examine a scene, or search for an object, we continuously make eye movements called saccades. Saccades are rapid movements that occur when we change focus, and can reach velocities as high as 500  per second. When the visual gaze is maintained on a single location
+
