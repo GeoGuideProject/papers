@@ -32,7 +32,8 @@ $^{\ddag}$\path{placido.neto@ifrn.edu.br}
 \maketitle
 
 \begin{abstract}
-Spatial data is becoming increasingly available in various domains such as transportation and social science. Discovering patterns and trends in this data provides improved insights for planning and decision making for smart city management, disaster management and other applications. However, exploratory analysis of such data is a challenge due to its huge size of spatial data. It is often unclear for the analyst {\em what to see next} during an analysis process, i.e., lack of guidance. To tackle this challenge, we develop \framework, an interactive guidance approach for spatial data. \framework\ captures the implicit feedback of analyst and exploits it to highlight potentially interesting analysis options. Demo attendees will experience \framework\ in various datasets from restaurant check-ins to transportation.
+Spatial data is becoming increasingly available in various domains such as urban and social science. Discovering patterns and trends in this data provides improved insights for planning and decision making for smart city and disaster management, as well as other applications. However, exploratory analysis of such data is a challenge due to its huge size of spatial data. It is often unclear for the analyst {\em what to see next} during an analysis process, i.e., lack of guidance. To tackle this challenge, we develop \framework, an interactive guidance approach for spatial data. \framework\ captures the implicit feedback of analyst and exploits it to highlight potentially interesting analysis options. To demonstrate various capabilities of our proposed approach, we have developed a web-based application that uses the concepts of geo-guidance in order to engage the VLDB audience by allowing them to play the role of an urban data analyst.
+ %Demo attendees will experience \framework\ in various datasets from restaurant check-ins to transportation. 
 \end{abstract}
 
 \section{Introduction} 
@@ -40,41 +41,57 @@ Nowadays, there exists huge amounts of spatial data in various fields of science
 on reality: each record represents a specific geographical location. Moreover, understanding patterns and trends provides insights leading to improved user planning and decision making. Some instance applications of spatial data are smart city management, disaster management and autonomous transport.
 % \cite{RoddickEHPS04,Telang:2012}.
 
-\begin{figure}[t]
+
+Spatial data analysis is often performed in {\em exploratory context}: the analyst does not have a precise query in mind and she explores data in iterative steps in order to find potentially interesting results. Traditionally, an exploratory analysis scenario on spatial data is described as follows: the analyst visualizes a subset of data using a query in an off-the-shelf product (e.g., Tableau\footnote{\it http://www.tableau.com},
+% Exhibit\footnote{\it http://www.simile-widgets.org/exhibit/},
+Spotfire\footnote{\it http://spotfire.tibco.com}). %The result will be illustrated on a geographical map. Then she investigates on different parts of the visualization by zooming in/out and panning the map in order to discover patterns and trends of interest. The analyst may iterate on this process several times by issuing different queries and focusing on different aspects of data. 
+
+
+The literature in spatial data analysis has a focus on {\em efficiency} of exploratory iterations: {\em ``how can analysts navigate in spatial data fluidly?''} The common approach is to design pre-computed indexes which enable efficient retrieval of spatial data (e.g., \cite{lins2013nanocubes}). However, there has been fewer attention to the {\em value} of spatial data. Despite the huge progress on efficiency front, an analyst may easily get lost in the plethora of geographical points because $i.$ she doesn't know what to investigate next in an exploratory context and $ii.$ she may get distracted and miss interesting points by visual clutter caused by huge point overlaps. In other words, although iteration transitions (between one analysis step to the other) can be performed efficiently, the decision which forms a transition, remains unclear.
+
+
+
+There exist few instances of information-highlighting methods in the literature \cite{Liang2010,Robinson2011,wongsuphasawat2016voyager,willett2007scented}. All these methods are {\em objective} and do not apply to the context of spatial guidance where user feedback is involved.  In terms of recommendation, few approaches focus on spatial dimension \cite{Bao2015,Levandoski:2012} while the context and result diversification are missing.
+ 
+
+%The following example illustrates the challenge in practice.
+
+%\begin{example}
+%\label{ex:airbnb}
+%Liam is planning a short trip to Paris. He decides to rent a home-stay from Airbnb website\footnote{\it http://www.airbnb.com}. He is open to any type of lodging and he wants to explore different options (i.e., exploratory analysis). He queries all available locations in Paris with a fair price. His query results in 3000 locations. As he has no other preferences, an exhaustive investigation needs scanning each location independently which is nearly infeasible. In case he wants to focus on a smaller set of options, it is not clear which subset he needs to look at. While he is looking at primary locations in the list, he shows interest in having ``balcony'' as amenity and being close to Eiffel tower. An ideal system can capture this feedback in order to short-list a small subset of remaining locations that Liam should consider as high priority.
+%\end{example}
+
+To overcome the challenge of value in exploratory analysis, visualization environments offer a complete tool-set to manipulate data (filter, aggregate, etc.). In practice, this duplicates the problem: the analyst is left alone in a huge space of spatial data and tools. The principled challenge for the analyst is {\em ``what to see next''} in the exploratory context. A {\em guidance} mechanism is then necessary to point out potential future directions of analysis.
+
+\vspace{5pt}
+\noindent{\bf Contribution.} We demonstrate \framework, an interactive framework to highlight a subset of geographical points based on analyst feedback. Although \framework\ operates on points, its functionality can be easily extended to regions using point-clustering methods. The highlighted set facilitates the decision-making process by providing guidance on what the analyst should potentially concentrate on. The set of highlights is deliberated over high quality. We consider two quality metrics in \framework: {\em relevance} and {\em diversity}. First, each highlighted point should be relevant to historical choices of the analyst. Second, highlights should be geographically diverse to unveil different aspects of analysis. Both quality metrics are interdependent to compute the set of highlights.
+
+Despite literature contains several instances of feedback exploitation to guide the analyst in further analysis steps (e.g., \cite{boley2013one}), the common used approach is the top-$k$ processing methodology in order to prune the search space based on the explicit feedback and recommend a small subset of interesting results of size~$k$. A clear distinction and contribution of \framework\ is that it doesn't aim for pruning, but leveraging the actual data with potential interesting results that the analyst may miss due to the huge volume of spatial data. While in top-$k$ processing algorithms, analyst choices are limited to $k$, \framework\ has a freedom of choice where highlights get seamlessly updated with new analyst choices. We present a system overview in
+Section \ref{sec:pb} and our demonstration plan in Section \ref{sec:demo_plan}. 
+
+
+
+%The following example describes an application of \framework\ in business domain.
+
+%\begin{example}
+%\label{ex:flight}
+%Tiffany is a data scientist and is tasked to design a ``chain marketing'' strategy for a Peking Duck product (a Chinese duck dish). She decides to exploit Yelp data\footnote{\it https://www.yelp.com/} (i.e., restaurant check-ins) to find out the advertisement chain. She performs her analysis in \framework. In the first step, she shows interest towards New York region, where the headquarters of the company is located and the product has already gained success. The system will then provide few highlights in diverse regions: San Fransisco, Washington DC and Marlton, NJ. All regions seem interesting to Tiffany as they exhibit similar eating profile with New York, hence potentials for chaining the advertisement. She decides to pick Marlton due to its proximity so that she can reduce transportation costs. The system will then provide other highlights based on her updated feedback. She can then make the city-to-city chain marketing strategy in iterative steps using highlights.
+%\end{example}
+
+
+\section{System Overview}
+\label{sec:pb}
+
+Given a dataset with a set of spatio-temporal information points, our system is able to process and generates highlighted informations base on analyst preferences and behaviour. Our proposed framework is able to highlight different information based on specific data attributes, highlighting, for instance, each points by size or color intensity. Using \framework\ framework the analyst can also define a subset of points to be highlighted over the dataset by a simple filtering action. The functionalities of \framework\ are an inspiration from both recommendation \cite{Omidvar-Tehrani:2015} and visual highlighting \cite{Liang2010,Robinson2011} methodologies. \framework\ is a layer on top of a raw visualization to guide analysts in large-scale spatial data analysis. Figure \ref{fig:framework} illustrates the main components of \framework\ architecture.
+
+
+\begin{figure}[!ht]
   \centering
   \includegraphics[width=\columnwidth]{figs/framework}
 \caption{\framework\ Framework}
 \label{fig:framework}
 \vspace{-10pt}
 \end{figure}
-
-Spatial data analysis is often performed in {\em exploratory context}: the analyst does not have a precise query in mind and she explores data in iterative steps in order to find potentially interesting results. Traditionally, an exploratory analysis scenario on spatial data is described as follows: the analyst visualizes a subset of data using a query in an off-the-shelf product (e.g., Tableau\footnote{\it http://www.tableau.com},
-% Exhibit\footnote{\it http://www.simile-widgets.org/exhibit/},
-Spotfire\footnote{\it http://spotfire.tibco.com}). The result will be illustrated on a geographical map. Then she investigates on different parts of the visualization by zooming in/out and panning the map in order to discover patterns and trends of interest. The analyst may iterate on this process several times by issuing different queries and focusing on different aspects of data. 
-
-The literature in spatial data analysis has a focus on {\em efficiency} of exploratory iterations: {\em ``how can analysts navigate in spatial data fluidly?''} The common approach is to design pre-computed indexes which enable efficient retrieval of spatial data (e.g., \cite{lins2013nanocubes}). However, there has been fewer attention to the {\em value} of spatial data. Despite the huge progress on efficiency front, an analyst may easily get lost in the plethora of geographical points because $i.$ she doesn't know what to investigate next in an exploratory context and $ii.$ she may get distracted and miss interesting points by visual clutter caused by huge point overlaps. In other words, although iteration transitions (between one analysis step to the other) can be performed efficiently, the decision which forms a transition, remains unclear. The following example illustrates the challenge in practice.
-
-\begin{example}
-\label{ex:airbnb}
-Liam is planning a short trip to Paris. He decides to rent a home-stay from Airbnb website\footnote{\it http://www.airbnb.com}. He is open to any type of lodging and he wants to explore different options (i.e., exploratory analysis). He queries all available locations in Paris with a fair price. His query results in 3000 locations. As he has no other preferences, an exhaustive investigation needs scanning each location independently which is nearly infeasible. In case he wants to focus on a smaller set of options, it is not clear which subset he needs to look at. While he is looking at primary locations in the list, he shows interest in having ``balcony'' as amenity and being close to Eiffel tower. An ideal system can capture this feedback in order to short-list a small subset of remaining locations that Liam should consider as high priority.
-\end{example}
-
-To overcome the challenge of value in exploratory analysis, visualization environments offer a complete tool-set to manipulate data (filter, aggregate, etc.). In practice, this duplicates the problem: the analyst is left alone in a huge space of spatial data and tools. The principled challenge for the analyst is {\em ``what to see next''} in the exploratory context. A {\em guidance} mechanism is then necessary to point out potential future directions of analysis.
-
-In this demo paper, we introduce \framework, an interactive framework to highlight a subset of geographical points based on analyst feedback. Although \framework\ operates on points, its functionality can be easily extended to regions using point-clustering methods. The highlighted set facilitates the decision-making process by providing guidance on what the analyst should potentially concentrate on. The set of highlights is deliberated over high quality. We consider two quality metrics in \framework: {\em relevance} and {\em diversity}. First, each highlighted point should be relevant to historical choices of the analyst. Second, highlights should be geographically diverse to unveil different aspects of analysis. Both quality metrics are interdependent to compute the set of highlights.
-
-The literature contains several instances of feedback exploitation to guide the analyst in further analysis steps (e.g., \cite{boley2013one}). The common approach is a top-$k$ processing methodology in order to prune the search space based on the explicit feedback and recommend a small subset of interesting results of size~$k$. A clear distinction of \framework\ is that it doesn't aim for pruning, but leveraging the actual data with potential interesting results that the analyst may miss due to the huge volume of spatial data. While in top-$k$ processing algorithms, analyst choices are limited to $k$, \framework\ has a freedom of choice where highlights get seamlessly updated with new analyst choices. The following example describes an application of \framework\ in business domain.
-
-\begin{example}
-\label{ex:flight}
-Tiffany is a data scientist and is tasked to design a ``chain marketing'' strategy for a Peking Duck product (a Chinese duck dish). She decides to exploit Yelp data\footnote{\it https://www.yelp.com/} (i.e., restaurant check-ins) to find out the advertisement chain. She performs her analysis in \framework. In the first step, she shows interest towards New York region, where the headquarters of the company is located and the product has already gained success. The system will then provide few highlights in diverse regions: San Fransisco, Washington DC and Marlton, NJ. All regions seem interesting to Tiffany as they exhibit similar eating profile with New York, hence potentials for chaining the advertisement. She decides to pick Marlton due to its proximity so that she can reduce transportation costs. The system will then provide other highlights based on her updated feedback. She can then make the city-to-city chain marketing strategy in iterative steps using highlights.
-\end{example}
-
-There exist few instances of information-highlighting methods in the literature \cite{Liang2010,Robinson2011,wongsuphasawat2016voyager,willett2007scented}. However all these methods are {\em objective} and do not apply to the context of spatial guidance where user feedback is involved.  In terms of recommendation, few approaches focus on spatial dimension \cite{Bao2015,Levandoski:2012} while the context and result diversification are missing.
-
-\section{GeoHighlight Framework}
-\label{sec:pb}
-In this section, we describe the functionality of \framework\ which is an inspiration from both recommendation \cite{Omidvar-Tehrani:2015} and visual highlighting \cite{Liang2010,Robinson2011} methodologies. \framework\ is a layer on top of a raw visualization to guide analysts in large-scale spatial data analysis. Figure \ref{fig:framework} illustrates main components of \framework\ architecture.
 
 In our framework, we consider a spatial database ${\cal D}$ consisting $\langle {\cal P}, {\cal A} \rangle$ where ${\cal P}$ is the set of
 geographical points and ${\cal A}$ is the set of point attributes. For each $p \in {\cal P}$, we consider a tuple $\langle lat, lon, alt\rangle$ which denotes $p$'s geographical coordinates (latitude, longitude and altitude respectively). The set ${\cal A}_p$ contains attribute-values for $p$ over the schema of ${\cal A}$. For instance, on a bike-sharing dataset, ${\cal A}_p = \langle${\tt female}, {\tt young}, {\tt hybrid-bike}$\rangle$ on the schema ${\cal A} = \langle${\tt gender}, {\tt age}, {\tt type}$\rangle$ denotes that $p$ is associated to a young female cyclist who rides a hybrid bike. The set ${\cal A}$ is domain-dependent and defines the semantics of a spatial dataset.
@@ -162,6 +179,7 @@ We observe that in general, it takes in average 10.7 steps to reach a defined go
 \end{figure*}
 
 \section{Demonstration Plan}
+\label{sec:demo_plan}
 \noindent{\bf Context.} \framework\ is implemented in Python (as the computation engine) and JavaScript D3 (as the visualization engine). Demonstration attendees can play the role of analysts in \framework. We provide several spatial datasets in our demo session: Yelp dataset of restaurant check-ins with 229,907 geographical points, Airbnb dataset for short-term lodging with 4,200,000 points, New York taxi dataset with 173,179,759 points and New York bike-sharing dataset with XXX points. Participants can also experience different types of feedback capturing such as gaze, mouse movement and session time. We describe three demonstration scenarios as follows.
 
 \vspace{5pt}
