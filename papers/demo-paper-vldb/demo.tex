@@ -93,13 +93,20 @@ Given a dataset with a set of spatio-temporal information points, our system is 
 \vspace{-10pt}
 \end{figure}
 
+The following example illustrates the challenge of our approach in practice.
+
+\begin{example}
+\label{ex:airbnb}
+Liam is planning a short trip to Paris. He decides to rent a home-stay from Airbnb website\footnote{\it http://www.airbnb.com}. He is open to any type of lodging and he wants to explore different options (i.e., exploratory analysis). He queries all available locations in Paris with a fair price. His query results in 3000 locations. As he has no other preferences, an exhaustive investigation needs scanning each location independently which is nearly infeasible. In case he wants to focus on a smaller set of options, it is not clear which subset he needs to look at. While he is looking at primary locations in the list, he shows interest in having ``balcony'' as amenity and being close to Eiffel tower. An ideal system can capture this feedback in order to short-list a small subset of remaining locations that Liam should consider as high priority.
+\end{example}
+
 In our framework, we consider a spatial database ${\cal D}$ consisting $\langle {\cal P}, {\cal A} \rangle$ where ${\cal P}$ is the set of
 geographical points and ${\cal A}$ is the set of point attributes. For each $p \in {\cal P}$, we consider a tuple $\langle lat, lon, alt\rangle$ which denotes $p$'s geographical coordinates (latitude, longitude and altitude respectively). The set ${\cal A}_p$ contains attribute-values for $p$ over the schema of ${\cal A}$. For instance, on a bike-sharing dataset, ${\cal A}_p = \langle${\tt female}, {\tt young}, {\tt hybrid-bike}$\rangle$ on the schema ${\cal A} = \langle${\tt gender}, {\tt age}, {\tt type}$\rangle$ denotes that $p$ is associated to a young female cyclist who rides a hybrid bike. The set ${\cal A}$ is domain-dependent and defines the semantics of a spatial dataset.
 
 We also define a feedback vector ${\cal F}$ on the schema ${\cal A}$ initialized by zero. The vector gets updated by ${\cal A}_p$ whenever the analyst shows interest in a geographical point $p$. Feedback vector is always kept normalized, i.e., $\Sigma_{v \in {\cal F}}(v) = 1.0$. Unlike the literature which mainly focuses on explicit feedback (where the analyst should clearly reflect her likes and dislikes), we investigate on implicit feedback. This enables the system to capture {\em what the analyst may miss} instead of what the analyst has clearly investigated before. We consider different ways to capture implicit feedback.
 
 \begin{itemize}[leftmargin=*]
-\item {\bf Gaze Tracking.} During spatial data analysis, it is often the case that analysts look at some regions of interest but forget to provide an explicit feedback. For instance in Example~\ref{ex:airbnb}, while Liam is focusing on home-stays close to the Eiffel tower, he also looks at farther locations with easy train access. However, he never clicks on those points. We call this latent signal, {\em gaze}. The signal can be captured by tracking eye directions of the analyst. We employ {\sc ixLabs} gaze tracking\footnote{\em http://www.xlabsgaze.com/} as it only needs a simple web-cam to capture the gaze signal.
+\item {\bf Gaze Tracking.} During spatial data analysis, it is often the case that analysts look at some regions of interest but forget to provide an explicit feedback. For instance in Example~\ref{ex:airbnb}, while Liam is focusing on home-stays close to the Eiffel tower, he also looks at farther locations with easy train access. However, he never clicks on those points. We call this latent signal, {\em gaze}. The signal can be captured by tracking eye directions of the analyst. %We employ {\sc ixLabs} gaze tracking\footnote{\em http://www.xlabsgaze.com/} as it only needs a simple web-cam to capture the gaze signal.
 \item {\bf Cursor Tracking.} To address privacy issues of web-cam exploitation for gaze tracking, we consider an alternative of tracking the mouse cursor. Intuitively, a point receives a positive feedback if the cursor moves around it frequently.
 \item {\bf Session Time.} In most spatial datasets, there is a profile page dedicated to each point. Examples are restaurant pages in Yelp and lodging pages in Airbnb. We consider the amount of time that the analyst spends in a page as an implicit feedback. For instance, if the analyst spends few minutes in a page for an Indian cuisine restaurant, this counts as positive feedback for this type of restaurants. 
 \end{itemize}
@@ -156,6 +163,53 @@ During online execution, \framework\ admits as input a point $p \in {\cal P}$ (t
 
 % The point-feedback relevance is neither monotonic nor anti-monotonic. In other words, a highly relevant point to the feedback vector at step $i$ may become totally irrelevant to the updated feedback vector at step $i+1$. The reason is the dynamic nature of the feedback vector which may drastically evolve at each analysis step. For efficiency reasons, we employ a static component of relevance and build indexes to speed up online computations.
 
+%\noindent{\bf Context.} 
+\framework\ is implemented in Python (as the computation engine) and JavaScript D3 (as the visualization engine). Demonstration attendees can play the role of analysts in \framework. We provide several spatial datasets in our demo session: Yelp dataset of restaurant check-ins with 229,907 geographical points, Airbnb dataset for short-term lodging with 4,200,000 points, New York taxi dataset with 173,179,759 points. Participants can also experience different types of feedback capturing such as gaze, mouse movement and session time. We describe three demonstration scenarios as follows.
+
+% and New York bike-sharing dataset with XXX points.
+\section{Demonstration Plan}
+\label{sec:demo_plan}
+
+Our demonstration plan consists of 5 parts. First,
+we would like to present to the VLDB attendees the diversity of
+parameters in three different scenarios and its datasets. Second, we will demonstrate the how to set the \framework\ variables before start the analysis by choosing a specific point in the map. Third, the attendees will be able to effectively see the highlighted points generated by the environment, and its properties. Fourth, we will present how to align different filter types in order to improve the results. Fifth, we will present to the attendees the use of implicit and explicit feedbacks, e.g., (i) how we capture cursor tracking in order to capture implicit informations (ii) by explicit choosing different parameters to be highlighted in therms of size and colors.
+
+
+
+\vspace{5pt}
+\noindent{\it Scenario 1.} On New York taxi dataset, we demonstrate how \framework\ can contribute to urban planning and fleet management. We consider an explicit goal of discovering which neighborhoods work the best for which drivers in order to increase the overall availability of cabs in the city. We show how a chain of cab stations can be picked by \framework\ in diverse location of the city.
+
+\vspace{5pt}
+\noindent{\it Scenario 2.} On Airbnb dataset, we demonstrate how \framework\ can contribute to approach a lodging of interest based on analyst's feedback. As instructed in the user study, we consider the concrete case of finding a cheap lodging solution with a balcony near Eiffel tower. The attendee will observe how feedback converges the exploration towards the goal very quickly.
+
+\vspace{5pt}
+\noindent{\it Scenario 3.} On Yelp dataset, e demonstrate how \framework\ can contribute to reach an early consensus on a restaurant. The attendee will observe that his/her preferences will be immediately captured and reflected in future highlights. The attendee can experience session time feedback in this scenario.
+
+
+\begin{figure*}[!ht]
+  \centering
+  \includegraphics[width=\columnwidth]{figs/scn}
+\caption{\framework\ on New York Taxi Dataset}
+\label{fig:app}
+% \vspace{-10pt}
+\end{figure*}
+
+\vspace{5pt}
+\noindent{\bf 1. Diversity of parameters in three different datasets. }
+
+\vspace{5pt}
+\noindent{\bf 2. Setting framework variables. }
+
+\vspace{5pt}
+\noindent{\bf 3. Highlighted points generated by the system. }
+
+\vspace{5pt}
+\noindent{\bf 4. Filtering different properties. }
+
+\vspace{5pt}
+\noindent{\bf 5. Implicit and explicit feedbacks. }
+
+\vspace{5pt}
 To validate our design choices in \framework\ (quality dimensions and feedback capturing), we design a user study with $24$ participants (students in Computer Science). We define a task for each participant and ask him/her to fulfill the task using \framework\ and {\sc Tableau} (as the most advanced off-the-shelf visualization product). Then we measure the number of steps to reach the goal. We define two tasks, {\em T1: finding a point in a requested location} (e.g., find a home-stay in the Central Park area, New York), and {\em T2: finding a point with a requested profile} (e.g., find a cheap home-stay with balcony in Paris.) Participants may begin their navigation from three different starting points: {\em I1: close to the goal}, {\em I2: far from the goal}, and {\em I3: random}. 
 
 In {\sc Tableau}, participants employ filtering and querying tools to reach their goals. In \framework, participants benefit from relevant and diverse highlights and feedback capturing using cursor tracking. Figure \ref{fig:userstudy} illustrates the results of this study. We report results for separate sub-populations: the left figure illustrates the results for novice participants (who don't know the location, be it Paris or New York) and the right figure illustrates expert's results.
@@ -170,26 +224,8 @@ We observe that in general, it takes in average 10.7 steps to reach a defined go
 \label{fig:userstudy}
 \end{figure}
 
-\begin{figure*}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figs/scn}
-\caption{\framework\ on New York Taxi Dataset}
-\label{fig:app}
-% \vspace{-10pt}
-\end{figure*}
 
-\section{Demonstration Plan}
-\label{sec:demo_plan}
-\noindent{\bf Context.} \framework\ is implemented in Python (as the computation engine) and JavaScript D3 (as the visualization engine). Demonstration attendees can play the role of analysts in \framework. We provide several spatial datasets in our demo session: Yelp dataset of restaurant check-ins with 229,907 geographical points, Airbnb dataset for short-term lodging with 4,200,000 points, New York taxi dataset with 173,179,759 points and New York bike-sharing dataset with XXX points. Participants can also experience different types of feedback capturing such as gaze, mouse movement and session time. We describe three demonstration scenarios as follows.
 
-\vspace{5pt}
-\noindent{\bf Scenario 1.} On New York taxi dataset, we demonstrate how \framework\ can contribute to urban planning and fleet management. We consider an explicit goal of discovering which neighborhoods work the best for which drivers in order to increase the overall availability of cabs in the city. We show how a chain of cab stations can be picked by \framework\ in diverse location of the city.
-
-\vspace{5pt}
-\noindent{\bf Scenario 2.} On Airbnb dataset, we demonstrate how \framework\ can contribute to approach a lodging of interest based on analyst's feedback. As instructed in the user study, we consider the concrete case of finding a cheap lodging solution with a balcony near Eiffel tower. The attendee will observe how feedback converges the exploration towards the goal very quickly.
-
-\vspace{5pt}
-\noindent{\bf Scenario 3.} On Yelp dataset, e demonstrate how \framework\ can contribute to reach an early consensus on a restaurant. The attendee will observe that his/her preferences will be immediately captured and reflected in future highlights. The attendee can experience session time feedback in this scenario.
 
 \bibliographystyle{abbrv}
 \bibliography{main}
