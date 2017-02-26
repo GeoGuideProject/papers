@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.27)  24 FEB 2017 18:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.27)  26 FEB 2017 18:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1079,74 +1079,83 @@ Underfull \hbox (badness 2245) in paragraph at lines 32--32
 []\crnotice This work is li-censed un-der the Cre-ative Com-mons Attribution-
  []
 
-<figs/framework.pdf, id=4, 371.41893pt x 159.53171pt>
-File: figs/framework.pdf Graphic file (type pdf)
- <use figs/framework.pdf>
-Package pdftex.def Info: figs/framework.pdf used on input line 45.
-(pdftex.def)             Requested size: 240.0pt x 103.0858pt.
 
-[1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
-
-
- <./figs/framework.pdf>]
-Overfull \hbox (7.28252pt too wide) in paragraph at lines 70--71
-\OT1/cmr/m/it/9 (i.e., restau-rant check-ins) to find out the ad-ver-tise-ment 
-chain.
- []
-
-
-Overfull \hbox (3.29146pt too wide) in paragraph at lines 73--74
+Overfull \hbox (3.29146pt too wide) in paragraph at lines 54--55
 []\OT1/cmr/m/n/9 There ex-ist few in-stances of information-highlighting meth-
  []
 
-[2]
-Overfull \hbox (2.21896pt too wide) in paragraph at lines 138--139
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+
+]
+<figs/framework.pdf, id=22, 371.41893pt x 159.53171pt>
+File: figs/framework.pdf Graphic file (type pdf)
+
+<use figs/framework.pdf>
+Package pdftex.def Info: figs/framework.pdf used on input line 90.
+(pdftex.def)             Requested size: 240.0pt x 103.0858pt.
+ [2 <./figs/framework.pdf>]
+Overfull \hbox (2.21896pt too wide) in paragraph at lines 162--163
 \OT1/cmr/m/n/9 the al-go-rithm should stop seek-ing max-i-mized di-ver-sity. Sc
 an-
  []
 
-<figs/userstudy.pdf, id=82, 580.52773pt x 229.5777pt>
-File: figs/userstudy.pdf Graphic file (type pdf)
- <use figs/userstudy.pdf>
-Package pdftex.def Info: figs/userstudy.pdf used on input line 150.
-(pdftex.def)             Requested size: 240.0pt x 94.91214pt.
-
 <figs/scn.pdf, id=83, 444.34758pt x 298.92819pt>
 File: figs/scn.pdf Graphic file (type pdf)
  <use figs/scn.pdf>
-Package pdftex.def Info: figs/scn.pdf used on input line 158.
+Package pdftex.def Info: figs/scn.pdf used on input line 191.
 (pdftex.def)             Requested size: 240.0pt x 161.45529pt.
 
-Underfull \vbox (badness 4805) has occurred while \output is active []
+Overfull \hbox (2.71283pt too wide) in paragraph at lines 198--199
+\OT1/cmr/bx/n/9 1. Di-ver-sity of pa-ram-e-ters in three dif-fer-ent datasets.
+ []
 
- [3 <./figs/userstudy.pdf>] (./demo.bbl) [4 <./figs/scn.pdf>] (./demo.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 198--199
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3]
+<figs/userstudy.pdf, id=88, 580.52773pt x 229.5777pt>
+File: figs/userstudy.pdf Graphic file (type pdf)
+ <use figs/userstudy.pdf>
+Package pdftex.def Info: figs/userstudy.pdf used on input line 221.
+(pdftex.def)             Requested size: 240.0pt x 94.91214pt.
+
+(./demo.bbl) [4 <./figs/scn.pdf> <./figs/userstudy.pdf>] (./demo.aux) ) 
 Here is how much of TeX's memory you used:
- 29566 strings out of 493117
- 681388 string characters out of 6135432
- 812000 words of memory out of 5000000
- 32546 multiletter control sequences out of 15000+600000
+ 29569 strings out of 493117
+ 681463 string characters out of 6135432
+ 813012 words of memory out of 5000000
+ 32549 multiletter control sequences out of 15000+600000
  26748 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,12n,76p,10351b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/u
-sr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texliv
-e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/
-2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/
-2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/20
-14/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2014
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2014/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2014/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2014/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2014/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2014/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2014/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2014/texmf-dist/font
-s/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2014/texmf-dist/fonts/
-type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/u
-rw/helvetic/uhvr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/time
-s/utmb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmr8a.p
-fb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on demo.pdf (4 pages, 2018457 bytes).
+{/usr/lo
+cal/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/201
+4/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2014/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2014/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2014/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2014/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2014/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2014/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2014/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2014/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2014/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2014/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2014/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1
+/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/he
+lvetic/uhvr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utm
+b8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></
+usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on demo.pdf (4 pages, 2019713 bytes).
 PDF statistics:
  237 PDF objects out of 1000 (max. 8388607)
  154 compressed objects within 2 object streams

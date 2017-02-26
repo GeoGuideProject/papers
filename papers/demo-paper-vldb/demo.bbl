@@ -1,4 +1,19 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{arapakis2014user}
+I.~Arapakis, M.~Lalmas, B.~B. Cambazoglu, M.-C. Marcos, and J.~M. Jose.
+\newblock User engagement in online news: Under the scope of sentiment,
+  interest, affect, and gaze.
+\newblock {\em Journal of the Association for Information Science and
+  Technology}, 65(10):1988--2005, 2014.
+
+\bibitem{arapakis2014understanding}
+I.~Arapakis, M.~Lalmas, and G.~Valkanas.
+\newblock Understanding within-content engagement through pattern analysis of
+  mouse gestures.
+\newblock In {\em Proceedings of the 23rd ACM International Conference on
+  Conference on Information and Knowledge Management}, pages 1439--1448. ACM,
+  2014.
 
 \bibitem{Bao2015}
 J.~Bao, Y.~Zheng, D.~Wilkie, and M.~Mokbel.
@@ -11,6 +26,13 @@ M.~Boley, M.~Mampaey, B.~Kang, P.~Tokmakov, and S.~Wrobel.
   implicit preference and performance learning.
 \newblock In {\em Proceedings of the ACM SIGKDD Workshop on Interactive Data
   Exploration and Analytics}, pages 27--35. ACM, 2013.
+
+\bibitem{fischer1999investigation}
+M.~H. Fischer.
+\newblock An investigation of attention allocation during sequential eye
+  movement tasks.
+\newblock {\em The Quarterly Journal of Experimental Psychology: Section A},
+  52(3):649--677, 1999.
 
 \bibitem{Levandoski:2012}
 J.~J. Levandoski, M.~Sarwat, A.~Eldawy, and M.~F. Mokbel.

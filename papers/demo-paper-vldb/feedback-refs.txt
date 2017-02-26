@@ -1,5 +1,4 @@
 User Engagement in Online News: Under the Scope of Sentiment, Interest, Affect, and Gaze
-Understanding Within-Content Engagement through Pattern Analysis of Mouse Gestures
 
 
 Gaze be- haviour is also known to be associated with attention, interest, and perception, and has been extensively studied in information processing tasks like reading [9], visual search [35], scene perception [21], and recently in micro-blogging [12].
@@ -12,5 +11,5 @@ Gaze be- haviour is also known to be associated with attention, interest, and pe
 
 [21] Henderson, J. M. Human gaze control during real-world scene percep- tion. Trends in Cognitive Sciences 7, 11 (November 2003), 498–504.
 
-The relationship between attention and eye movements has been investigated extensively in the past [15, 36, 37, 38]. Gaze direction has been considered an indicator of the focus of attention. When we read, examine a scene, or search for an object, we continuously make eye movements called saccades. Saccades are rapid movements that occur when we change focus, and can reach velocities as high as 500  per second. When the visual gaze is maintained on a single location
+
 
