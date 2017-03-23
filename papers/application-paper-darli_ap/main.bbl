@@ -1,0 +1,104 @@
+\begin{thebibliography}{10}
+
+\bibitem{arapakis2014user}
+I.~Arapakis, M.~Lalmas, B.~B. Cambazoglu, M.-C. Marcos, and J.~M. Jose.
+\newblock User engagement in online news: Under the scope of sentiment,
+  interest, affect, and gaze.
+\newblock {\em Journal of the Association for Information Science and
+  Technology}, 65(10):1988--2005, 2014.
+
+\bibitem{arapakis2014understanding}
+I.~Arapakis, M.~Lalmas, and G.~Valkanas.
+\newblock Understanding within-content engagement through pattern analysis of
+  mouse gestures.
+\newblock In {\em Proceedings of the 23rd ACM International Conference on
+  Conference on Information and Knowledge Management}, pages 1439--1448. ACM,
+  2014.
+
+\bibitem{Bao2015}
+J.~Bao, Y.~Zheng, D.~Wilkie, and M.~Mokbel.
+\newblock Recommendations in location-based social networks: a survey.
+\newblock {\em GeoInformatica}, 19(3):525--565, 2015.
+
+\bibitem{boley2013one}
+M.~Boley, M.~Mampaey, B.~Kang, P.~Tokmakov, and S.~Wrobel.
+\newblock One click mining: Interactive local pattern discovery through
+  implicit preference and performance learning.
+\newblock In {\em Proceedings of the ACM SIGKDD Workshop on Interactive Data
+  Exploration and Analytics}, pages 27--35. ACM, 2013.
+
+\bibitem{fischer1999investigation}
+M.~H. Fischer.
+\newblock An investigation of attention allocation during sequential eye
+  movement tasks.
+\newblock {\em The Quarterly Journal of Experimental Psychology: Section A},
+  52(3):649--677, 1999.
+
+\bibitem{Levandoski:2012}
+J.~J. Levandoski, M.~Sarwat, A.~Eldawy, and M.~F. Mokbel.
+\newblock Lars: A location-aware recommender system.
+\newblock In {\em ICDE}, pages 450--461, 2012.
+
+\bibitem{Liang2010}
+J.~Liang and M.~L. Huang.
+\newblock Highlighting in information visualization: A survey.
+\newblock In {\em 2010 14th International Conference Information
+  Visualisation}, July 2010.
+
+\bibitem{lins2013nanocubes}
+L.~Lins, J.~T. Klosowski, and C.~Scheidegger.
+\newblock Nanocubes for real-time exploration of spatiotemporal datasets.
+\newblock {\em IEEE Transactions on Visualization and Computer Graphics},
+  19(12):2456--2465, 2013.
+
+\bibitem{Omidvar-Tehrani:2015}
+B.~Omidvar-Tehrani, S.~Amer-Yahia, and A.~Termier.
+\newblock Interactive user group analysis.
+\newblock In {\em CIKM}, pages 403--412. ACM, 2015.
+
+\bibitem{Robinson2011}
+A.~C. Robinson.
+\newblock Highlighting in geovisualization.
+\newblock {\em Cartography and Geographic Information Science}, 38(4):373--383,
+  2011.
+
+\bibitem{RoddickEHPS04}
+J.~F. Roddick, M.~J. Egenhofer, E.~G. Hoel, D.~Papadias, and B.~Salzberg.
+\newblock Spatial, temporal and spatio-temporal databases - hot issues and
+  directions for phd research.
+\newblock {\em {SIGMOD} Record}, 33(2):126--131, 2004.
+
+\bibitem{sharma2012k}
+R.~Sharma, M.~A. Alam, and A.~Rani.
+\newblock K-means clustering in spatial data mining using weka interface.
+\newblock {\em International Journal of Computer Applications}, pages 26--30,
+  2012.
+
+\bibitem{Telang:2012}
+A.~Telang, D.~Padmanabhan, and P.~Deshpande.
+\newblock Spatio-temporal indexing: Current scenario, challenges and
+  approaches.
+\newblock In {\em Proceedings of the 18th International Conference on
+  Management of Data}, COMAD '12, pages 9--11, Mumbai, India, India, 2012.
+  Computer Society of India.
+
+\bibitem{VartakRMPP15}
+M.~Vartak, S.~Rahman, S.~Madden, A.~G. Parameswaran, and N.~Polyzotis.
+\newblock {SEEDB:} efficient data-driven visualization recommendations to
+  support visual analytics.
+\newblock {\em {PVLDB}}, 8(13):2182--2193, 2015.
+
+\bibitem{willett2007scented}
+W.~Willett, J.~Heer, and M.~Agrawala.
+\newblock Scented widgets: Improving navigation cues with embedded
+  visualizations.
+\newblock {\em IEEE Transactions on Visualization and Computer Graphics},
+  13(6):1129--1136, 2007.
+
+\bibitem{wongsuphasawat2016voyager}
+K.~Wongsuphasawat, D.~Moritz, A.~Anand, J.~Mackinlay, B.~Howe, and J.~Heer.
+\newblock Voyager: Exploratory analysis via faceted browsing of visualization
+  recommendations.
+\newblock {\em TVCG}, 22(1), 2016.
+
+\end{thebibliography}

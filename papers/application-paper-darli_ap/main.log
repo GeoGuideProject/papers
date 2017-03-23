@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.28)  22 MAR 2017 12:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.28)  22 MAR 2017 20:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -928,7 +928,11 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \c@example=\count172
 \c@problem=\count173
 \c@definition=\count174
- (./main.aux)
+ (./main.aux
+
+LaTeX Warning: Label `ex:flight' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 192.
@@ -1042,80 +1046,23 @@ File: omsptm.fd
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <10.03749> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 245.
-
-
-LaTeX Warning: Citation `RoddickEHPS04' on page 1 undefined on input line 272.
-
-
-LaTeX Warning: Citation `Telang:2012' on page 1 undefined on input line 272.
-
-
-LaTeX Warning: Citation `boley2013one' on page 1 undefined on input line 295.
-
-[1{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+ [1{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-
-LaTeX Warning: Citation `lins2013nanocubes' on page 2 undefined on input line 2
-98.
-
-
-LaTeX Warning: Citation `Liang2010' on page 2 undefined on input line 300.
-
-
-LaTeX Warning: Citation `Robinson2011' on page 2 undefined on input line 300.
-
-
-LaTeX Warning: Citation `wongsuphasawat2016voyager' on page 2 undefined on inpu
-t line 300.
-
-
-LaTeX Warning: Citation `willett2007scented' on page 2 undefined on input line 
-300.
-
-
-LaTeX Warning: Citation `Bao2015' on page 2 undefined on input line 300.
-
-
-LaTeX Warning: Citation `Levandoski:2012' on page 2 undefined on input line 300
-.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 300--301
-[]\OT1/ptm/m/n/10.03749 There ex-ist still few in-stances of information-
- []
-
-
-Underfull \hbox (badness 4416) in paragraph at lines 300--301
-\OT1/ptm/m/n/10.03749 highlighting meth-ods in the lit-er-a-ture [\OT1/ptm/b/n/
-10.03749 ?\OT1/ptm/m/n/10.03749 ], [\OT1/ptm/b/n/10.03749 ?\OT1/ptm/m/n/10.0374
-9 ], [\OT1/ptm/b/n/10.03749 ?\OT1/ptm/m/n/10.03749 ],
- []
-
-
-LaTeX Warning: Citation `Omidvar-Tehrani:2015' on page 2 undefined on input lin
-e 308.
-
-
-LaTeX Warning: Citation `Liang2010' on page 2 undefined on input line 308.
-
-
-LaTeX Warning: Citation `Robinson2011' on page 2 undefined on input line 308.
-
 <figs/framework.pdf, id=16, 371.41893pt x 159.53171pt>
 File: figs/framework.pdf Graphic file (type pdf)
 
 <use figs/framework.pdf>
-Package pdftex.def Info: figs/framework.pdf used on input line 313.
+Package pdftex.def Info: figs/framework.pdf used on input line 307.
 (pdftex.def)             Requested size: 243.91125pt x 104.76787pt.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 328.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 322.
 
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 ) [2 <./figs/framework.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 356--356
+Underfull \hbox (badness 10000) in paragraph at lines 350--350
  []$[][]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ) = [][][](\OML/cmm/
 m/it/10 p; p[]\OT1/cmr/m/n/10 )|$ 
  []
@@ -1123,68 +1070,50 @@ m/it/10 p; p[]\OT1/cmr/m/n/10 )|$
 <figs/airbnb.png, id=77, 1511.6475pt x 764.8575pt>
 File: figs/airbnb.png Graphic file (type png)
  <use figs/airbnb.png>
-Package pdftex.def Info: figs/airbnb.png used on input line 386.
+Package pdftex.def Info: figs/airbnb.png used on input line 380.
 (pdftex.def)             Requested size: 505.89pt x 255.96333pt.
 
-
-LaTeX Warning: Citation `Omidvar-Tehrani:2015' on page 3 undefined on input lin
-e 394.
-
-
-LaTeX Warning: Citation `Liang2010' on page 3 undefined on input line 397.
-
-
-LaTeX Warning: Citation `Robinson2011' on page 3 undefined on input line 397.
-
-
-Underfull \hbox (badness 3758) in paragraph at lines 431--432
+Underfull \hbox (badness 3758) in paragraph at lines 425--426
 []\OT1/ptm/m/n/10.03749 The al-go-rithm then looks for a can-di-date point
  []
 
-[3] <figs/yelp.png, id=88, 1245.65375pt x 865.2325pt>
+<figs/yelp.png, id=79, 1245.65375pt x 865.2325pt>
 File: figs/yelp.png Graphic file (type png)
  <use figs/yelp.png>
-Package pdftex.def Info: figs/yelp.png used on input line 436.
+Package pdftex.def Info: figs/yelp.png used on input line 430.
 (pdftex.def)             Requested size: 361.34999pt x 250.9902pt.
 
+Underfull \vbox (badness 1817) has occurred while \output is active []
 
-LaTeX Warning: Citation `fischer1999investigation' on page 4 undefined on input
- line 448.
-
-
-LaTeX Warning: Citation `arapakis2014user' on page 4 undefined on input line 44
-8.
-
-
-LaTeX Warning: Citation `arapakis2014understanding' on page 4 undefined on inpu
-t line 449.
-
+ [3]
 [4 <./figs/airbnb.png>]
-Underfull \vbox (badness 1648) has occurred while \output is active []
+Underfull \vbox (badness 5563) has occurred while \output is active []
 
-
-<figs/userstudy.pdf, id=93, 580.52773pt x 229.5777pt>
+ [5 <./figs/yelp.png>] <figs/userstudy.pdf, id=98, 580.52773pt x 229.5777pt>
 File: figs/userstudy.pdf Graphic file (type pdf)
- <use figs/userstudy.pdf>
-Package pdftex.def Info: figs/userstudy.pdf used on input line 508.
+
+<use figs/userstudy.pdf>
+Package pdftex.def Info: figs/userstudy.pdf used on input line 502.
 (pdftex.def)             Requested size: 243.91125pt x 96.457pt.
 
-[5 <./figs/yelp.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 522--522
+Underfull \hbox (badness 10000) in paragraph at lines 516--516
 [][][]\OT1/ptm/m/sc/8.03 GeoGuide \OT1/ptm/m/n/8.03 can be played ac-cess-ing i
 ts en-vi-ron-ment on
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 522--522
+Underfull \hbox (badness 10000) in paragraph at lines 516--516
 [][][]\OT1/ptm/m/n/8.03 A short \OT1/ptm/m/sc/8.03 Ge-oGu-ide \OT1/ptm/m/n/8.03
  demo can be seen in
  []
 
 
-LaTeX Warning: Citation `VartakRMPP15' on page 6 undefined on input line 529.
+Overfull \hbox (0.65517pt too wide) in paragraph at lines 516--516
+[][][]\OT1/ptm/m/n/8.03 https://github.com/placidoneto/Data-Visualization/exper
+iments/inputs| 
+ []
 
-No file main.bbl.
+(./main.bbl [6 <./figs/userstudy.pdf>])
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -1196,9 +1125,11 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[6 <./figs/userstudy.pdf>] (./main.aux)
+[7
 
-LaTeX Warning: There were undefined references.
+] (./main.aux)
+
+LaTeX Warning: There were multiply-defined labels.
 
  )
 (\end occurred inside a group at level 1)
@@ -1206,10 +1137,10 @@ LaTeX Warning: There were undefined references.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 31950 strings out of 493014
- 760723 string characters out of 6133351
- 867455 words of memory out of 5000000
- 35002 multiletter control sequences out of 15000+600000
+ 31953 strings out of 493014
+ 760754 string characters out of 6133351
+ 870549 words of memory out of 5000000
+ 35003 multiletter control sequences out of 15000+600000
  64077 words of font info for 127 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  62i,18n,96p,10351b,5764s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1231,10 +1162,10 @@ onts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type
 1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/time
 s/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.
 pfb>
-Output written on main.pdf (6 pages, 2029118 bytes).
+Output written on main.pdf (7 pages, 2033981 bytes).
 PDF statistics:
- 181 PDF objects out of 1000 (max. 8388607)
- 120 compressed objects within 2 object streams
+ 186 PDF objects out of 1000 (max. 8388607)
+ 124 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  33 words of extra memory for PDF output out of 10000 (max. 10000000)
 
