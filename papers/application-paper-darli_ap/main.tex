@@ -425,7 +425,7 @@ The algorithm then looks for a candidate point $p_{current} \in {\cal S}_p$ to r
 
 \begin{figure*}[t]
 	\centering
-	\includegraphics[width=5in, frame]{figs/yelp}
+	\includegraphics[width=5 in, frame]{figs/yelp}
 	\caption{\framework\ Image on Yelp Dataset - Las Vegas City}
 	\label{fig:yelp}
 	\vspace{-10pt}
@@ -489,9 +489,38 @@ When the analyst decides to explore restaurants similar to Ronald's Donuts in La
 \section{Experiments}
 \label{sec:experiments}
 
-\vspace{5pt}
-To validate our design choices in \framework\ (quality dimensions and feedback capturing), we design a user study with $24$ participants (students in Computer Science). We define a task for each participant and ask him/her to fulfill the task using \framework\ and {\sc Tableau} (as the most advanced off-the-shelf visualization product). Then we measure the number of steps to reach the goal. We define two tasks, {\em T1: finding a point in a requested location} (e.g., find a home-stay in the Central Park area, New York), and {\em T2: finding a point with a requested profile} (e.g., find a cheap home-stay with balcony in Paris.) Participants may begin their navigation from three different starting points: {\em I1: close to the goal}, {\em I2: far from the goal}, and {\em I3: random}. 
+We evaluate the efficiency and usefulness of \framework\ in an extensive set of experiments. We consider two types of experiments: first, a performance study measures the influence of relevance and size constraint thresholds on execution time. Second, we measure the usefulness of our framework in a user study.
 
+%Unless otherwise stated, we use the same settings discussed in Section \ref{sec:scenarios}. 
+
+\vspace{5pt}
+\noindent {\bf Experiment Settings.} All experiments are implemented in Python (functionality) and JavaScript D3 (visualization) on a 2.8GHz Intel Core i5 machine with an 16GB main memory, running OS X 10.9.2.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\columnwidth]{figs/performance}
+	\caption{Performance Evaluation}
+	\vspace{-10pt}
+	\label{fig:performance}
+\end{figure}
+
+
+
+% \vspace{-20pt}
+\noindent {\bf Performance Study.} \framework\ is designed for exploratory context where interactivity is a need. The ``best-effort'' greedy approach of {\sc Highlighter} (Algorithm \ref{algo:geoh}) guarantees to return the best possible results within a time limit. We consider a large time limit ($tlimit = 2s$) in order to evaluate the effect of relevance and size constraint thresholds on execution time.
+% Figure \ref{fig:performance} illustrates the results by measuring the execution time.
+
+Figure \ref{fig:performance} left illustrates the effect of size constraint by varying $k$ from $2$ to $300$. In general, larger values of $\sigma$ provides more freedom for the algorithm hence more time-consuming. An interesting observation is that increasing $k$ leads decreasing execution time. This is because in larger sets, there exist fewer opportunities for increasing diversity, hence {\sc Highlighter} terminates early.
+
+Figure \ref{fig:performance} right confirms that lower values of $\sigma$ decreases execution time as they provide more flexibility for diversity improvement. For larger values of $k$ (i.e., when $k >100$), the influence of $\sigma$ on execution time becomes insignificant.
+
+\vspace{5pt}
+\noindent {\bf User Study.}
+The principled question that we ask ourselves is whether \framework\ is useful for analysts in practice. To answer this question, we designed a user study with $24$ participants (students in Computer Science). Half of the participants know the New York region well (experts) and the other half have a limited knowledge (novice). In our user study, we define a task for each participant and ask him/her to fulfill the task using both \framework\ and {\sc Tableau} (as the most advanced spatiotemporal visualization tool). Then we measure the cardinality of steps to reach the goal.
+
+We define two tasks, {\em T1: finding a point in a requested location}, and {\em T2: finding a point with a requested profile}. As an example for {\em T1}, we ask participants to find points in the Central Park area. An example of {\em T2} is to find a drop-off point with \$2 tip whose trip distance is 3 kilometers. Participants may begin their navigation from three different starting points: {\em I1: close to the goal}, {\em I2: far from the goal}, and {\em I3: random}. We evaluate the effect of expertise, goal and starting point on the analysis length. Figure \ref{fig:userstudy} illustrates the results for novice (left) and expert (right) participant.
+
+We observe that in general, it takes in average 10.7 steps to reach a defined goal in \framework, i.e., 33 steps less than {\sc Tableau}. This shows that the guidance component helps analysts discover their data and quickly reach to the goal. Level of expertise improves the analysis length in average by 4 steps. Interestingly, starting points do not have a huge influence. It is potentially due to the diversity component which provides distinct options. We also observe that {\em T2} is an easier task than {\em T1}. This is potentially due to similarity component where the analyst can request options similar to what she has already seen and greedily moves to match profiles.
 
 \begin{figure}[t]
 	\centering
@@ -501,9 +530,22 @@ To validate our design choices in \framework\ (quality dimensions and feedback c
 	\label{fig:userstudy}
 \end{figure}
 
-In {\sc Tableau}, participants employ filtering and querying tools to reach their goals. In \framework, participants benefit from relevant and diverse highlights and feedback capturing using cursor tracking. Figure \ref{fig:userstudy} illustrates the results of this study. We report results for separate sub-populations: the left figure illustrates the results for novice participants (who don't know the location, be it Paris or New York) and the right figure illustrates expert's results.
-
-We observe that in general, it takes in average 10.7 steps to reach a defined goal in \framework, i.e., 33 steps less than {\sc Tableau}. This shows that the highlighting component equipped with the feedback mechanism helps analysts discover their spatial data and reach to the goal. Level of expertise improves the analysis length in average by 4 steps. Interestingly, starting points do not have a huge influence. It is potentially due to the diversity component which provides distinct options. We also observe that {\em T2} is an easier task than {\em T1}. This is potentially due to similarity component where the analyst can request options similar to what she has already seen and greedily moves to match profiles.
+%
+%\vspace{5pt}
+%To validate our design choices in \framework\ (quality dimensions and feedback capturing), we design a user study with $24$ participants (students in Computer Science). We define a task for each participant and ask him/her to fulfill the task using \framework\ and {\sc Tableau} (as the most advanced off-the-shelf visualization product). Then we measure the number of steps to reach the goal. We define two tasks, {\em T1: finding a point in a requested location} (e.g., find a home-stay in the Central Park area, New York), and {\em T2: finding a point with a requested profile} (e.g., find a cheap home-stay with balcony in Paris.) Participants may begin their navigation from three different starting points: {\em I1: close to the goal}, {\em I2: far from the goal}, and {\em I3: random}. 
+%
+%
+%\begin{figure}[t]
+%	\centering
+%	\includegraphics[width=\columnwidth]{figs/userstudy}
+%	\caption{User Study}
+%	\vspace{-5pt}
+%	\label{fig:userstudy}
+%\end{figure}
+%
+%In {\sc Tableau}, participants employ filtering and querying tools to reach their goals. In \framework, participants benefit from relevant and diverse highlights and feedback capturing using cursor tracking. Figure \ref{fig:userstudy} illustrates the results of this study. We report results for separate sub-populations: the left figure illustrates the results for novice participants (who don't know the location, be it Paris or New York) and the right figure illustrates expert's results.
+%
+%We observe that in general, it takes in average 10.7 steps to reach a defined goal in \framework, i.e., 33 steps less than {\sc Tableau}. This shows that the highlighting component equipped with the feedback mechanism helps analysts discover their spatial data and reach to the goal. Level of expertise improves the analysis length in average by 4 steps. Interestingly, starting points do not have a huge influence. It is potentially due to the diversity component which provides distinct options. We also observe that {\em T2} is an easier task than {\em T1}. This is potentially due to similarity component where the analyst can request options similar to what she has already seen and greedily moves to match profiles.
 
 \section{Conclusions}
 \label{sec:conclusions}
