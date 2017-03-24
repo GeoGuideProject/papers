@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.28)  22 MAR 2017 20:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.2.28)  23 MAR 2017 20:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -928,11 +928,7 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \c@example=\count172
 \c@problem=\count173
 \c@definition=\count174
- (./main.aux
-
-LaTeX Warning: Label `ex:flight' multiply defined.
-
-)
+ (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 192.
@@ -1054,66 +1050,64 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <10.03749> not available
 File: figs/framework.pdf Graphic file (type pdf)
 
 <use figs/framework.pdf>
-Package pdftex.def Info: figs/framework.pdf used on input line 307.
+Package pdftex.def Info: figs/framework.pdf used on input line 311.
 (pdftex.def)             Requested size: 243.91125pt x 104.76787pt.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 322.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 326.
 
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 ) [2 <./figs/framework.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 350--350
+Underfull \hbox (badness 10000) in paragraph at lines 357--357
  []$[][]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ) = [][][](\OML/cmm/
 m/it/10 p; p[]\OT1/cmr/m/n/10 )|$ 
  []
 
-<figs/airbnb.png, id=77, 1511.6475pt x 764.8575pt>
+<figs/airbnb.png, id=78, 1511.6475pt x 764.8575pt>
 File: figs/airbnb.png Graphic file (type png)
  <use figs/airbnb.png>
-Package pdftex.def Info: figs/airbnb.png used on input line 380.
+Package pdftex.def Info: figs/airbnb.png used on input line 390.
 (pdftex.def)             Requested size: 505.89pt x 255.96333pt.
 
-Underfull \hbox (badness 3758) in paragraph at lines 425--426
+Overfull \hbox (0.79999pt too wide) in paragraph at lines 390--391
+ [][] 
+ []
+
+
+Underfull \hbox (badness 3758) in paragraph at lines 423--424
 []\OT1/ptm/m/n/10.03749 The al-go-rithm then looks for a can-di-date point
  []
 
-<figs/yelp.png, id=79, 1245.65375pt x 865.2325pt>
+<figs/yelp.png, id=80, 1245.65375pt x 865.2325pt>
 File: figs/yelp.png Graphic file (type png)
  <use figs/yelp.png>
-Package pdftex.def Info: figs/yelp.png used on input line 430.
+Package pdftex.def Info: figs/yelp.png used on input line 428.
 (pdftex.def)             Requested size: 361.34999pt x 250.9902pt.
-
-Underfull \vbox (badness 1817) has occurred while \output is active []
-
  [3]
-[4 <./figs/airbnb.png>]
-Underfull \vbox (badness 5563) has occurred while \output is active []
+Underfull \hbox (badness 2221) in paragraph at lines 449--449
+[][][]\OT1/ptm/m/it/8.03 The frame-work is avail-able via http://geoguide.herok
+uapp.com/.
+ []
 
- [5 <./figs/yelp.png>] <figs/userstudy.pdf, id=98, 580.52773pt x 229.5777pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 449--449
+\OT1/ptm/m/it/8.03 Also a short demo of its func-tion-al-ity is avail-able in
+ []
+
+
+Overfull \hbox (2.80057pt too wide) in paragraph at lines 449--449
+[][][]\OT1/ptm/m/it/8.03 https://drive.google.com/open?id=0B8VZspRTxkagUEt2ZVdZ
+Z1cySVE| 
+ []
+
+[4 <./figs/airbnb.png>] <figs/userstudy.pdf, id=94, 580.52773pt x 229.5777pt>
 File: figs/userstudy.pdf Graphic file (type pdf)
 
 <use figs/userstudy.pdf>
-Package pdftex.def Info: figs/userstudy.pdf used on input line 502.
+Package pdftex.def Info: figs/userstudy.pdf used on input line 498.
 (pdftex.def)             Requested size: 243.91125pt x 96.457pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 516--516
-[][][]\OT1/ptm/m/sc/8.03 GeoGuide \OT1/ptm/m/n/8.03 can be played ac-cess-ing i
-ts en-vi-ron-ment on
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 516--516
-[][][]\OT1/ptm/m/n/8.03 A short \OT1/ptm/m/sc/8.03 Ge-oGu-ide \OT1/ptm/m/n/8.03
- demo can be seen in
- []
-
-
-Overfull \hbox (0.65517pt too wide) in paragraph at lines 516--516
-[][][]\OT1/ptm/m/n/8.03 https://github.com/placidoneto/Data-Visualization/exper
-iments/inputs| 
- []
-
-(./main.bbl [6 <./figs/userstudy.pdf>])
+ [5 <./figs/yelp.png> <./figs/userstudy.pdf>]
+(./main.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -1125,25 +1119,19 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[7
-
-] (./main.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
- )
+[6] (./main.aux) )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 31953 strings out of 493014
- 760754 string characters out of 6133351
- 870549 words of memory out of 5000000
- 35003 multiletter control sequences out of 15000+600000
- 64077 words of font info for 127 fonts, out of 8000000 for 9000
+ 31950 strings out of 493014
+ 760723 string characters out of 6133351
+ 870510 words of memory out of 5000000
+ 35002 multiletter control sequences out of 15000+600000
+ 61275 words of font info for 124 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 62i,18n,96p,10351b,5764s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,18n,96p,10351b,5766s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc
 }</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></
@@ -1162,10 +1150,10 @@ onts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type
 1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/time
 s/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.
 pfb>
-Output written on main.pdf (7 pages, 2033981 bytes).
+Output written on main.pdf (6 pages, 2030987 bytes).
 PDF statistics:
- 186 PDF objects out of 1000 (max. 8388607)
- 124 compressed objects within 2 object streams
+ 181 PDF objects out of 1000 (max. 8388607)
+ 120 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  33 words of extra memory for PDF output out of 10000 (max. 10000000)
 

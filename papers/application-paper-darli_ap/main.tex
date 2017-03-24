@@ -247,7 +247,8 @@
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{abstract}
-Spatial data is becoming increasingly available in various domains such as transportation and social science. Discovering patterns and trends in this data provides improved insights for planning and decision making for smart city management, disaster management and other applications. However, exploratory analysis of such data is a challenge due to its huge size of spatial data. It is often unclear for the analyst {\em what to see next} during an analysis process, i.e., lack of guidance. To tackle this challenge, we develop \framework, an interactive guidance approach for spatial data. \framework\ captures the implicit feedback of analyst and exploits it to highlight potentially interesting analysis options. %Demo attendees will experience \framework\ in various datasets from restaurant check-ins to transportation.
+Spatial data is becoming increasingly available in various domains such as transportation and social science. Discovering patterns and trends in this data provides improved insights for planning and decision making for smart city management, disaster management and other applications. However, exploratory analysis of such data is a challenge due to its huge size of spatial data. It is often unclear for the analyst {\em what to see next} during an analysis process, i.e., lack of guidance. To tackle this challenge, we develop \framework, an interactive guidance approach for spatial data. \framework\ captures the implicit feedback of analysts and exploits it to highlight potentially interesting analysis options. We show the usability of \framework\ in a comparative user study.
+%Demo attendees will experience \framework\ in various datasets from restaurant check-ins to transportation.
 \end{abstract}
 
 % no keywords
@@ -278,6 +279,7 @@ Spotfire\footnote{\it http://spotfire.tibco.com}). The result will be illustrate
 
 The literature in spatial data analysis has a focus on {\em efficiency} of exploratory iterations: {\em ``how can analysts navigate in spatial data fluidly?''} The common approach is to design pre-computed indexes which enable efficient retrieval of spatial data (e.g., \cite{lins2013nanocubes}). However, there has been fewer attention to the {\em value} of spatial data. Despite the huge progress on efficiency front, an analyst may easily get lost in the plethora of geographical points because $i.$ she doesn't know what to investigate next in an exploratory context and $ii.$ she may get distracted and miss interesting points by visual clutter caused by huge point overlaps. In other words, although iteration transitions (between one analysis step to the other) can be performed efficiently, the decision which forms a transition, remains unclear. The following example illustrates the challenge in practice.
 
+\vspace{5pt}
 \begin{example}
 \label{ex:airbnb}
 Liam is planning a short trip to Paris. He decides to rent a home-stay from Airbnb website\footnote{\it http://www.airbnb.com}. He is open to any type of lodging and he wants to explore different options (i.e., exploratory analysis). He queries all available locations in Paris with a fair price. His query results in 3000 locations. As he has no other preferences, an exhaustive investigation needs scanning each location independently which is nearly infeasible. In case he wants to focus on a smaller set of options, it is not clear which subset he needs to look at. While he is looking at primary locations in the list, he shows interest in having ``balcony'' as amenity and being close to Eiffel tower. An ideal system can capture this feedback in order to short-list a small subset of remaining locations that Liam should consider as high priority.
@@ -285,7 +287,7 @@ Liam is planning a short trip to Paris. He decides to rent a home-stay from Airb
 
 To overcome the challenge of value in exploratory analysis, visualization environments offer a complete tool-set to manipulate data (filter, aggregate, etc.). In practice, this duplicates the problem: the analyst is left alone in a huge space of spatial data and tools. The principled challenge for the analyst is {\em ``what to see next''} in the exploratory context. A {\em guidance} mechanism is then necessary to point out potential future directions of analysis.
 
-To overcome this challenge, we  propose \framework, an interactive framework to highlight a subset of geographical points based on analyst feedback. Although \framework\ operates on points, its functionality can be easily extended to regions using point-clustering methods (e.g., spatila $k$-means \cite{sharma2012k}). The highlighted set facilitates the decision-making process by providing guidance on what the analyst should potentially concentrate on. The set of highlights is deliberated over high quality. We consider two quality metrics in \framework: {\em relevance} and {\em diversity}. First, each highlighted point should be relevant to historical choices of the analyst. Second, highlights should be geographically diverse to unveil different aspects of analysis. Both quality metrics are interdependent to compute the set of highlights.
+To overcome this challenge, we  propose \framework, an interactive framework to highlight a subset of geographical points based on analyst feedback. Although \framework\ operates on points, its functionality can be easily extended to regions using point-clustering methods (e.g., spatial $k$-means \cite{sharma2012k}). The highlighted set facilitates the decision-making process by providing guidance on what the analyst should potentially concentrate on. The set of highlights is deliberated over high quality. We consider two quality metrics in \framework: {\em relevance} and {\em diversity}. First, each highlighted point should be relevant to historical choices of the analyst. Second, highlights should be geographically diverse to unveil different aspects of analysis. Both quality metrics are interdependent to compute the set of highlights.
 
 The literature contains several instances of feedback exploitation to guide the analyst in further analysis steps (e.g., \cite{boley2013one}). The common approach is a top-$k$ processing methodology in order to prune the search space based on the explicit feedback and recommend a small subset of interesting results of size~$k$. A clear distinction of \framework\ is that it doesn't aim for pruning, but leveraging the actual data with potential interesting results that the analyst may miss due to the huge volume of spatial data. While in top-$k$ processing algorithms, analyst choices are limited to $k$, \framework\ has a freedom of choice where highlights get seamlessly updated with new analyst choices. The following example describes an application of \framework\ in business domain.
 
@@ -294,16 +296,15 @@ The literature contains several instances of feedback exploitation to guide the 
 Tiffany is a data scientist and is tasked to design a ``chain marketing'' strategy for a Peking Duck product (a Chinese duck dish). She decides to exploit Yelp data\footnote{\it https://www.yelp.com/} (i.e., restaurant check-ins) to find out the advertisement chain. She performs her analysis in \framework. In the first step, she shows interest towards New York region, where the headquarters of the company is located and the product has already gained success. The system will then provide few highlights in diverse regions: San Fransisco, Washington DC and Marlton, NJ. All regions seem interesting to Tiffany as they exhibit similar eating profile with New York, hence potentials for chaining the advertisement. She decides to pick Marlton due to its proximity so that she can reduce transportation costs. The system will then provide other highlights based on her updated feedback. She can then make the city-to-city chain marketing strategy in iterative steps using highlights.
 \end{example}
 
-There exist still few instances of information-highlighting methods in the literature \cite{Liang2010,Robinson2011,wongsuphasawat2016voyager,willett2007scented}. All these methods are {\em objective} and do not apply to the context of spatial guidance where user feedback is involved.  In terms of recommendation, few approaches focus on spatial dimension \cite{Bao2015,Levandoski:2012} while the context and result diversification are missing.
+There exist few instances of information-highlighting methods in the literature \cite{Liang2010,Robinson2011,wongsuphasawat2016voyager,willett2007scented}. All these methods are {\em objective} and do not apply to the context of spatial guidance where user feedback is involved.  In terms of recommendation, few approaches focus on spatial dimension \cite{Bao2015,Levandoski:2012} while the context and result diversification are missing.
 
-To better demonstrate our approach, we summarize the following sections: in Section \ref{sec:pb}  we present \framework\, and its associated concepts. Section \ref{sec:scenario}  presents the possible scenarios to run \framework\ . Section  \ref{sec:experiments}  shows some initial experiments and Section \ref{sec:conclusions}  presents some conclusions and future directions. 
+The outline of the paper is as follows: in Section \ref{sec:pb}  we present \framework\, and its associated concepts. Section \ref{sec:scenario}  presents the possible scenarios to run \framework\ . Section  \ref{sec:experiments}  shows some initial experiments and Section \ref{sec:conclusions}  presents some conclusions and future directions. 
 
 
-\section{\framework\ Approach: Highlighting Spatial Data}
+\section{Highlighting Spatial Data}
 \label{sec:pb}
 
-Given a dataset with a set of spatio-temporal information points, our system is able to process and generates highlighted informations base on analyst preferences and behaviour. Our proposed framework is able to highlight different information based on specific data attributes, highlighting, for instance, each points by size or color intensity. Using \framework\ framework the analyst can also define a subset of points to be highlighted over the dataset by a simple filtering action. The functionalities of \framework\ are an inspiration from both recommendation \cite{Omidvar-Tehrani:2015} and visual highlighting \cite{Liang2010,Robinson2011} methodologies. \framework\ is a layer on top of a raw visualization to guide analysts in large-scale spatial data analysis. Figure \ref{fig:framework} illustrates the main components of \framework\ architecture.
-
+Given a dataset of spatial points, \framework\ generates a set of highlighted points based on analyst's preferences. Highlights are illustrated using visual variables such as size and color intensity. Also \framework\ enables analysts to filter results to obtain more meaningful highlights. The functionalities embedded in \framework\ are inspired from both recommendation \cite{Omidvar-Tehrani:2015} and visual highlighting \cite{Liang2010,Robinson2011} methodologies. \framework\ is a layer on top of a raw visualization to guide analysts in large-scale spatial data analysis. Figure \ref{fig:framework} illustrates the main components of \framework\ architecture.
 
 \begin{figure}[t]
   \centering
@@ -322,15 +323,18 @@ Given a dataset with a set of spatio-temporal information points, our system is 
 
 
 In our approach, we consider a spatial database ${\cal D}$ consisting $\langle {\cal P}, {\cal A} \rangle$ where ${\cal P}$ is the set of
-geographical points and ${\cal A}$ is the set of point attributes. For each $p \in {\cal P}$, we consider a tuple $\langle lat, lon, alt\rangle$ which denotes $p$'s geographical coordinates (latitude, longitude and altitude respectively). The set ${\cal A}_p$ contains attribute-values for $p$ over the schema of ${\cal A}$. For instance, on a restaurant check-ins dataset, ${\cal A}_p = \langle${\tt female}, {\tt young}, {\tt chinese-food}$\rangle$ on the schema ${\cal A} = \langle${\tt gender}, {\tt age}, {\tt type}$\rangle$ denotes that $p$ is associated to a young female who likes chinese dish. The set ${\cal A}$ is domain-dependent and defines the semantics of a spatial dataset.
+geographical points and ${\cal A}$ is the set of point attributes. For each $p \in {\cal P}$, we consider a tuple $\langle lat, lon, alt\rangle$ which denotes $p$'s geographical coordinates (latitude, longitude and altitude respectively). The set ${\cal A}_p$ contains attribute-values for $p$ over the schema of ${\cal A}$. For instance, on a restaurant check-ins dataset, ${\cal A}_p = \langle${\tt female}, {\tt young}, {\tt Chinese-food}$\rangle$ on the schema ${\cal A} = \langle${\tt gender}, {\tt age}, {\tt type}$\rangle$ denotes that $p$ is associated to a young female who likes Chinese food. The set ${\cal A}$ is domain-dependent and defines the semantics of a spatial dataset.
 
+We also define a feedback vector ${\cal F}$ on the schema ${\cal A}$ which is initialized by zero. The vector gets updated by ${\cal A}_p$ whenever the analyst shows interest in a geographical point $p$. Feedback vector is always kept normalized, i.e., $\Sigma_{v \in {\cal F}}(v) = 1.0$.
 
 \subsection{Relevance and Diversity}
 
 At each step of the analysis, \framework\ highlights few points based on the feedback content ${\cal F}$. The highlighting decision is made based on two quality metrics, i.e., relevance and diversity. 
 
 \vspace{5pt}
-\noindent {\bf Relevance.} Highlights should be in the same line with analyst feedback (captured either by gaze, mouse cursor or session time). Note that we consider {\em contextual-based} relevance and not {\em distance-based} relevance. The reason originates from our data observation. For instance in a taxi dataset, consider a ride in New York for a young male customer for an itinerary of 10 kilometers and \$3 tip. In contrary to thousands of kilometers of geographical distance, the ride is very relevant to another one in San Fransisco for a middle-age male customer for an itinerary of 8 kilometers and \$2.5 tip. The relevance between a point $p$ and the feedback vector ${\cal F}$ is defined as follows.
+\noindent {\bf Relevance.} Highlights should be in the same line with analyst feedback.
+% (captured either by gaze, mouse cursor or session time)
+Note that we consider {\em contextual-based} relevance and not {\em distance-based} relevance. The reason originates from our data observation. For instance in a taxi dataset, consider a ride in New York for a young male customer for an itinerary of 10 kilometers and \$3 tip. In contrary to thousands of kilometers of geographical distance, the ride is very relevant to another one in San Fransisco for a middle-age male customer for an itinerary of 8 kilometers and \$2.5 tip. The relevance between a point $p$ and the feedback vector ${\cal F}$ is defined as follows.
 
 % \begin{definition}[Relevance]
 % Given two points $p$ and $p'$ and their attribute values ${\cal A}_{p}$ and ${\cal A}_{p'}$, the relevance between $p$ and $p'$ is a value between $0$ and $1$ denoted as $\mathit{relevance}(p,p') = \mathit{average}_{a \in {\cal A}_{p} \cup {\cal A}_{p'}}(\mathit{sim({\cal A}_{p}, {\cal A}_{p'}, a)})$.
@@ -352,7 +356,7 @@ The similarity function $\mathit{sim}()$ can be any function such as Jaccard and
 	\mathit{diversity}(s) = \mathit{average}_{\{p, p'\} \subseteq s | p \neq p' } \mathit{distance}(p,p')
 \end{dmath} 
 
-The function $\mathit{distance}(p,p')$ operates on geographical coordinates of $p$ and $p'$ and can be considered as any distance function of Chebyshev distance family such as Eucledian. However, as distance computations are done in {\em spherical space} using latitude, longitude and altitude, it is au-naturel to employ Haversine distance shown in Equation \ref{eq:harvestine}.
+The function $\mathit{distance}(p,p')$ operates on geographical coordinates of $p$ and $p'$ and can be considered as any distance function of Chebyshev distance family such as Eucledian. However, as distance computations are done in {\em spherical space} using latitude, longitude and altitude, it is au-naturel to employ Haversine distance shown in Equation~\ref{eq:harvestine}.
 
 \begin{dmath}
 	\label{eq:harvestine}
@@ -370,7 +374,10 @@ The function $\mathit{distance}(p,p')$ operates on geographical coordinates of $
 
 % Problem \ref{pb:geoh} is hard due to the huge space of spatiotemporal data: for any given point $p$, an exhaustive search over all other points is necessary to find $k$ points with maximal relevance. Moreover, the problem investigates in two dimensions at the same time (relevance and diversity) which makes it more challenging.
 
-\framework\ employs a best-effort greedy approach to efficiently compute highlighted points. We consider an offline step followed by the online execution of \framework.
+\subsection{Algorithm}
+\label{sec:algo}
+
+\framework\ requires an efficient algorithm for dynamically analyzing and comparing geographical points. Our framework employs a best-effort greedy approach to efficiently compute highlighted points. We consider an offline step followed by the online execution of \framework.
 In order to speed up computing relevance in online execution, we pre-compute an inverted index for each single geographical point in ${\cal P}$ in the offline step (as is commonly done in Web search). Each index ${\cal L}_p$ for the point $p$ keeps all other points in ${\cal P}$ in decreasing order of their relevance with $p$.
 
 During online execution, \framework\ admits as input a point $p \in {\cal P}$ (the user explicit choice) and returns the set of highlights ${\cal H} \subset {\cal P}$. \framework\ makes sequential accesses to ${\cal L}_p$ to greedily maximize diversity. Points in ${\cal L}_p$ get a weight using ${\cal F}$. Points with a larger weight (i.e., closer to the analyst feedback) have a higher chance to be in ${\cal H}$. To speed up comparisons with ${\cal F}$ vector, we exploit bit-wise comparisons. We convert both ${\cal F}$ and point $p$ to boolean representations and compute relevance (Equation \ref{eq:rel}) using bit-wise operators.
@@ -380,25 +387,13 @@ During online execution, \framework\ admits as input a point $p \in {\cal P}$ (t
 %\noindent{\bf Context.} 
 \begin{figure*}[t]
 	\centering
-	\includegraphics[width=\textwidth]{figs/airbnb}
+	\includegraphics[width=\textwidth, frame]{figs/airbnb}
 	\caption{\framework\ Image on Airbnb Dataset - Paris City}
 	\label{fig:airbnb}
 	\vspace{-10pt}
 \end{figure*}
 
-\subsection{Algorithm}
-\label{sec:algo}
-We propose a solution for \pb\ by inspiring from both recommendation \cite{Omidvar-Tehrani:2015} and
-visual highlighting
-% \cite{Lohmann:2012,Robinson2011,Liang2010}
-\cite{Liang2010,Robinson2011}
-methodologies. \pb\ requires an efficient algorithm for dynamically analyzing and comparing geographical points. We propose \framework\ as a solution for the generic guidance problem in spatiotemporal data (Figure \ref{fig:framework}). Although \framework\ operates on points, its functionality can be easily extended to regions using point-clustering methods such as $k$-means.
-
-\framework\ operates in two steps: {\sc Preparation} and {\sc Highlighter}. In order to speed up computing relevance in online execution, we pre-compute an inverted index for each single geographical point in ${\cal P}$ in the offline {\sc Preparation} step (as is commonly done in Web search). Each index ${\cal L}_p$ for the point $p$ stores all other points in ${\cal P}$ in decreasing order of their relevance with $p$. Thanks to the parameter $\sigma$, we only partially materialize the indexes.
-
 % behrooz: explain the whole package
-
-Algorithm \ref{algo:geoh} illustrates the online execution step of \framework\, so called {\sc Highlighter}. The algorithm is a single greedy procedure that solves the \pb\ problem. {\sc Highlighter} is called at each interactive step of \framework\ (as in Figure \ref{fig:framework}). The algorithm admits as input a point $p \in {\cal P}$ and returns the best $k$ points denoted ${\cal S}_p$.
 
 %To comply with the desiderata {\bf D5}, we consider a time limit parameter $tlimit$ in Algorithm \ref{algo:geoh}. In a {\em best-effort} strategy, the algorithm bounds user waiting time by $tlimit$ to return the best possible results by then.
 
@@ -415,7 +410,7 @@ Algorithm \ref{algo:geoh} illustrates the online execution step of \framework\, 
 				$break$\;
 			}
 		}
-		$p_{next} \gets get\_next({\cal L}^p)$\;}\label{cd:endwhile}
+		$p_{next} \gets get\_next({\cal L}_p)$\;}\label{cd:endwhile}
 	\Return{${\cal S}_p$}\; 
 	\caption{{\sc Highlighter} Algorithm}
 	\label{algo:geoh}
@@ -430,19 +425,19 @@ The algorithm then looks for a candidate point $p_{current} \in {\cal S}_p$ to r
 
 \begin{figure*}[t]
 	\centering
-	\includegraphics[width=5in]{figs/yelp}
+	\includegraphics[width=5in, frame]{figs/yelp}
 	\caption{\framework\ Image on Yelp Dataset - Las Vegas City}
 	\label{fig:yelp}
 	\vspace{-10pt}
 \end{figure*}
 
 
-\subsection{Tracking  User's Preferences }
+\subsection{Tracking User's Preferences}
 
-The feedback vector ${\cal F}$ on the schema ${\cal A}$ is initialized by zero. The vector gets updated by ${\cal A}_p$ whenever the analyst shows interest in a geographical point $p$. Feedback vector is always kept normalized, i.e., $\Sigma_{v \in {\cal F}}(v) = 1.0$. Unlike the literature which mainly focuses on explicit feedback (where the analyst should clearly reflect her likes and dislikes), we investigate on implicit feedback. This enables the system to capture {\em what the analyst may miss} instead of what the analyst has clearly investigated before. We consider different ways to capture implicit feedback.
+Unlike the literature which mainly focuses on explicit feedback (where the analyst should clearly reflect her likes and dislikes), we investigate on implicit feedback. This enables the system to capture {\em what the analyst may miss} instead of what the analyst has clearly investigated before. We consider different ways to capture implicit feedback.
 
 \begin{itemize}[leftmargin=*]
-\item {\bf Gaze Tracking.} During spatial data analysis, it is often the case that analysts look at some regions of interest but forget to provide an explicit feedback. For instance in Example~\ref{ex:airbnb}, while Liam is focusing on home-stays close to the Eiffel tower, he also looks at farther locations with easy train access. However, he never clicks on those points. We call this latent signal, {\em gaze}. It shown in \cite{fischer1999investigation} that gaze has a strong correlation with ``user attention''. The signal can be captured by tracking eye movements aka saccades~\cite{arapakis2014user}. We employ {\sc ixLabs} gaze tracking\footnote{\em http://www.xlabsgaze.com/} as it only needs a simple web-cam to capture the gaze signal.
+\item {\bf Gaze Tracking.} During spatial data analysis, it is often the case that analysts look at some regions of interest but forget to provide an explicit feedback. For instance in Example~\ref{ex:airbnb}, while Liam is focusing on home-stays close to the Eiffel tower, he also looks at farther locations with easy train access. However, he never clicks on those points. We call this latent signal, {\em gaze}. It shown in \cite{fischer1999investigation} that gaze has a strong correlation with ``user attention''. The signal can be captured by tracking eye movements aka saccades~\cite{arapakis2014user}. We employ {\sc ixLabs} gaze tracking\footnote{\it http://www.xlabsgaze.com/} as it only needs a simple web-cam to capture the gaze signal.
 \item {\bf Cursor Tracking.} To address privacy issues of web-cam exploitation for gaze tracking, we consider an alternative option of tracking the mouse cursor. It is shown in \cite{arapakis2014understanding} that mouse gestures have a strong correlation with ``user engagement''. Intuitively, a point receives a positive feedback if the cursor moves around it frequently.
 \item {\bf Session Time.} In most spatial datasets, there is a profile page dedicated to each point. Examples are restaurant pages in Yelp and lodging pages in Airbnb. We consider the amount of time that the analyst spends in a page as an implicit feedback. For instance, if the analyst spends few minutes in a page for an Indian cuisine restaurant, this counts as positive feedback for this type of restaurants. 
 \end{itemize}
@@ -450,21 +445,19 @@ The feedback vector ${\cal F}$ on the schema ${\cal A}$ is initialized by zero. 
 
 % The point-feedback relevance is neither monotonic nor anti-monotonic. In other words, a highly relevant point to the feedback vector at step $i$ may become totally irrelevant to the updated feedback vector at step $i+1$. The reason is the dynamic nature of the feedback vector which may drastically evolve at each analysis step. For efficiency reasons, we employ a static component of relevance and build indexes to speed up online computations.
 
+\subsection{Implementation and Datasets}
+We have implemented \framework\ \footnote{\it The framework is available via http://geoguide.herokuapp.com/. Also a short demo of its functionality is available in https://www.youtube.com/watch?v=MTTccStmd0E} in Python 2.7.10 (as the computation engine) and JavaScript D3 (as the visualization engine). We employ a set of spatial datasets\footnote{\it https://drive.google.com/open?id=0B8VZspRTxkagUEt2ZVdZZ1cySVE} to be executed on \framework: Yelp dataset\footnote{\it https://www.yelp.com/dataset\_challenge} of restaurant check-ins with 229,907 geographical points, Airbnb dataset\footnote{\it http://insideairbnb.com/get-the-data.html} for short-term lodging with 4,200,000 points, New York taxi dataset\footnote{\it https://data.cityofnewyork.us/Transportation/Taxi/mch6-rqy4/data} with 173,179,759 points and citibike New York dataset\footnote{\it https://s3.amazonaws.com/tripdata/index.html}.
 
 % and New York bike-sharing dataset with XXX points.
 \section{Application Scenarios}
 \label{sec:scenario}
-
-Our application scenarios will describe how \framework\ can be used. First, we present two different scenarios and its datasets. For each scenario, we demonstrate a general view of \framework\ . Then, we describe the sequence of actions to see the highlighted points generated by the environment, and its properties. After, we will present how to align different filter types in order to improve the results. Finally, we will present some results from explicit user's feedbacks, e.g., by choosing different parameters to be highlighted in therms of size and colors.
-
-
-
+In this section, we describe how \framework\ is employed in realistic scenarios. We present two scenarios and for each of which, we describe the sequence of actions and the contribution of highlights. We also discuss setting different filters in order to improve the results.
 %\vspace{5pt}
 %\noindent{\it Scenario 1.} On New York taxi dataset, we demonstrate how \framework\ can contribute to urban planning and fleet management. We consider an explicit goal of discovering which neighborhoods work the best for which drivers in order to increase the overall availability of cabs in the city. We show how a chain of cab stations can be picked by \framework\ in diverse location of the city.
 
 
 \vspace{5pt}
-\noindent{\it Scenario 1.} On Airbnb dataset, we demonstrate how \framework\ can contribute to approach a lodging of interest based on analyst's feedback. We consider the concrete case of finding a cheap lodging solution with a balcony near Eiffel tower. We will observe how feedback converges the exploration towards the goal very quickly. The analyst, after uploading the possible hosting locations available on Airbnb, she will see some possible places of her interest (in this case, near Eiffel tower) by zooming in on the map. She can filter by price range of her interest, in this case between \textit{\$100} - \textit{\$200} dollars. Then, she can select a host (point in the map) of her interest. Let's consider the place \textit{Chambre luxe 100M Tour Eiffel} (red point in Figure \ref{fig:airbnb} latitude 48.85639, longitude 2.29311), with price of \$ 150 dollars. This place has 1.79 ``reviews per month'' and availability of 362 over 365. She wants to know what other places are similars to this. The analyst sets the environment parameters (\textit{Highlighting Parameters}) with \textit{300 ms} of processing, the minimum similarity of \textit{0.85 $\sigma$} and 10 for the most similar accommodations from its chosen point.
+\noindent{\it Scenario 1.} On Airbnb dataset, we demonstrate how \framework\ can contribute to approach a lodging of interest based on analyst's feedback. We consider the concrete case of finding a cheap lodging solution with a balcony near Eiffel tower. We will observe how feedback converges the exploration towards the goal very quickly. The analyst, after uploading the possible hosting locations available on Airbnb, she will see some possible places of her interest (in this case, near Eiffel tower) by zooming in on the map. She can filter by price range of her interest, in this case between \textit{\$100} - \textit{\$200} dollars. Then, she can select a host (point in the map) of her interest. Let's consider the place \textit{Chambre luxe 100M Tour Eiffel} (red point in Figure \ref{fig:airbnb} latitude 48.85639, longitude 2.29311), with price of \$ 150 dollars. This place has 1.79 ``reviews per month'' and availability of 362 over 365. She wants to know what other places are similar to this. The analyst sets the environment parameters (\textit{Highlighting Parameters}) with \textit{300 ms} of processing, the minimum similarity of \textit{0.85 $\sigma$} and 10 for the most similar accommodations from its chosen point.
 
 The result presented in Figure \ref{fig:airbnb} shows the hosts with price in the same range defined in the filter. From this, the analyst can find, between other highlighted point, the place/point ``Paris Eiffel One BR''  with price of \$ 175 dollars per night, 1.19 reviews per month and availability of 295 over 365. This place is a little further from the Eiffel Tower, but still on the same avenue, with similar features and an affordable range based on analyst's first choice.
 
@@ -473,7 +466,7 @@ The result presented in Figure \ref{fig:airbnb} shows the hosts with price in th
 \vspace{5pt}
 \noindent{\it Scenario 2.} On Yelp dataset, we demonstrate how \framework\ can contribute to reach an early consensus on a restaurant. The attendee will observe that his/her preferences will be immediately captured and reflected in future highlights. 
 
-When the analyst decides to explore restaurants similar to Ronald's Donuts in Las Vegas with 4.5 stars, 538 ratings and 1090 check-ins, GeoGuide uses the time the participant observed each restaurant (session time), the selected filters and the profile of the restaurants to be explored in the analysis, which combines implicit and explicit behaviors to suggest new restaurants for observation. After run the environment, GeoGuide highlights the points considered relevant to the participant, that is close to the most analyzed areas and the restaurant that was most observed, with an average evaluation between 4.5 and 5. The points are highlighted in yellow, while the exploded spot is left in red as in Figure  \ref{fig:yelp}. The analyst will then evaluate the options suggested by the GeoGuide to decide whether to choose one of these restaurants or whether to continue exploring.
+When the analyst decides to explore restaurants similar to Ronald's Donuts in Las Vegas with 4.5 stars, 538 ratings and 1090 check-ins, GeoGuide uses the time the participant observed each restaurant (session time), the selected filters and the profile of the restaurants to be explored in the analysis, which combines implicit and explicit behaviors to suggest new restaurants for observation. After run the environment, GeoGuide highlights the points considered relevant to the participant, that is close to the most analyzed areas and the restaurant that was most observed, with an average evaluation between 4.5 and 5. The points are highlighted in yellow, while the exploded spot is left in red as in Figure\ref{fig:yelp}. The analyst will then evaluate the options suggested by the framework to decide whether to choose one of these restaurants or to continue the exploration.
 
 
 %\vspace{5pt}
@@ -511,12 +504,6 @@ To validate our design choices in \framework\ (quality dimensions and feedback c
 In {\sc Tableau}, participants employ filtering and querying tools to reach their goals. In \framework, participants benefit from relevant and diverse highlights and feedback capturing using cursor tracking. Figure \ref{fig:userstudy} illustrates the results of this study. We report results for separate sub-populations: the left figure illustrates the results for novice participants (who don't know the location, be it Paris or New York) and the right figure illustrates expert's results.
 
 We observe that in general, it takes in average 10.7 steps to reach a defined goal in \framework, i.e., 33 steps less than {\sc Tableau}. This shows that the highlighting component equipped with the feedback mechanism helps analysts discover their spatial data and reach to the goal. Level of expertise improves the analysis length in average by 4 steps. Interestingly, starting points do not have a huge influence. It is potentially due to the diversity component which provides distinct options. We also observe that {\em T2} is an easier task than {\em T1}. This is potentially due to similarity component where the analyst can request options similar to what she has already seen and greedily moves to match profiles.
-
-
-
-
-\vspace{5pt}
-\framework\ \footnote{\framework\ can be played accessing its environment on http://geoguide.herokuapp.com/.} environment\footnote{A short \framework\ demo can be seen in https://www.youtube.com/watch?v=MTTccStmd0E\&feature=youtu.be} is implemented in Python (as the computation engine), JavaScript D3 (as the visualization engine) and a set of Python libraries. We use and provide some spatial datasets\footnote{https://drive.google.com/open?id=0B8VZspRTxkagUEt2ZVdZZ1cySVE} to be run in the framework: Yelp dataset\footnote{https://www.yelp.com/dataset\_challenge} of restaurant check-ins with 229,907 geographical points, Airbnb dataset\footnote{http://insideairbnb.com/get-the-data.html} for short-term lodging with 4,200,000 points, New York taxi dataset\footnote{https://data.cityofnewyork.us/Transportation/Taxi/mch6-rqy4/data} with 173,179,759 points and citibike New York dataset\footnote{https://s3.amazonaws.com/tripdata/index.html} with different sizes of data. 
 
 \section{Conclusions}
 \label{sec:conclusions}
