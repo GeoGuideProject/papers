@@ -106,6 +106,78 @@ To tackle the aforementioned challenges, we propose ... , i.e., a generic, inter
 
 \vspace{-5pt}
 \section{Approach...}
+
+
+Our study is guided by ..... research questions:
+
+\begin{itemize}
+\item {\em RQ1: ....?} This question is devoted to measure ..
+
+\item {\em RQ2: ....?} This question will help us to identify ....
+ 
+\item  {\em RQ3: ...?} ...
+\end{itemize} 
+
+
+ Considering the research questions, we defined a set of keywords to be used for
+searching relevant works. Based on these keywords and their
+ correlated words the query used was:        
+%  
+ \begin{quote} \sl
+ \qquad  (machine learning) \textbf{AND}  (guidance) \textbf{AND}   (spatiotemporal) \textbf{AND}  (urban data) \textbf{AND}   (clustering) 
+ \end{quote}
+
+% 
+\begin{table}\centering
+ \begin{tabular}{|l|c|c|c|} \hline
+ \textbf{Source/Action}	& \textbf{Included}	& \textbf{Excluded}	& \textbf{Total}	\\ \hline
+ \textit{ACM-DL}				& 0								& 0							& 0						\\ \hline
+ \textit{IEEE}						& ...								& ...								& 87					\\ \hline
+ \textit{Science Direct}	& ...								& ...							& 42					\\ \hline
+  \textit{Ad-hoc search}	& ...								& ...							& 15					\\ \hline
+ \textbf{Total}					& \textbf{...}			& \textbf{...}			& \textbf{144}	\\ \hline
+ \end{tabular}
+ \caption{\label{table:Sources}Sources and number of papers.}
+ \end{table}
+ 
+ 
+We searched and filtered relevant works in four steps. 
+In the first  step we
+searched in four databases: \textit{Science Direct}\footnote{\tt
+http://www.sciencedirect.com/}, \textit{IEEE}\footnote{\tt
+http://ieeexplore.ieee.org/} and \textit{ACM Digital Library}\footnote{\tt
+http://dl.acm.org/}. %(see table \ref{table:Sources})
+We retrieved .... works. 
+The search was done for relevant publications from ..... to ..... 
+We stored in several spreadsheets (one per database) the title, year,  and abstract of each reference we found. 
+
+In the second step, we perform a data cleaning by excluding repeated works.  
+
+We performed another filtering procedure by screening the title and the abstract
+of the papers, looking for those papers that are relevant to our study.
+In this process, we excluded ... works. 
+% The columns \textbf{Included} and \textbf{Excluded} in Table~\ref{table:Sources}
+% show the number of papers that were considered (resp. excluded) on our study.
+ 
+Finally, in the last step we built the final data collection using exclusion
+and inclusion criteria shown in table \ref{table:criteria}. The final data
+collection contained .... papers.
+
+\begin{table}\centering \small
+\begin{tabular}{|l|} \hline
+\textbf{Inclusion criteria}		\\ \hline\hline
+- Text in English								\\ \hline
+- Peer reviewed journals, conferences or workshops	\\ \hline
+- PhD and master thesis	\\ \hline
+- Focus on Guidance and Urban Data and Spatiotemporal				\\ \hline\hline
+\textbf{Exclusion criteria}		\\ \hline\hline
+- Abstracts, tutorials, short papers, PhD workshops, demonstrations, technical reports		\\ \hline
+- Papers dealing with service service lookup		\\ \hline
+- Papers dealing with service matching 	\\ \hline
+\end{tabular}
+\caption{\label{table:criteria} Inclusion and exclusion criteria.}
+\end{table}
+
 ... employs various components and strategies to tackle the challenges of genericness, interactivity and guidance. The aim of the proposed application is to $i.$ enable analysts visualize any spatiotemporal data with the least burden, $ii.$ interact with the data in sub-seconds and $iii.$ receive recommendations during the analysis process for further investigations.
 
 ... is designed as a web service and runs in a browser. Figure illustrates a screen-shot of ... on New York taxi dataset. To initialize the analysis, the analyst needs to drag-and-drop her dataset (in form a CSV file) into the browser. ... exploits {\sc WebTables} \cite{cafarella2008webtables} to find the best matching schema for the input dataset. ... performs the following execution command to visualize the dataset:
