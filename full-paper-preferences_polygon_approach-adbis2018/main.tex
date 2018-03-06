@@ -112,7 +112,17 @@ It is shown in \cite{arapakis2014understanding} that mouse gestures have a stron
 
 It is shown in \cite{arapakis2014understanding} that mouse gestures have a strong correlation with ``user engagement''. Intuitively, a point receives a positive feedback if the cursor moves around it frequently. We consider privacy issues by tracking the mouse cursor for each user. We consider the mouse movements an implicit user feedback. In most spatial datasets, there is a profile page dedicated to each point. Examples are restaurant pages in Yelp and lodging pages in Airbnb. We consider the amount of time that the user spends in a page as also an implicit feedback. For instance, if the user spends few minutes in a page for an Hungary cuisine restaurant or in a page for an apartment with 2 room and garage, this counts as positive feedback for this type of restaurants.
 
-Figura X apresenta uma sequencia de mapas de Paris mostrando a evolução de como pode ser capturada as regioes de preferencia de Benício, atraves de captura de movimento do mouse. 
+Figure \ref{fig:paris} presents a sequence of maps of Paris city describing the evolution of how can be captured preference  regions for \textit{Ben\'icio}.
+
+Figure \ref{fig:paris0} shows the map before the to use by the analyst. The Figure \ref{fig:paris1} shows 2 regions where the user searched for locations in a time interval $t_1$. These two regions intersect each other. The figure \ref{fig:paris2} presents other 2 regions where apartments were also searched at a time interval $t_2$, where $t_1 \prec t_2$. In the same way, figure \ref{fig:paris3}  presents 2 more regions where apartments were searched in a time interval $t_3$, where $t_1 \prec t_2 \prec t_ 3$.
+
+Figures \ref{fig:paris4} and \ref{fig:paris5} highlight the intercessions of all regions. These intercessions show that these regions have been trafficked by the analyst more than once. It can inform a certain preference in these regions. These regions can be captured from mouse tracking or even by gaze techniques. Recognizing highlighted regions can help the analyst to consider one more parameter in the query to identify points in a particular dataset that may be more in line with their needs.
+
+%Figura X apresenta uma sequencia de mapas de Paris descrevendo a evolução de como pode ser capturada as regioes de preferencia de Benício, atraves de captura de movimento do mouse. 
+
+%A figura Y mostra o mapa no momento anterior ao uso pelo analista. A imagem mostra 2 regioes onde o usuario pesquisou por localidades em um intervalo de tempo t1. Essas 2 regioes apresentam interseções entre si. A imagem F apresenta mais 2 regiões onde apartamentos foram procurados em um intervalo de tempo t2, posterior a t1. Da mesma forma a imagem H apresenta mais 2 regiões onde apartamentos foram procurados em um intervalo de tempo t3, posterior a t2. 
+
+%A imagens U e Omostra em destaque as interecesões de todas as regiões. Essas intercesões mostram que essas regiões foram trafegadas pelo analista mais de 1 vês, o que pode informar uma certa preferencia nessas regiões. Essas regiões podem ser capturadas a partir de rastreamento do mouse ou ainda atraves de tecnicas de captura de visão. Reconhecer regiões em destaque, pode auxiliar ao analista a considerar mais um parâmetro na consulta para identificar pontos de um determinado dataset que possam ser mais de acordo com suas necessidades.
 
 \begin{figure} % Inicia o ambiente de figuras
 \centering
@@ -144,6 +154,7 @@ Figura X apresenta uma sequencia de mapas de Paris mostrando a evolução de com
   } % Termina de incluir a figura fig2.pdf
   \\ % Com esse comando iremos incluir a última figura na próxima linha
   \caption{Highlighting preference of regions from mouse tracking. }
+  \label{fig:paris}
 \end{figure} % Fecha o ambiente de figuras
 
 
@@ -159,28 +170,60 @@ geographical points contained in the regions, and ${\cal A}$ is the set of point
 
 \begin{algorithm}[t]
 	\DontPrintSemicolon
-	\KwIn{${\cal R}$, $\Delta t \in T$}
+	\KwIn{${\cal R}$ = \{ $r_1, r_2,...,r_n $ \}, $\Delta t \in T$}
 	% \KwOut{${\cal S}_p$}
 	${ R_p} \gets \emptyset$\;\label{cd:definereturn}
 	%$p_{next} \gets get\_next(\mathit{{\cal L}^p})$\;\label{cd:getnext}
-	\For{$(r \in {\cal R})$}{\label{cd:beginfr}
-		\For{$(r^' \in {\cal R})$}{
-			\If{$(r \cap r' \neq \emptyset \wedge get\_time(r) \subseteq t \wedge get\_time(r') \subseteq t $}{\label{cd:if_intersectino}
-				${ R_p} \gets  (r \cap r') \wedge { R_p}  $\;
+	\For{$(r_n \in {\cal R})$}{\label{cd:beginfr}
+		\For{$(r_{n+1} \in {\cal R})$}{
+			\If{$(r_n \cap r_{n+1} \neq \emptyset \wedge get\_time(r_n) \subseteq t \wedge get\_time(r_{n+1}) \subseteq t $}{\label{cd:if_intersectino}
+				${ R_p} \gets  (r_n \cap r_{n+1}) \wedge { R_p}  $\;
 			}
 		}
 	}
 	%	$p_{next} \gets get\_next({\cal L}_p)$\;}\label{cd:endwhile}
 	\Return{${ R_p}$}\; 
-	\caption{Regions Intersection Algorithm}
+	\caption{{\sc Region Highlighter} Algorithm}
 	\label{algo:intersectionAlgo}
 \end{algorithm}
+
+The Algorithm \ref{algo:intersectionAlgo} goal is to identify which regions are intersect considering the clusters identified during  the analyst search. The inputs are a set o regions ${\cal R}$  and a time interval $\Delta t$. The list of preferred regions is defined in line \ref{cd:definereturn}. For each region $r_n \in {\cal R}$ (line \ref{cd:beginfr}), the algorithm verify if there are intersections with  a region $r_{n+1} \in {\cal R}$ (line \ref{cd:if_intersectino}). If there is a intersection and the region time is in the time interval, the intersection $r_n \cap r_{n+1} $ is included in ${ R_p}$.
 
 %For instance, on a bike-sharing dataset, ${\cal A}_p = \langle${\tt female}, {\tt young}, {\tt hybrid-bike}$\rangle$ on the schema ${\cal A} = \langle${\tt gender}, {\tt age}, {\tt type}$\rangle$ denotes that $p$ is associated to a young female cyclist who rides a hybrid bike. The set ${\cal A}$ is domain-dependent and defines the semantics of a spatiotemporal dataset.
 
 
+\begin{algorithm}[t]
+	\DontPrintSemicolon
+	\KwIn{$p \in {\cal P}$, $\sigma$, $k$, $tlimit$, $R_{p}$ = \{ $r_{p1}, r_{p2},...,r_{pn} $ \}}
+	% \KwOut{${\cal S}_p$}
+	${\cal S}_p \gets get\_top\_k(\mathit{{\cal L}^p})$\;\label{cd:gettopk}
+	$p_{next} \gets get\_next(\mathit{{\cal L}^p})$\;\label{cd:getnext}
+   ${\cal S}_{rp} \gets {\cal S}_p$\;\label{cd:empty_regions}
+	\While{$(tlimit$ $not$ $exceeded \wedge relevance(p,p_{next}) \geq \sigma)$}{\label{cd:beginwhile}
+		\For{$p_{current} \in {\cal S}_p$}{
+			\If{$\mathit{diversity\_improved}({\cal S}_p,{\cal S}_{rp},p_{next},p_{current})$}{\label{cd:betterdiv}
+			    \For{$r_{current} \in  R_p$}{
+			    		   \If{$p_{current} \in r_{current}$}{ \label{cd:point_in_region}
+			    		   		${\cal S}_{rp} \gets \mathit{replace}({\cal S}_{rp},p_{next},p_{current})$\;
+				$break$\;
+			    		   }
+			    }
+			
+				${\cal S}_p \gets \mathit{replace}({\cal S}_p,p_{next},p_{current})$\;
+				$break$\;
+			}
+		}
+		$p_{next} \gets get\_next({\cal L}_p)$\;}\label{cd:endwhile}
+	\Return{ ${\cal S}_{rp} \cup {\cal S}_p$
+	}\; 
+	\caption{{\sc GeoGuide} \cite{Omidvar:2017} +  {\sc Region Highlighter} Algorithm}
+	\label{algo:geoh}
+\end{algorithm}
 
+Algorithm \ref{algo:geoh} modifies the original {\sc Highlighter} proposal presented in GeoGuide \cite{Omidvar:2017} approach .  
+The original begins by retrieving the most relevant points to $p$ by simply retrieving the $k$ highest ranking points in ${\cal L}_p$ (line \ref{cd:gettopk}) and function $get\_next({\cal L}_p)$ (Line \ref{cd:getnext}) returns the next point $p_{next}$ in ${\cal L}_p$ in sequential order. Line \ref{cd:empty_regions} initialize the set of points that will be retrieved by the highlighted regions. At the beginning we consider that there is no preferred regions. So, the sets ${\cal S}_{rp}$ and ${\cal S}_{p}$  are the same. Lines \ref{cd:beginwhile} to \ref{cd:endwhile} iterate over the inverted indexes to determine if other points should be considered to increase diversity while staying within the time limit and not violating the relevance threshold with the selected point. %Since points in ${\cal L}_g$ are sorted on decreasing relevance with $p$, the algorithm can safely stop as soon as the relevance condition is violated (or if the time limit is exceeded).
 
+The algorithm then looks for a candidate point $p_{current} \in {\cal S}_p$ to replace in order to increase diversity. If the candidate point is presented in a region $r$ (\ref{cd:point_in_region}, the point is included in ${\cal S}_{rp}$, considering the boolean function $\mathit{diversity\_improved}()$ (line \ref{cd:betterdiv}). This function checks if by replacing $p_{current}$ by $p_{next}$ in ${\cal S}_p$, the overall diversity of the new ${\cal S}_p$ increases. If the point is not in the preferred region, it is included into ${\cal S}_p$.
 
 \section{Case Study: A GeoGuide Application}
 
