@@ -1,0 +1,62 @@
+\begin{thebibliography}{1}
+
+\bibitem{Arapakis:2014}
+I.~Arapakis, M.~Lalmas, and G.~Valkanas.
+\newblock Understanding within-content engagement through pattern analysis of
+  mouse gestures.
+\newblock In {\em Proceedings of the 23rd ACM International Conference on
+  Conference on Information and Knowledge Management}, CIKM '14, pages
+  1439--1448, New York, NY, USA, 2014. ACM.
+
+\bibitem{Barber:1996}
+C.~B. Barber, D.~P. Dobkin, and H.~Huhdanpaa.
+\newblock The quickhull algorithm for convex hulls.
+\newblock {\em ACM Trans. Math. Softw.}, 22(4):469--483, Dec. 1996.
+
+\bibitem{Birant:2007}
+D.~Birant and A.~Kut.
+\newblock St-dbscan: An algorithm for clustering spatial-temporal data.
+\newblock {\em Data Knowl. Eng.}, 60(1):208--221, Jan. 2007.
+
+\bibitem{Ester:1996}
+M.~Ester, H.-P. Kriegel, J.~Sander, and X.~Xu.
+\newblock A density-based algorithm for discovering clusters a density-based
+  algorithm for discovering clusters in large spatial databases with noise.
+\newblock In {\em Proceedings of the Second International Conference on
+  Knowledge Discovery and Data Mining}, KDD'96, pages 226--231. AAAI Press,
+  1996.
+
+\bibitem{lins2013nanocubes}
+L.~Lins, J.~T. Klosowski, and C.~Scheidegger.
+\newblock Nanocubes for real-time exploration of spatiotemporal datasets.
+\newblock {\em IEEE Transactions on Visualization and Computer Graphics},
+  19(12):2456--2465, 2013.
+
+\bibitem{Omidvar:2017}
+B.~Omidvar-Tehrani, P.~A. Souza-Neto, F.~M.~F. Pontes, and F.~Bento.
+\newblock Geoguide: An interactive guidance approach for spatial data.
+\newblock In {\em 2017 IEEE International Conference on Internet of Things
+  (iThings) and IEEE Green Computing and Communications (GreenCom) and IEEE
+  Cyber, Physical and Social Computing (CPSCom) and IEEE Smart Data
+  (SmartData)}, pages 1112--1117, June 2017.
+
+\bibitem{Robertson2007}
+C.~Robertson, T.~A. Nelson, B.~Boots, and M.~A. Wulder.
+\newblock Stamp: spatial--temporal analysis of moving polygons.
+\newblock {\em Journal of Geographical Systems}, 9(3):207--227, Sep 2007.
+
+\bibitem{RoddickEHPS04}
+J.~F. Roddick, M.~J. Egenhofer, E.~G. Hoel, D.~Papadias, and B.~Salzberg.
+\newblock Spatial, temporal and spatio-temporal databases - hot issues and
+  directions for phd research.
+\newblock {\em {SIGMOD} Record}, 33(2):126--131, 2004.
+
+\bibitem{Telang:2012}
+A.~Telang, D.~Padmanabhan, and P.~Deshpande.
+\newblock Spatio-temporal indexing: Current scenario, challenges and
+  approaches.
+\newblock In {\em Proceedings of the 18th International Conference on
+  Management of Data}, COMAD '12, pages 9--11, Mumbai, India, India, 2012.
+  Computer Society of India.
+
+\end{thebibliography}
