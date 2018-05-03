@@ -1,5 +1,20 @@
 \begin{thebibliography}{10}
 
+\bibitem{AoidhBW07}
+E.~M. Aoidh, M.~Bertolotto, and D.~C. Wilson.
+\newblock Analysis of implicit interest indicators for spatial data.
+\newblock In {\em 15th {ACM} International Symposium on Geographic Information
+  Systems, {ACM-GIS} 2007, November 7-9, 2007, Seattle, Washington, USA,
+  Proceedings}, page~47, 2007.
+
+\bibitem{ARAMPATZIS2006}
+A.~Arampatzis, M.~van Kreveld, I.~Reinbacher, C.~B. Jones, S.~Vaid, P.~Clough,
+  H.~Joho, and M.~Sanderson.
+\newblock Web-based delineation of imprecise regions.
+\newblock {\em Computers, Environment and Urban Systems}, 30(4):436 -- 459,
+  2006.
+\newblock Geographic Information Retrieval (GIR).
+
 \bibitem{Arapakis:2014}
 I.~Arapakis, M.~Lalmas, and G.~Valkanas.
 \newblock Understanding within-content engagement through pattern analysis of
@@ -7,6 +22,13 @@ I.~Arapakis, M.~Lalmas, and G.~Valkanas.
 \newblock In {\em Proceedings of the 23rd ACM International Conference on
   Conference on Information and Knowledge Management}, CIKM '14, pages
   1439--1448, New York, NY, USA, 2014. ACM.
+
+\bibitem{Ballatore2008}
+A.~Ballatore and M.~Bertolotto.
+\newblock Semantically enriching vgi in support of implicit feedback analysis.
+\newblock In K.~Tanaka, P.~Fr{\"o}hlich, and K.-S. Kim, editors, {\em Web and
+  Wireless Geographical Information Systems}, pages 78--93, Berlin, Heidelberg,
+  2011. Springer Berlin Heidelberg.
 
 \bibitem{Bao2015}
 J.~Bao, Y.~Zheng, D.~Wilkie, and M.~Mokbel.
@@ -17,6 +39,12 @@ J.~Bao, Y.~Zheng, D.~Wilkie, and M.~Mokbel.
 C.~B. Barber, D.~P. Dobkin, and H.~Huhdanpaa.
 \newblock The quickhull algorithm for convex hulls.
 \newblock {\em ACM Trans. Math. Softw.}, 22(4):469--483, Dec. 1996.
+
+\bibitem{Bevis1989}
+M.~Bevis and J.-L. Chatelain.
+\newblock Locating a point on a spherical surface relative to a spherical
+  polygon of arbitrary shape.
+\newblock {\em Mathematical Geology}, 21(8):811--828, Oct 1989.
 
 \bibitem{Birant:2007}
 D.~Birant and A.~Kut.
@@ -29,6 +57,39 @@ M.~Boley, M.~Mampaey, B.~Kang, P.~Tokmakov, and S.~Wrobel.
   implicit preference and performance learning.
 \newblock In {\em Proceedings of the ACM SIGKDD Workshop on Interactive Data
   Exploration and Analytics}, pages 27--35. ACM, 2013.
+
+\bibitem{Chen:2001}
+M.~C. Chen, J.~R. Anderson, and M.~H. Sohn.
+\newblock What can a mouse cursor tell us more?: Correlation of eye/mouse
+  movements on web browsing.
+\newblock In {\em CHI '01 Extended Abstracts on Human Factors in Computing
+  Systems}, CHI EA '01, pages 281--282, New York, NY, USA, 2001. ACM.
+
+\bibitem{DUCKHAM2008}
+M.~Duckham, L.~Kulik, M.~Worboys, and A.~Galton.
+\newblock Efficient generation of simple polygons for characterizing the shape
+  of a set of points in the plane.
+\newblock {\em Pattern Recognition}, 41(10):3224 -- 3236, 2008.
+
+\bibitem{Ester:1996}
+M.~Ester, H.-P. Kriegel, J.~Sander, and X.~Xu.
+\newblock A density-based algorithm for discovering clusters a density-based
+  algorithm for discovering clusters in large spatial databases with noise.
+\newblock In {\em Proceedings of the Second International Conference on
+  Knowledge Discovery and Data Mining}, KDD'96, pages 226--231. AAAI Press,
+  1996.
+
+\bibitem{FADILI2004}
+M.~Fadili, M.~Melkemi, and A.~ElMoataz.
+\newblock Non-convex onion-peeling using a shape hull algorithm.
+\newblock {\em Pattern Recognition Letters}, 25(14):1577 -- 1585, 2004.
+
+\bibitem{Galton2006}
+A.~Galton and M.~Duckham.
+\newblock What is the region occupied by a set of points?
+\newblock In M.~Raubal, H.~J. Miller, A.~U. Frank, and M.~F. Goodchild,
+  editors, {\em Geographic Information Science}, pages 81--98, Berlin,
+  Heidelberg, 2006. Springer Berlin Heidelberg.
 
 \bibitem{kamat2014distributed}
 N.~Kamat, P.~Jayachandran, K.~Tunga, and A.~Nandi.
@@ -52,6 +113,13 @@ L.~Lins, J.~T. Klosowski, and C.~Scheidegger.
 \newblock Nanocubes for real-time exploration of spatiotemporal datasets.
 \newblock {\em IEEE Transactions on Visualization and Computer Graphics},
   19(12):2456--2465, 2013.
+
+\bibitem{Liu:2010}
+N.~N. Liu, E.~W. Xiang, M.~Zhao, and Q.~Yang.
+\newblock Unifying explicit and implicit feedback for collaborative filtering.
+\newblock In {\em Proceedings of the 19th ACM International Conference on
+  Information and Knowledge Management}, CIKM '10, pages 1445--1448, New York,
+  NY, USA, 2010. ACM.
 
 \bibitem{Omidvar-Tehrani:2015}
 B.~Omidvar-Tehrani, S.~Amer-Yahia, and A.~Termier.

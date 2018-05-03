@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.27)  29 APR 2018 20:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.2.22)  3 MAY 2018 17:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**main
+**main.tex
 (./main.tex
 LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
@@ -1028,18 +1028,18 @@ LaTeX Info: Redefining \genfrac on input line 145.
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
 
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1138,34 +1138,41 @@ ABD: EveryShipout initializing macros
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.14} into 
 your preamble.
- on input line 32.
+ on input line 34.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 112.
+LaTeX Font Info:    Try loading font information for U+msa on input line 115.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 112.
+LaTeX Font Info:    Try loading font information for U+msb on input line 115.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 112.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 115.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-) [1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-
-LaTeX Warning: Reference `sec:overpolygons' on page 2 undefined on input line 1
-56.
-
-
 Underfull \vbox (badness 1917) has occurred while \output is active []
 
- [2]
-Overfull \hbox (8.887pt too wide) in paragraph at lines 271--272
+
+
+LaTeX Warning: Reference `sec:overpolygons' on page 2 undefined on input line 1
+59.
+
+
+LaTeX Warning: Reference `sec:experiments' on page 2 undefined on input line 15
+9.
+
+[2]
+Overfull \hbox (8.887pt too wide) in paragraph at lines 274--275
 \OT1/cmr/m/n/9 side. For this aim, we em-ploy Quick-hull al-go-rithm, a quickso
 rt-
  []
@@ -1174,41 +1181,39 @@ rt-
 File: imgs/regions.pdf Graphic file (type pdf)
 
 <use imgs/regions.pdf>
-Package pdftex.def Info: imgs/regions.pdf used on input line 275.
+Package pdftex.def Info: imgs/regions.pdf used on input line 278.
 (pdftex.def)             Requested size: 504.0pt x 214.89824pt.
  <imgs/match.pdf, id=36, 736.86174pt x 754.76689pt>
 File: imgs/match.pdf Graphic file (type pdf)
 
 <use imgs/match.pdf>
-Package pdftex.def Info: imgs/match.pdf used on input line 288.
+Package pdftex.def Info: imgs/match.pdf used on input line 291.
 (pdftex.def)             Requested size: 240.0pt x 245.82611pt.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 311.
+               Default added (so using `tbp') on input line 314.
 
 
-Overfull \hbox (5.25137pt too wide) in paragraph at lines 315--323
+Overfull \hbox (5.25137pt too wide) in paragraph at lines 318--326
  [][] 
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 325.
+               Default added (so using `tbp') on input line 328.
 
 [4]
-Underfull \hbox (badness 1540) in paragraph at lines 386--386
+Underfull \hbox (badness 1540) in paragraph at lines 389--389
  |  \OMS/cmsy/m/n/9 ^^B \OML/cmm/m/it/9 earth[]radius|$ 
  []
 
 [5 <./imgs/regions.pdf> <./imgs/match.pdf>]
-Overfull \hbox (3.29146pt too wide) in paragraph at lines 443--444
+Overfull \hbox (3.29146pt too wide) in paragraph at lines 448--449
 []\OT1/cmr/m/n/9 There ex-ist few in-stances of information-highlighting meth-
  []
 
-(./main.bbl [6]) [7
-
-] (./main.aux)
+(./main.bbl [6]) [7] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1218,13 +1223,13 @@ LaTeX Warning: There were undefined references.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 33070 strings out of 492995
- 772861 string characters out of 6132704
- 908594 words of memory out of 5000000
- 36094 multiletter control sequences out of 15000+600000
+ 33082 strings out of 492995
+ 773001 string characters out of 6132704
+ 907645 words of memory out of 5000000
+ 36106 multiletter control sequences out of 15000+600000
  27968 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,18n,96p,10351b,5816s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,18n,96p,10355b,5824s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc
 }</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><
 /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></u
@@ -1249,7 +1254,7 @@ ts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type
 1/urw/times/utmb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/time
 s/utmr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmri8a.
 pfb>
-Output written on main.pdf (7 pages, 18767939 bytes).
+Output written on main.pdf (7 pages, 18772591 bytes).
 PDF statistics:
  256 PDF objects out of 1000 (max. 8388607)
  175 compressed objects within 2 object streams
