@@ -1,0 +1,31 @@
+% \bigskip
+\section{Problem Definition}
+\label{sec:problem}
+The large size of spatial data hinders its effective analysis for discovering insights. Analysts require to obtain only few options (so-called ``highlights'') to focus on. These options should be in line with what they have already appreciated. In this paper, we formulate the problem of ``information highlighting using implicit feedback'', i.e., highlight few spatial points based on implicit interests of the analyst in order to guide her towards what she should concentrate on in consecutive iterations of the analysis process. We formally define our problem as follows.
+
+\vspace{3pt}
+\noindent {\bf Problem.} {\em Given a time $t_c$ and an integer constant $k$, obtain an updated feedback vector $F$ using points $m \in \mathcal{M}$ where $m.t \leq t_c$ and choose $k$ points $\mathcal{P}_k \subseteq \mathcal{P}$ as ``highlights'' where $\mathcal{P}_k$ satisfies two following constraints.}
+
+\vspace{2pt}
+\noindent $\blacksquare$ $\forall p \in \mathcal{P}_k, \mathit{similarity}(p,F)$ {\em is maximized.}
+
+\vspace{2pt}
+\noindent $\blacksquare$ $\mathit{diversity}(\mathcal{P}_k)$ {\em is maximized.}
+
+\vspace{3pt}
+The first constraint guarantees that returned highlights are highly similar with analyst's interests captured in $F$. The second constraint ensures that $k$ points cover different regions and they don't repeat themselves. While our approach is independent from the way that {\em similarity} and {\em diversity} functions are formulated, we provide a formal definition of these functions in Section \ref{sec:algo}.
+
+\vspace{2pt}
+The aforementioned problem is hard to solve due to following challenges.
+
+\vspace{3pt}
+\noindent $\blacksquare$ {\bf Challenge 1.} First, it is not clear how mouse move points influence the feedback vector. Mouse moves occur on a separate layer and there should be some meaningful transformations to interpret mouse moves as potential changes in the feedback vector. 
+
+\vspace{2pt}
+\noindent $\blacksquare$ {\bf Challenge 2.} Even if an oracle provides a mapping between mouse moves and the feedback vector, analyzing all generated mouse moves is challenging and may introduce false positives. A typical mouse with 1600 DPI (Dots Per Inch), touches 630 pixels for one centimeter of move. Hence a mouse move from the bottom to the top of a typical 13-inch screen would provide 14,427 points which may not be necessarily meaningful.
+
+\vspace{3pt}
+\noindent $\blacksquare$ {\bf Challenge 3.} Beyond two first challenges, finding the most similar and diverse points with $F$ needs an exhaustive scan of all points in $\mathcal{P}$ which is prohibitively expensive: in most spatial datasets, there exist millions of points. Moreover, we need to follow multi-objective considerations as we aim to optimize both similarity and diversity at the same time.
+
+\vspace{2pt}
+In Section \ref{sec:algo}, we discuss a framework called {\sc GeoPoly} as a solution for the aforementioned problem and its associated challenges.

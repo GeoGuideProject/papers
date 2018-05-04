@@ -1,0 +1,45 @@
+\newpage
+\section{Introduction}
+Nowadays, there has been a meteoric rise in the generation of spatial datasets in various fields of science, such as transportation, lodging services and social science. As each record in spatial data represents an activity in a precise geographical location, analyzing such data enables discoveries grounded on facts. Analysts are often interested to observe spatial patterns and trends to improve their decision making process. Spatial data analysis has various applications such as smart city management, disaster management and autonomous transport \cite{RoddickEHPS04,Telang:2012}.
+
+\vspace{2pt}
+Typically, spatial data analysis begins with an imprecise question in the mind of the analyst, i.e., {\em exploratory analysis}. The analyst requires to go through several trail-and-error iterations to improve her understanding of the spatial data and gain insights. Each iteration involves visualizing a subset of data on geographical maps using an  off-the-shelf product (e.g., Tableau\footnote{\it http://www.tableau.com}, Exhibit\footnote{\it http://www.simile-widgets.org/exhibit/}, Spotfire\footnote{\it http://spotfire.tibco.com}) where the analyst can investigate on different parts of the visualization by zooming in/out and panning on the map. 
+
+\vspace{3pt}
+Spatial data are often voluminous. Hence the focus in the literature of spatial data analysis is on ``efficiency'', i.e., enabling fluid means of navigation in spatial data to facilitate the exploratory analysis. The common approach is to design pre-computed indexes which enable efficient retrieval of spatial data (e.g., \cite{lins2013nanocubes}). However, there has been fewer attention to the ``value'' derived from spatial data. Despite the huge progress on the efficiency front, an analyst may easily get lost in the plethora of geographical points due to two following reasons.
+
+\vspace{3pt}
+\noindent $\blacksquare$ In an exploratory context, the analyst doesn't know apriori what to investigate next.
+
+\vspace{2pt}
+\noindent $\blacksquare$ Moreover, she may easily get distracted and miss interesting points by visual clutter caused by huge point overlaps.
+
+\vspace{3pt}
+The main drawback of the traditional analysis model is that the analyst has a {\em passive role} in the process. In other words, the analyst's feedback (i.e., her likes and dislikes) is ignored and only the input query (i.e., her explicit request) is served. In case feedback is incorporated, the process can be more directed towards analyst's interests where her partial needs can be served earlier in the process. In this paper, we advocate for a ``guidance layer'' on top of the raw visualization of spatial data to enable analysts know {\em ``what to see next''}. This guidance should be a function of analyst feedback: the system should recommend options similar to what the analyst has already appreciated. 
+% Hence, feedback capturing lies at the core of such guidance system.
+
+\vspace{2pt}
+Various approaches in the literature propose methodologies to incorporate analyst's feedback in the exploration process of spatial data. Typically, feedback is considered as a function which is triggered by any analyst's action on the map. The action can be ``selecting a point'', ``moving to a region'', ``asking for more details'', etc. The function then updates a ``profile vector'' which keeps tracks of analyst's interests. The updated content in the profile vector enables the guidance functionality. For instance, if the analyst shows interest in a point which describes a house with balcony, this choice of amenity will reflect her profile to prioritize other houses with balcony in future iterations.
+
+\vspace{2pt}
+Feedback is often expressed {\em explicitly}, i.e., the analyst clicks on a point and mentions if she likes or dislikes the point \cite{kamat2014distributed,Omidvar-Tehrani:2015,omidvar2017geoguide}. In \cite{omidvar2017geoguide}, we proposed an interactive approach to exploit such feedback for enabling a more insightful exploration of spatial data. However, there are several cases that the feedback is expressed {\em implicitly}, i.e., the analyst does not explicitly click on a point, but there exists correlations with other signals captured from the analyst which provide hint on her interest. For instance, it is often the case in spatial data analysis that analysts look at some regions of interest but do not provide an explicit feedback. Another example is frequent mouse moves around a region which is a good indicator of the analyst's potential interest in the points in that region. Implicit feedbacks are more challenging to capture and hence less investigated in the literature. The following example describes a use case of implicit feedbacks. This will be our running example which we follow thoughout the paper.
+
+\vspace{2pt}
+\noindent {\bf Example.} {\em Ben\'icio is planning to live in Paris for a season. He decides to rent a home-stay from Airbnb website\footnote{\it http://www.airbnb.com}. He likes to discover the city, hence he is open to any type of lodging in any region with an interest to stay in the center of Paris. The website returns 1500 different locations. As he has no other preferences, an exhaustive investigation needs scanning each location independently which is nearly infeasible. While he is scanning few first options, he shows interest in the region of Trocadero (where the Eiffel tower is located in) but he forgets or doesn't feel necessary to click a point there. An ideal system should capture this implicit feedback in order to short-list a small subset of locations that Ben\'icio should consider as high priority}.
+
+\vspace{2pt}
+The above example shows in practice that implicit feedback capturing is crucial in the context of spatial data analysis. While text-boxes, combo-boxes and other input elements are available in analyzing other types of data, the only interaction means between the analyst and a spatial data analysis system is a geographical map spanned on the whole screen. In this context, a point can be easily remained out of sight and missed.
+
+\vspace{2pt}
+In this paper, we present an approach called {\sc GeoPoly} whose aim is to capture and analyze implicit feedback of analysts in spatial data analysis. Without loss of generality, we focus on ``mouse moves'' as the implicit feedback received from the analyst. Mouse moves are the most common way that analysts interact with geographical maps~\cite{Chen:2001}. It is shown in \cite{Arapakis:2014} that mouse gestures have a strong correlation with ``user engagement''. Intuitively, a point gets a higher weight in the analyst's profile if the mouse cursor moves around it frequently.  However, our approach can be easily extended to other types of inputs such gaze tracking, leap motions, etc.
+
+% \cite{Robertson2007}  affirms that temporal change in spatial patterns are increasingly common in geographical analysis. This work explore an approach to the spatialtemporal analysis of polygons that are spatially distinct and experience discrete changes though time. It presents challenges considering changes of regions (polygons) during the time. Works like \cite{Ester:1996} and  \cite{Birant:2007} present solutions for clustering spatialtemporal data. These solutions are relevant to define regions by each cluster that contains important informations for the user. 
+
+% \vspace{3pt}
+% Discovering patterns and provide tendencies in spatial data applications may improve insights for planning and decision making for smart city solutions. Many systems and datasets consider space information.  In this way, find spatial preferences can offer interactive and guidance solutions.  For example,  when users look for a house or hotel to spend a season, they consider one or more regions of their preference. These regions are intrinsic to each user, or user group. However, when navigating the application, the user also considers regions that seem interesting, for different reasons, such as the priority of some tourist spot, restaurants, clubs, security, etc. Thus, capturing region preferences over time can help to guide the user to find better places.
+ 
+% \vspace{3pt}
+% Given a dataset of spatial points and from the mouse tracking movements by the user, our approach generates a set of highlighted regions based on its preferences. Each region is related with a subset of highlighted points which are illustrated using visual variables such as size and color intensity. The regions are also highlighted.
+
+\vspace{2pt}
+The outline of the paper is the following. Section \ref{sec:datamodel} describes our data model. In Section \ref{sec:problem}, we formally define our problem. Then in Section \ref{sec:algo}, we present our solution and its algorithmic details. Section  \ref{sec:exp} reports our experiments on the framework. We review the related work in Section \ref{sec:rel}. Last, we conclude in Section \ref{sec:conc}.

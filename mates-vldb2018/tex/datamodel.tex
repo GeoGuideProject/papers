@@ -1,0 +1,26 @@
+\section{Data Model}
+\label{sec:datamodel}
+We consider two different layers on a geographical map: ``spatial layer'' and ``interaction layer''. The spatial layer contains points from a spatial database $\mathcal{P}$. The interaction layer contains mouse move points $\mathcal{M}$.
+
+\vspace{2pt}
+\noindent {\bf Spatial layer.} Each point $p \in \mathcal{P}$ is described using its coordinates, {\em latitude} and {\em longitude}, i.e., $p = \langle \mathit{lat}, \mathit{lon} \rangle$. Note that in this work, we don't consider ``time'' for spatial points as our contribution focuses on their location. Points are also associated to a set of domain-specific attributes $\mathcal{A}$. For instance, for a dataset of a real estate agency, points are properties (houses and apartments) and $\mathcal{A}$ contains attributes such as ``surface'', ``number of pieces'' and  ``price''. The set of all possible values for an attribute $a \in \mathcal{A}$ is denoted as $dom(a)$. We also define analyst's feedback $F$ as a vector over all attribute values, i.e., $F = \overrightarrow{\cup_{a \in \mathcal{A}}dom(a)}$. The vector $F$ is initialized by zeros and will be manipulated to express analyst's preferences.
+
+\vspace{2pt}
+\noindent {\bf Interaction layer} Whenever the analyst moves her mouse, a new point $m$ is appended to the set $\mathcal{M}$. Each mouse move point is described using the pixel position that it touches and the clock time of the move. Hence each mouse move point is a tuple $m = \langle x, y, t \rangle$, where $x$ and $y$ specifies the pixel location and $t$ is a Unix Epoch time. To conform with geographical standards, we assume $m = \langle 0, 0\rangle$ sits at the middle of the interaction layer, both horizontally and vertically.
+% We also define a set of regions $\mathit{R}$ where each $r \in \mathit{R}$ contains a set of mouse move points $\mathcal{M}_r \subseteq \mathcal{M}$ and a time interval $T_r$ where $\forall m=\langle x,y,t\rangle \in \mathcal{M}_r, t \in T_r$.
+
+\vspace{2pt}
+The analyst is in contact with the interaction layer. To update the feedback vector $F$, we need to translate pixel locations in the interaction layer to latitudes and longitudes in the spatial layer. While there is no precise transformation from planar to spherical coordinates, we employ equirectangular projection to obtain the best possible approximation. Equation \ref{eq:equirectangular} describes this formula to transform a point $m = \langle x,y,t \rangle$ in the interaction layer to a point $p = \langle lat, lon \rangle$ in the spatial layer. Note that the resulting $p$ is not necessarily a member of $\mathcal{P}$. 
+
+\begin{equation}\label{eq:equirectangular}
+\mathit{lon} = \frac{x}{\mathit{cos}\gamma} + \theta; \mathit{lat} = y + \gamma 
+\end{equation}
+
+The inverse operation, i.e., transforming from the spatial layer to the interaction is done using Equation \ref{eq:reverse}.
+
+\begin{equation}\label{eq:reverse}
+x = (\mathit{lon} - \theta) \times \mathit{cos}\gamma; y = \mathit{lat} - \gamma
+\end{equation}
+
+\vspace{2pt}
+The reference point for the transformation is the center of both layers. In Equations \ref{eq:equirectangular} and \ref{eq:reverse}, we assume that $\gamma$ is the latitude and $\theta$ is the longitude of a point in the spatial layer corresponding to the center of the interaction layer, i.e., $m= \langle 0,0 \rangle$.
