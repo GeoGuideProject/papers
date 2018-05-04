@@ -177,7 +177,7 @@ Algorithm \ref{algo:geoh} describes our approach for highlighting $k$ similar an
 We propose a best-effort greedy approach to efficiently compute highlighted points. We consider an offline step followed by the online execution of our algorithm.
 
 \vspace{2pt}
-In order to speed up the similarity computation in the online execution, we pre-compute an inverted index for each single point $p \in {\cal P}$ in the offline step (as is commonly done in the Web search). Each index ${\cal L}_p$ for the point $p$ keeps all other points in ${\cal P}$ in decreasing order of their similarity with $p$.
+In order to speed up the similarity computation in the online execution, we pre-compute an inverted index for each single point $p \in {\cal P}$ in the offline step (as is commonly done in the Web search). Each index ${\cal L}_p$ for the point $p$ keeps all other points in ${\cal P}$ in decreasing order of their similarity with~$p$.
 
 \vspace{2pt}
 The first step of Algorithm \ref{algo:geoh} is to find the most similar point to $F$, so-called $p^*$. The point $p^*$ is the closest possible approximation of $F$ in order to exploit pre-computed similarities. The algorithm makes sequential accesses to ${\cal L}_{p^*}$ (i.e., the inverted index of the point $p^*$) to greedily maximize diversity. Algorithm \ref{algo:geoh} does not sacrifice efficiency in price of value. We consider a {\em time limit} parameter which determines when the algorithm should stop seeking maximized diversity. Scanning inverted indexes guarantees the similarity maximization even if time limit is chosen to be very restrictive. Our observations with several spatial datasets show that we achieve the diversity of more than $0.9$ with time limit set to $200ms$.

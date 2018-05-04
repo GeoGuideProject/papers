@@ -7,25 +7,25 @@ First off, we validate the ``usability'' of our framework. For this aim, we desi
 
 \begin{table}[h]
 \centering
-\caption{Nb. of interactions for ``novice''}
+\caption{Nb. interactions for ``novice''}
 \label{tbl:novice}
 \begin{tabular}{c|c|c|c|c|}
 \cline{2-5}
                                        	& \textbf{T1/I1} 	& \textbf{T2/I1} 	& \textbf{T1/I2}	& \textbf{T2/I2}	\\ \hline
-\multicolumn{1}{|c|}{\sgg} 				& 17.5            	& 12.9             	& 10.8            	& {\bf 7.9}        	\\ \hline
-\multicolumn{1}{|c|}{\sc Tableau}      	& 61.3            	& 57.6            	& {\bf 51.2}      	& 52.4             	\\ \hline
+\multicolumn{1}{|c|}{\sgg} 				& 14.5            	& 10.1	          	& 16.5              & 11.3              \\ \hline
+\multicolumn{1}{|c|}{\sc Tableau}      	& 61.3            	& 57.6             	& 67.2              & 55.7              \\ \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[h]
 \centering
-\caption{Nb. of interactions for ``expert''}
+\caption{Nb. interactions for ``expert''}
 \label{tbl:expert}
 \begin{tabular}{c|c|c|c|c|}
 \cline{2-5}
                                        	& \textbf{T1/I1} 	& \textbf{T2/I1}	& \textbf{T1/I2} & \textbf{T2/I2} \\ \hline
-\multicolumn{1}{|c|}{\sgg} 				& 12.1            	& 6.3	          	& 10.2              & 5.1              \\ \hline
-\multicolumn{1}{|c|}{\sc Tableau}      	& 51.6            	& 36.1             	& 41.0              & 28.9              \\ \hline
+\multicolumn{1}{|c|}{\sgg} 				& 10.1            	& 6.3	          	& 9.3              & 7.1              \\ \hline
+\multicolumn{1}{|c|}{\sc Tableau}      	& 56.7            	& 49.1             	& 54.6              & 43.4              \\ \hline
 \end{tabular}
 \end{table}
 
@@ -33,8 +33,8 @@ First off, we validate the ``usability'' of our framework. For this aim, we desi
 On the Airbnb dataset of Paris with XXX points, we define two different tasks: {\em T1: ``finding a point in a requested location''} (e.g., find a home-stay in the Trocadero area of Paris), and {\em T2: ``finding a point with a requested profile''} (e.g., find a cheap home-stay with balcony.) Participants may also begin their navigation either from {\em I1: ``close to the goal''} or {\em I2: ``far from the goal''}. 
 
 \vspace{2pt}
-In {\sc Tableau}, participants employ filtering and querying tools to reach their goals. In \sgg, participants benefit from information highlighting based on their implicit feedback. Tables \ref{tbl:novice} and \ref{tbl:expert} report the number of interactions for novice and expert participants, respectively. We observe that on average $9.22$ interactions are needed to reach a defined goal in \sgg, which is  which is $5$ times smaller than the average number of interactions for {\sc Tableau}. This shows that implicit feedback capturing is an effective mechanism which helps analysts to reach their goals faster.
+In {\sc Tableau}, participants employ filtering and querying tools to reach their goals. In \sgg, participants benefit from information highlighting based on their implicit feedback. Tables \ref{tbl:novice} and \ref{tbl:expert} report the number of interactions for novice and expert participants, respectively. We observe that on average $10.65$ interactions are needed to reach a defined goal in \sgg, which is  which is $5.23$ times smaller than the average number of interactions for {\sc Tableau}'s. This shows that implicit feedback capturing is an effective mechanism which helps analysts to reach their goals faster.
 
 \vspace{2pt}
-Expert participants need $4$ fewer interactions on average. Interestingly, starting points, i.e., {\em I1} and {\em I2}, do not have a huge impact on number of steps. It is potentially due to the diversity component which provides distinct options and can quickly guide analyst towards their region of interest. We also observe that the task {\em T2} is an easier task than {\em T1}. This is potentially due to the similarity component where the analyst can request options similar to what she has already observed and greedily move to her preferred regions.
+In \sgg, expert participants need $4.9$ fewer interactions on average. Interestingly, starting points, i.e., {\em I1} and {\em I2}, do not have a huge impact on number of steps. It is potentially due to the diversity component which provides distinct options and can quickly guide analyst towards their region of interest. We also observe that the task {\em T2} is an easier task than {\em T1}. This is potentially due to the similarity component where the analyst can request options similar to what she has already observed and greedily move to her preferred regions.
 
