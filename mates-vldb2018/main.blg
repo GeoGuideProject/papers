@@ -3,48 +3,44 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: main.aux
 The style file: abbrv.bst
 Database file #1: main.bib
-A bad cross reference---entry "AoidhBW07"
-refers to entry "DBLP:conf/gis/2007", which doesn't exist
-Warning--I didn't find a database entry for "DBLP:conf/gis/2007"
-You've used 26 entries,
+You've used 31 entries,
             2118 wiz_defined-function locations,
-            693 strings with 9714 characters,
-and the built_in function-call counts, 11454 in all, are:
-= -- 1164
-> -- 552
-< -- 13
-+ -- 215
-- -- 187
-* -- 848
-:= -- 1797
-add.period$ -- 90
-call.type$ -- 26
-change.case$ -- 168
+            716 strings with 10724 characters,
+and the built_in function-call counts, 13752 in all, are:
+= -- 1404
+> -- 657
+< -- 16
++ -- 256
+- -- 223
+* -- 1013
+:= -- 2147
+add.period$ -- 108
+call.type$ -- 31
+change.case$ -- 201
 chr.to.int$ -- 0
-cite$ -- 26
-duplicate$ -- 436
-empty$ -- 866
-format.name$ -- 187
-if$ -- 2481
+cite$ -- 31
+duplicate$ -- 525
+empty$ -- 1043
+format.name$ -- 223
+if$ -- 2986
 int.to.chr$ -- 0
-int.to.str$ -- 26
-missing$ -- 26
-newline$ -- 134
-num.names$ -- 56
-pop$ -- 169
+int.to.str$ -- 31
+missing$ -- 31
+newline$ -- 159
+num.names$ -- 66
+pop$ -- 207
 preamble$ -- 1
-purify$ -- 142
+purify$ -- 170
 quote$ -- 0
-skip$ -- 328
+skip$ -- 393
 stack$ -- 0
-substring$ -- 808
-swap$ -- 143
-text.length$ -- 13
+substring$ -- 980
+swap$ -- 176
+text.length$ -- 16
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 104
+type$ -- 124
 warning$ -- 0
-while$ -- 109
-width$ -- 28
-write$ -- 311
-(There was 1 error message)
+while$ -- 132
+width$ -- 33
+write$ -- 369
