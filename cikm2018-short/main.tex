@@ -192,8 +192,8 @@ Algorithm \ref{algo:dense} summarizes our approach for mining IDRs. We add point
 
 \begin{algorithm}[t]
 \DontPrintSemicolon
-\KwIn{Current time $t_c$, mouse move points $\mathcal{M}$}
-\KwOut{IDRs $\mathcal{S}$}
+\KwIn{Current time $t_c$, mouse move points $\mathcal{M}$, number of highlights $k$}
+\KwOut{$k$ highlights $\mathcal{H}$}
 $\mathcal{S} \gets \emptyset$\;
 $g \gets ${\em number of time segments}\;
 \For{$i \in [0,g]$}
@@ -206,8 +206,9 @@ $g \gets ${\em number of time segments}\;
 {
        $\mathcal{S}.\mathit{append}(\mathit{intersect}(\mathcal{O}_i, \mathcal{O}_j))$
 }
-\Return{$\mathcal{S}$}\; 
-\caption{Find Interesting Dense Regions (IDRs)}
+$\mathcal{H} \gets \mathit{discover\_highlights}(\mathcal{S},k)$\;
+\Return{$\mathcal{H}$}\; 
+\caption{Information Highlighting}
 \label{algo:dense}
 \end{algorithm}
 
@@ -219,6 +220,9 @@ Once clusters are obtained for all subsets of $\mathcal{M}$, we find their inter
 
 \vspace{2pt}
 There exist several approaches to infer a spatial region for a given set of points \cite{Bevis1989,DUCKHAM2008,FADILI2004,ARAMPATZIS2006,Galton2006}. The common approach is to cluster points in form of concave and convex polygons.  In case a concave polygon is constructed, the ``dents'' of such a polygon may entail points which are not necessarily in $\mathcal{M}$. In IDR algorithm, however, we adapt Quickhull~\cite{Barber:1996}, due its simplicity, efficiency and it's natural implementation of convex polygons.
+
+\vspace{2pt}
+Once the IDRs are discovered, we employ {\sc GeoGuide}, an algorithm proposed in \cite{omidvar2017geoguide}, to highlight $k$ points among the set of points inside IDRs. We seek two properties in $k$ highlights, i.e., {\em similarity} and {\em diversity}. First, highlights should be in the same direction of the analyst's implicit feedback, hence similar to the vector~$F$. Second, highlighted points should also represent distinct directions so that the analyst can observe different aspects of data and decide based on the big picture.
 
 \section{Case Study}
 We discuss a real-world example to show the functionality of our approach in practice.
@@ -328,10 +332,10 @@ More uniform results are observed in Table \ref{tbl:yelp}, i.e., for Yelp datase
 
 
 \section{Conclusion}
-In this paper, we propose to explore Interesting Dense Regions (\textit{IDRs}) of spatial information highlighting using implicit feedback. The implicit feedbacks are captured from mouse movements of the analyst over the geographical map. We formulate and formalize a novel polygon-based capturing algorithm which returns few highlights (regions) in line with analyst's implicit preferences. 
+In this paper, we present an approach to explore Interesting Dense Regions (IDRs) using implicit feedback in order to detect analyst latent preferences. The implicit feedbacks are captured from mouse moves of analysts over the geographical map while analyzing spatial data. We formalize a novel polygon-based mining algorithm which returns few highlights in line with analyst's implicit preferences. The highlights enable analysts to focus on what matters the most and prevent information overload.
 
 \vspace{2pt}
-We consider some directions of improvement for this work. We are interested to incorporate an ``explainability'' component  which can describe causalities behind preferences. For instance, we are interested to find seasonal patterns to see why the preferences of analysts change from place to place during various seasons of the year. Another direction is to incorporate ``Query by Visualization'' approaches, where analysts can specify their intents alongside their implicit preferences, directly on the map \cite{siddiqui2016effortless}.
+We consider various directions of future work for this work. First, we are interested to incorporate an ``explainability'' component which can describe causalities behind preferences. For instance, we are interested to find seasonal patterns to see why the preferences of analysts change from place to place during various seasons of the year. Another direction is to incorporate ``Query by Visualization'' approaches, where analysts can specify their intents alongside their implicit preferences, directly on the map \cite{siddiqui2016effortless}.
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{main}
