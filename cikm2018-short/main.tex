@@ -158,7 +158,7 @@ Spatial data are often voluminous. Hence the focus in the literature of spatial 
 \end{itemize}
 
 \vspace{2pt}
-The main drawback of the traditional analysis model (e.g.,~\cite{kamat2014distributed,Omidvar-Tehrani:2015}, to name a few) is that the analyst has a {\em passive role} in the process. In other words, the analyst's feedback (i.e., her likes and dislikes) is ignored and only the input query (i.e., her explicit request) is served. In case feedback is incorporated, the process can be more directed towards analyst's interests where her partial needs can be served earlier in the process. In this paper, we advocate for a ``guidance layer'' on top of the raw visualization of spatial data to enable analysts know {\em ``what to see next''}. This guidance should be a function of analyst feedback: the system should recommend options similar to what the analyst has already appreciated. 
+The main drawback of the traditional analysis model (e.g.,~\cite{kamat2014distributed,Omidvar-Tehrani:2015,omidvar2017geoguide}, to name a few) is that the analyst has a {\em passive role} in the process. In other words, the analyst's feedback (i.e., her likes and dislikes) is ignored and only the input query (i.e., her explicit request) is served. In case feedback is incorporated, the process can be more directed towards analyst's interests where her partial needs can be served earlier in the process. In this paper, we advocate for a ``guidance layer'' on top of the raw visualization of spatial data to enable analysts know {\em ``what to see next''}. This guidance should be a function of analyst feedback: the system should recommend options similar to what the analyst has already appreciated. 
  
 \vspace{2pt}
 Considering this context, we propose in this paper an approach to explore Interesting Dense Regions (IDRs)  whose aim is to capture and analyze implicit feedback of analysts in spatial data analysis. Without loss of generality, we focus on ``mouse moves'' as the implicit feedback received from the analyst. Mouse moves are the most common way that analysts interact with geographical maps~\cite{Chen:2001}.  However, our approach can be easily extended to other types of inputs such gaze tracking~\cite{arapakis2014user} and leap motions.
@@ -185,7 +185,7 @@ The objective of discovering IDRs is to obtain the preferences of analysts which
 \noindent $\blacksquare$ {\bf Observation 2.} It is possible that the analyst moves her mouse everywhere in the map. This should not signify that everywhere in the map has the same significance.
 
 \vspace{2pt}
-We consider two different layers on a geographical map: ``spatial layer'' and ``interaction layer''. The spatial layer contains points from a spatial database $\mathcal{P}$. The interaction layer contains mouse move points $\mathcal{M}$. Our proposed approach mines a set of mouse move points $\mathcal{M}$ in the interaction layer to discover one or several IDRs, in which most analyst's interactions occur. Then it matches the spatial points $\mathcal{P}$ with IDRs in order to find points inside each region. The attributes of resulting points will be exploited to update analyst's feedback vector $F$. The updated vector $F$ will then be used to find $k$ highlights (where $k$ is specified by the analyst). These steps ensure that the final highlights reflect analyst's implicit interests. 
+We consider two different layers on a geographical map: ``spatial layer'' and ``interaction layer''. The spatial layer contains points from a spatial database $\mathcal{P}$. The interaction layer contains mouse move points $\mathcal{M}$. Our proposed approach mines a set of mouse move points $\mathcal{M}$ in the interaction layer to discover one or several IDRs, in which most analyst's interactions occur. Then it matches the spatial points $\mathcal{P}$ with IDRs in order to find points inside each region. We employ a Quadtree index as a mediator between the spatial and interaction layer in order to reduce the number of matchings. The attributes of resulting points will be exploited to update analyst's feedback vector $F$. The updated vector $F$ will then be used to find $k$ highlights (where $k$ is specified by the analyst). These steps ensure that the final highlights reflect analyst's implicit interests. 
 
 \vspace{2pt}
 Algorithm \ref{algo:dense} summarizes our approach for mining IDRs. We add points to $\mathcal{M}$ only every $200ms$ to prevent adding redundant points.  Following Observation 1 and in order to mine the recurring behavior of the analyst, the algorithm begins by partitioning the set $\mathcal{M}$ into $g$ fixed-length consecutive segments $\mathcal{M}_0$ to $\mathcal{M}_g$. The first segment starts at time zero (where the system started), and the last segment ends at $t_c$, i.e., the current time. Following Observation 2, we then find dense clusters in each segment of $\mathcal{M}$ using a variant of DB-SCAN approach~\cite{Ester:1996}. Finally, we return intersections among those clusters as IDRs.
@@ -220,17 +220,15 @@ Once clusters are obtained for all subsets of $\mathcal{M}$, we find their inter
 \vspace{2pt}
 There exist several approaches to infer a spatial region for a given set of points \cite{Bevis1989,DUCKHAM2008,FADILI2004,ARAMPATZIS2006,Galton2006}. The common approach is to cluster points in form of concave and convex polygons.  In case a concave polygon is constructed, the ``dents'' of such a polygon may entail points which are not necessarily in $\mathcal{M}$. In IDR algorithm, however, we adapt Quickhull~\cite{Barber:1996}, due its simplicity, efficiency and it's natural implementation of convex polygons.
 
-\section{Case Study and Experiments}
-We discuss a real-world example to show the functionality of our approach in practice. We then follow with set of experiments.
+\section{Case Study}
+We discuss a real-world example to show the functionality of our approach in practice.
 
 \begin{figure*}[t]
 \centering
    \includegraphics[width=\textwidth]{imgs/regions}
-  \caption{The process of finding IDRs - Paris city.}
+  \caption{The process of finding IDRs over Paris home-stays.}
   \label{fig:regions}
 \end{figure*}
-
-
 
 \begin{figure}[t]
 \centering
@@ -240,18 +238,19 @@ We discuss a real-world example to show the functionality of our approach in pra
 \end{figure}
 
 \vspace{2pt}
-\noindent {\bf Example.} {\em Lucas is planning to pass some days in Paris, France. He loves French culture and language, and pass some days in a nice city would be delighted to him.  He decides to rent a home-stay from Airbnb website\footnote{\it http://www.airbnb.com}. He likes to discover the city, hence he is open to any type of lodging in any region with an interest to stay in the city center. The website returns 4000 different locations. As he has no other preferences, an exhaustive investigation needs scanning each location independently which is nearly infeasible. While he is scanning few first options, he shows interest in the region of \textit{Champ de Mars} (close to Eiffel Tower), but he forgets or doesn't feel necessary to click a point there. An ideal system should capture this implicit feedback in order to short-list a small subset of locations that Lucas should consider as high priority}.
-
-We describe the process of finding IDRs in an example. Figure \ref{fig:regions} shows the steps that Lucas follows in our running example to explore home-stays in Paris. Figure \ref{fig:regions}.A shows mouse movements of Lucas in different time stages. In this example, we consider $g = 3$ and capture Lucas feedback in three different time segments (progressing from Figures \ref{fig:regions}.B to \ref{fig:regions}.D). It shows that Lucas started his search around Eiffel Tower and Arc de Triomphe (Figure \ref{fig:regions}.B) and gradually showed interest in south (Figure \ref{fig:regions}.C) and north (Figure \ref{fig:regions}.D) as well. All intersections between those clusters are discovered (hatching regions in Figure \ref{fig:regions}.E) which will constitute the set of IDRs (Figure \ref{fig:regions}.F), i.e., IDR1 to IDR4.
-
-
-In the Airbnb dataset points are home-stays which are shown with their nightly price on the map. We observe (Figure \ref{fig:match}) that there exist many matching points with IDR3 and absolutely no matching point for IDR2. For IDR4, although there exist many home-stays below the region, we never check their containment, as they belong to a Quadtree cell which doesn't intersect with the IDR. 
-
-Considering the described example we perform two sets of experiments. A first set of few experiments to validate its efficiency and effectiveness. The second set of experiments aims to analyse the number of IDRs generated for each interaction, the number of points and its percentage highlighted from the dataset. In the interest of space, we only present a glimpse of our experiments here. More will be discussed in an extended version. 
+\noindent {\bf Example.} {\em Lucas is planning to spend few days in Paris, France. His appreciation of French culture makes him interested in new experiences in the city. He decides to rent a home-stay from Airbnb website\footnote{\it http://www.airbnb.com}. He likes to discover the city, hence he is open to any type of lodging in any region with an interest to stay in the city center. The website returns $4000$ different locations. As he has no other preferences, an exhaustive investigation needs scanning each location independently which is nearly infeasible. While he is scanning few first options, he shows interest in the region of ``Champ de Mars'' (near Eiffel Tower), but he forgets or doesn't feel necessary to click a point there. By discovering IDRs on his mouse moves over the home-stays in Paris, our system can quickly detect his interest in the region and short-list a small subset of locations (i.e., highlights) accordingly to be recommended to Lucas.}
 
 \vspace{2pt}
-First off, we validate the ``usability'' of our proposal. For this aim, we design a user study with some participants who are all students of Computer Science. Some of them are ``novice'' users who don't know the location, and some are ``experts''. Participants should fulfill a task. For each participant, we report a variant of time-to-insight measure, i.e., how long the participants interact with the frameworks before fulfilling the task. Evidently, less number of interactions is preferred as it means that the participant can reach insights faster. Then we measure the time to execute the task.
+We follow the above example to describe how IDRs are constructed in action.  Figure \ref{fig:regions} shows Lucas' steps to explore home-stays in Paris. Figure \ref{fig:regions}.A shows his mouse movements in different time stages. In this example, we consider $g = 3$ and capture Lucas' feedback in three different time segments (progressing from Figures \ref{fig:regions}.B to \ref{fig:regions}.D). It shows that Lucas started his search around Eiffel Tower and Arc de Triomphe (Figure \ref{fig:regions}.B) and gradually showed interest in south (Figure \ref{fig:regions}.C) and north (Figure \ref{fig:regions}.D) as well. All intersections between those clusters are discovered (hatching regions in Figure \ref{fig:regions}.E) which will constitute the set of IDRs (Figure \ref{fig:regions}.F), i.e., IDR1 to IDR4.
 
+\vspace{2pt}
+In the Airbnb dataset, points are home-stays. Figure \ref{fig:match} shows these points with their nightly price for IDRs. We observe that there exist many matching points with IDR3 and absolutely no matching point for IDR2. For IDR4, although there exist many home-stays below the region, we never check their containment, as they belong to a Quadtree cell which doesn't intersect with the IDR. 
+
+\section{Experiments}
+We discuss two sets of experiments. Our first set is on the usability of our approach. Then we focus more on discovering IDRs and present few statistics and insights for them. In the interest of space, we only present a glimpse of our experiments here. More will be presented in an extended report which we will make available upon acceptance. 
+
+\vspace{2pt}
+First off, we validate the ``usability'' of our approach. For this aim, we design a user study with some participants who are all students of Computer Science. Some of them are ``novice'' users who don't know the location under investigation, and some are ``experts.'' Participants should fulfill a task. For each participant, we report a variant of time-to-insight measure, i.e., how long the participants interact with the tool before fulfilling the task. Evidently, less number of interactions is preferred as it means that the participant can reach insights faster.
 
 \vspace{2pt}
 On the Airbnb dataset of Paris with 1,000 points, we define two different tasks: {\em T1: ``finding a point in a requested location''} (e.g., find a home-stay in the ``\textit{Champ de Mars}'' area), and {\em T2: ``finding a point with a requested profile''} (e.g., find a cheap home-stay.) Participants may also begin their navigation either from {\em I1: ``close to the goal''} or {\em I2: ``far from the goal''}. 
@@ -259,7 +258,7 @@ On the Airbnb dataset of Paris with 1,000 points, we define two different tasks:
 
 \begin{table}[h]
 \centering
-\caption{``Novice'' and ``Experts'' - Interactions (in seconds)}
+\caption{Interactions of ``novice'' and ``expert'' participants (in seconds)}
 \label{tbl:novice}
 \begin{tabular}{c|c|c|c|c|}
 \cline{2-5}
@@ -271,27 +270,31 @@ On the Airbnb dataset of Paris with 1,000 points, we define two different tasks:
 
 
 \vspace{2pt}
-Participants benefit from information highlighting based on their implicit feedback. Table \ref{tbl:novice} reports the time for the interactions to find what they are looking for, novice and expert participants, respectively. We observe that on average the system spends $2.067$ seconds to return a defined goal. This shows that implicit feedback capturing is an effective mechanism which helps analysts to reach their goals faster.
+Table \ref{tbl:novice} shows the results. We observe that on average it takes $2.067$ seconds to achieve defined goal. This shows that implicit feedback capturing is an effective mechanism which helps analysts to reach their goals much faster. Expert participants need $0.35$ seconds less time on average. Interestingly, starting points, i.e., {\em I1} and {\em I2}, do not have a huge impact on number of steps. It is potentially due to the diversity component which provides distinct options and can quickly guide analyst towards their region of interest. We also observe that the task {\em T2} is an easier task than {\em T1}. This is potentially due to  where the analyst can request options similar to what she has already observed and greedily move to her preferred regions.
 
 \vspace{2pt}
-Expert participants need $0.35$ (seconds) fewer interactions on average. Interestingly, starting points, i.e., {\em I1} and {\em I2}, do not have a huge impact on number of steps. It is potentially due to the diversity component which provides distinct options and can quickly guide analyst towards their region of interest. We also observe that the task {\em T2} is an easier task than {\em T1}. This is potentially due to  where the analyst can request options similar to what she has already observed and greedily move to her preferred regions.
+In the second part of our experiments, we employ two different datasets, i.e., Airbnb\footnote{\it \url{http://insideairbnb.com/get-the-data.html}} and Yelp\footnote{\it \url{https://www.yelp.com/dataset}}. We pick a similar subset from both datasets, i.e., home-stays and restaurants in Paris city, respectively. We consider four different sizes of those datasets, i.e., $100$, $1000$, $2000$ and $4000$ points, respectively. For each size of the datasets, we manually perform $20$ sessions, and then we present the results as the average of sessions.
 
-\vspace{6pt}
-The second set of experiments consider 2 different datasets, Airbnb~\footnote{https://www.airbnb.com/ and http://insideairbnb.com/get-the-data.html} and Yelp~\footnote{https://www.yelp.com/} datasets with spatial points in Paris city, apartment and restaurant datasets, respectively.  For each type of dataset we proceed the experiments with 4 volume of points, 100, 1000, 2000 and 4000 points, respectively. For each volume of points we proceed 20 interactions, and we present the results averages.  So, we proceed 80 interactions using the Airbnb dataset and 80 interactions using the Yelp dataset.
+\vspace{2pt}
+We limit each session to $2$ minutes where we seek for interesting points in the datasets. We capture the following information in each session:
 
-We pass 2 minutes trying to find an interesting point, in each interact. We capture, in each interaction, the following informations: (i) the number of regions created from the mouse movements during the interactions; (ii) the number of IDRs (intersection of regions) generated after the interactions; (iii) the number of points from the dataset presented in each IDR after the interaction; and finally (iv) the percentage of points (from the dataset volume) inside the IDRs.  
+\begin{itemize}[leftmargin=*]
+  \item The number of regions created from the mouse moves during the session;
+  \item The number of generated IDRs (intersection of regions);
+  \item The number of points from the dataset presented in each IDR;
+  \item The coverage of points (in the dataset) with IDRs collectively.
+\end{itemize}  
 
-In this set of experiment we validate not only the ``usability'' of our proposal, but also we analyse how the IDRs are generated and the how many interesting regions and points can be highlighted from the implicit feedbacks captured during the user interactions. Tables \ref{tbl:airbnb} and \ref{tbl:yelp} present the result for each dataset. 
-
-For the apartment dataset experiments (Table \ref{tbl:airbnb}) the number of regions decreases while the number of points increases. The general average of regions created is around 10, per interaction. The same happens for IDRs, except when we have 4000 points. The average of points presented in IDRs is 24.97. So, the system is able to highlight at least  8.05\% of point from the dataset, in average. 
+\vspace{2pt}
+Tables \ref{tbl:airbnb} and \ref{tbl:yelp} show the result for Airbnb and Yelp, respectively. In Table \ref{tbl:airbnb}, we observe that the number of regions decreases when the number of points increases. On average, 10 regions are constructed per session. The average number of points presented in IDRs is $24.97$. It shows that our approach is able to highlight at least $8.05\%$ of points from the dataset, on average. 
 
 \begin{table}[h]
 \centering
-\caption{Airbnb dataset - Paris city}
+\caption{IDR statistics on Airbnb dataset}
 \label{tbl:airbnb}
 \begin{tabular}{|c|c|c|c|c|}
 \cline{1-5}
-\textbf{n. points}  & \textbf{regions} 	& \textbf{IDRs} 	& \textbf{points in IDRs}	& \textbf{\%  points}	\\ \hline
+\textbf{\# points}  & \textbf{\# regions} 	& \textbf{\# IDRs} 	& \textbf{\# points in IDRs}	& \textbf{\%  points}	\\ \hline
 \multicolumn{1}{|c|}{100} 				& 11.35            	& 10.05	          	& 29.40             & 29.40\%            
  \\ \hline
 \multicolumn{1}{|c|}{1000} 				& 10.75          	& 6.75	          	& 11.70              & 1.17\%              \\ \hline
@@ -302,18 +305,18 @@ For the apartment dataset experiments (Table \ref{tbl:airbnb}) the number of reg
 \end{tabular}
 \end{table}
 
-The results for the restaurant dataset (Table \ref{tbl:yelp}) is more uniform than the one presented in Table \ref{tbl:airbnb}. The general average of regions created is 12.75 regions per interaction. The number of regions also decreases while the number of points increases.  The same happens for IDRs, where we have an average of 8.9 IDRs generated per interaction.  The number of points presented in IDRs is 108.65, in average, and it represents 13.11\% of points  highlighted from the dataset, in average. 
+\vspace{2pt}
+More uniform results are observed in Table \ref{tbl:yelp}, i.e., for Yelp dataset vis-\`a-vis Airbnb. The average number of generated regions reaches $12.75$ per session. Also,tThe number of regions decreases by increasing the number of points. The same happens for IDRs, where we obtain an average of $8.9$ IDRs generated per session. The number of points presented in IDRs is on average $108.65$ and it represents on average $13.11\%$ of points highlighted from the dataset.
 
-For both datasets we considered the location presented in our example scenario, where Lucas is planning to pass some vacations days in Paris. 
-
+% For both datasets we considered the location presented in our example scenario, where Lucas is planning to pass some vacations days in Paris. 
 
 \begin{table}[h]
 \centering
-\caption{Yelp dataset - Paris city}
+\caption{IDR statistics on Yelp dataset}
 \label{tbl:yelp}
 \begin{tabular}{|c|c|c|c|c|}
 \cline{1-5}
-\textbf{n. points}  & \textbf{regions} 	& \textbf{IDRs} 	& \textbf{points in IDRs}	& \textbf{\%  points}	\\ \hline
+\textbf{\# points}  & \textbf{\# regions} 	& \textbf{\# IDRs} 	& \textbf{\# points in IDRs}	& \textbf{\%  points}	\\ \hline
 \multicolumn{1}{|c|}{100} 				& 14.90            	& 7.55	          	& 28.30             & 28.30\%            
  \\ \hline
 \multicolumn{1}{|c|}{1000} 				& 13.90         	& 10.00	          	& 149.55             & 14.96\%              \\ \hline
@@ -324,8 +327,7 @@ For both datasets we considered the location presented in our example scenario, 
 \end{table}
 
 
-\section{Conclusions}
-
+\section{Conclusion}
 In this paper, we propose to explore Interesting Dense Regions (\textit{IDRs}) of spatial information highlighting using implicit feedback. The implicit feedbacks are captured from mouse movements of the analyst over the geographical map. We formulate and formalize a novel polygon-based capturing algorithm which returns few highlights (regions) in line with analyst's implicit preferences. 
 
 \vspace{2pt}

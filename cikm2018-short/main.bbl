@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{15}
+\begin{thebibliography}{16}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -262,6 +262,21 @@
 \urldef\tempurl%
 \url{https://doi.org/10.1145/2806416.2806519}
 \showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Omidvar-Tehrani, Neto, Pontes, and
+  Bento}{Omidvar-Tehrani et~al\mbox{.}}{2017}]%
+        {omidvar2017geoguide}
+\bibfield{author}{\bibinfo{person}{Behrooz Omidvar-Tehrani},
+  \bibinfo{person}{Pl{\'a}cido A~Souza Neto}, \bibinfo{person}{Felipe M~Freire
+  Pontes}, {and} \bibinfo{person}{Francisco Bento}.}
+  \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{GeoGuide: An Interactive Guidance Approach for
+  Spatial Data}. In \bibinfo{booktitle}{\emph{Internet of Things (iThings) and
+  IEEE Green Computing and Communications (GreenCom) and IEEE Cyber, Physical
+  and Social Computing (CPSCom) and IEEE Smart Data (SmartData), 2017 IEEE
+  International Conference on}}. IEEE, \bibinfo{pages}{1112--1117}.
+\newblock
 
 
 \bibitem[\protect\citeauthoryear{Siddiqui, Kim, Lee, Karahalios, and
