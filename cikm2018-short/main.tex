@@ -47,9 +47,9 @@
 
 % These commands are optional
 %\acmBooktitle{Transactions of the ACM Woodstock conference}
-\editor{Rakesh Agrawal}
-\editor{Andrei Broder}
-\editor{Mohammed Zaki}
+% \editor{Rakesh Agrawal}
+% \editor{Andrei Broder}
+% \editor{Mohammed Zaki}
 
 
 \begin{document}
@@ -101,7 +101,7 @@
 
 
 \begin{abstract}
-The large size of spatial data hinders its effective analysis for insight discovery. Analysts require to obtain few high quality options (i.e., ``highlights'') to have a more focused investigation. In this paper, we define, formalize and analyze Interesting Dense Regions (IDRs) which capture implicit preferences of analysts in order to automatically find highlights. Our approach involves a polygon-based abstraction layer for captured preferences. Using these interesting dense regions, we highlight points to guide the analysis process. We analyze the efficiency and effectiveness of our approach through a realistic example.
+The large size of spatial data hinders its effective analysis for insight discovery. Analysts require to obtain few high quality options (i.e., ``highlights'') to have a more focused investigation. In this paper, we define, formalize and analyze Interesting Dense Regions (IDRs) which capture implicit preferences of analysts in order to automatically find highlights. Our approach involves a polygon-based abstraction layer for captured preferences. Using these interesting dense regions, we highlight points to guide analysts in the analysis process. We discuss the efficiency and effectiveness of our approach through a realistic example and a few experiments on Airbnb and Yelp datasets.
 \end{abstract}
 
 %
@@ -140,7 +140,7 @@ The large size of spatial data hinders its effective analysis for insight discov
 %\ccsdesc[100]{Networks~Network reliability}
 
 
-\keywords{Spatial data, Implicit feedback, Dense regions, Spatial highlights.}
+\keywords{Spatial data, implicit feedback, dense regions, spatial highlights.}
 
 
 \maketitle
@@ -149,7 +149,7 @@ The large size of spatial data hinders its effective analysis for insight discov
 
 \section{Introduction}
 
-Spatial data are often voluminous. Hence the focus in the literature of spatial data analysis is often on ``efficiency'', i.e., enabling fluid means of navigation in spatial data in order to facilitate the exploratory analysis. The common approach is to design pre-computed indexes which enable efficient retrieval of spatial data (e.g., \cite{lins2013nanocubes}). However, there has been fewer attention to the ``value'' derived from spatial data. Despite the huge progress on the efficiency front, an analyst may easily get lost in the plethora of geographical points due to two following reasons.
+Spatial data are often voluminous. Hence the focus in the literature of spatial data analysis is often on ``efficiency'', i.e., enabling fluid means of navigation in spatial data in order to facilitate the exploratory analysis. The common approach is to design pre-computed indexes which enable efficient retrieval of spatial data (e.g., \cite{lins2013nanocubes,pahins2017hashedcubes}). However, there has been fewer attention to the ``value'' derived from spatial data. Despite the huge progress on the efficiency front, an analyst may easily get lost in the plethora of geographical points due to two following reasons.
 
 \begin{itemize}[leftmargin=*]
 \setlength\itemsep{2pt}
@@ -158,10 +158,10 @@ Spatial data are often voluminous. Hence the focus in the literature of spatial 
 \end{itemize}
 
 \vspace{2pt}
-The main drawback of the traditional analysis model (e.g.,~\cite{kamat2014distributed,Omidvar-Tehrani:2015,omidvar2017geoguide}, to name a few) is that the analyst has a {\em passive role} in the process. In other words, the analyst's feedback (i.e., her likes and dislikes) is ignored and only the input query (i.e., her explicit request) is served. In case feedback is incorporated, the process can be more directed towards analyst's interests where her partial needs can be served earlier in the process. In this paper, we advocate for a ``guidance layer'' on top of the raw visualization of spatial data to enable analysts know {\em ``what to see next''}. This guidance should be a function of analyst feedback: the system should recommend options similar to what the analyst has already appreciated. 
+The main drawback of the traditional analysis models (e.g.,~\cite{kamat2014distributed,Omidvar-Tehrani:2015,omidvar2017geoguide}, to name a few) is that the analyst has a {\em passive role} in the process. In other words, the analyst's feedback (i.e., her likes and dislikes) is ignored and only the input query (i.e., her explicit request) is served. In case feedback is incorporated, the process can be more directed towards analyst's interests where her partial needs can be served earlier in the process. In this paper, we advocate for a ``guidance layer'' on top of the raw visualization of spatial data to enable analysts know {\em ``what to see next''}. This guidance should be a function of analyst feedback: the system should recommend options similar to what the analyst has already appreciated. 
  
 \vspace{2pt}
-Considering this context, we propose in this paper an approach to explore Interesting Dense Regions (IDRs)  whose aim is to capture and analyze implicit feedback of analysts in spatial data analysis. Without loss of generality, we focus on ``mouse moves'' as the implicit feedback received from the analyst. Mouse moves are the most common way that analysts interact with geographical maps~\cite{Chen:2001}.  However, our approach can be easily extended to other types of inputs such gaze tracking~\cite{arapakis2014user} and leap motions.
+Considering this context, we propose in this paper an approach to explore Interesting Dense Regions (IDRs) whose aim is to capture and analyze implicit feedback of analysts in spatial data analysis. Then a set of highlights is obtained from IDRs to guide analysts. Without loss of generality, we focus on ``mouse moves'' as the implicit feedback received from the analyst. Mouse moves are the most common way that analysts interact with geographical maps~\cite{Chen:2001}.  However, our approach can be easily extended to other types of inputs such gaze tracking~\cite{arapakis2014user} and leap motions.
 
 % K-DBSCAN with the main focus of identifying clusters of points with similar spatial density.  K-DBSCAN lies in finding arbitrary shaped clusters in variable density regions. Moreover, it can also discover clusters with overlapping spatial regions, but differing density levels.
  
@@ -185,14 +185,14 @@ The objective of discovering IDRs is to obtain the preferences of analysts which
 \noindent $\blacksquare$ {\bf Observation 2.} It is possible that the analyst moves her mouse everywhere in the map. This should not signify that everywhere in the map has the same significance.
 
 \vspace{2pt}
-We consider two different layers on a geographical map: ``spatial layer'' and ``interaction layer''. The spatial layer contains points from a spatial database $\mathcal{P}$. The interaction layer contains mouse move points $\mathcal{M}$. Our proposed approach mines a set of mouse move points $\mathcal{M}$ in the interaction layer to discover one or several IDRs, in which most analyst's interactions occur. Then it matches the spatial points $\mathcal{P}$ with IDRs in order to find points inside each region. We employ a Quadtree index as a mediator between the spatial and interaction layer in order to reduce the number of matchings. The attributes of resulting points will be exploited to update analyst's feedback vector $F$. The updated vector $F$ will then be used to find $k$ highlights (where $k$ is specified by the analyst). These steps ensure that the final highlights reflect analyst's implicit interests. 
+We consider two different layers on a geographical map: ``spatial layer'' and ``interaction layer''. The spatial layer contains points from a spatial database $\mathcal{P}$. The interaction layer contains mouse move points $\mathcal{M}$. Our proposed approach mines a set of mouse move points $\mathcal{M}$ in the interaction layer to discover one or several IDRs, in which most analyst's interactions occur. Then it matches the spatial points $\mathcal{P}$ with IDRs in order to find points inside each region. We employ a Quadtree index as a mediator between the spatial and interaction layers in order to reduce the number of matchings. The attributes of resulting points will be exploited to update analyst's feedback vector $F$. The updated vector $F$ will then be used to find $k$ highlights (where $k$ is specified by the analyst). These steps ensure that the final highlights reflect analyst's implicit interests. 
 
 \vspace{2pt}
 Algorithm \ref{algo:dense} summarizes our approach for mining IDRs. We add points to $\mathcal{M}$ only every $200ms$ to prevent adding redundant points.  Following Observation 1 and in order to mine the recurring behavior of the analyst, the algorithm begins by partitioning the set $\mathcal{M}$ into $g$ fixed-length consecutive segments $\mathcal{M}_0$ to $\mathcal{M}_g$. The first segment starts at time zero (where the system started), and the last segment ends at $t_c$, i.e., the current time. Following Observation 2, we then find dense clusters in each segment of $\mathcal{M}$ using a variant of DB-SCAN approach~\cite{Ester:1996}. Finally, we return intersections among those clusters as IDRs.
 
 \begin{algorithm}[t]
 \DontPrintSemicolon
-\KwIn{Current time $t_c$, mouse move points $\mathcal{M}$, number of highlights $k$}
+\KwIn{Current time $t_c$, mouse move points $\mathcal{M}$, $k$}
 \KwOut{$k$ highlights $\mathcal{H}$}
 $\mathcal{S} \gets \emptyset$\;
 $g \gets ${\em number of time segments}\;
@@ -206,7 +206,7 @@ $g \gets ${\em number of time segments}\;
 {
        $\mathcal{S}.\mathit{append}(\mathit{intersect}(\mathcal{O}_i, \mathcal{O}_j))$
 }
-$\mathcal{H} \gets \mathit{discover\_highlights}(\mathcal{S},k)$\;
+$\mathcal{H} \gets \mathit{discover\_highlights}(\mathcal{S},k)$\label{ln:geoguide}\;
 \Return{$\mathcal{H}$}\; 
 \caption{Information Highlighting}
 \label{algo:dense}
@@ -222,7 +222,7 @@ Once clusters are obtained for all subsets of $\mathcal{M}$, we find their inter
 There exist several approaches to infer a spatial region for a given set of points \cite{Bevis1989,DUCKHAM2008,FADILI2004,ARAMPATZIS2006,Galton2006}. The common approach is to cluster points in form of concave and convex polygons.  In case a concave polygon is constructed, the ``dents'' of such a polygon may entail points which are not necessarily in $\mathcal{M}$. In IDR algorithm, however, we adapt Quickhull~\cite{Barber:1996}, due its simplicity, efficiency and it's natural implementation of convex polygons.
 
 \vspace{2pt}
-Once the IDRs are discovered, we employ {\sc GeoGuide}, an algorithm proposed in \cite{omidvar2017geoguide}, to highlight $k$ points among the set of points inside IDRs. We seek two properties in $k$ highlights, i.e., {\em similarity} and {\em diversity}. First, highlights should be in the same direction of the analyst's implicit feedback, hence similar to the vector~$F$. Second, highlighted points should also represent distinct directions so that the analyst can observe different aspects of data and decide based on the big picture.
+Once the IDRs are discovered, we employ {\sc GeoGuide}, an algorithm proposed in \cite{omidvar2017geoguide}, to highlight $k$ points among the set of points inside IDRs (line \ref{ln:geoguide}). We seek two properties in $k$ highlights, i.e., {\em similarity} and {\em diversity}. First, highlights should be in the same direction of the analyst's implicit feedback, hence similar to the vector~$F$. Second, highlighted points should also represent distinct directions so that the analyst can observe different aspects of data and decide based on the big picture. The similarity between points is captured using Cosine on their attributes. Diversity operates on geographical coordinates of points where farther points contribute more to diversity. The distance between two points is computed using Haversine measure \cite{van2012heavenly}.
 
 \section{Case Study}
 We discuss a real-world example to show the functionality of our approach in practice.

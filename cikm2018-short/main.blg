@@ -23,45 +23,46 @@ Warning--empty address in Omidvar-Tehrani:2015
 Warning--numpages field, but no articleno or eid field, in Omidvar-Tehrani:2015
 Warning--empty publisher in omidvar2017geoguide
 Warning--empty address in omidvar2017geoguide
-You've used 16 entries,
+Warning--empty address in van2012heavenly
+You've used 18 entries,
             5732 wiz_defined-function locations,
-            1447 strings with 19232 characters,
-and the built_in function-call counts, 22453 in all, are:
-= -- 3000
-> -- 803
+            1458 strings with 19607 characters,
+and the built_in function-call counts, 24560 in all, are:
+= -- 3280
+> -- 875
 < -- 0
-+ -- 269
-- -- 290
-* -- 1638
-:= -- 2185
-add.period$ -- 81
-call.type$ -- 16
-change.case$ -- 122
-chr.to.int$ -- 15
-cite$ -- 29
-duplicate$ -- 1887
-empty$ -- 1315
-format.name$ -- 323
-if$ -- 5495
++ -- 291
+- -- 314
+* -- 1785
+:= -- 2405
+add.period$ -- 92
+call.type$ -- 18
+change.case$ -- 135
+chr.to.int$ -- 17
+cite$ -- 32
+duplicate$ -- 2071
+empty$ -- 1445
+format.name$ -- 351
+if$ -- 6009
 int.to.chr$ -- 3
 int.to.str$ -- 1
-missing$ -- 71
-newline$ -- 200
-num.names$ -- 129
-pop$ -- 633
+missing$ -- 77
+newline$ -- 216
+num.names$ -- 145
+pop$ -- 698
 preamble$ -- 1
-purify$ -- 264
+purify$ -- 295
 quote$ -- 0
-skip$ -- 674
+skip$ -- 735
 stack$ -- 0
-substring$ -- 1871
-swap$ -- 237
+substring$ -- 2030
+swap$ -- 257
 text.length$ -- 57
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 351
-warning$ -- 13
-while$ -- 125
+type$ -- 382
+warning$ -- 14
+while$ -- 140
 width$ -- 0
-write$ -- 355
-(There were 13 warnings)
+write$ -- 389
+(There were 14 warnings)

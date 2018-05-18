@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.27)  18 MAY 2018 17:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.27)  18 MAY 2018 17:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2024,13 +2024,13 @@ LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/it' will be
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 (Font)              scaled to size 9.0pt on input line 225.
 
-<imgs/regions.pdf, id=84, 871.76099pt x 371.70699pt>
+<imgs/regions.pdf, id=88, 871.76099pt x 371.70699pt>
 File: imgs/regions.pdf Graphic file (type pdf)
  <use imgs/regions.pdf>
 Package pdftex.def Info: imgs/regions.pdf used on input line 232.
 (pdftex.def)             Requested size: 506.295pt x 215.87946pt.
 
-<imgs/match.pdf, id=85, 736.86174pt x 754.76689pt>
+<imgs/match.pdf, id=89, 736.86174pt x 754.76689pt>
 File: imgs/match.pdf Graphic file (type pdf)
  <use imgs/match.pdf>
 Package pdftex.def Info: imgs/match.pdf used on input line 239.
@@ -2062,7 +2062,7 @@ LaTeX Info: Redefining \tempurl on input line 188.
 LaTeX Info: Redefining \tempurl on input line 206.
 LaTeX Info: Redefining \tempurl on input line 263.
 
-Underfull \hbox (badness 2662) in paragraph at lines 287--294
+Underfull \hbox (badness 2662) in paragraph at lines 301--308
 []\T1/LinuxLibertineT-TLF/m/n/7 (+20) Tarique Sid-diqui, Al-bert Kim, John Lee,
  Kar-rie Kara-halios, and Aditya
  []
@@ -2081,13 +2081,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 47247 strings out of 492995
- 996501 string characters out of 6132704
- 1168389 words of memory out of 5000000
- 49473 multiletter control sequences out of 15000+600000
- 168568 words of font info for 337 fonts, out of 8000000 for 9000
+ 47264 strings out of 492995
+ 996915 string characters out of 6132704
+ 1169521 words of memory out of 5000000
+ 49480 multiletter control sequences out of 15000+600000
+ 169370 words of font info for 342 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 62i,14n,96p,10351b,6075s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,14n,96p,10351b,6081s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/libertine/l
 btn_ncsllp.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/libertine/lb
 tn_kijugd.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/newtx/liberti
@@ -2109,10 +2109,10 @@ letters.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/sym
 bols/msam10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/txfonts/
 rtxmi.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/newtx/txsys.pf
 b></usr/local/texlive/2017/texmf-dist/fonts/type1/public/newtx/zxlri.pfb>
-Output written on main.pdf (4 pages, 19064359 bytes).
+Output written on main.pdf (4 pages, 19065011 bytes).
 PDF statistics:
- 382 PDF objects out of 1000 (max. 8388607)
- 295 compressed objects within 3 object streams
- 49 named destinations out of 1000 (max. 500000)
+ 387 PDF objects out of 1000 (max. 8388607)
+ 300 compressed objects within 3 object streams
+ 51 named destinations out of 1000 (max. 500000)
  53339 words of extra memory for PDF output out of 61914 (max. 10000000)
 

@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{16}
+\begin{thebibliography}{18}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -279,6 +279,20 @@
 \newblock
 
 
+\bibitem[\protect\citeauthoryear{Pahins, Stephens, Scheidegger, and
+  Comba}{Pahins et~al\mbox{.}}{2017}]%
+        {pahins2017hashedcubes}
+\bibfield{author}{\bibinfo{person}{C{\'\i}cero~AL Pahins},
+  \bibinfo{person}{Sean~A Stephens}, \bibinfo{person}{Carlos Scheidegger},
+  {and} \bibinfo{person}{Joao~LD Comba}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{Hashedcubes: Simple, low memory, real-time visual
+  exploration of big data}.
+\newblock \bibinfo{journal}{\emph{IEEE transactions on visualization and
+  computer graphics}} \bibinfo{volume}{23}, \bibinfo{number}{1}
+  (\bibinfo{year}{2017}), \bibinfo{pages}{671--680}.
+\newblock
+
+
 \bibitem[\protect\citeauthoryear{Siddiqui, Kim, Lee, Karahalios, and
   Parameswaran}{Siddiqui et~al\mbox{.}}{2016}]%
         {siddiqui2016effortless}
@@ -290,6 +304,16 @@
 \newblock \bibinfo{journal}{\emph{Proceedings of the VLDB Endowment}}
   \bibinfo{volume}{10}, \bibinfo{number}{4} (\bibinfo{year}{2016}),
   \bibinfo{pages}{457--468}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Van~Brummelen}{Van~Brummelen}{2012}]%
+        {van2012heavenly}
+\bibfield{author}{\bibinfo{person}{Glen Van~Brummelen}.}
+  \bibinfo{year}{2012}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{Heavenly mathematics: The forgotten art of
+  spherical trigonometry}}.
+\newblock \bibinfo{publisher}{Princeton University Press}.
 \newblock
 
 
