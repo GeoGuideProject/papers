@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.27)  9 MAY 2018 18:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.27)  14 MAY 2018 21:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1191,8 +1191,11 @@ Underfull \hbox (badness 1540) in paragraph at lines 174--174
  |  \OMS/cmsy/m/n/9 ^^B \OML/cmm/m/it/9 earth[]radius|$ 
  []
 
-) (./tex/exp.tex [6]) (./tex/rel.tex) (./tex/conclusion.tex) (./main.bbl
-[7]
+) (./tex/exp.tex [6]) (./tex/rel.tex
+Underfull \vbox (badness 1803) has occurred while \output is active []
+
+)
+(./tex/conclusion.tex) (./main.bbl [7]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ) [8]
@@ -1202,10 +1205,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 33111 strings out of 492995
- 773377 string characters out of 6132704
- 907681 words of memory out of 5000000
- 36114 multiletter control sequences out of 15000+600000
+ 33110 strings out of 492995
+ 773353 string characters out of 6132704
+ 907677 words of memory out of 5000000
+ 36113 multiletter control sequences out of 15000+600000
  27968 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,18n,96p,10351b,5816s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1233,7 +1236,7 @@ ts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type
 1/urw/times/utmb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/time
 s/utmr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmri8a.
 pfb>
-Output written on main.pdf (8 pages, 18780411 bytes).
+Output written on main.pdf (8 pages, 18780434 bytes).
 PDF statistics:
  259 PDF objects out of 1000 (max. 8388607)
  177 compressed objects within 2 object streams

@@ -1,0 +1,281 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{15}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{}, \showDOI{}, and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showDOI}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showDOI #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showDOI      \undefined \def \showDOI       #1{#1}\fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[\protect\citeauthoryear{Arampatzis, van Kreveld, Reinbacher, Jones,
+  Vaid, Clough, Joho, and Sanderson}{Arampatzis et~al\mbox{.}}{2006}]%
+        {ARAMPATZIS2006}
+\bibfield{author}{\bibinfo{person}{Avi Arampatzis}, \bibinfo{person}{Marc van
+  Kreveld}, \bibinfo{person}{Iris Reinbacher}, \bibinfo{person}{Christopher~B.
+  Jones}, \bibinfo{person}{Subodh Vaid}, \bibinfo{person}{Paul Clough},
+  \bibinfo{person}{Hideo Joho}, {and} \bibinfo{person}{Mark Sanderson}.}
+  \bibinfo{year}{2006}\natexlab{}.
+\newblock \showarticletitle{Web-based delineation of imprecise regions}.
+\newblock \bibinfo{journal}{\emph{Computers, Environment and Urban Systems}}
+  \bibinfo{volume}{30}, \bibinfo{number}{4} (\bibinfo{year}{2006}),
+  \bibinfo{pages}{436 -- 459}.
+\newblock
+\showISSN{0198-9715}
+\urldef\tempurl%
+\url{https://doi.org/10.1016/j.compenvurbsys.2005.08.001}
+\showDOI{\tempurl}
+\newblock
+\shownote{Geographic Information Retrieval (GIR).}
+
+
+\bibitem[\protect\citeauthoryear{Arapakis, Lalmas, Cambazoglu, Marcos, and
+  Jose}{Arapakis et~al\mbox{.}}{2014b}]%
+        {arapakis2014user}
+\bibfield{author}{\bibinfo{person}{Ioannis Arapakis}, \bibinfo{person}{Mounia
+  Lalmas}, \bibinfo{person}{B~Barla Cambazoglu}, \bibinfo{person}{Mari-Carmen
+  Marcos}, {and} \bibinfo{person}{Joemon~M Jose}.}
+  \bibinfo{year}{2014}\natexlab{b}.
+\newblock \showarticletitle{User engagement in online news: Under the scope of
+  sentiment, interest, affect, and gaze}.
+\newblock \bibinfo{journal}{\emph{Journal of the Association for Information
+  Science and Technology}} \bibinfo{volume}{65}, \bibinfo{number}{10}
+  (\bibinfo{year}{2014}), \bibinfo{pages}{1988--2005}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Arapakis, Lalmas, and Valkanas}{Arapakis
+  et~al\mbox{.}}{2014a}]%
+        {arapakis2014understanding}
+\bibfield{author}{\bibinfo{person}{Ioannis Arapakis}, \bibinfo{person}{Mounia
+  Lalmas}, {and} \bibinfo{person}{George Valkanas}.}
+  \bibinfo{year}{2014}\natexlab{a}.
+\newblock \showarticletitle{Understanding within-content engagement through
+  pattern analysis of mouse gestures}. In \bibinfo{booktitle}{\emph{Proceedings
+  of the 23rd ACM International Conference on Conference on Information and
+  Knowledge Management}}. ACM, \bibinfo{pages}{1439--1448}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Barber, Dobkin, and Huhdanpaa}{Barber
+  et~al\mbox{.}}{1996}]%
+        {Barber:1996}
+\bibfield{author}{\bibinfo{person}{C.~Bradford Barber},
+  \bibinfo{person}{David~P. Dobkin}, {and} \bibinfo{person}{Hannu Huhdanpaa}.}
+  \bibinfo{year}{1996}\natexlab{}.
+\newblock \showarticletitle{The Quickhull Algorithm for Convex Hulls}.
+\newblock \bibinfo{journal}{\emph{ACM Trans. Math. Softw.}}
+  \bibinfo{volume}{22}, \bibinfo{number}{4} (\bibinfo{date}{Dec.}
+  \bibinfo{year}{1996}), \bibinfo{pages}{469--483}.
+\newblock
+\showISSN{0098-3500}
+\urldef\tempurl%
+\url{https://doi.org/10.1145/235815.235821}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Bevis and Chatelain}{Bevis and
+  Chatelain}{1989}]%
+        {Bevis1989}
+\bibfield{author}{\bibinfo{person}{Michael Bevis} {and}
+  \bibinfo{person}{Jean-Luc Chatelain}.} \bibinfo{year}{1989}\natexlab{}.
+\newblock \showarticletitle{Locating a point on a spherical surface relative to
+  a spherical polygon of arbitrary shape}.
+\newblock \bibinfo{journal}{\emph{Mathematical Geology}} \bibinfo{volume}{21},
+  \bibinfo{number}{8} (\bibinfo{date}{01 Oct} \bibinfo{year}{1989}),
+  \bibinfo{pages}{811--828}.
+\newblock
+\showISSN{1573-8868}
+\urldef\tempurl%
+\url{https://doi.org/10.1007/BF00894449}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Birant and Kut}{Birant and Kut}{2007}]%
+        {Birant:2007}
+\bibfield{author}{\bibinfo{person}{Derya Birant} {and} \bibinfo{person}{Alp
+  Kut}.} \bibinfo{year}{2007}\natexlab{}.
+\newblock \showarticletitle{ST-DBSCAN: An Algorithm for Clustering
+  Spatial-temporal Data}.
+\newblock \bibinfo{journal}{\emph{Data Knowl. Eng.}} \bibinfo{volume}{60},
+  \bibinfo{number}{1} (\bibinfo{date}{Jan.} \bibinfo{year}{2007}),
+  \bibinfo{pages}{208--221}.
+\newblock
+\showISSN{0169-023X}
+\urldef\tempurl%
+\url{https://doi.org/10.1016/j.datak.2006.01.013}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Chen, Anderson, and Sohn}{Chen
+  et~al\mbox{.}}{2001}]%
+        {Chen:2001}
+\bibfield{author}{\bibinfo{person}{Mon~Chu Chen}, \bibinfo{person}{John~R.
+  Anderson}, {and} \bibinfo{person}{Myeong~Ho Sohn}.}
+  \bibinfo{year}{2001}\natexlab{}.
+\newblock \showarticletitle{What Can a Mouse Cursor Tell Us More?: Correlation
+  of Eye/Mouse Movements on Web Browsing}. In \bibinfo{booktitle}{\emph{CHI '01
+  Extended Abstracts on Human Factors in Computing Systems}}
+  \emph{(\bibinfo{series}{CHI EA '01})}. \bibinfo{publisher}{ACM},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{281--282}.
+\newblock
+\showISBNx{1-58113-340-5}
+\urldef\tempurl%
+\url{https://doi.org/10.1145/634067.634234}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Duckham, Kulik, Worboys, and Galton}{Duckham
+  et~al\mbox{.}}{2008}]%
+        {DUCKHAM2008}
+\bibfield{author}{\bibinfo{person}{Matt Duckham}, \bibinfo{person}{Lars Kulik},
+  \bibinfo{person}{Mike Worboys}, {and} \bibinfo{person}{Antony Galton}.}
+  \bibinfo{year}{2008}\natexlab{}.
+\newblock \showarticletitle{Efficient generation of simple polygons for
+  characterizing the shape of a set of points in the plane}.
+\newblock \bibinfo{journal}{\emph{Pattern Recognition}} \bibinfo{volume}{41},
+  \bibinfo{number}{10} (\bibinfo{year}{2008}), \bibinfo{pages}{3224 -- 3236}.
+\newblock
+\showISSN{0031-3203}
+\urldef\tempurl%
+\url{https://doi.org/10.1016/j.patcog.2008.03.023}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Ester, Kriegel, Sander, and Xu}{Ester
+  et~al\mbox{.}}{1996}]%
+        {Ester:1996}
+\bibfield{author}{\bibinfo{person}{Martin Ester}, \bibinfo{person}{Hans-Peter
+  Kriegel}, \bibinfo{person}{J\"{o}rg Sander}, {and} \bibinfo{person}{Xiaowei
+  Xu}.} \bibinfo{year}{1996}\natexlab{}.
+\newblock \showarticletitle{A Density-based Algorithm for Discovering Clusters
+  a Density-based Algorithm for Discovering Clusters in Large Spatial Databases
+  with Noise}. In \bibinfo{booktitle}{\emph{Proceedings of the Second
+  International Conference on Knowledge Discovery and Data Mining}}
+  \emph{(\bibinfo{series}{KDD'96})}. \bibinfo{publisher}{AAAI Press},
+  \bibinfo{pages}{226--231}.
+\newblock
+\urldef\tempurl%
+\url{http://dl.acm.org/citation.cfm?id=3001460.3001507}
+\showURL{%
+\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Fadili, Melkemi, and ElMoataz}{Fadili
+  et~al\mbox{.}}{2004}]%
+        {FADILI2004}
+\bibfield{author}{\bibinfo{person}{M.J. Fadili}, \bibinfo{person}{M. Melkemi},
+  {and} \bibinfo{person}{A. ElMoataz}.} \bibinfo{year}{2004}\natexlab{}.
+\newblock \showarticletitle{Non-convex onion-peeling using a shape hull
+  algorithm}.
+\newblock \bibinfo{journal}{\emph{Pattern Recognition Letters}}
+  \bibinfo{volume}{25}, \bibinfo{number}{14} (\bibinfo{year}{2004}),
+  \bibinfo{pages}{1577 -- 1585}.
+\newblock
+\showISSN{0167-8655}
+\urldef\tempurl%
+\url{https://doi.org/10.1016/j.patrec.2004.05.015}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Galton and Duckham}{Galton and
+  Duckham}{2006}]%
+        {Galton2006}
+\bibfield{author}{\bibinfo{person}{Antony Galton} {and} \bibinfo{person}{Matt
+  Duckham}.} \bibinfo{year}{2006}\natexlab{}.
+\newblock \showarticletitle{What Is the Region Occupied by a Set of Points?}.
+  In \bibinfo{booktitle}{\emph{Geographic Information Science}},
+  \bibfield{editor}{\bibinfo{person}{Martin Raubal}, \bibinfo{person}{Harvey~J.
+  Miller}, \bibinfo{person}{Andrew~U. Frank}, {and} \bibinfo{person}{Michael~F.
+  Goodchild}} (Eds.). \bibinfo{publisher}{Springer Berlin Heidelberg},
+  \bibinfo{address}{Berlin, Heidelberg}, \bibinfo{pages}{81--98}.
+\newblock
+\showISBNx{978-3-540-44528-9}
+
+
+\bibitem[\protect\citeauthoryear{Kamat, Jayachandran, Tunga, and Nandi}{Kamat
+  et~al\mbox{.}}{2014}]%
+        {kamat2014distributed}
+\bibfield{author}{\bibinfo{person}{Niranjan Kamat}, \bibinfo{person}{Prasanth
+  Jayachandran}, \bibinfo{person}{Karthik Tunga}, {and} \bibinfo{person}{Arnab
+  Nandi}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{Distributed and interactive cube exploration}. In
+  \bibinfo{booktitle}{\emph{Data Engineering (ICDE), 2014 IEEE 30th
+  International Conference on}}. IEEE, \bibinfo{pages}{472--483}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Lins, Klosowski, and Scheidegger}{Lins
+  et~al\mbox{.}}{2013}]%
+        {lins2013nanocubes}
+\bibfield{author}{\bibinfo{person}{Lauro Lins}, \bibinfo{person}{James~T
+  Klosowski}, {and} \bibinfo{person}{Carlos Scheidegger}.}
+  \bibinfo{year}{2013}\natexlab{}.
+\newblock \showarticletitle{Nanocubes for real-time exploration of
+  spatiotemporal datasets}.
+\newblock \bibinfo{journal}{\emph{IEEE Transactions on Visualization and
+  Computer Graphics}} \bibinfo{volume}{19}, \bibinfo{number}{12}
+  (\bibinfo{year}{2013}), \bibinfo{pages}{2456--2465}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Omidvar-Tehrani, Amer-Yahia, and
+  Termier}{Omidvar-Tehrani et~al\mbox{.}}{2015}]%
+        {Omidvar-Tehrani:2015}
+\bibfield{author}{\bibinfo{person}{Behrooz Omidvar-Tehrani},
+  \bibinfo{person}{Sihem Amer-Yahia}, {and} \bibinfo{person}{Alexandre
+  Termier}.} \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{Interactive User Group Analysis}. In
+  \bibinfo{booktitle}{\emph{CIKM}}. \bibinfo{publisher}{ACM},
+  \bibinfo{pages}{403--412}.
+\newblock
+\showISBNx{978-1-4503-3794-6}
+\urldef\tempurl%
+\url{https://doi.org/10.1145/2806416.2806519}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Siddiqui, Kim, Lee, Karahalios, and
+  Parameswaran}{Siddiqui et~al\mbox{.}}{2016}]%
+        {siddiqui2016effortless}
+\bibfield{author}{\bibinfo{person}{Tarique Siddiqui}, \bibinfo{person}{Albert
+  Kim}, \bibinfo{person}{John Lee}, \bibinfo{person}{Karrie Karahalios}, {and}
+  \bibinfo{person}{Aditya Parameswaran}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{Effortless data exploration with zenvisage: an
+  expressive and interactive visual analytics system}.
+\newblock \bibinfo{journal}{\emph{Proceedings of the VLDB Endowment}}
+  \bibinfo{volume}{10}, \bibinfo{number}{4} (\bibinfo{year}{2016}),
+  \bibinfo{pages}{457--468}.
+\newblock
+
+
+\end{thebibliography}
