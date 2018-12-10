@@ -1239,3 +1239,37 @@ howpublished = {http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml}
   year={2016},
   publisher={IEEE}
 }
+ 
+@article{DrosouP12,
+  author    = {Marina Drosou and
+               Evaggelia Pitoura},
+  title     = {DisC diversity: result diversification based on dissimilarity and
+               coverage},
+  journal   = {{PVLDB}},
+  volume    = {6},
+  number    = {1},
+  pages     = {13--24},
+  year      = {2012},
+  url       = {http://dl.acm.org/citation.cfm?id=2428538},
+  timestamp = {Wed, 25 Jul 2018 19:59:47 +0200},
+  biburl    = {https://dblp.org/rec/bib/journals/pvldb/DrosouP12},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{LeroyCB10,
+  author    = {Vincent Leroy and
+               Berkant Barla Cambazoglu and
+               Francesco Bonchi},
+  title     = {Cold start link prediction},
+  booktitle = {Proceedings of the 16th {ACM} {SIGKDD} International Conference on
+               Knowledge Discovery and Data Mining, Washington, DC, USA, July 25-28,
+               2010},
+  pages     = {393--402},
+  year      = {2010},
+  crossref  = {DBLP:conf/kdd/2010},
+  url       = {https://doi.org/10.1145/1835804.1835855},
+  doi       = {10.1145/1835804.1835855},
+  timestamp = {Tue, 06 Nov 2018 16:59:37 +0100},
+  biburl    = {https://dblp.org/rec/bib/conf/kdd/LeroyCB10},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}

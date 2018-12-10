@@ -5,6 +5,9 @@ The style file: ACM-Reference-Format.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: main-exploring_idrs.bib
+A bad cross reference---entry "LeroyCB10"
+refers to entry "DBLP:conf/kdd/2010", which doesn't exist
+Warning--I didn't find a database entry for "DBLP:conf/kdd/2010"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty publisher in AoidhBW07
 Warning--empty address in AoidhBW07
@@ -20,6 +23,8 @@ Warning--empty address in Ester:1996
 Warning--numpages field, but no articleno or eid field, in Ester:1996
 Warning--empty publisher in kamat2014distributed
 Warning--empty address in kamat2014distributed
+Warning--empty publisher in LeroyCB10
+Warning--empty address in LeroyCB10
 Warning--empty publisher in Levandoski:2012
 Warning--empty address in Levandoski:2012
 Warning--numpages field, but no articleno or eid field, in Levandoski:2012
@@ -35,45 +40,45 @@ Warning--numpages field, but no articleno or eid field, in Telang:2012
 Warning--page numbers missing in both pages and numpages fields in wongsuphasawat2016voyager
 Warning--empty publisher in xin2006discovering
 Warning--empty address in xin2006discovering
-You've used 30 entries,
+You've used 32 entries,
             5706 wiz_defined-function locations,
-            1568 strings with 23597 characters,
-and the built_in function-call counts, 38711 in all, are:
-= -- 5079
-> -- 1461
+            1585 strings with 24132 characters,
+and the built_in function-call counts, 41601 in all, are:
+= -- 5480
+> -- 1540
 < -- 0
-+ -- 451
-- -- 599
-* -- 2853
-:= -- 3891
-add.period$ -- 150
-call.type$ -- 30
-change.case$ -- 225
-chr.to.int$ -- 30
-cite$ -- 59
-duplicate$ -- 2965
-empty$ -- 2141
-format.name$ -- 587
-if$ -- 9411
++ -- 475
+- -- 668
+* -- 3051
+:= -- 4164
+add.period$ -- 160
+call.type$ -- 32
+change.case$ -- 238
+chr.to.int$ -- 32
+cite$ -- 63
+duplicate$ -- 3159
+empty$ -- 2282
+format.name$ -- 623
+if$ -- 10085
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 136
-newline$ -- 317
-num.names$ -- 244
-pop$ -- 1237
+missing$ -- 145
+newline$ -- 336
+num.names$ -- 260
+pop$ -- 1322
 preamble$ -- 1
-purify$ -- 375
+purify$ -- 398
 quote$ -- 0
-skip$ -- 1106
+skip$ -- 1179
 stack$ -- 0
-substring$ -- 3201
-swap$ -- 334
-text.length$ -- 255
+substring$ -- 3539
+swap$ -- 354
+text.length$ -- 338
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 704
-warning$ -- 29
-while$ -- 229
+type$ -- 750
+warning$ -- 31
+while$ -- 248
 width$ -- 0
-write$ -- 610
-(There were 29 warnings)
+write$ -- 647
+(There was 1 error message)

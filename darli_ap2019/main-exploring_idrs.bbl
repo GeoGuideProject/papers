@@ -224,6 +224,20 @@
 \newblock
 
 
+\bibitem[\protect\citeauthoryear{Drosou and Pitoura}{Drosou and
+  Pitoura}{2012}]%
+        {DrosouP12}
+\bibfield{author}{\bibinfo{person}{Marina Drosou} {and}
+  \bibinfo{person}{Evaggelia Pitoura}.} \bibinfo{year}{2012}\natexlab{}.
+\newblock \showarticletitle{DisC diversity: result diversification based on
+  dissimilarity and coverage}.
+\newblock \bibinfo{journal}{{\em {PVLDB}\/}} \bibinfo{volume}{6},
+  \bibinfo{number}{1} (\bibinfo{year}{2012}), \bibinfo{pages}{13--24}.
+\newblock
+\showURL{%
+\url{http://dl.acm.org/citation.cfm?id=2428538}}
+
+
 \bibitem[\protect\citeauthoryear{Duckham, Kulik, Worboys, and Galton}{Duckham
   et~al\mbox{.}}{2008}]%
         {DUCKHAM2008}
@@ -298,6 +312,21 @@
   \bibinfo{booktitle}{{\em Data Engineering (ICDE), 2014 IEEE 30th
   International Conference on}}. IEEE, \bibinfo{pages}{472--483}.
 \newblock
+
+
+\bibitem[\protect\citeauthoryear{Leroy, Cambazoglu, and Bonchi}{Leroy
+  et~al\mbox{.}}{2010}]%
+        {LeroyCB10}
+\bibfield{author}{\bibinfo{person}{Vincent Leroy},
+  \bibinfo{person}{Berkant~Barla Cambazoglu}, {and} \bibinfo{person}{Francesco
+  Bonchi}.} \bibinfo{year}{2010}\natexlab{}.
+\newblock \showarticletitle{Cold start link prediction}. In
+  \bibinfo{booktitle}{{\em Proceedings of the 16th {ACM} {SIGKDD} International
+  Conference on Knowledge Discovery and Data Mining, Washington, DC, USA, July
+  25-28, 2010}}. \bibinfo{pages}{393--402}.
+\newblock
+\showDOI{%
+\url{https://doi.org/10.1145/1835804.1835855}}
 
 
 \bibitem[\protect\citeauthoryear{Levandoski, Sarwat, Eldawy, and

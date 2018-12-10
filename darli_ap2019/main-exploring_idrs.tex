@@ -53,14 +53,6 @@
 }
 \email{placido.neto@ifrn.edu.br}
 
-
- \author{Behrooz Omidvar-Tehrani}
-\affiliation{%
-  \institution{University of Grenoble Alpes (France)}
-}
-\email{behrooz.omidvar-tehrani@univ-grenoble-alpes.fr}
-
-
 \author{Francisco B. Silva J\'unior}
 \affiliation{%
 \institution{Federal Institute of Rio Grande do Norte (Brazil)}
@@ -74,6 +66,14 @@
 \email{freire.pontes@academico.ifrn.edu.br}
 
 
+ \author{Behrooz Omidvar-Tehrani}
+\affiliation{%
+  \institution{University of Grenoble Alpes (France)}
+}
+\email{behrooz.omidvar-tehrani@univ-grenoble-alpes.fr}
+
+
+
 % The default list of authors is too long for headers}
 % \renewcommand{\shortauthors}{B. Trovato et al.}
 \renewcommand{\shortauthors}{}
@@ -81,9 +81,7 @@
 
 \begin{abstract}
 
-Nowadays, spatial data are ubiquitous in various fields of science, such as transportation and social science. A recent research direction in analysing spatial data is to provide means for ``exploratory analysis'' of such data where analysts are guided towards interesting options in consecutive analysis iterations. Typically, the guidance component learns analyst's preferences using her explicit feedback, e.g., picking a spatial point or selecting a region of interest. However, it is often the case that analysts forget or don't feel necessary to explicitly express their feedback in what they find interesting. Our approach captures implicit feedback on spatial data. The approach consists of observing mouse moves (as a means of analyst's interaction) and also the explicit analyst's interaction with the application in order to discover interesting spatial regions where the analyst has frequent mouse hovers. 
- 
-In this paper we define, formalize and explore Interesting Dense Regions (IDRs) which capture preferences of analysts in order to automatically find highlights. Our approach involves a polygon-based abstraction layer for captured preferences. Using these interesting dense regions, we highlight points to guide analysts in the analysis process. We discuss the efficiency and effectiveness of our approach through a realistic example and experiments on Airbnb and Yelp datasets.
+Nowadays, spatial data are ubiquitous in various fields of science, such as transportation and the social Web. A recent research direction in analysing spatial data is to provide means for ``exploratory analysis'' of such data where analysts are guided towards interesting options in consecutive analysis iterations. Typically, the guidance component learns analyst's preferences using her explicit feedback, e.g., picking a spatial point or selecting a region of interest. However, it is often the case that analysts forget or don't feel necessary to explicitly express their feedback in what they find interesting. Our approach captures implicit feedback on spatial data. The approach consists of observing mouse moves (as a means of analyst's interaction) and also the explicit analyst's interaction with data points in order to discover interesting spatial regions with dense mouse hovers. In this paper, we define, formalize and explore Interesting Dense Regions (IDRs) which capture preferences of analysts in order to automatically find highlights. Our approach involves a polygon-based abstraction layer for captured preferences. Using these IDRs, we highlight points to guide analysts in the analysis process. We discuss the efficiency and effectiveness of our approach through a realistic example and experiments on Airbnb and Yelp datasets.
 
 \end{abstract}
 
@@ -132,7 +130,7 @@ In this paper we define, formalize and explore Interesting Dense Regions (IDRs) 
 Nowadays, there has been a meteoric rise in the generation of spatial datasets in various fields of science, such as transportation, lodging services and social science. As each record in spatial data represents an activity in a precise geographical location, analyzing such data enables discoveries grounded on facts. Analysts are often interested to observe spatial patterns and trends to improve their decision making process. Spatial data analysis has various applications such as smart city management, disaster management and autonomous transport \cite{RoddickEHPS04,Telang:2012}.
 
 \vspace{2pt}
-Typically, spatial data analysis begins with an imprecise question in the mind of the analyst, i.e., {\em exploratory analysis}. The analyst requires to go through several trail-and-error iterations to improve her understanding of the spatial data and gain insights. Each iteration involves visualizing a subset of data on geographical maps using an  off-the-shelf product (e.g., Tableau\footnote{\it http://www.tableau.com}, Exhibit\footnote{\it http://www.simile-widgets.org/exhibit/}, Spotfire\footnote{\it http://spotfire.tibco.com}) where the analyst can investigate on different parts of the visualization by zooming in/out and panning on the map. 
+Typically, spatial data analysis begins with an imprecise question in the mind of the analyst, i.e., {\em exploratory analysis}. The analyst requires to go through several trial-and-error iterations to improve her understanding of the spatial data and gain insights. Each iteration involves visualizing a subset of data on geographical maps using an  off-the-shelf product (e.g., Tableau\footnote{\it http://www.tableau.com}, Exhibit\footnote{\it http://www.simile-widgets.org/exhibit/}, Spotfire\footnote{\it http://spotfire.tibco.com}) where the analyst can investigate on different parts of the visualization by zooming in/out and panning on the map. 
 
 \vspace{3pt}
 Spatial data are often voluminous. Hence the focus in the literature of spatial data analysis is on ``efficiency'', i.e., enabling fluid means of navigation in spatial data to facilitate the exploratory analysis. The common approach is to design pre-computed indexes which enable efficient retrieval of spatial data (e.g., \cite{lins2013nanocubes}). However, there has been less attention to the ``value'' derived from spatial data. Despite the huge progress on the efficiency front, an analyst may easily get lost in the plethora of geographical points due to two following reasons.
@@ -148,23 +146,34 @@ The main drawback of the traditional analysis model is that the analyst has a {\
 % Hence, feedback capturing lies at the core of such guidance system.
 
 \vspace{2pt}
-Various approaches in the literature propose methodologies to incorporate analyst's feedback in the exploration process of spatial data. Typically, feedback is considered as a function which is triggered by any analyst's action on the map. The action can be ``selecting a point'', ``moving to a region'', ``asking for more details'', etc. The function then updates a ``profile vector'' which keeps tracks of analyst's interests. The updated content in the profile vector enables the guidance functionality. For instance, if the analyst shows interest in a point which describes a house with balcony, this choice of amenity will reflect her profile to prioritize other houses with balcony in future iterations.
+Various approaches \cite{Ballatore2008,Liu:2010,xin2006discovering,bhuiyan2012interactive} in the literature propose methodologies to incorporate analyst's feedback in the exploration process of spatial data. Typically, feedback is considered as a function which is triggered by any analyst's action on the map. The action can be ``selecting a point'', ``moving to a region'', ``asking for more details'', etc. The function then updates a ``profile vector'' which keeps tracks of analyst's interests. The updated content in the profile vector enables the guidance functionality. For instance, if the analyst shows interest in a point which describes a house with balcony, this choice of amenity will reflect her profile to prioritize other houses with balcony in future iterations.
 
 \vspace{2pt}
 Feedback is often expressed {\em explicitly}, i.e., the analyst clicks on a point and mentions if she likes or dislikes the point \cite{kamat2014distributed,Omidvar-Tehrani:2015,omidvar2017geoguide}. In \cite{omidvar2017geoguide}, we proposed an interactive approach to exploit such feedback for enabling a more insightful exploration of spatial data. However, there are several cases that the feedback is expressed {\em implicitly}, i.e., the analyst does not explicitly click on a point, but there exists correlations with other signals captured from the analyst which provide hint on her interest. For instance, it is often the case in spatial data analysis that analysts look at some regions of interest but do not provide an explicit feedback. Another example is frequent mouse moves around a region which is a good indicator of the analyst's potential interest in the points in that region. Implicit feedbacks are more challenging to capture and hence less investigated in the literature. The following example describes a use case of implicit feedbacks. This will be our running example which we follow thoughout the paper.
 
 \vspace{2pt}
-\noindent {\bf Example.} {\em Ben\'icio is planning to live in Paris for a season. He decides to rent a home-stay from Airbnb website\footnote{\it http://www.airbnb.com}. He likes to discover the city, hence he is open to any type of lodging in any region with an interest to stay in the center of Paris. The website returns 1500 different locations. As he has no other preferences, an exhaustive investigation needs scanning each location independently which is nearly infeasible. While he is scanning few first options, he shows interest in the region of Trocadero (where the Eiffel tower is located in) but he forgets or doesn't feel necessary to click a point there. An ideal system should capture this implicit feedback in order to short-list a small subset of locations that Ben\'icio should consider as high priority}.
+\noindent {\bf Example.} {\em Ben\'icio is planning to live in Paris for a season. He decides to rent a home-stay from Airbnb website\footnote{\it http://www.airbnb.com}. He likes to discover the city, hence he is open to any type of lodging in any region with an interest to stay in the center of Paris. The website returns 1500 different locations. As he has no other preferences, an exhaustive investigation needs scanning each location independently which is nearly infeasible. While he is scanning few first options, he shows interest in the region of Trocadero (where the Eiffel tower is located at) but he forgets or doesn't feel necessary to click a point there. An ideal system should capture this implicit feedback in order to short-list a small subset of locations that Ben\'icio should consider as high priority}.
 
 \vspace{2pt}
 The above example shows in practice that implicit feedback capturing is crucial in the context of spatial data analysis. While text-boxes, combo-boxes and other input elements are available in analyzing other types of data, the only interaction means between the analyst and a spatial data analysis system is a geographical map spanned on the whole screen. In this context, a point can be easily remained out of sight and missed.
 
+
 \vspace{2pt}
 In this paper, we present an approach whose aim is to capture and analyze implicit feedback of analysts in spatial data analysis. Without loss of generality, we focus on ``mouse moves'' as the implicit feedback received from the analyst. Mouse moves are the most common way that analysts interact with geographical maps~\cite{Chen:2001}. It is shown in \cite{Arapakis:2014} that mouse gestures have a strong correlation with ``user engagement''. Intuitively, a point gets a higher weight in the analyst's profile if the mouse cursor moves around it frequently.  However, our approach can be easily extended to other types of inputs such as gaze tracking, leap motions, etc.
 
+\vspace{2pt}
+\noindent {\bf Contributions.} In this paper, we make the following contributions:
+
+\begin{itemize}[leftmargin=*]
+  \item We define and explore the notion of ``implicit user feedback'' which enables a seamless navigation in spatial data;
+  \item We define the notion of ``information highlighting'', a mechanism to highlight out-of-sight important information for an	analysts. A clear distinction of our proposal with the literature is that it doesn't aim for pruning (such as top-k recommendation), but leveraging the actual data with potential interesting results (i.e., highlights);
+  \item  We define and formalize the concept of Interesting Dense Regions (IDRs), a polygon-based approach to explore and highlight spatial data, using different layers for spatial data analysis;
+  \item We propose an efficient greedy approach to compute highlights on-the-fly;
+  \item We show the effectiveness of our approach through a set of qualitative experiments.
+\end{itemize}  
 
 \vspace{2pt}
-The outline of the paper is the following. Section \ref{sec:datamodel} describes our data model. In Section \ref{sec:problem}, we formally define our problem. Then in Section \ref{sec:algo}, we present our solution and its algorithmic details. Section  \ref{sec:experiments} reports our experiments on the framework. We review the related work in Section \ref{sec:rel}. Last, we conclude in Section \ref{sec:conclusion}.
+The outline of the paper is the following. Section \ref{sec:datamodel} describes our data model. In Section \ref{sec:problem}, we formally define our problem. Then in Section \ref{sec:algo}, we present our solution and its algorithmic details. Section  \ref{sec:experiments} reports our experiments on the framework. We review the related work in Section \ref{sec:rel}. We present some limitations of our work on Section \ref{sec:limitations}. Last, we conclude in Section~\ref{sec:conclusion}.
 
 \section{Data Model}
 \label{sec:datamodel}
@@ -174,7 +183,7 @@ We consider two different layers on a geographical map: ``spatial layer'' and ``
 \noindent {\bf Spatial layer.} Each point $p \in \mathcal{P}$ is described using its coordinates, {\em latitude} and {\em longitude}, i.e., $p = \langle \mathit{lat}, \mathit{lon} \rangle$. Note that in this work, we don't consider ``time'' for spatial points as our contribution focuses on their location. Points are also associated to a set of domain-specific attributes $\mathcal{A}$. For instance, for a dataset of a real estate agency, points are properties (houses and apartments) and $\mathcal{A}$ contains attributes such as ``surface'', ``number of pieces'' and  ``price''. The set of all possible values for an attribute $a \in \mathcal{A}$ is denoted as $dom(a)$. We also define analyst's feedback $F$ as a vector over all attribute values (i.e., facets), i.e., $F = \overrightarrow{\cup_{a \in \mathcal{A}}dom(a)}$. The vector $F$ is initialized by zeros and will be manipulated to express analyst's preferences.
 
 \vspace{2pt}
-\noindent {\bf Interaction layer} Whenever the analyst moves her mouse, a new point $m$ is appended to the set $\mathcal{M}$. Each mouse move point is described using the pixel position that it touches and the clock time of the move. Hence each mouse move point is a tuple $m = \langle x, y, t \rangle$, where $x$ and $y$ specifies the pixel location and $t$ is a Unix Epoch time. To conform with geographical standards, we assume $m = \langle 0, 0\rangle$ sits at the middle of the interaction layer, both horizontally and vertically.
+\noindent {\bf Interaction layer.} Whenever the analyst moves her mouse, a new point $m$ is appended to the set $\mathcal{M}$. Each mouse move point is described using the pixel position that it touches and the clock time of the move. Hence each mouse move point is a tuple $m = \langle x, y, t \rangle$, where $x$ and $y$ specifies the pixel location and $t$ is a Unix Epoch time. To conform with geographical standards, we assume $m = \langle 0, 0\rangle$ sits at the middle of the interaction layer, both horizontally and vertically.
 % We also define a set of regions $\mathit{R}$ where each $r \in \mathit{R}$ contains a set of mouse move points $\mathcal{M}_r \subseteq \mathcal{M}$ and a time interval $T_r$ where $\forall m=\langle x,y,t\rangle \in \mathcal{M}_r, t \in T_r$.
 
 \vspace{2pt}
@@ -211,7 +220,7 @@ The large size of spatial data hinders its effective analysis for discovering in
 The first constraint guarantees that returned highlights are highly similar with analyst's interests captured in $F$. The second constraint ensures that $k$ points cover different regions and they don't repeat themselves. While our approach is independent from the way that {\em similarity} and {\em diversity} functions are formulated, we provide a formal definition of these functions in Section \ref{sec:algo}.
 
 \vspace{2pt}
-The aforementioned problem is hard to solve due to following challenges.
+The aforementioned problem is hard to solve due to the following challenges.
 
 \vspace{3pt}
 \noindent $\blacksquare$ {\bf Challenge 1.} First, it is not clear how mouse move points influence the feedback vector. Mouse moves occur on a separate layer and there should be some meaningful transformations to interpret mouse moves as potential changes in the feedback vector. 
@@ -223,7 +232,7 @@ The aforementioned problem is hard to solve due to following challenges.
 \noindent $\blacksquare$ {\bf Challenge 3.} Beyond two first challenges, finding the most similar and diverse points with $F$ needs an exhaustive scan of all points in $\mathcal{P}$ which is prohibitively expensive: in most spatial datasets, there exist millions of points. Moreover, we need to follow multi-objective considerations as we aim to optimize both similarity and diversity at the same time.
 
 \vspace{2pt}
-In Section \ref{sec:algo}, we discuss a solution for the aforementioned problem and its associated challenges.
+We recognize the complexity of our problem using the aforementioned challenges.  In Section \ref{sec:algo}, we discuss a solution for the aforementioned problem and its associated challenges.
 
 \section{Interesting Dense Regions}
 \label{sec:algo}
@@ -245,7 +254,7 @@ $\mathcal{P}_k \gets \mathit{get\_highlights}(\mathcal{P}, F)$\label{ln:highligh
 \vspace{2pt}
 The algorithm begins by mining the set of mouse move points $\mathcal{M}$ in the interaction layer to discover one or several Interesting Dense Regions, abbr., IDRs, in which most analyst's interactions occur (line \ref{ln:dense}). Then it matches the spatial points $\mathcal{P}$ with IDRs using Equation \ref{eq:reverse} in order to find points inside each region (line \ref{ln:match}). The attributes of resulting points will be exploited to update the analyst's feedback vector~$F$~(line \ref{ln:update}). The updated vector $F$ will then be used to find $k$ highlights (line \ref{ln:highlight}). These steps ensure that the final highlights reflect analyst's implicit interests. We detail each step as follows.
 
-\subsection{Finding IDRs}
+\subsection{Discovering IDRs}
 The objective of this step is to obtain one or several regions in which the analyst has expressed her implicit feedback. There are two observations for such regions.
 
 \vspace{2pt}
@@ -255,7 +264,7 @@ The objective of this step is to obtain one or several regions in which the anal
 \noindent $\blacksquare$ {\bf Observation 2.} It is possible that the analyst moves her mouse everywhere in the map. This should not signify that everywhere in the map has the same significance.
 
 \vspace{2pt}
-Following our observations, we propose Algorithm \ref{algo:dense} for mining IDRs. We add points to $\mathcal{M}$ only every $200ms$ to prevent adding redundant points.  Following Observation 1 and in order to mine the recurring behavior of the analyst, the algorithm begins by partitioning the set $\mathcal{M}$ into $g$ fixed-length consecutive segments $\mathcal{M}_0$ to $\mathcal{M}_g$. The first segment starts at time zero (where the system started), and the last segment ends at $t_c$, i.e., the current time. Following Observation 2, we then find dense clusters in each segment of $\mathcal{M}$ using a variant of DB-SCAN~\cite{Ester:1996} approach. Finally, we return intersections among those clusters as IDRs.
+Following our observations, we propose Algorithm \ref{algo:dense} for mining IDRs. We add points to $\mathcal{M}$ only every $200ms$ to prevent adding redundant points (i.e., Challenge 2).  Following Observation 1 and in order to mine the recurring behavior of the analyst, the algorithm begins by partitioning the set $\mathcal{M}$ into $g$ fixed-length consecutive segments $\mathcal{M}_0$ to $\mathcal{M}_g$. The first segment starts at time zero (where the system started), and the last segment ends at $t_c$, i.e., the current time. Following Observation 2, we then find dense clusters in each segment of $\mathcal{M}$ using a variant of DB-SCAN~\cite{Ester:1996} approach. Finally, we return intersections among those clusters as IDRs.
 
 \vspace{2pt}
 For clustering points in each time segment (i.e., line \ref{ln:mine} of Algorithm~\ref{algo:dense}), we use ST-DBSCAN~\cite{Birant:2007}, a space-aware variant of DB-SCAN for clustering points based on density. For each subset of mouse move points $\mathcal{M}_i$, $i \in [0,g]$, ST-DBSCAN begins with a random point $m_0 \in \mathcal{M}_i$ and collects all density-reachable points from $m_0$ using a distance metric. As mouse move points are the 2-dimensional pixel space (i.e., the display), we choose euclidean distance as the distance metric. If $m_0$ turns out to be a core object, a cluster will be generated. Otherwise, if $m_0$ is a border object, no point is density-reachable from $m_0$ and the algorithm picks another random point in $\mathcal{M}_i$. The process is repeated until all of the points have been processed.
@@ -324,7 +333,7 @@ The set of matching points $\mathcal{P}_s$ (line \ref{ln:match} of Algorithm \re
 We consider an {\em increment value} $\delta$ to update $F$. If $p \in \mathcal{P}_s$ gets $v_1$ for attribute $a_1$, we augment the value in the $F$'s cell of $\langle a_1, v_1 \rangle$ by $\delta$. Note that we only consider incremental feedback, i.e., we never decrease a value in $F$.
 
 \vspace{2pt}
-We explain the process of updating the feedback vector using a toy example. Given the four matched points in IDR1 (Figure \ref{fig:match}) with prices 130\euro, 58\euro, 92\euro\ and 67\euro, we want to update the vector $F$ given those points. Few attributes of these points are mentioned in Table \ref{tbl:attribs}. In practice, there are often more than 50 attributes for points. The cells of $F$ is illustrated in the first column of Table \ref{tbl:feedback}. As three points get the value ``1'' for the attribute ``\#Beds'', then the value in cell $\langle$\#Beds,1$\rangle$ is augmented three times by $\delta$. The same process is repeated for all attribute-values of points in $\mathcal{P}_s$. Note that all cells of $F$ are not necessarily touched in the feedback update process. For instance, in the above example, 5 cells out of 12 remain unchanged.
+We explain the process of updating the feedback vector using a toy example. Given the four matched points in IDR1 (Figure \ref{fig:match}) with prices 130\euro, 58\euro, 92\euro\ and 67\euro, we want to update the vector $F$ given those points. Few attributes of these points are mentioned in Table \ref{tbl:attribs}. In practice, there are often more than 50 attributes for points. The cells of $F$ are illustrated in the first column of Table \ref{tbl:feedback}. As three points get the value ``1'' for the attribute ``\#Beds'', then the value in cell $\langle$\#Beds,1$\rangle$ is augmented three times by $\delta$. The same process is repeated for all attribute-values of points in $\mathcal{P}_s$. Note that all cells of $F$ are not necessarily touched in the feedback update process. For instance, in the above example, 5 cells out of 12 remain unchanged.
 
 \vspace{2pt}
 By specifying an increment value, we can materialize the updates and normalize the vector using a Softmax function. We always normalize $F$ in a way that all cell values sum up to $1.0$. Given $\delta = 1.0$, the normalized values of the $F$ vector is illustrated in the third column of Table \ref{tbl:feedback}. Higher values of $\delta$ increase the influence of feedbacks.
@@ -333,7 +342,7 @@ By specifying an increment value, we can materialize the updates and normalize t
 The normalized content of the vector $F$ captures the implicit preferences of the analyst. For instance, the content of $F$ after applying points in IDR1 shows that the analyst has a high interest in having a balcony in her home-stay, as her score for the cell $\langle$Balcony,Yes$\rangle$ is 0.25, i.e., the highest among other cells. This reflects the reality as all points in IDR1 has balcony. Note that although we only consider positive feedback, the Softmax function lowers the values of untouched cells once other cells get rewarded.
 
 \vspace{2pt}
-An important consideration in interpreting the vector $F$ is that the value ``0'' does not mean the lowest preference, but {\em irrelevance}. For instance, consider the cell $\langle$Rating,2$\rangle$ in Table \ref{tbl:feedback}. The value ``0'' for this cell shows that the analyst has never expressed her implicit feedback on this facet. It is possible that in future iterations, the analyst shows interest in a 2-star home-stay (potentially thanks to its price), hence this cell gets a value greater than zero. However, cells with lower preferences are identifiable with non-zero values tending to zero. For instance, the value 0.06 for the cell $\langle$Rating,4$\rangle$ shows a lower preference towards 4-star home-stays comparing to the ones with 5 stars, as only one point in $\mathcal{P}_s$ is rated 4 in IDR1.
+An important consideration in interpreting the vector $F$ is that the value ``0'' does not mean the lowest preference, but {\em irrelevance}. For instance, consider the cell $\langle$Rating,2$\rangle$ in Table \ref{tbl:feedback}. The value ``0'' for this cell shows that the analyst has never expressed her implicit feedback on this facet. It is possible that in future iterations, the analyst shows interest in a 2-star home-stay (potentially thanks to its price), hence this cell gets a value greater than zero. However, cells with lower preferences are identifiable with non-zero values tending to zero. For instance, the value 0.06 for the cell $\langle$Rating,4$\rangle$ shows a lower preference towards 4-star home-stays compared to the ones with 5 stars, as only one point in $\mathcal{P}_s$ is rated 4 in IDR1.
 
 \begin{table}[t]
 \centering
@@ -375,7 +384,7 @@ $\langle$Rating,5$\rangle$                     & $+3\delta$                     
 The ultimate goal is to highlight $k$ points to guide analysts in analysing their spatial data. The updated feedback vector $F$ is the input to the highlighting phase. We assume that points in IDRs are already investigated by the analyst. Hence our search space for highlighting is $\mathcal{P} - \mathcal{P}_s$.
 
 \vspace{2pt}
-We seek two properties in $k$ highlights, i.e., {\em similarity} and {\em diversity}. First, highlights should be in the same direction of the analyst's implicit feedback, hence similar to the vector~$F$. The similarity between a point $p \in \mathcal{P}$ and the vector~$F$ is defined as follows.
+We seek two properties in $k$ highlights: {\em similarity} and {\em diversity}. First, highlights should be in the same direction of the analyst's implicit feedback, hence similar to the vector~$F$. The similarity between a point $p \in \mathcal{P}$ and the vector~$F$ is defined as follows.
 
 \begin{equation}
        \label{eq:rel}
@@ -392,7 +401,7 @@ Second, highlighted points should also represent distinct directions so that the
        \mathit{diversity}(\mathcal{P}_k) = \mathit{avg}_{\{p, p'\} \subset \mathcal{P}_k | p \neq p' } \mathit{distance}(p,p')
 \end{equation} 
 
-The function $\mathit{distance}(p,p')$ operates on geographical coordinates of $p$ and $p'$ and can be considered as any distance function of Minkowski distance family. However, as distance computations are done in the spherical space, a natural choice is to employ Haversine distance shown in Equation~\ref{eq:harvestine}.
+The function $\mathit{distance}(p,p')$ operates on geographical coordinates of $p$ and $p'$ and can be considered as any distance function of Minkowski distance family. However, as distance computations are done in the spherical space, a natural choice is to employ Haversine distance shown in Equation~\ref{eq:harvestine}. Our application of diversity on geographical points differ from those of \cite{DrosouP12}, because we consider geographical distance as base to calculate diversity between two points, while \cite{DrosouP12}  defines similarity between two objects using a distance metric, and shows that locating a minimum diverse set of objects is an NP-hard problem, the work proposes heuristics for locating approximate solutions. 
 
 \begin{dmath}
        \label{eq:harvestine}
@@ -434,10 +443,10 @@ $p_{next} \gets get\_next(\mathit{{\cal L}_{p^*}})$\;\label{cd:getnext}
 \end{algorithm}
 
 \vspace{2pt}
-In line \ref{ln:topk} of Algorithm \ref{algo:geoh}, $\mathcal{P}_k$ is initialized with the $k$ highest ranking points in ${\cal L}_{p^*}$. Function $get\_next({\cal L}_{p^*})$ (line \ref{cd:getnext}) returns the next point $p_{next}$ in ${\cal L}_{p^*}$ in sequential order. Lines \ref{cd:beginwhile} to \ref{cd:endwhile} iterate over the inverted indexes to determine if other points should be considered to increase diversity while staying within the time limit.
+In line \ref{ln:topk} of Algorithm \ref{algo:geoh}, $\mathcal{P}_k$ is initialized with the $k$ highest ranking points in ${\cal L}_{p^*}$. Function $get\_next({\cal L}_{p^*})$ (line \ref{cd:getnext}) returns the next point $p_{next}$ in ${\cal L}_{p^*}$ in sequential order ( as a common practice in information retrieval). Lines \ref{cd:beginwhile} to \ref{cd:endwhile} iterate over the inverted indexes to determine if other points should be considered to increase diversity while staying within the time limit.
 
 \vspace{2pt}
-The algorithm looks for a candidate point $p_{\mathit current} \in {\cal P}_k$ to replace in order to increase diversity. The boolean function $\mathit{diversity\_improved}()$ (line \ref{cd:betterdiv}) checks if by replacing $p_{current}$ by $p_{next}$ in ${\cal P}_k$, the overall diversity of the new ${\cal P}_k$ increases.
+The algorithm looks for a candidate point $p_{\mathit current} \in {\cal P}_k$ to replace in order to increase diversity. The boolean function $\mathit{diversity\_improved}()$ (line \ref{cd:betterdiv}) checks if by replacing $p_{current}$ by $p_{next}$ in ${\cal P}_k$, the overall diversity of the new ${\cal P}_k$ increases. It is important to highlight that for each run of the algorithm, we only focus on one specific inverted list associated to the input point. Algorithm \ref{algo:geoh} verifies the similarity  and diversity of each point with all other points, and then processes the normalization.
 
 
 
@@ -445,6 +454,8 @@ The algorithm looks for a candidate point $p_{\mathit current} \in {\cal P}_k$ t
 % The original begins by retrieving the most relevant points to $p$ by simply retrieving the $k$ highest ranking points in ${\cal L}_p$ (line \ref{cd:gettopk}) and function $get\_next({\cal L}_p)$ (Line \ref{cd:getnext}) returns the next point $p_{next}$ in ${\cal L}_p$ in sequential order. Line \ref{cd:empty_regions} initialize the set of points that will be retrieved by the highlighted regions. At the beginning we consider that there is no preferred regions. So, the sets ${\cal S}_{rp}$ and ${\cal S}_{p}$  are the same. Lines \ref{cd:beginwhile} to \ref{cd:endwhile} iterate over the inverted indexes to determine if other points should be considered to increase diversity while staying within the time limit and not violating the relevance threshold with the selected point. %Since points in ${\cal L}_g$ are sorted on decreasing relevance with $p$, the algorithm can safely stop as soon as the relevance condition is violated (or if the time limit is exceeded).
 
 % The algorithm then looks for a candidate point $p_{current} \in {\cal S}_p$ to replace in order to increase diversity. If the candidate point is presented in a region $r$ (line \ref{cd:point_in_region}), the point is included in ${\cal S}_{rp}$, considering the boolean function $\mathit{diversity\_improved}()$ (line \ref{cd:betterdiv}). This function checks if by replacing $p_{current}$ by $p_{next}$ in ${\cal S}_p$, the overall diversity of the new ${\cal S}_p$ increases. If the point is not in the preferred region, it is included into ${\cal S}_p$.
+
+
 
 \section{Experiments}
 \label{sec:experiments}
@@ -480,7 +491,7 @@ In the second part of our experiments, we employ two different datasets, i.e., A
 \vspace{2pt}
 We limit each session to $2$ minutes where we seek for interesting points in the datasets. We capture the following information in each session:
 
-\begin{itemize}%[leftmargin=*]
+\begin{itemize}[leftmargin=*]
   \item The number of regions created from the mouse moves during the session;
   \item The number of generated IDRs (intersection of regions);
   \item The number of points from the dataset presented in each IDR;
@@ -488,8 +499,9 @@ We limit each session to $2$ minutes where we seek for interesting points in the
 \end{itemize}  
 
 \vspace{2pt}
-Tables \ref{tbl:airbnb} and \ref{tbl:yelp} show the result for Airbnb and Yelp, respectively. In Table \ref{tbl:airbnb}, we observe that the number of regions decreases when the number of points increases. On average, 10 regions are constructed per session. The average number of points presented in IDRs is $24.97$. It shows that our approach is able to highlight at least $8.05\%$ of points from the dataset, on average. 
-
+Tables \ref{tbl:airbnb} and \ref{tbl:yelp} show the result for Airbnb and Yelp, respectively. In Table \ref{tbl:airbnb}, we observe that the number of regions decreases when the number of points increases. On average, 10 regions are constructed per session. The average number of points presented in IDRs is $25.97$. It shows that our approach is able to highlight at least $8.05\%$ of points from the dataset, on average. 
+We can notice an outlier in the experiment with 2000 points  in Tables \ref{tbl:airbnb}. This happened due the fact that  the analyst concentrated in a very small area generating a smaller number of IDRs, and consequently a smaller number of points.
+ 
 \begin{table}[h]
 \centering
 \caption{IDR statistics on Airbnb dataset}
@@ -508,7 +520,7 @@ Tables \ref{tbl:airbnb} and \ref{tbl:yelp} show the result for Airbnb and Yelp, 
 \end{table}
 
 \vspace{2pt}
-More uniform results are observed in Table \ref{tbl:yelp}, i.e., for Yelp dataset vis-\`a-vis Airbnb. The average number of generated regions reaches $12.75$ per session. Also,tThe number of regions decreases by increasing the number of points. The same happens for IDRs, where we obtain an average of $8.9$ IDRs generated per session. The number of points presented in IDRs is on average $108.65$ and it represents on average $13.11\%$ of points highlighted from the dataset.
+More uniform results are observed in Table \ref{tbl:yelp}, i.e., for Yelp dataset vis-\`a-vis Airbnb. The average number of generated regions reaches $12.75$ per session. Also, the number of regions decreases by increasing the number of points. The same happens for IDRs, where we obtain an average of $8.9$ IDRs generated per session. The number of points presented in IDRs is on average $108.65$ and it represents on average $13.11\%$ of points highlighted from the dataset.
 
 % For both datasets we considered the location presented in our example scenario, where Lucas is planning to pass some vacations days in Paris. 
 
@@ -536,16 +548,30 @@ To the best of our knowledge, the problem of spatial information highlighting us
 \noindent {\bf Information Highlighting.} The literature contains few instances of information highlighting approaches~\cite{Liang2010,Robinson2011,wongsuphasawat2016voyager,willett2007scented}. However, all these methods are objective, i.e., they 	assume that analyst's preferences are given as a constant input and will never change in the future. This limits their functionality for serving scenarios of exploratory analysis. The only way to fulfill ``spatial guidance'' is to consider the evolutionary and subjective nature of analyst's feedback. In our approach, the feedback vector gets updated in time based on the implicit feedback of the analyst.
 
 \vspace{2pt}
-Online recommendation approaches can also be considered as an information highlighting approach where recommended items count as highlights. Most recommendation algorithms are space-agnostic and do not take into account the spatial information. While few approaches focus on the spatial dimension~\cite{Bao2015,Levandoski:2012}, they still lack the evolutionary feedback capturing. Moreover, most recommendation methods miss ``result diversification'', i.e., highlights may not be effective due to overlaps.
+Online recommendation approaches can also be considered as an information highlighting approach where recommended items count as highlights. Most recommendation algorithms are space-agnostic and do not take into account the spatial information. While few approaches focus on the spatial dimension~\cite{Bao2015,Levandoski:2012,DrosouP12}, they still lack the evolutionary feedback capturing. Moreover, most recommendation methods miss ``result diversification'', i.e., highlights may not be effective due to overlaps.
 
 \vspace{3pt}
 \noindent {\bf Feedback Capturing.} Several approaches are proposed in the state of the art for capturing different forms of feedback~\cite{bhuiyan2012interactive,xin2006discovering,dimitriadou2016aide,kamat2014distributed,Omidvar-Tehrani:2015,boley2013one}. The common approach is a top-$k$ processing methodology in order to prune the search space based on the explicit feedback of the analyst and recommend a small subset of interesting results of size~$k$. A clear distinction of our proposal is that it doesn't aim for pruning, but leveraging the actual data with potential interesting results (i.e., highlights) that the analyst may miss due to the huge volume of spatial data. Moreover, in a typical top-$k$ processing algorithm, analyst's choices are limited to $k$. On the contrary, our IDR approach enables a freedom of choice where highlights get seamlessly updated with new analyst choices. 
 
 \vspace{2pt}
-Few works formulate fusing approaches of explicit and implicit feedbacks to better capture user preferences~\cite{AoidhBW07,Ballatore2008,Liu:2010}. IDRs functions purely on implicit feedback and does not require any sort of explicit signal from the analyst.
+Few works formulate fusing approaches of explicit and implicit feedbacks to better capture user preferences~\cite{AoidhBW07,Ballatore2008,Liu:2010}. Our approach functions purely on implicit feedback and does not require any sort of explicit signal from the analyst.
 
 \vspace{3pt}
-\noindent {\bf Region Discovery.} Our proposal finds interesting dense regions (IDRs) in order derive analyst's implicit preferences. There exist several approaches to infer a spatial region for a given set of points \cite{Bevis1989,DUCKHAM2008,FADILI2004,ARAMPATZIS2006,Galton2006,Barber:1996}. The common approach is to cluster points in form of concave and convex polygons. In~\cite{Bevis1989}, an algorithm is proposed to verify if a given point $p$ on the surface of a sphere is located inside, outside, or along the border of an arbitrary spherical polygon. In \cite{DUCKHAM2008,FADILI2004}, a non-convex polygon is constructed from a set of input points on a plane. In \cite{ARAMPATZIS2006,Galton2006}, imprecise regions are delineated into a convex or concave polygon. In our proposal, it is important to discover regions in a way to only capture mouse move points. In case a concave polygon is constructed, the ``dents'' of such a polygon may entail points which are not necessarily in $\mathcal{M}$. In the IDR's algorithm, however, we adapt Quickhull~\cite{Barber:1996}, due its simplicity, efficiency and it's natural implementation of convex polygons.
+\noindent {\bf Region Discovery.} Our proposal finds interesting dense regions (IDRs) in order to derive analyst's implicit preferences. There exist several approaches to infer a spatial region for a given set of points \cite{Bevis1989,DUCKHAM2008,FADILI2004,ARAMPATZIS2006,Galton2006,Barber:1996}. The common approach is to cluster points in form of concave and convex polygons. In~\cite{Bevis1989}, an algorithm is proposed to verify if a given point $p$ on the surface of a sphere is located inside, outside, or along the border of an arbitrary spherical polygon. In \cite{DUCKHAM2008,FADILI2004}, a non-convex polygon is constructed from a set of input points on a plane. In \cite{ARAMPATZIS2006,Galton2006}, imprecise regions are delineated into a convex or concave polygon. In our proposal, it is important to discover regions in a way to only capture mouse move points. In case a concave polygon is constructed, the ``dents'' of such a polygon may entail points which are not necessarily in $\mathcal{M}$. In the IDR's algorithm, however, we adapt Quickhull~\cite{Barber:1996}, due its simplicity, efficiency and it's natural implementation of convex polygons.
+
+\section{Limitations}
+\label{sec:limitations}
+
+ In this paper, we presented a solution for highlighting out-of-sight information using a polygon-based approach for capturing implicit feedbacks. To the best of our knowledge, our work is the first effort towards formalizing and implementing information highlighting using implicit feedback. However, we consider our work as an on-going effort where we envision to address some limitations in the future, such as ``customizability'', ``performance'', ``old start'', and ``quantitative experiments''.
+ 
+ \vspace{2pt}
+In this section we present some limitations of our proposed work, describing what we will consider as future work. One limitation is about the ``customizable'' use of geographical maps as an interaction means.  As we only consider static maps, we plan to work on translations and rotations as a future work. Another gap that we should envision to work over is  performance. We plan to process an extensive performance study in future work, specially, considering the way the regions are processed. IDR algorithm presents some performance issues. This is explicitly hinted in the experiments results with some bottleneck. Therefore, we plan to work on more detailed performance experiments.
+
+\vspace{2pt}
+Our problem bears similarities with recommendation algorithms where the quality of the output may be influenced by scarce availability of input. This problem is referred to as the cold start~\cite{LeroyCB10} problem in the literature. While there is no guarantee for a meaningful highlight in case of the complete absence of implicit feedbacks, our approach can return a reasonable set of highlights even with one single iteration of mouse moves. In the future, we envision to tackle the no-input challenge by leveraging statistical properties of the spatial data to obtain a default view for highlights.
+
+\vspace{2pt}
+Another limitation is the medium-size datasets to be processed. Our algorithm processes similarity and diversity in an $O(n^2)$ complexity. While processing a 10K-point dataset is straightforward in our framework, we plan to experiment with larger datasets in the future by improving our algorithms towards better performance. Another direction for future work is to consider experiments which measure the quantitative and qualitative influence of each component separately.  Quickhull~\cite{Barber:1996} uses a divide and conquer approach similar to that of quicksort. The complexity is considered to be $O(n log_{n})$ to the best case, whereas in the worst case it takes $O(n^2)$.
 
 
 \section{Conclusion}
@@ -554,8 +580,9 @@ Few works formulate fusing approaches of explicit and implicit feedbacks to bett
 In this paper, we present an approach to explore Interesting Dense Regions (IDRs) using implicit feedback in order to detect analyst latent preferences. The implicit feedbacks are captured from mouse moves of analysts over the geographical map while analyzing spatial data. We formalize a novel polygon-based mining algorithm which returns few highlights in line with analyst's implicit preferences. The highlights enable analysts to focus on what matters the most and prevent information overload.
 
 \vspace{2pt}
-We consider various directions of future work for this work. First, we are interested to incorporate an ``explainability'' component which can describe causalities behind preferences. For instance, we are interested to find seasonal patterns to see why the preferences of analysts change from place to place during various seasons of the year. Another direction is to incorporate ``Query by Visualization'' approaches, where analysts can specify their intents alongside their implicit preferences, directly on the map \cite{siddiqui2016effortless}.
+We consider various future directions for this work. First, we are interested to incorporate an ``explainability'' component which can describe causalities behind preferences. For instance, we are interested to find seasonal patterns to see why the preferences of analysts change from place to place during various seasons of the year. Another direction is to incorporate ``Query by Visualization'' approaches, where analysts can specify their intents alongside their implicit preferences, directly on the map~\cite{siddiqui2016effortless}.
 
+The main contributions of this work are: 1. the definition and implementation of the concept of Interesting Dense Regions (IDRs), a polygon based approach to explore and highlight spatial data, using different layers for spatial data analysis; 2. the exploration of implicit user feedback, allowing the analyst to perform analysis in a seamless manner, and 3. the highlighting algorithm to find out-of-sight informations on a spatial dataset. 
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{main-exploring_idrs} 
