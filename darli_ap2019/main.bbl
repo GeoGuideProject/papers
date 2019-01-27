@@ -1,0 +1,521 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{00}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{}, \showDOI{}, and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showDOI}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showDOI #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showDOI      \undefined \def \showDOI       #1{#1}\fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[\protect\citeauthoryear{Aoidh, Bertolotto, and Wilson}{Aoidh
+  et~al\mbox{.}}{2007}]%
+        {AoidhBW07}
+\bibfield{author}{\bibinfo{person}{Eoin~Mac Aoidh}, \bibinfo{person}{Michela
+  Bertolotto}, {and} \bibinfo{person}{David~C. Wilson}.}
+  \bibinfo{year}{2007}\natexlab{}.
+\newblock \showarticletitle{Analysis of implicit interest indicators for
+  spatial data}. In \bibinfo{booktitle}{{\em 15th {ACM} International Symposium
+  on Geographic Information Systems, {ACM-GIS} 2007, November 7-9, 2007,
+  Seattle, Washington, USA, Proceedings}}. \bibinfo{pages}{47}.
+\newblock
+\showDOI{%
+\url{https://doi.org/10.1145/1341012.1341071}}
+
+
+\bibitem[\protect\citeauthoryear{Arampatzis, van Kreveld, Reinbacher, Jones,
+  Vaid, Clough, Joho, and Sanderson}{Arampatzis et~al\mbox{.}}{2006}]%
+        {ARAMPATZIS2006}
+\bibfield{author}{\bibinfo{person}{Avi Arampatzis}, \bibinfo{person}{Marc van
+  Kreveld}, \bibinfo{person}{Iris Reinbacher}, \bibinfo{person}{Christopher~B.
+  Jones}, \bibinfo{person}{Subodh Vaid}, \bibinfo{person}{Paul Clough},
+  \bibinfo{person}{Hideo Joho}, {and} \bibinfo{person}{Mark Sanderson}.}
+  \bibinfo{year}{2006}\natexlab{}.
+\newblock \showarticletitle{Web-based delineation of imprecise regions}.
+\newblock \bibinfo{journal}{{\em Computers, Environment and Urban Systems\/}}
+  \bibinfo{volume}{30}, \bibinfo{number}{4} (\bibinfo{year}{2006}),
+  \bibinfo{pages}{436 -- 459}.
+\newblock
+\showISSN{0198-9715}
+\showDOI{%
+\url{https://doi.org/10.1016/j.compenvurbsys.2005.08.001}}
+\newblock
+\shownote{Geographic Information Retrieval (GIR).}
+
+
+\bibitem[\protect\citeauthoryear{Arapakis, Lalmas, and Valkanas}{Arapakis
+  et~al\mbox{.}}{2014}]%
+        {Arapakis:2014}
+\bibfield{author}{\bibinfo{person}{Ioannis Arapakis}, \bibinfo{person}{Mounia
+  Lalmas}, {and} \bibinfo{person}{George Valkanas}.}
+  \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{Understanding Within-Content Engagement Through
+  Pattern Analysis of Mouse Gestures}. In \bibinfo{booktitle}{{\em Proceedings
+  of the 23rd ACM International Conference on Conference on Information and
+  Knowledge Management}} {\em (\bibinfo{series}{CIKM '14})}.
+  \bibinfo{publisher}{ACM}, \bibinfo{address}{New York, NY, USA},
+  \bibinfo{pages}{1439--1448}.
+\newblock
+\showISBNx{978-1-4503-2598-1}
+\showDOI{%
+\url{https://doi.org/10.1145/2661829.2661909}}
+
+
+\bibitem[\protect\citeauthoryear{Ballatore and Bertolotto}{Ballatore and
+  Bertolotto}{2011}]%
+        {Ballatore2008}
+\bibfield{author}{\bibinfo{person}{Andrea Ballatore} {and}
+  \bibinfo{person}{Michela Bertolotto}.} \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{Semantically Enriching VGI in Support of Implicit
+  Feedback Analysis}. In \bibinfo{booktitle}{{\em Web and Wireless Geographical
+  Information Systems}}, \bibfield{editor}{\bibinfo{person}{Katsumi Tanaka},
+  \bibinfo{person}{Peter Fr{\"o}hlich}, {and} \bibinfo{person}{Kyoung-Sook
+  Kim}} (Eds.). \bibinfo{publisher}{Springer Berlin Heidelberg},
+  \bibinfo{address}{Berlin, Heidelberg}, \bibinfo{pages}{78--93}.
+\newblock
+\showISBNx{978-3-642-19173-2}
+
+
+\bibitem[\protect\citeauthoryear{Bao, Zheng, Wilkie, and Mokbel}{Bao
+  et~al\mbox{.}}{2015}]%
+        {Bao2015}
+\bibfield{author}{\bibinfo{person}{Jie Bao}, \bibinfo{person}{Yu Zheng},
+  \bibinfo{person}{David Wilkie}, {and} \bibinfo{person}{Mohamed Mokbel}.}
+  \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{Recommendations in location-based social networks:
+  a survey}.
+\newblock \bibinfo{journal}{{\em GeoInformatica\/}} \bibinfo{volume}{19},
+  \bibinfo{number}{3} (\bibinfo{year}{2015}), \bibinfo{pages}{525--565}.
+\newblock
+\showDOI{%
+\url{https://doi.org/10.1007/s10707-014-0220-8}}
+
+
+\bibitem[\protect\citeauthoryear{Barber, Dobkin, and Huhdanpaa}{Barber
+  et~al\mbox{.}}{1996}]%
+        {Barber:1996}
+\bibfield{author}{\bibinfo{person}{C.~Bradford Barber},
+  \bibinfo{person}{David~P. Dobkin}, {and} \bibinfo{person}{Hannu Huhdanpaa}.}
+  \bibinfo{year}{1996}\natexlab{}.
+\newblock \showarticletitle{The Quickhull Algorithm for Convex Hulls}.
+\newblock \bibinfo{journal}{{\em ACM Trans. Math. Softw.\/}}
+  \bibinfo{volume}{22}, \bibinfo{number}{4} (\bibinfo{date}{Dec.}
+  \bibinfo{year}{1996}), \bibinfo{pages}{469--483}.
+\newblock
+\showISSN{0098-3500}
+\showDOI{%
+\url{https://doi.org/10.1145/235815.235821}}
+
+
+\bibitem[\protect\citeauthoryear{Bevis and Chatelain}{Bevis and
+  Chatelain}{1989}]%
+        {Bevis1989}
+\bibfield{author}{\bibinfo{person}{Michael Bevis} {and}
+  \bibinfo{person}{Jean-Luc Chatelain}.} \bibinfo{year}{1989}\natexlab{}.
+\newblock \showarticletitle{Locating a point on a spherical surface relative to
+  a spherical polygon of arbitrary shape}.
+\newblock \bibinfo{journal}{{\em Mathematical Geology\/}} \bibinfo{volume}{21},
+  \bibinfo{number}{8} (\bibinfo{date}{01 Oct} \bibinfo{year}{1989}),
+  \bibinfo{pages}{811--828}.
+\newblock
+\showISSN{1573-8868}
+\showDOI{%
+\url{https://doi.org/10.1007/BF00894449}}
+
+
+\bibitem[\protect\citeauthoryear{Bhuiyan, Mukhopadhyay, and Hasan}{Bhuiyan
+  et~al\mbox{.}}{2012}]%
+        {bhuiyan2012interactive}
+\bibfield{author}{\bibinfo{person}{Mansurul Bhuiyan}, \bibinfo{person}{Snehasis
+  Mukhopadhyay}, {and} \bibinfo{person}{Mohammad~Al Hasan}.}
+  \bibinfo{year}{2012}\natexlab{}.
+\newblock \showarticletitle{Interactive pattern mining on hidden data: a
+  sampling-based solution}. In \bibinfo{booktitle}{{\em Proceedings of the 21st
+  ACM international conference on Information and knowledge management}}. ACM,
+  \bibinfo{pages}{95--104}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Birant and Kut}{Birant and Kut}{2007}]%
+        {Birant:2007}
+\bibfield{author}{\bibinfo{person}{Derya Birant} {and} \bibinfo{person}{Alp
+  Kut}.} \bibinfo{year}{2007}\natexlab{}.
+\newblock \showarticletitle{ST-DBSCAN: An Algorithm for Clustering
+  Spatial-temporal Data}.
+\newblock \bibinfo{journal}{{\em Data Knowl. Eng.\/}} \bibinfo{volume}{60},
+  \bibinfo{number}{1} (\bibinfo{date}{Jan.} \bibinfo{year}{2007}),
+  \bibinfo{pages}{208--221}.
+\newblock
+\showISSN{0169-023X}
+\showDOI{%
+\url{https://doi.org/10.1016/j.datak.2006.01.013}}
+
+
+\bibitem[\protect\citeauthoryear{Boley, Mampaey, Kang, Tokmakov, and
+  Wrobel}{Boley et~al\mbox{.}}{2013}]%
+        {boley2013one}
+\bibfield{author}{\bibinfo{person}{Mario Boley}, \bibinfo{person}{Michael
+  Mampaey}, \bibinfo{person}{Bo Kang}, \bibinfo{person}{Pavel Tokmakov}, {and}
+  \bibinfo{person}{Stefan Wrobel}.} \bibinfo{year}{2013}\natexlab{}.
+\newblock \showarticletitle{One click mining: Interactive local pattern
+  discovery through implicit preference and performance learning}. In
+  \bibinfo{booktitle}{{\em Proceedings of the ACM SIGKDD Workshop on
+  Interactive Data Exploration and Analytics}}. ACM, \bibinfo{pages}{27--35}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Chen, Anderson, and Sohn}{Chen
+  et~al\mbox{.}}{2001}]%
+        {Chen:2001}
+\bibfield{author}{\bibinfo{person}{Mon~Chu Chen}, \bibinfo{person}{John~R.
+  Anderson}, {and} \bibinfo{person}{Myeong~Ho Sohn}.}
+  \bibinfo{year}{2001}\natexlab{}.
+\newblock \showarticletitle{What Can a Mouse Cursor Tell Us More?: Correlation
+  of Eye/Mouse Movements on Web Browsing}. In \bibinfo{booktitle}{{\em CHI '01
+  Extended Abstracts on Human Factors in Computing Systems}} {\em
+  (\bibinfo{series}{CHI EA '01})}. \bibinfo{publisher}{ACM},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{281--282}.
+\newblock
+\showISBNx{1-58113-340-5}
+\showDOI{%
+\url{https://doi.org/10.1145/634067.634234}}
+
+
+\bibitem[\protect\citeauthoryear{Dimitriadou, Papaemmanouil, and
+  Diao}{Dimitriadou et~al\mbox{.}}{2016}]%
+        {dimitriadou2016aide}
+\bibfield{author}{\bibinfo{person}{Kyriaki Dimitriadou}, \bibinfo{person}{Olga
+  Papaemmanouil}, {and} \bibinfo{person}{Yanlei Diao}.}
+  \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{AIDE: an active learning-based approach for
+  interactive data exploration}.
+\newblock \bibinfo{journal}{{\em IEEE Transactions on Knowledge and Data
+  Engineering\/}} \bibinfo{volume}{28}, \bibinfo{number}{11}
+  (\bibinfo{year}{2016}), \bibinfo{pages}{2842--2856}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Drosou and Pitoura}{Drosou and
+  Pitoura}{2012}]%
+        {DrosouP12}
+\bibfield{author}{\bibinfo{person}{Marina Drosou} {and}
+  \bibinfo{person}{Evaggelia Pitoura}.} \bibinfo{year}{2012}\natexlab{}.
+\newblock \showarticletitle{DisC diversity: result diversification based on
+  dissimilarity and coverage}.
+\newblock \bibinfo{journal}{{\em {PVLDB}\/}} \bibinfo{volume}{6},
+  \bibinfo{number}{1} (\bibinfo{year}{2012}), \bibinfo{pages}{13--24}.
+\newblock
+\showURL{%
+\url{http://dl.acm.org/citation.cfm?id=2428538}}
+
+
+\bibitem[\protect\citeauthoryear{Duckham, Kulik, Worboys, and Galton}{Duckham
+  et~al\mbox{.}}{2008}]%
+        {DUCKHAM2008}
+\bibfield{author}{\bibinfo{person}{Matt Duckham}, \bibinfo{person}{Lars Kulik},
+  \bibinfo{person}{Mike Worboys}, {and} \bibinfo{person}{Antony Galton}.}
+  \bibinfo{year}{2008}\natexlab{}.
+\newblock \showarticletitle{Efficient generation of simple polygons for
+  characterizing the shape of a set of points in the plane}.
+\newblock \bibinfo{journal}{{\em Pattern Recognition\/}} \bibinfo{volume}{41},
+  \bibinfo{number}{10} (\bibinfo{year}{2008}), \bibinfo{pages}{3224 -- 3236}.
+\newblock
+\showISSN{0031-3203}
+\showDOI{%
+\url{https://doi.org/10.1016/j.patcog.2008.03.023}}
+
+
+\bibitem[\protect\citeauthoryear{Ester, Kriegel, Sander, and Xu}{Ester
+  et~al\mbox{.}}{1996}]%
+        {Ester:1996}
+\bibfield{author}{\bibinfo{person}{Martin Ester}, \bibinfo{person}{Hans-Peter
+  Kriegel}, \bibinfo{person}{J\"{o}rg Sander}, {and} \bibinfo{person}{Xiaowei
+  Xu}.} \bibinfo{year}{1996}\natexlab{}.
+\newblock \showarticletitle{A Density-based Algorithm for Discovering Clusters
+  a Density-based Algorithm for Discovering Clusters in Large Spatial Databases
+  with Noise}. In \bibinfo{booktitle}{{\em Proceedings of the Second
+  International Conference on Knowledge Discovery and Data Mining}} {\em
+  (\bibinfo{series}{KDD'96})}. \bibinfo{publisher}{AAAI Press},
+  \bibinfo{pages}{226--231}.
+\newblock
+\showURL{%
+\url{http://dl.acm.org/citation.cfm?id=3001460.3001507}}
+
+
+\bibitem[\protect\citeauthoryear{Fadili, Melkemi, and ElMoataz}{Fadili
+  et~al\mbox{.}}{2004}]%
+        {FADILI2004}
+\bibfield{author}{\bibinfo{person}{M.J. Fadili}, \bibinfo{person}{M. Melkemi},
+  {and} \bibinfo{person}{A. ElMoataz}.} \bibinfo{year}{2004}\natexlab{}.
+\newblock \showarticletitle{Non-convex onion-peeling using a shape hull
+  algorithm}.
+\newblock \bibinfo{journal}{{\em Pattern Recognition Letters\/}}
+  \bibinfo{volume}{25}, \bibinfo{number}{14} (\bibinfo{year}{2004}),
+  \bibinfo{pages}{1577 -- 1585}.
+\newblock
+\showISSN{0167-8655}
+\showDOI{%
+\url{https://doi.org/10.1016/j.patrec.2004.05.015}}
+
+
+\bibitem[\protect\citeauthoryear{Galton and Duckham}{Galton and
+  Duckham}{2006}]%
+        {Galton2006}
+\bibfield{author}{\bibinfo{person}{Antony Galton} {and} \bibinfo{person}{Matt
+  Duckham}.} \bibinfo{year}{2006}\natexlab{}.
+\newblock \showarticletitle{What Is the Region Occupied by a Set of Points?}.
+  In \bibinfo{booktitle}{{\em Geographic Information Science}},
+  \bibfield{editor}{\bibinfo{person}{Martin Raubal}, \bibinfo{person}{Harvey~J.
+  Miller}, \bibinfo{person}{Andrew~U. Frank}, {and} \bibinfo{person}{Michael~F.
+  Goodchild}} (Eds.). \bibinfo{publisher}{Springer Berlin Heidelberg},
+  \bibinfo{address}{Berlin, Heidelberg}, \bibinfo{pages}{81--98}.
+\newblock
+\showISBNx{978-3-540-44528-9}
+
+
+\bibitem[\protect\citeauthoryear{Kamat, Jayachandran, Tunga, and Nandi}{Kamat
+  et~al\mbox{.}}{2014}]%
+        {kamat2014distributed}
+\bibfield{author}{\bibinfo{person}{Niranjan Kamat}, \bibinfo{person}{Prasanth
+  Jayachandran}, \bibinfo{person}{Karthik Tunga}, {and} \bibinfo{person}{Arnab
+  Nandi}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{Distributed and interactive cube exploration}. In
+  \bibinfo{booktitle}{{\em Data Engineering (ICDE), 2014 IEEE 30th
+  International Conference on}}. IEEE, \bibinfo{pages}{472--483}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Leroy, Cambazoglu, and Bonchi}{Leroy
+  et~al\mbox{.}}{2010}]%
+        {LeroyCB10}
+\bibfield{author}{\bibinfo{person}{Vincent Leroy},
+  \bibinfo{person}{Berkant~Barla Cambazoglu}, {and} \bibinfo{person}{Francesco
+  Bonchi}.} \bibinfo{year}{2010}\natexlab{}.
+\newblock \showarticletitle{Cold start link prediction}. In
+  \bibinfo{booktitle}{{\em Proceedings of the 16th {ACM} {SIGKDD} International
+  Conference on Knowledge Discovery and Data Mining, Washington, DC, USA, July
+  25-28, 2010}}. \bibinfo{pages}{393--402}.
+\newblock
+\showDOI{%
+\url{https://doi.org/10.1145/1835804.1835855}}
+
+
+\bibitem[\protect\citeauthoryear{Levandoski, Sarwat, Eldawy, and
+  Mokbel}{Levandoski et~al\mbox{.}}{2012}]%
+        {Levandoski:2012}
+\bibfield{author}{\bibinfo{person}{Justin~J. Levandoski},
+  \bibinfo{person}{Mohamed Sarwat}, \bibinfo{person}{Ahmed Eldawy}, {and}
+  \bibinfo{person}{Mohamed~F. Mokbel}.} \bibinfo{year}{2012}\natexlab{}.
+\newblock \showarticletitle{LARS: A Location-Aware Recommender System}. In
+  \bibinfo{booktitle}{{\em ICDE}}. \bibinfo{pages}{450--461}.
+\newblock
+\showISBNx{978-0-7695-4747-3}
+\showDOI{%
+\url{https://doi.org/10.1109/ICDE.2012.54}}
+
+
+\bibitem[\protect\citeauthoryear{Liang and Huang}{Liang and Huang}{2010}]%
+        {Liang2010}
+\bibfield{author}{\bibinfo{person}{J. Liang} {and} \bibinfo{person}{M.~L.
+  Huang}.} \bibinfo{year}{2010}\natexlab{}.
+\newblock \showarticletitle{Highlighting in Information Visualization: A
+  Survey}. In \bibinfo{booktitle}{{\em 2010 14th International Conference
+  Information Visualisation}}.
+\newblock
+\showISSN{1550-6037}
+\showDOI{%
+\url{https://doi.org/10.1109/IV.2010.21}}
+
+
+\bibitem[\protect\citeauthoryear{Lins, Klosowski, and Scheidegger}{Lins
+  et~al\mbox{.}}{2013}]%
+        {lins2013nanocubes}
+\bibfield{author}{\bibinfo{person}{Lauro Lins}, \bibinfo{person}{James~T
+  Klosowski}, {and} \bibinfo{person}{Carlos Scheidegger}.}
+  \bibinfo{year}{2013}\natexlab{}.
+\newblock \showarticletitle{Nanocubes for real-time exploration of
+  spatiotemporal datasets}.
+\newblock \bibinfo{journal}{{\em IEEE Transactions on Visualization and
+  Computer Graphics\/}} \bibinfo{volume}{19}, \bibinfo{number}{12}
+  (\bibinfo{year}{2013}), \bibinfo{pages}{2456--2465}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Liu, Xiang, Zhao, and Yang}{Liu
+  et~al\mbox{.}}{2010}]%
+        {Liu:2010}
+\bibfield{author}{\bibinfo{person}{Nathan~N. Liu}, \bibinfo{person}{Evan~W.
+  Xiang}, \bibinfo{person}{Min Zhao}, {and} \bibinfo{person}{Qiang Yang}.}
+  \bibinfo{year}{2010}\natexlab{}.
+\newblock \showarticletitle{Unifying Explicit and Implicit Feedback for
+  Collaborative Filtering}. In \bibinfo{booktitle}{{\em Proceedings of the 19th
+  ACM International Conference on Information and Knowledge Management}} {\em
+  (\bibinfo{series}{CIKM '10})}. \bibinfo{publisher}{ACM},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{1445--1448}.
+\newblock
+\showISBNx{978-1-4503-0099-5}
+\showDOI{%
+\url{https://doi.org/10.1145/1871437.1871643}}
+
+
+\bibitem[\protect\citeauthoryear{Omidvar-Tehrani, Amer-Yahia, and
+  Termier}{Omidvar-Tehrani et~al\mbox{.}}{2015}]%
+        {Omidvar-Tehrani:2015}
+\bibfield{author}{\bibinfo{person}{Behrooz Omidvar-Tehrani},
+  \bibinfo{person}{Sihem Amer-Yahia}, {and} \bibinfo{person}{Alexandre
+  Termier}.} \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{Interactive User Group Analysis}. In
+  \bibinfo{booktitle}{{\em CIKM}}. \bibinfo{publisher}{ACM},
+  \bibinfo{pages}{403--412}.
+\newblock
+\showISBNx{978-1-4503-3794-6}
+\showDOI{%
+\url{https://doi.org/10.1145/2806416.2806519}}
+
+
+\bibitem[\protect\citeauthoryear{Omidvar-Tehrani, Neto, Pontes, and
+  Bento}{Omidvar-Tehrani et~al\mbox{.}}{2017}]%
+        {omidvar2017geoguide}
+\bibfield{author}{\bibinfo{person}{Behrooz Omidvar-Tehrani},
+  \bibinfo{person}{Pl{\'a}cido A~Souza Neto}, \bibinfo{person}{Felipe M~Freire
+  Pontes}, {and} \bibinfo{person}{Francisco Bento}.}
+  \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{GeoGuide: An Interactive Guidance Approach for
+  Spatial Data}. In \bibinfo{booktitle}{{\em Internet of Things (iThings) and
+  IEEE Green Computing and Communications (GreenCom) and IEEE Cyber, Physical
+  and Social Computing (CPSCom) and IEEE Smart Data (SmartData), 2017 IEEE
+  International Conference on}}. IEEE, \bibinfo{pages}{1112--1117}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Robinson}{Robinson}{2011}]%
+        {Robinson2011}
+\bibfield{author}{\bibinfo{person}{Anthony~C. Robinson}.}
+  \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{Highlighting in Geovisualization}.
+\newblock \bibinfo{journal}{{\em Cartography and Geographic Information
+  Science\/}} \bibinfo{volume}{38}, \bibinfo{number}{4} (\bibinfo{year}{2011}),
+  \bibinfo{pages}{373--383}.
+\newblock
+\showDOI{%
+\url{https://doi.org/10.1559/15230406384373}}
+\showeprint{http://dx.doi.org/10.1559/15230406384373}
+
+
+\bibitem[\protect\citeauthoryear{Roddick, Egenhofer, Hoel, Papadias, and
+  Salzberg}{Roddick et~al\mbox{.}}{2004}]%
+        {RoddickEHPS04}
+\bibfield{author}{\bibinfo{person}{John~F. Roddick}, \bibinfo{person}{Max~J.
+  Egenhofer}, \bibinfo{person}{Erik~G. Hoel}, \bibinfo{person}{Dimitris
+  Papadias}, {and} \bibinfo{person}{Betty Salzberg}.}
+  \bibinfo{year}{2004}\natexlab{}.
+\newblock \showarticletitle{Spatial, Temporal and Spatio-Temporal Databases -
+  Hot Issues and Directions for PhD Research}.
+\newblock \bibinfo{journal}{{\em {SIGMOD} Record\/}} \bibinfo{volume}{33},
+  \bibinfo{number}{2} (\bibinfo{year}{2004}), \bibinfo{pages}{126--131}.
+\newblock
+\showDOI{%
+\url{https://doi.org/10.1145/1024694.1024724}}
+
+
+\bibitem[\protect\citeauthoryear{Siddiqui, Kim, Lee, Karahalios, and
+  Parameswaran}{Siddiqui et~al\mbox{.}}{2016}]%
+        {siddiqui2016effortless}
+\bibfield{author}{\bibinfo{person}{Tarique Siddiqui}, \bibinfo{person}{Albert
+  Kim}, \bibinfo{person}{John Lee}, \bibinfo{person}{Karrie Karahalios}, {and}
+  \bibinfo{person}{Aditya Parameswaran}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{Effortless data exploration with zenvisage: an
+  expressive and interactive visual analytics system}.
+\newblock \bibinfo{journal}{{\em Proceedings of the VLDB Endowment\/}}
+  \bibinfo{volume}{10}, \bibinfo{number}{4} (\bibinfo{year}{2016}),
+  \bibinfo{pages}{457--468}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Telang, Padmanabhan, and Deshpande}{Telang
+  et~al\mbox{.}}{2012}]%
+        {Telang:2012}
+\bibfield{author}{\bibinfo{person}{Aditya Telang}, \bibinfo{person}{Deepak
+  Padmanabhan}, {and} \bibinfo{person}{Prasad Deshpande}.}
+  \bibinfo{year}{2012}\natexlab{}.
+\newblock \showarticletitle{Spatio-temporal Indexing: Current Scenario,
+  Challenges and Approaches}. In \bibinfo{booktitle}{{\em Proceedings of the
+  18th International Conference on Management of Data}} {\em
+  (\bibinfo{series}{COMAD '12})}. \bibinfo{publisher}{Computer Society of
+  India}, \bibinfo{address}{Mumbai, India, India}, \bibinfo{pages}{9--11}.
+\newblock
+\showURL{%
+\url{http://dl.acm.org/citation.cfm?id=2694443.2694449}}
+
+
+\bibitem[\protect\citeauthoryear{Willett, Heer, and Agrawala}{Willett
+  et~al\mbox{.}}{2007}]%
+        {willett2007scented}
+\bibfield{author}{\bibinfo{person}{Wesley Willett}, \bibinfo{person}{Jeffrey
+  Heer}, {and} \bibinfo{person}{Maneesh Agrawala}.}
+  \bibinfo{year}{2007}\natexlab{}.
+\newblock \showarticletitle{Scented widgets: Improving navigation cues with
+  embedded visualizations}.
+\newblock \bibinfo{journal}{{\em IEEE Transactions on Visualization and
+  Computer Graphics\/}} \bibinfo{volume}{13}, \bibinfo{number}{6}
+  (\bibinfo{year}{2007}), \bibinfo{pages}{1129--1136}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Wongsuphasawat, Moritz, Anand, Mackinlay,
+  Howe, and Heer}{Wongsuphasawat et~al\mbox{.}}{2016}]%
+        {wongsuphasawat2016voyager}
+\bibfield{author}{\bibinfo{person}{Kanit Wongsuphasawat},
+  \bibinfo{person}{Dominik Moritz}, \bibinfo{person}{Anushka Anand},
+  \bibinfo{person}{Jock Mackinlay}, \bibinfo{person}{Bill Howe}, {and}
+  \bibinfo{person}{Jeffrey Heer}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{Voyager: Exploratory analysis via faceted browsing
+  of visualization recommendations}.
+\newblock \bibinfo{journal}{{\em TVCG\/}} \bibinfo{volume}{22},
+  \bibinfo{number}{1} (\bibinfo{year}{2016}).
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Xin, Shen, Mei, and Han}{Xin
+  et~al\mbox{.}}{2006}]%
+        {xin2006discovering}
+\bibfield{author}{\bibinfo{person}{Dong Xin}, \bibinfo{person}{Xuehua Shen},
+  \bibinfo{person}{Qiaozhu Mei}, {and} \bibinfo{person}{Jiawei Han}.}
+  \bibinfo{year}{2006}\natexlab{}.
+\newblock \showarticletitle{Discovering interesting patterns through user's
+  interactive feedback}. In \bibinfo{booktitle}{{\em Proceedings of the 12th
+  ACM SIGKDD international conference on Knowledge discovery and data mining}}.
+  ACM, \bibinfo{pages}{773--778}.
+\newblock
+
+
+\end{thebibliography}
