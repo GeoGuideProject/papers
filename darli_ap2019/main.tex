@@ -17,6 +17,7 @@
 \usepackage[export]{adjustbox}
 \usepackage{xspace}
 \usepackage{breqn}
+\usepackage{flushend}
 
 %\newcommand{\sgg}{{\sc PolyGuide}}
 \newcommand{\sgg}{{\sc GeoPoly}}
@@ -469,10 +470,10 @@ We discuss two sets of experiments. Our first set is on the usefulness of our ap
 First off, we validate the ``usefulness'' of our approach. For this aim, we design a user study with some participants who are all students of Computer Science. Some of them are ``novice'' users who don't know the location under investigation, and some are ``experts.'' Participants should fulfill a task. For each participant, we report a variant of time-to-insight measure, i.e., how long the participants interact with the tool before fulfilling the task. Evidently, less number of interactions are preferred as it means that the participant can reach insights faster.
 
 \vspace{2pt}
-On the \textsf{Airbnb} dataset of Paris with 1,000 points, we define two different tasks: {\em T1: ``finding a point in a requested location''} (e.g., find a home-stay in the ``\textit{Champ de Mars}'' area), and {\em T2: ``finding a point with a requested profile''} (e.g., find a cheap home-stay.) Participants may also begin their navigation either from {\em I1: ``close to the goal''} or {\em I2: ``far from the goal''}. 
+On the \textsf{Airbnb}\footnote{\it \url{http://insideairbnb.com/get-the-data.html}} dataset of Paris with 1,000 points, we define two different types of tasks: {\em T1: ``finding a point in a requested location''} (e.g., find a home-stay in the ``\textit{Champ de Mars}'' area), and {\em T2: ``finding a point with a requested profile''} (e.g., find a cheap home-stay.) Due to the vagueness associated to these tasks, participants require to go through an exploratory analysis session. Moreover, participants may also begin their navigation either from {\em I1: ``close to the goal''} or {\em I2: ``far from the goal''}. 
 
 
-\begin{table}[h]
+\begin{table}[t]
 \centering
 \caption{Interactions of ``novice'' and ``expert'' participants (in seconds)}
 \label{tbl:novice}
@@ -486,10 +487,10 @@ On the \textsf{Airbnb} dataset of Paris with 1,000 points, we define two differe
 
 
 \vspace{2pt}
-Table \ref{tbl:novice} shows the results. We observe that on average it takes $2.067$ seconds to achieve defined goal. This shows that implicit feedback capturing is an effective mechanism which helps analysts to reach their goals much faster. Expert participants need $0.35$ seconds less time on average. Interestingly, starting points, i.e., {\em I1} and {\em I2}, do not have a huge impact on number of steps. It is potentially due to the diversity component which provides distinct options and can quickly guide analyst towards their region of interest. We also observe that the task {\em T2} is an easier task than {\em T1}. This is potentially due to  where the analyst can request options similar to what she has already observed and greedily move to her preferred regions.
+Table \ref{tbl:novice} shows the results. We observe that on average it takes $2.067$ seconds to achieve defined goals. This shows that implicit feedback capturing is an effective mechanism which helps analysts to reach their goals in a reasonable time. Expert participants need $0.35$ seconds less time on average. Interestingly, starting points, i.e., {\em I1} and {\em I2}, do not have a huge impact on number of steps. It is potentially due to the diversity component which provides distinct options and can quickly guide analyst towards their region of interest. We also observe that the task {\em T2} is an easier task than {\em T1}, as on average it took less to be accomplished. This is potentially due to  where the analyst can request options similar to what she has already observed and greedily move to her preferred regions.
 
 \vspace{2pt}
-In the second part of our experiments, we employ two different datasets, i.e., \textsf{Airbnb}\footnote{\it \url{http://insideairbnb.com/get-the-data.html}} and \textsf{Yelp}\footnote{\it \url{https://www.yelp.com/dataset}}. We pick a similar subset from both datasets, i.e., home-stays and restaurants in Paris city, respectively. We consider four different sizes of those datasets, i.e., $100$, $1000$, $2000$ and $4000$ points, respectively. For each size of the datasets, we manually perform $20$ sessions, and then we present the results as the average of sessions.
+In the second part of our experiments, we employ two different datasets, i.e., \textsf{Airbnb} and \textsf{Yelp}\footnote{\it \url{https://www.yelp.com/dataset}}. We pick a similar subset from both datasets, i.e., home-stays and restaurants in Paris city, respectively. We consider four different sizes of those datasets, i.e., $100$, $1000$, $2000$ and $4000$ points, respectively. For each size of the datasets, we manually perform $20$ sessions, and then we present the results as the average of sessions.
 
 \vspace{2pt}
 We limit each session to $2$ minutes where we seek for interesting points in the datasets. We capture the following information in each session:
@@ -502,10 +503,10 @@ We limit each session to $2$ minutes where we seek for interesting points in the
 \end{itemize}  
 
 \vspace{2pt}
-Tables \ref{tbl:airbnb} and \ref{tbl:yelp} show the result for \textsf{Airbnb} and \textsf{Yelp}, respectively. In Table \ref{tbl:airbnb}, we observe that the number of regions decreases when the number of points increases. On average, 10 regions are constructed per session. The average number of points presented in IDRs is $25.97$. It shows that our approach is able to highlight at least $8.05\%$ of points from the dataset, on average. 
-We can notice an outlier in the experiment with 2000 points  in Tables \ref{tbl:airbnb}. This happened due the fact that  the analyst concentrated in a very small area generating a smaller number of IDRs, and consequently a smaller number of points.
+Tables \ref{tbl:airbnb} and \ref{tbl:yelp} show the result for \textsf{Airbnb} and \textsf{Yelp}, respectively. In Table \ref{tbl:airbnb}, we observe that the number of regions decreases when the number of points increases. On average, $10$ regions are constructed per session. The average number of points presented in IDRs is $25.97$, which shows that our approach highlights at least $8.05\%$ of points from the dataset, on average.
+We notice an outlier in the experiment with 2000 points in Tables \ref{tbl:airbnb}. This happened due the fact that  the analyst concentrated in a very small area generating a smaller number of IDRs, and consequently a smaller number of points.
  
-\begin{table}[h]
+\begin{table}[t]
 \centering
 \caption{IDR statistics on \textsf{Airbnb} dataset}
 \label{tbl:airbnb}
@@ -527,7 +528,7 @@ More uniform results are observed in Table \ref{tbl:yelp}, i.e., for \textsf{Yel
 
 % For both datasets we considered the location presented in our example scenario, where Lucas is planning to pass some vacations days in Paris. 
 
-\begin{table}[h]
+\begin{table}[t]
 \centering
 \caption{IDR statistics on \textsf{Yelp} dataset}
 \label{tbl:yelp}
@@ -545,7 +546,7 @@ More uniform results are observed in Table \ref{tbl:yelp}, i.e., for \textsf{Yel
 
 \section{Related Work}
 \label{sec:rel}
-To the best of our knowledge, the problem of spatial information highlighting using implicit feedback has been never addressed in the literature. However, our work relates to few others in their semantics.
+To the best of our knowledge, the problem of spatial information highlighting using implicit feedback has not been addressed before in the literature. However, our work relates to few others in their semantics.
 
 \vspace{3pt}
 \noindent {\bf Information Highlighting.} The literature contains few instances of information highlighting approaches~\cite{Liang2010,Robinson2011,wongsuphasawat2016voyager,willett2007scented}. However, all these methods are objective, i.e., they 	assume that analyst's preferences are given as a constant input and will never change in the future. This limits their functionality for serving scenarios of exploratory analysis. The only way to fulfill ``spatial guidance'' is to consider the evolutionary and subjective nature of analyst's feedback. In our approach, the feedback vector gets updated in time based on the implicit feedback of the analyst.
@@ -554,28 +555,27 @@ To the best of our knowledge, the problem of spatial information highlighting us
 Online recommendation approaches can also be considered as an information highlighting approach where recommended items count as highlights. Most recommendation algorithms are space-agnostic and do not take into account the spatial information. While few approaches focus on the spatial dimension~\cite{Bao2015,Levandoski:2012,DrosouP12}, they still lack the evolutionary feedback capturing. Moreover, most recommendation methods miss ``result diversification'', i.e., highlights may not be effective due to overlaps.
 
 \vspace{3pt}
-\noindent {\bf Feedback Capturing.} Several approaches are proposed in the state of the art for capturing different forms of feedback~\cite{bhuiyan2012interactive,xin2006discovering,dimitriadou2016aide,kamat2014distributed,Omidvar-Tehrani:2015,boley2013one}. The common approach is a top-$k$ processing methodology in order to prune the search space based on the explicit feedback of the analyst and recommend a small subset of interesting results of size~$k$. A clear distinction of our proposal is that it doesn't aim for pruning, but leveraging the actual data with potential interesting results (i.e., highlights) that the analyst may miss due to the huge volume of spatial data. Moreover, in a typical top-$k$ processing algorithm, analyst's choices are limited to $k$. On the contrary, our IDR approach enables a freedom of choice where highlights get seamlessly updated with new analyst choices. 
+\noindent {\bf Feedback Capturing.} Several approaches are proposed in the state of the art for capturing different forms of feedback~\cite{bhuiyan2012interactive,xin2006discovering,dimitriadou2016aide,kamat2014distributed,Omidvar-Tehrani:2015,boley2013one}. The common approach is a top-$k$ processing methodology in order to prune the search space based on the explicit feedback of the analyst and return a small subset of interesting results of size~$k$. A clear distinction of our proposal is that it doesn't aim for pruning, but leveraging the actual data with potential interesting results (i.e., highlights) that the analyst may miss due to the huge volume of spatial data. Moreover, in a typical top-$k$ processing algorithm, analyst's choices are limited to $k$. On the contrary, our IDR approach enables a freedom of choice where highlights get seamlessly updated with new analyst's choices. 
 
 \vspace{2pt}
 Few works formulate fusing approaches of explicit and implicit feedbacks to better capture user preferences~\cite{AoidhBW07,Ballatore2008,Liu:2010}. Our approach functions purely on implicit feedback and does not require any sort of explicit signal from the analyst.
 
 \vspace{3pt}
-\noindent {\bf Region Discovery.} Our proposal finds interesting dense regions (IDRs) in order to derive analyst's implicit preferences. There exist several approaches to infer a spatial region for a given set of points \cite{Bevis1989,DUCKHAM2008,FADILI2004,ARAMPATZIS2006,Galton2006,Barber:1996}. The common approach is to cluster points in form of concave and convex polygons. In~\cite{Bevis1989}, an algorithm is proposed to verify if a given point $p$ on the surface of a sphere is located inside, outside, or along the border of an arbitrary spherical polygon. In \cite{DUCKHAM2008,FADILI2004}, a non-convex polygon is constructed from a set of input points on a plane. In \cite{ARAMPATZIS2006,Galton2006}, imprecise regions are delineated into a convex or concave polygon. In our proposal, it is important to discover regions in a way to only capture mouse move points. In case a concave polygon is constructed, the ``dents'' of such a polygon may entail points which are not necessarily in $\mathcal{M}$. In the IDR's algorithm, however, we adapt Quickhull~\cite{Barber:1996}, due its simplicity, efficiency and it's natural implementation of convex polygons.
+\noindent {\bf Region Discovery.} Our approach finds interesting dense regions (IDRs) in order to derive analyst's implicit preferences. There exist several approaches to infer a spatial region for a given set of points \cite{Bevis1989,DUCKHAM2008,FADILI2004,ARAMPATZIS2006,Galton2006,Barber:1996}. The common approach is to cluster points in form of concave and convex polygons. In~\cite{Bevis1989}, an algorithm is proposed to verify if a given point $p$ on the surface of a sphere is located inside, outside, or along the border of an arbitrary spherical polygon. In \cite{DUCKHAM2008,FADILI2004}, a non-convex polygon is constructed from a set of input points on a plane. In \cite{ARAMPATZIS2006,Galton2006}, imprecise regions are delineated into a convex or concave polygon. In our approach, it is important to discover regions by capturing mouse move points. In case a concave polygon is constructed, the ``dents'' of such a polygon may entail points which are not necessarily in $\mathcal{M}$. In the IDR's algorithm, however, we adapt Quickhull~\cite{Barber:1996}, due its simplicity, efficiency and its natural implementation of convex polygons.
 
 \section{Limitations}
 \label{sec:limitations}
 
- In this paper, we presented a solution for highlighting out-of-sight information using a polygon-based approach for capturing implicit feedbacks. To the best of our knowledge, our work is the first effort towards formalizing and implementing information highlighting using implicit feedback. However, we consider our work as an on-going effort where we envision to address some limitations in the future, such as ``customizability'', ``performance'', ``old start'', and ``quantitative experiments''.
+ In this paper, we presented a solution for highlighting out-of-sight information using a polygon-based approach for capturing implicit feedbacks. To the best of our knowledge, our work is the first effort towards formalizing and implementing information highlighting using implicit feedback. However, we consider our work as an on-going effort where we envision to address some limitations in the future, such as ``customizability'', ``performance'', ``cold start'', and ``quantitative experiments''.
  
  \vspace{2pt}
-In this section we present some limitations of our proposed work, describing what we will consider as future work. One limitation is about the ``customizable'' use of geographical maps as an interaction means. As we only consider static maps, we plan to work on translations and rotations as a future work. Another gap that we should envision to work over is  performance. We plan to process an extensive performance study in future work, specially, considering the way the regions are processed. IDR algorithm presents some performance issues. This is explicitly hinted in the experiments results with some bottleneck. Therefore, we plan to work on more detailed performance experiments.
+In this section we present some limitations of our proposed work, describing what we will consider as future work. One limitation is about the ``customizable'' use of geographical maps as an interaction means. As we only consider static maps, we plan to work on translations and rotations as a future work. Another gap that we envision to work on is  performance. We plan to run an extensive performance study to detect bottlenecks of our approach.
 
 \vspace{2pt}
-Our problem bears similarities with recommendation algorithms where the quality of the output may be influenced by scarce availability of input. This problem is referred to as the cold start~\cite{LeroyCB10} problem in the literature. While there is no guarantee for a meaningful highlight in case of the complete absence of implicit feedbacks, our approach can return a reasonable set of highlights even with one single iteration of mouse moves. In the future, we envision to tackle the no-input challenge by leveraging statistical properties of the spatial data to obtain a default view for highlights.
+Our problem bears similarities with recommendation algorithms where the quality of the output may be influenced by scarce availability of input. This problem is referred to as the cold start problem~\cite{LeroyCB10}. While there is no guarantee for a meaningful highlight in case of the complete absence of implicit feedbacks, our approach can return a reasonable set of highlights even with one single iteration of mouse moves. In the future, we envision to tackle the no-input challenge by leveraging statistical properties of the spatial data to obtain a default view for highlights.
 
 \vspace{2pt}
-Another limitation is the medium-size datasets to be processed. Our algorithm processes similarity and diversity in an $O(n^2)$ complexity. While processing a 10K-point dataset is straightforward in our framework, we plan to experiment with larger datasets in the future by improving our algorithms towards better performance. Another direction for future work is to consider experiments which measure the quantitative and qualitative influence of each component separately.  Quickhull~\cite{Barber:1996} uses a divide and conquer approach similar to that of quicksort. The complexity is considered to be $O(n log_{n})$ to the best case, whereas in the worst case it takes $O(n^2)$.
-
+Another limitation is the medium-size datasets to be processed. Our algorithm processes similarity and diversity in an $O(n^2)$ complexity. Also Quickhull~\cite{Barber:1996} uses a divide and conquer approach similar to that of Quicksort, and its worst complexity is $O(n^2)$. While processing a 10K-point dataset is straightforward in our framework, we plan to experiment with larger datasets in the future by improving our algorithms towards better performance. Another direction for future work is to consider experiments which measure the quantitative and qualitative influence of each component separately.  
 
 \section{Conclusion}
 \label{sec:conclusion}
@@ -585,7 +585,7 @@ In this paper, we present an approach to explore Interesting Dense Regions (IDRs
 \vspace{2pt}
 We consider various future directions for this work. First, we are interested to incorporate an ``explainability'' component which can describe causalities behind preferences. For instance, we are interested to find seasonal patterns to see why the preferences of analysts change from place to place during various seasons of the year. Another direction is to incorporate ``Query by Visualization'' approaches, where analysts can specify their intents alongside their implicit preferences, directly on the map~\cite{siddiqui2016effortless}.
 
-The main contributions of this work are: 1. the definition and implementation of the concept of Interesting Dense Regions (IDRs), a polygon based approach to explore and highlight spatial data, using different layers for spatial data analysis; 2. the exploration of implicit user feedback, allowing the analyst to perform analysis in a seamless manner, and 3. the highlighting algorithm to find out-of-sight informations on a spatial dataset. 
+% The main contributions of this work are: 1. the definition and implementation of the concept of Interesting Dense Regions (IDRs), a polygon based approach to explore and highlight spatial data, using different layers for spatial data analysis; 2. the exploration of implicit user feedback, allowing the analyst to perform analysis in a seamless manner, and 3. the highlighting algorithm to find out-of-sight informations on a spatial dataset. 
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{main} 

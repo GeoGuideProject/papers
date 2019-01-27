@@ -38,45 +38,45 @@ Warning--page numbers missing in both pages and numpages fields in wongsuphasawa
 Warning--empty publisher in xin2006discovering
 Warning--empty address in xin2006discovering
 Warning--no number and no volume in yu2018spatial
-You've used 33 entries,
+You've used 34 entries,
             5706 wiz_defined-function locations,
-            1588 strings with 24178 characters,
-and the built_in function-call counts, 42718 in all, are:
-= -- 5658
-> -- 1581
+            1594 strings with 24316 characters,
+and the built_in function-call counts, 43832 in all, are:
+= -- 5841
+> -- 1619
 < -- 0
-+ -- 487
-- -- 680
-* -- 3129
-:= -- 4273
-add.period$ -- 165
-call.type$ -- 33
-change.case$ -- 245
-chr.to.int$ -- 33
-cite$ -- 65
-duplicate$ -- 3239
-empty$ -- 2343
-format.name$ -- 639
-if$ -- 10385
++ -- 499
+- -- 696
+* -- 3200
+:= -- 4385
+add.period$ -- 170
+call.type$ -- 34
+change.case$ -- 251
+chr.to.int$ -- 34
+cite$ -- 66
+duplicate$ -- 3318
+empty$ -- 2403
+format.name$ -- 659
+if$ -- 10680
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 149
-newline$ -- 344
-num.names$ -- 268
-pop$ -- 1359
+missing$ -- 153
+newline$ -- 352
+num.names$ -- 276
+pop$ -- 1393
 preamble$ -- 1
-purify$ -- 410
+purify$ -- 421
 quote$ -- 0
-skip$ -- 1204
+skip$ -- 1232
 stack$ -- 0
-substring$ -- 3611
-swap$ -- 361
+substring$ -- 3681
+swap$ -- 368
 text.length$ -- 338
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 766
+type$ -- 782
 warning$ -- 32
-while$ -- 255
+while$ -- 266
 width$ -- 0
-write$ -- 664
+write$ -- 681
 (There were 32 warnings)

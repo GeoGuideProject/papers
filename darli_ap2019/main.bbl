@@ -287,6 +287,18 @@
 \url{https://doi.org/10.1016/j.patrec.2004.05.015}}
 
 
+\bibitem[\protect\citeauthoryear{Finkel and Bentley}{Finkel and
+  Bentley}{1974}]%
+        {finkel1974quad}
+\bibfield{author}{\bibinfo{person}{Raphael~A. Finkel} {and}
+  \bibinfo{person}{Jon~Louis Bentley}.} \bibinfo{year}{1974}\natexlab{}.
+\newblock \showarticletitle{Quad trees a data structure for retrieval on
+  composite keys}.
+\newblock \bibinfo{journal}{{\em Acta informatica\/}} \bibinfo{volume}{4},
+  \bibinfo{number}{1} (\bibinfo{year}{1974}), \bibinfo{pages}{1--9}.
+\newblock
+
+
 \bibitem[\protect\citeauthoryear{Galton and Duckham}{Galton and
   Duckham}{2006}]%
         {Galton2006}
