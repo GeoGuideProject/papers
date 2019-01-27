@@ -518,4 +518,16 @@
 \newblock
 
 
+\bibitem[\protect\citeauthoryear{Yu, Zhang, and Sarwat}{Yu
+  et~al\mbox{.}}{2018}]%
+        {yu2018spatial}
+\bibfield{author}{\bibinfo{person}{Jia Yu}, \bibinfo{person}{Zongsi Zhang},
+  {and} \bibinfo{person}{Mohamed Sarwat}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{Spatial data management in apache spark: the
+  GeoSpark perspective and beyond}.
+\newblock \bibinfo{journal}{{\em GeoInformatica\/}} (\bibinfo{year}{2018}),
+  \bibinfo{pages}{1--42}.
+\newblock
+
+
 \end{thebibliography}

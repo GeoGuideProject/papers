@@ -37,45 +37,46 @@ Warning--numpages field, but no articleno or eid field, in Telang:2012
 Warning--page numbers missing in both pages and numpages fields in wongsuphasawat2016voyager
 Warning--empty publisher in xin2006discovering
 Warning--empty address in xin2006discovering
-You've used 32 entries,
+Warning--no number and no volume in yu2018spatial
+You've used 33 entries,
             5706 wiz_defined-function locations,
-            1582 strings with 24027 characters,
-and the built_in function-call counts, 41601 in all, are:
-= -- 5480
-> -- 1540
+            1588 strings with 24178 characters,
+and the built_in function-call counts, 42718 in all, are:
+= -- 5658
+> -- 1581
 < -- 0
-+ -- 475
-- -- 668
-* -- 3051
-:= -- 4164
-add.period$ -- 160
-call.type$ -- 32
-change.case$ -- 238
-chr.to.int$ -- 32
-cite$ -- 63
-duplicate$ -- 3159
-empty$ -- 2282
-format.name$ -- 623
-if$ -- 10085
++ -- 487
+- -- 680
+* -- 3129
+:= -- 4273
+add.period$ -- 165
+call.type$ -- 33
+change.case$ -- 245
+chr.to.int$ -- 33
+cite$ -- 65
+duplicate$ -- 3239
+empty$ -- 2343
+format.name$ -- 639
+if$ -- 10385
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 145
-newline$ -- 336
-num.names$ -- 260
-pop$ -- 1322
+missing$ -- 149
+newline$ -- 344
+num.names$ -- 268
+pop$ -- 1359
 preamble$ -- 1
-purify$ -- 398
+purify$ -- 410
 quote$ -- 0
-skip$ -- 1179
+skip$ -- 1204
 stack$ -- 0
-substring$ -- 3539
-swap$ -- 354
+substring$ -- 3611
+swap$ -- 361
 text.length$ -- 338
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 750
-warning$ -- 31
-while$ -- 248
+type$ -- 766
+warning$ -- 32
+while$ -- 255
 width$ -- 0
-write$ -- 647
-(There were 31 warnings)
+write$ -- 664
+(There were 32 warnings)
